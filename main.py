@@ -7,6 +7,7 @@ from rdflib import SH, RDF, Graph, URIRef, Namespace, XSD, BNode, Literal
 
 person = "data//person_shape.ttl"
 person2 = "data//person_shape2.ttl"
+person3 = "data//person_shape3.ttl"
 xone_example = "data//xone_example.ttl"
 and_example = "data//and_example.ttl"
 or_example = "data//or_example.ttl"
@@ -14,7 +15,7 @@ equals_example = "data//equals_example.ttl"
 less_than_example = "data//less_than_example.ttl"
 
 shape = Graph()
-shape.parse(or_example)
+shape.parse(person3)
 
 
 # node shapes: subject in a triple with sh:property predicate and not an object in a triple with sh:property predicate
@@ -106,7 +107,8 @@ def subject_to_dictionary(subject, shape, property_pair_constraint_components_pa
 
 
 # generates a random value based on the SH:datatype
-def generate_value(datatype, min_inclusive, max_inclusive, min_length, max_length, less_than):
+def generate_value(datatype, min_count, max_count, min_exclusive, min_inclusive, max_exclusive, max_inclusive,
+                   min_length, max_length, pattern, equals, disjoint, less_than, has_value):
     if datatype == XSD.integer:
         if less_than:
             return Literal(random.randint(int(min_inclusive), int(less_than)))
@@ -122,7 +124,6 @@ def generate_value(datatype, min_inclusive, max_inclusive, min_length, max_lengt
     lit = Literal("".join(random.choices(string.ascii_letters, k=random.randint(min_length, max_length))))
     if less_than:
         while lit < str(less_than):
-            # print("str " + str(lit))
             lit = Literal("".join(random.choices(string.ascii_letters, k=random.randint(min_length, max_length))))
     return lit
 
@@ -180,17 +181,7 @@ def generate_property(properties, result, shape_name, dictionary, parent, proper
                 properties["properties"] = props
             else:
                 properties.update(choice)
-
-    sh_min_count = int(properties.get(SH.minCount, "1"))
-    sh_max_count = int(properties.get(SH.maxCount, sh_min_count))
-    sh_min_inclusive = properties.get(SH.minInclusive, 100)
-    sh_max_inclusive = properties.get(SH.maxInclusive, sh_min_inclusive + 100)
-    sh_in = properties.get(URIRef(SH + "in"))
-    sh_node = properties.get(SH.node)
-    sh_datatype = properties.get(SH.datatype)
-    sh_min_length = properties.get(SH.minLength, 10)
-    sh_max_length = properties.get(SH.maxLength, sh_min_length + 5)
-
+    #checks if there are any property_pair_constraint_components
     has_pair = properties.get("has_pair")
     sh_equals = properties.get(SH.equals)
     if sh_equals:
@@ -210,22 +201,42 @@ def generate_property(properties, result, shape_name, dictionary, parent, proper
         else:
             properties.pop("has_pair")
 
+    sh_disjoint = properties.get(SH.disjoint)
+    if sh_disjoint:
+        if not sh_disjoint:
+            property_pair_constraint_components_parent.append(properties)
+            properties["has_pair"] = True
+            return None
+        else:
+            properties.pop("has_pair")
+
+    sh_datatype = properties.get(SH.datatype)
+    sh_min_count = int(properties.get(SH.minCount, "1"))
+    sh_max_count = int(properties.get(SH.maxCount, sh_min_count))
+    sh_min_exclusive = properties.get(SH.minExclusive, 100)
+    sh_min_inclusive = properties.get(SH.minInclusive, 100)
+    sh_max_exclusive = properties.get(SH.maxExclusive, sh_min_inclusive + 100)
+    sh_max_inclusive = properties.get(SH.maxInclusive, sh_min_inclusive + 100)
+    sh_min_length = properties.get(SH.minLength, 10)
+    sh_max_length = properties.get(SH.maxLength, sh_min_length + 10)
+    sh_pattern = properties.get(SH.pattern)
+    sh_has_value = properties.get(SH.hasValue)
+
+    sh_in = properties.get(URIRef(SH + "in"))
+    sh_node = properties.get(SH.node)
+
     properties = properties.get("properties")
     if properties:
         for key, value in properties.items():
-            # adds between min and max count properties
-            for i in range(0, random.randint(sh_min_count, sh_max_count)):
-                # print(str(node) + " " + str(key) + " " + generate_property(value, result, None, dictionary))
-                generated_prop = generate_property(value, result, None, dictionary, node, property_pair_constraint_components)
-                if generated_prop:
-                    result.add((node, key, generated_prop))
+            generated_prop = generate_property(value, result, None, dictionary, node,
+                                               property_pair_constraint_components)
+            if generated_prop:
+                result.add((node, key, generated_prop))
 
         for value in property_pair_constraint_components:
-            # adds between min and max count properties
-            for i in range(0, random.randint(sh_min_count, sh_max_count)):
-                generated_prop = generate_property(value, result, None, dictionary, node, [])
-                if generated_prop:
-                    result.add((node, value.get(SH.path), generated_prop))
+            generated_prop = generate_property(value, result, None, dictionary, node, property_pair_constraint_components)
+            if generated_prop:
+                result.add((node, value.get(SH.path), generated_prop))
 
     elif sh_in:
         return random.choice(sh_in)
@@ -233,8 +244,9 @@ def generate_property(properties, result, shape_name, dictionary, parent, proper
         # if the property is described by a node, generate a node and add it
         return generate_property(dictionary.get(sh_node), result, sh_node, dictionary, node, [])
     else:
-        return generate_value(sh_datatype, sh_min_inclusive, sh_max_inclusive, sh_min_length, sh_max_length,
-                              sh_less_than)
+        return generate_value(sh_datatype, sh_min_count, sh_max_count, sh_min_exclusive, sh_min_inclusive,
+                              sh_max_exclusive, sh_max_inclusive, sh_min_length, sh_max_length, sh_pattern, sh_equals,
+                              sh_disjoint, sh_less_than, sh_has_value)
     return node
 
 
