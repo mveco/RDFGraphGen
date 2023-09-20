@@ -109,23 +109,64 @@ def subject_to_dictionary(subject, shape, property_pair_constraint_components_pa
 # generates a random value based on the SH:datatype
 def generate_value(datatype, min_count, max_count, min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                    min_length, max_length, pattern, equals, disjoint, less_than, has_value):
-    if datatype == XSD.integer:
-        if less_than:
-            return Literal(random.randint(int(min_inclusive), int(less_than)))
-        return Literal(random.randint(int(min_inclusive), int(max_inclusive)))
-    if datatype == XSD.decimal:
-        if less_than:
-            return Literal(random.uniform(int(min_inclusive), int(less_than)))
-        return Literal(random.uniform(int(min_inclusive), int(max_inclusive)))
-    if datatype == XSD.boolean:
-        return Literal(bool(random.getrandbits(1)))
-    if datatype == XSD.date:
-        return Literal(datetime.date())
-    lit = Literal("".join(random.choices(string.ascii_letters, k=random.randint(min_length, max_length))))
-    if less_than:
-        while lit < str(less_than):
-            lit = Literal("".join(random.choices(string.ascii_letters, k=random.randint(min_length, max_length))))
-    return lit
+    values = []
+    has_value_flag = 0
+    for i in range(min_count, max_count):
+
+        if equals:
+            return [equals]
+
+        value = "default_value"
+        if datatype == XSD.integer:
+            if min_exclusive:
+                if max_exclusive:
+                    value = Literal(random.randrange(int(min_exclusive), int(max_exclusive)))
+                elif less_than:
+                    value = Literal(random.randrange(int(min_exclusive), int(less_than)))
+                else:
+                    value = Literal(random.randrange(int(min_exclusive), int(min_exclusive) + 5))
+            else:
+                if max_exclusive:
+                    value = Literal(random.randrange(int(max_exclusive) - 5, int(max_exclusive)))
+                elif less_than:
+                    value = Literal(random.randrange(int(less_than) - 5, int(less_than)))
+                else:
+                    value = Literal(random.randrange(0, 5))
+
+        elif datatype == XSD.decimal:
+            if min_inclusive:
+                if max_inclusive:
+                    value = Literal(random.randrange(int(min_inclusive), int(max_inclusive)))
+                elif less_than:
+                    value = Literal(random.randrange(int(min_inclusive), int(less_than)))
+                else:
+                    value = Literal(random.randrange(int(min_inclusive), int(min_inclusive) + 5))
+            else:
+                if max_inclusive:
+                    value = Literal(random.randrange(int(max_inclusive) - 5, int(max_exclusive)))
+                elif less_than:
+                    value = Literal(random.randrange(int(less_than) - 5, int(less_than)))
+                else:
+                    value = Literal(random.randrange(0, 5))
+
+        elif datatype == XSD.boolean:
+            value = Literal(bool(random.getrandbits(1)))
+
+        elif datatype == XSD.date:
+            value = Literal(datetime.date())
+
+        elif datatype == XSD.string:
+            value = Literal("".join(random.choices(string.ascii_letters, k=random.randint(5, 10))))
+
+        if disjoint and value == disjoint:
+            i = i-1
+            continue
+        values.append(value)
+
+    if has_value:
+        values[0] = has_value
+
+    return values
 
 
 def generate_property(properties, result, shape_name, dictionary, parent, property_pair_constraint_components_parent):
@@ -213,12 +254,12 @@ def generate_property(properties, result, shape_name, dictionary, parent, proper
     sh_datatype = properties.get(SH.datatype)
     sh_min_count = int(properties.get(SH.minCount, "1"))
     sh_max_count = int(properties.get(SH.maxCount, sh_min_count))
-    sh_min_exclusive = properties.get(SH.minExclusive, 100)
-    sh_min_inclusive = properties.get(SH.minInclusive, 100)
-    sh_max_exclusive = properties.get(SH.maxExclusive, sh_min_inclusive + 100)
-    sh_max_inclusive = properties.get(SH.maxInclusive, sh_min_inclusive + 100)
-    sh_min_length = properties.get(SH.minLength, 10)
-    sh_max_length = properties.get(SH.maxLength, sh_min_length + 10)
+    sh_min_exclusive = properties.get(SH.minExclusive)
+    sh_min_inclusive = properties.get(SH.minInclusive)
+    sh_max_exclusive = properties.get(SH.maxExclusive)
+    sh_max_inclusive = properties.get(SH.maxInclusive)
+    sh_min_length = properties.get(SH.minLength)
+    sh_max_length = properties.get(SH.maxLength)
     sh_pattern = properties.get(SH.pattern)
     sh_has_value = properties.get(SH.hasValue)
 
