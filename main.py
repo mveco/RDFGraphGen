@@ -15,7 +15,7 @@ equals_example = "data//equals_example.ttl"
 less_than_example = "data//less_than_example.ttl"
 
 shape = Graph()
-shape.parse(person)
+shape.parse(person3)
 
 
 # node shapes: subject in a triple with sh:property predicate and not an object in a triple with sh:property predicate
@@ -70,7 +70,8 @@ def shape_to_dictionary(shape, shapes_graph, property_pair_constraint_components
         elif p == URIRef(SH + "in"):
             shape_dictionary[p] = get_list_from_shacl_list(o, shapes_graph)
         elif p == URIRef(SH + "or") or p == URIRef(SH + "and") or p == URIRef(SH + "xone") or p == URIRef(SH + "not"):
-            shape_dictionary[p] = get_dict_list_from_shacl_list(o, shapes_graph, property_pair_constraint_components)
+            shape_dictionary[p] = get_dict_list_from_shacl_list(o, shapes_graph,
+                                                                property_pair_constraint_components_parent)
         else:
             # add all dicts that have a Property Pair Constraint Component to be changed additionaly
             if p == SH.lessThan or p == SH.lessThanOrEquals or p == SH.equals or p == SH.disjoint:
