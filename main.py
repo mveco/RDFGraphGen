@@ -15,7 +15,7 @@ equals_example = "data//equals_example.ttl"
 less_than_example = "data//less_than_example.ttl"
 
 shape = Graph()
-shape.parse(person3)
+shape.parse(person)
 
 
 # node shapes: subject in a triple with sh:property predicate and not an object in a triple with sh:property predicate
@@ -109,64 +109,63 @@ def subject_to_dictionary(subject, shape, property_pair_constraint_components_pa
 # generates a random value based on the SH:datatype
 def generate_value(datatype, min_count, max_count, min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                    min_length, max_length, pattern, equals, disjoint, less_than, has_value):
-    values = []
-    has_value_flag = 0
-    for i in range(min_count, max_count):
+    # values = []
+    # for i in range(min_count, max_count):
 
-        if equals:
-            return [equals]
+    if equals:
+        return equals
 
-        value = "default_value"
-        if datatype == XSD.integer:
-            if min_exclusive:
-                if max_exclusive:
-                    value = Literal(random.randrange(int(min_exclusive), int(max_exclusive)))
-                elif less_than:
-                    value = Literal(random.randrange(int(min_exclusive), int(less_than)))
-                else:
-                    value = Literal(random.randrange(int(min_exclusive), int(min_exclusive) + 5))
+    value = Literal("default_value")
+    if datatype == XSD.integer:
+        if min_exclusive:
+            if max_exclusive:
+                value = Literal(random.randrange(int(min_exclusive), int(max_exclusive)))
+            elif less_than:
+                value = Literal(random.randrange(int(min_exclusive), int(less_than)))
             else:
-                if max_exclusive:
-                    value = Literal(random.randrange(int(max_exclusive) - 5, int(max_exclusive)))
-                elif less_than:
-                    value = Literal(random.randrange(int(less_than) - 5, int(less_than)))
-                else:
-                    value = Literal(random.randrange(0, 5))
-
-        elif datatype == XSD.decimal:
-            if min_inclusive:
-                if max_inclusive:
-                    value = Literal(random.randrange(int(min_inclusive), int(max_inclusive)))
-                elif less_than:
-                    value = Literal(random.randrange(int(min_inclusive), int(less_than)))
-                else:
-                    value = Literal(random.randrange(int(min_inclusive), int(min_inclusive) + 5))
+                value = Literal(random.randrange(int(min_exclusive), int(min_exclusive) + 5))
+        else:
+            if max_exclusive:
+                value = Literal(random.randrange(int(max_exclusive) - 5, int(max_exclusive)))
+            elif less_than:
+                value = Literal(random.randrange(int(less_than) - 5, int(less_than)))
             else:
-                if max_inclusive:
-                    value = Literal(random.randrange(int(max_inclusive) - 5, int(max_exclusive)))
-                elif less_than:
-                    value = Literal(random.randrange(int(less_than) - 5, int(less_than)))
-                else:
-                    value = Literal(random.randrange(0, 5))
+                value = Literal(random.randrange(0, 5))
 
-        elif datatype == XSD.boolean:
-            value = Literal(bool(random.getrandbits(1)))
+    elif datatype == XSD.decimal:
+        if min_inclusive:
+            if max_inclusive:
+                value = Literal(random.randrange(int(min_inclusive), int(max_inclusive)))
+            elif less_than:
+                value = Literal(random.randrange(int(min_inclusive), int(less_than)))
+            else:
+                value = Literal(random.randrange(int(min_inclusive), int(min_inclusive) + 5))
+        else:
+            if max_inclusive:
+                value = Literal(random.randrange(int(max_inclusive) - 5, int(max_exclusive)))
+            elif less_than:
+                value = Literal(random.randrange(int(less_than) - 5, int(less_than)))
+            else:
+                value = Literal(random.randrange(0, 5))
 
-        elif datatype == XSD.date:
-            value = Literal(datetime.date())
+    elif datatype == XSD.boolean:
+        value = Literal(bool(random.getrandbits(1)))
 
-        elif datatype == XSD.string:
-            value = Literal("".join(random.choices(string.ascii_letters, k=random.randint(5, 10))))
+    elif datatype == XSD.date:
+        value = Literal(datetime.date())
 
-        if disjoint and value == disjoint:
-            i = i-1
-            continue
-        values.append(value)
+    elif datatype == XSD.string:
+        value = Literal("".join(random.choices(string.ascii_letters, k=random.randint(5, 10))))
+
+    # if disjoint and value == disjoint:
+    #     i = i - 1
+    #     continue
+    # values.append(value)
 
     if has_value:
-        values[0] = has_value
+        value = has_value
 
-    return values
+    return value
 
 
 def generate_property(properties, result, shape_name, dictionary, parent, property_pair_constraint_components_parent):
@@ -222,7 +221,7 @@ def generate_property(properties, result, shape_name, dictionary, parent, proper
                 properties["properties"] = props
             else:
                 properties.update(choice)
-    #checks if there are any property_pair_constraint_components
+    # checks if there are any property_pair_constraint_components
     has_pair = properties.get("has_pair")
     sh_equals = properties.get(SH.equals)
     if sh_equals:
@@ -272,10 +271,11 @@ def generate_property(properties, result, shape_name, dictionary, parent, proper
             generated_prop = generate_property(value, result, None, dictionary, node,
                                                property_pair_constraint_components)
             if generated_prop:
-                result.add((node, key, generated_prop))
+                result.add((node, value.get(SH.path), generated_prop))
 
         for value in property_pair_constraint_components:
-            generated_prop = generate_property(value, result, None, dictionary, node, property_pair_constraint_components)
+            generated_prop = generate_property(value, result, None, dictionary, node,
+                                               property_pair_constraint_components)
             if generated_prop:
                 result.add((node, value.get(SH.path), generated_prop))
 
