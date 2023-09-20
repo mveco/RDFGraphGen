@@ -14,7 +14,7 @@ equals_example = "data//equals_example.ttl"
 less_than_example = "data//less_than_example.ttl"
 
 shape = Graph()
-shape.parse(person)
+shape.parse(or_example)
 
 
 # node shapes: subject in a triple with sh:property predicate and not an object in a triple with sh:property predicate
@@ -127,6 +127,117 @@ def generate_value(datatype, min_inclusive, max_inclusive, min_length, max_lengt
     return lit
 
 
+def generate_property(properties, result, shape_name, dictionary, parent, property_pair_constraint_components_parent):
+    # list of properties that have a property_pair_constraint_component
+    property_pair_constraint_components = []
+    # dict of properties that are added from sh:or/and/xone
+    node = BNode()
+    if shape_name:
+        node = URIRef("http://example.org/ns#Node" + str(random.randint(1, 1000)))
+        # with SH.description add the name of the shape that this node was generated from
+        result.add((node, SH.description, shape_name))
+
+    sh_target_class = properties.get(SH.targetClass)
+    if sh_target_class:
+        result.add((node, RDF.type, sh_target_class))
+    # is it same as the target class?
+    sh_class = properties.get(URIRef(SH + "class"))
+    if sh_class:
+        result.add((node, RDF.type, sh_class))
+
+    # if there is a sh:xone for this property, choose one of the choices and merge it with the existing properties
+    sh_xone = properties.get(URIRef(SH + "xone"))
+    if sh_xone:
+        choice = random.choice(sh_xone)
+        # if the shape contains a sh:path, then it is a new property shape. If not, then the new properties should be added to the dict
+        sh_path = choice.get(SH.path)
+        if sh_path:
+            props = properties.get("properties", {})
+            props[sh_path] = choice
+            properties["properties"] = props
+        else:
+            properties.update(choice)
+
+    sh_and = properties.get(URIRef(SH + "and"))
+    if sh_and:
+        for choice in sh_and:
+            sh_path = choice.get(SH.path)
+            if sh_path:
+                props = properties.get("properties", {})
+                props[sh_path] = choice
+                properties["properties"] = props
+            else:
+                properties.update(choice)
+
+    # if there is a sh:or for this property, choose some of the choices and merge it with the existing properties
+    sh_or = properties.get(URIRef(SH + "or"))
+    if sh_or:
+        for choice in random.choices(sh_or):
+            sh_path = choice.get(SH.path)
+            if sh_path:
+                props = properties.get("properties", {})
+                props[sh_path] = choice
+                properties["properties"] = props
+            else:
+                properties.update(choice)
+
+    sh_min_count = int(properties.get(SH.minCount, "1"))
+    sh_max_count = int(properties.get(SH.maxCount, sh_min_count))
+    sh_min_inclusive = properties.get(SH.minInclusive, 100)
+    sh_max_inclusive = properties.get(SH.maxInclusive, sh_min_inclusive + 100)
+    sh_in = properties.get(URIRef(SH + "in"))
+    sh_node = properties.get(SH.node)
+    sh_datatype = properties.get(SH.datatype)
+    sh_min_length = properties.get(SH.minLength, 10)
+    sh_max_length = properties.get(SH.maxLength, sh_min_length + 5)
+
+    has_pair = properties.get("has_pair")
+    sh_equals = properties.get(SH.equals)
+    if sh_equals:
+        if not has_pair:
+            property_pair_constraint_components_parent.append(properties)
+            properties["has_pair"] = True
+            return None
+        else:
+            properties.pop("has_pair")
+
+    sh_less_than = properties.get(SH.lessThan)
+    if sh_less_than:
+        if not has_pair:
+            property_pair_constraint_components_parent.append(properties)
+            properties["has_pair"] = True
+            return None
+        else:
+            properties.pop("has_pair")
+
+    properties = properties.get("properties")
+    if properties:
+        for key, value in properties.items():
+            # adds between min and max count properties
+            for i in range(0, random.randint(sh_min_count, sh_max_count)):
+                # print(str(node) + " " + str(key) + " " + generate_property(value, result, None, dictionary))
+                generated_prop = generate_property(value, result, None, dictionary, node, property_pair_constraint_components)
+                if generated_prop:
+                    result.add((node, key, generated_prop))
+
+        for value in property_pair_constraint_components:
+            # adds between min and max count properties
+            for i in range(0, random.randint(sh_min_count, sh_max_count)):
+                generated_prop = generate_property(value, result, None, dictionary, node, [])
+                if generated_prop:
+                    result.add((node, value.get(SH.path), generated_prop))
+
+    elif sh_in:
+        return random.choice(sh_in)
+    elif sh_node:
+        # if the property is described by a node, generate a node and add it
+        return generate_property(dictionary.get(sh_node), result, sh_node, dictionary, node, [])
+    else:
+        return generate_value(sh_datatype, sh_min_inclusive, sh_max_inclusive, sh_min_length, sh_max_length,
+                              sh_less_than)
+    return node
+
+
 def generate_dictionary(shape):
     nodes = find_node_shapes(shape)
     dictionary = {}
@@ -144,6 +255,7 @@ def generate_graph(dictionary):
 
 dictionary = generate_dictionary(shape)
 pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)
-# graph = generate_graph(dictionary)
-# print("GRAPH")
-# print(graph.serialize(format="ttl"))
+graph = generate_graph(dictionary)
+print("GRAPH")
+print(graph.serialize(format="ttl"))
+pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)
