@@ -15,7 +15,7 @@ equals_example = "data//equals_example.ttl"
 less_than_example = "data//less_than_example.ttl"
 
 shape = Graph()
-shape.parse(equals_example)
+shape.parse(less_than_example)
 
 
 # node shapes: subject in a triple with sh:property predicate and not an object in a triple with sh:property predicate
@@ -115,50 +115,53 @@ def shape_to_dictionary(shape, shapes_graph, property_pair_constraint_components
 
 
 def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
-                   min_length, max_length, pattern, disjoint, less_than, has_value):
+                     min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
     if min_exclusive:
         if max_exclusive:
-            value = Literal(random.randrange(int(min_exclusive), int(max_exclusive)))
+            return Literal(random.randrange(int(min_exclusive), int(max_exclusive)))
         elif less_than:
-            value = Literal(random.randrange(int(min_exclusive), int(less_than)))
+            return Literal(random.randrange(int(min_exclusive), int(less_than)))
         else:
-            value = Literal(random.randrange(int(min_exclusive), int(min_exclusive) + 5))
+            return Literal(random.randrange(int(min_exclusive), int(min_exclusive) + 5))
     else:
         if max_exclusive:
-            value = Literal(random.randrange(int(max_exclusive) - 5, int(max_exclusive)))
+            return Literal(random.randrange(int(max_exclusive) - 5, int(max_exclusive)))
         elif less_than:
-            value = Literal(random.randrange(int(less_than) - 5, int(less_than)))
+            return Literal(random.randrange(int(less_than) - 5, int(less_than)))
         else:
-            value = Literal(random.randrange(0, 5))
+            return Literal(random.randrange(0, 5))
+
+
 def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
-                   min_length, max_length, pattern, disjoint, less_than, has_value):
+                     min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
     if min_inclusive:
         if max_inclusive:
-            value = Literal(random.randrange(int(min_inclusive), int(max_inclusive)))
+            return Literal(random.randrange(int(min_inclusive), int(max_inclusive)))
         elif less_than:
-            value = Literal(random.randrange(int(min_inclusive), int(less_than)))
+            return Literal(random.randrange(int(min_inclusive), int(less_than)))
         else:
-            value = Literal(random.randrange(int(min_inclusive), int(min_inclusive) + 5))
+            return Literal(random.randrange(int(min_inclusive), int(min_inclusive) + 5))
     else:
         if max_inclusive:
-            value = Literal(random.randrange(int(max_inclusive) - 5, int(max_exclusive)))
+            return Literal(random.randrange(int(max_inclusive) - 5, int(max_exclusive)))
         elif less_than:
-            value = Literal(random.randrange(int(less_than) - 5, int(less_than)))
+            return Literal(random.randrange(int(less_than) - 5, int(less_than)))
         else:
-            value = Literal(random.randrange(0, 5))
+            return Literal(random.randrange(0, 5))
+
 
 # generates a random value based on the SH:datatype
-def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_inclusive,
-                   min_length, max_length, pattern, equals, disjoint, less_than, has_value):
+def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
+                   pattern, equals, disjoint, less_than, less_than_or_equals, has_value):
     if equals:
         return equals
     value = Literal("default_value")
     if datatype == XSD.integer:
         return generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
-                                pattern, disjoint, less_than, has_value)
+                                pattern, disjoint, less_than, less_than_or_equals, has_value)
     elif datatype == XSD.decimal:
         return generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
-                                pattern, disjoint, less_than, has_value)
+                                pattern, disjoint, less_than, less_than_or_equals, has_value)
     elif datatype == XSD.boolean:
         value = Literal(bool(random.getrandbits(1)))
     elif datatype == XSD.date:
@@ -172,7 +175,7 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
     return value
 
 
-def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, dictionary,
+def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictionary,
                             property_pair_constraint_components_parent):
     # list of properties that have a property_pair_constraint_component
     property_pair_constraint_components = []
@@ -237,6 +240,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, dictionary,
             return None
         else:
             shape_dictionary.pop("has_pair")
+            sh_equals = next(result.objects(parent, sh_equals))
 
     sh_disjoint = shape_dictionary.get(SH.disjoint)
     if sh_disjoint:
@@ -246,6 +250,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, dictionary,
             return None
         else:
             shape_dictionary.pop("has_pair")
+            sh_disjoint = next(result.objects(parent, sh_disjoint))
 
     sh_less_than = shape_dictionary.get(SH.lessThan)
     if sh_less_than:
@@ -255,6 +260,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, dictionary,
             return None
         else:
             shape_dictionary.pop("has_pair")
+            sh_less_than = next(result.objects(parent, sh_less_than))
 
     sh_less_than_or_equals = shape_dictionary.get(SH.lessThanOrEquals)
     if sh_less_than_or_equals:
@@ -264,6 +270,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, dictionary,
             return None
         else:
             shape_dictionary.pop("has_pair")
+            sh_less_than = next(result.objects(parent, sh_less_than_or_equals))
 
     sh_datatype = shape_dictionary.get(SH.datatype)
     sh_min_exclusive = shape_dictionary.get(SH.minExclusive)
@@ -284,7 +291,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, dictionary,
             sh_min_count = int(value.get(SH.minCount, "1"))
             sh_max_count = int(value.get(SH.maxCount, sh_min_count))
             for i in range(0, random.randint(sh_min_count, sh_max_count)):
-                generated_prop = dictionary_to_rdf_graph(value, None, result, dictionary,
+                generated_prop = dictionary_to_rdf_graph(value, None, result, node, dictionary,
                                                          property_pair_constraint_components)
                 if generated_prop:
                     result.add((node, key, generated_prop))
@@ -293,19 +300,19 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, dictionary,
             sh_min_count = int(value.get(SH.minCount, "1"))
             sh_max_count = int(value.get(SH.maxCount, sh_min_count))
             for i in range(0, random.randint(sh_min_count, sh_max_count)):
-                generated_prop = dictionary_to_rdf_graph(value, None, result, dictionary,
+                generated_prop = dictionary_to_rdf_graph(value, None, result, node, dictionary,
                                                          property_pair_constraint_components)
                 if generated_prop:
-                    result.add((node, key, generated_prop))
+                    result.add((node, value.get(SH.path), generated_prop))
         return node
     elif sh_in:
         return random.choice(sh_in)
     elif sh_node:
         # if the property is described by a node, generate a node and add it
-        return dictionary_to_rdf_graph(dictionary.get(sh_node), sh_node, result, dictionary, node, [])
+        return dictionary_to_rdf_graph(dictionary.get(sh_node), sh_node, result, None, dictionary, node, [])
     return generate_value(sh_datatype, sh_min_exclusive, sh_min_inclusive, sh_max_exclusive, sh_max_inclusive,
-                              sh_min_length, sh_max_length, sh_pattern, sh_equals, sh_disjoint, sh_less_than,
-                              sh_has_value)
+                          sh_min_length, sh_max_length, sh_pattern, sh_equals, sh_disjoint, sh_less_than,
+                          sh_less_than_or_equals, sh_has_value)
 
 
 def generate_dictionary_from_shapes_graph(shapes_graph):
@@ -319,7 +326,7 @@ def generate_dictionary_from_shapes_graph(shapes_graph):
 def generate_rdf_graph(dictionary):
     result_graph = Graph()
     for key, value in dictionary.items():
-        dictionary_to_rdf_graph(value, key, result_graph, dictionary, [])
+        dictionary_to_rdf_graph(value, key, result_graph, None, dictionary, [])
     return result_graph
 
 
