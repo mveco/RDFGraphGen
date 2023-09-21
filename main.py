@@ -172,7 +172,8 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
     return value
 
 
-def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, dictionary, property_pair_constraint_components_parent):
+def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, dictionary,
+                            property_pair_constraint_components_parent):
     # list of properties that have a property_pair_constraint_component
     property_pair_constraint_components = []
     # dict of properties that are added from sh:or/and/xone
@@ -225,12 +226,21 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, dictionary, pr
                 shape_dictionary["properties"] = props
             else:
                 shape_dictionary.update(choice)
-                
+
     # checks if there are any property_pair_constraint_components
     has_pair = shape_dictionary.get("has_pair")
     sh_equals = shape_dictionary.get(SH.equals)
     if sh_equals:
         if not has_pair:
+            property_pair_constraint_components_parent.append(shape_dictionary)
+            shape_dictionary["has_pair"] = True
+            return None
+        else:
+            shape_dictionary.pop("has_pair")
+
+    sh_disjoint = shape_dictionary.get(SH.disjoint)
+    if sh_disjoint:
+        if not sh_disjoint:
             property_pair_constraint_components_parent.append(shape_dictionary)
             shape_dictionary["has_pair"] = True
             return None
@@ -246,9 +256,9 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, dictionary, pr
         else:
             shape_dictionary.pop("has_pair")
 
-    sh_disjoint = shape_dictionary.get(SH.disjoint)
-    if sh_disjoint:
-        if not sh_disjoint:
+    sh_less_than_or_equals = shape_dictionary.get(SH.lessThanOrEquals)
+    if sh_less_than_or_equals:
+        if not has_pair:
             property_pair_constraint_components_parent.append(shape_dictionary)
             shape_dictionary["has_pair"] = True
             return None
@@ -267,35 +277,35 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, dictionary, pr
     sh_in = shape_dictionary.get(URIRef(SH + "in"))
     sh_node = shape_dictionary.get(SH.node)
 
-    shape_dictionary = shape_dictionary.get("properties")
-    if shape_dictionary:
-        for key, value in shape_dictionary.items():
+    properties = shape_dictionary.get("properties")
+    if properties:
+        for key, value in properties.items():
             # the min and max count of the props that are generated
             sh_min_count = int(value.get(SH.minCount, "1"))
             sh_max_count = int(value.get(SH.maxCount, sh_min_count))
             for i in range(0, random.randint(sh_min_count, sh_max_count)):
-                generated_prop = dictionary_to_rdf_graph(value, None, result, dictionary, property_pair_constraint_components)
+                generated_prop = dictionary_to_rdf_graph(value, None, result, dictionary,
+                                                         property_pair_constraint_components)
                 if generated_prop:
-                    result.add((node, value.get(SH.path), generated_prop))
+                    result.add((node, key, generated_prop))
 
         for value in property_pair_constraint_components:
             sh_min_count = int(value.get(SH.minCount, "1"))
             sh_max_count = int(value.get(SH.maxCount, sh_min_count))
             for i in range(0, random.randint(sh_min_count, sh_max_count)):
-                generated_prop = dictionary_to_rdf_graph(value, None, result, dictionary, property_pair_constraint_components)
+                generated_prop = dictionary_to_rdf_graph(value, None, result, dictionary,
+                                                         property_pair_constraint_components)
                 if generated_prop:
-                    result.add((node, value.get(SH.path), generated_prop))
-
+                    result.add((node, key, generated_prop))
+        return node
     elif sh_in:
         return random.choice(sh_in)
     elif sh_node:
         # if the property is described by a node, generate a node and add it
         return dictionary_to_rdf_graph(dictionary.get(sh_node), sh_node, result, dictionary, node, [])
-    else:
-        return generate_value(sh_datatype, sh_min_exclusive, sh_min_inclusive, sh_max_exclusive, sh_max_inclusive,
+    return generate_value(sh_datatype, sh_min_exclusive, sh_min_inclusive, sh_max_exclusive, sh_max_inclusive,
                               sh_min_length, sh_max_length, sh_pattern, sh_equals, sh_disjoint, sh_less_than,
                               sh_has_value)
-    return node
 
 
 def generate_dictionary_from_shapes_graph(shapes_graph):
