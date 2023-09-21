@@ -19,10 +19,9 @@ shape.parse(person3)
 
 
 # node shapes: subject in a triple with sh:property predicate and not an object in a triple with sh:property predicate
-def find_node_shapes(shape):
-    subjects = {s for s in shape.subjects(None, SH.NodeShape)}
-    # objects = {o for o in shape.objects(None, SH.property)}
-    return subjects
+def find_node_shapes(shapes_graph):
+    node_shapes = {s for s in shapes_graph.subjects(None, SH.NodeShape)}
+    return node_shapes
 
 
 # given a rdf list, it returns a python list containing the items in the RDF list.
@@ -300,24 +299,24 @@ def generate_property(properties, result, shape_name, dictionary, parent, proper
     return node
 
 
-def generate_dictionary(shape):
-    nodes = find_node_shapes(shape)
+def generate_dictionary_from_shapes_graph(shapes_graph):
+    node_shapes = find_node_shapes(shapes_graph)
     dictionary = {}
-    for n in nodes:
-        dictionary[n] = shape_to_dictionary(n, shape, [])
+    for n in node_shapes:
+        dictionary[n] = shape_to_dictionary(n, shapes_graph, [])
     return dictionary
 
 
-def generate_graph(dictionary):
-    result = Graph()
+def generate_rdf_graph(dictionary):
+    result_graph = Graph()
     for key, value in dictionary.items():
-        generate_property(value, result, key, dictionary, None, [])
-    return result
+        generate_property(value, result_graph, key, dictionary, None, [])
+    return result_graph
 
 
-dictionary = generate_dictionary(shape)
+dictionary = generate_dictionary_from_shapes_graph(shape)
 pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)
-graph = generate_graph(dictionary)
+graph = generate_rdf_graph(dictionary)
 print("GRAPH")
 print(graph.serialize(format="ttl"))
 pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)
