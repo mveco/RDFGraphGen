@@ -97,19 +97,21 @@ def shape_to_dictionary(shape, shapes_graph, property_pair_constraint_components
         # the constraint should be added to the property that it points to.
         less_than = d.get(SH.lessThan)
         if less_than and not sh_properties.get(less_than):
-            sh_properties[less_than] = {SH.path: less_than}
+            less_than_dict = sh_properties.get(less_than, {})
+            less_than_dict[SH.path] = less_than
+            sh_properties[less_than] = less_than_dict
             min_constraint = d.get(SH.minInclusive, d.get(SH.minExclusive))
             if min_constraint:
-                lt_property = sh_properties.get(less_than)
-                lt_property[SH.minInclusive] = min_constraint
+                less_than_dict[SH.minInclusive] = min_constraint
 
         less_than_or_equals = d.get(SH.lessThanOrEquals)
         if less_than_or_equals and not sh_properties.get(less_than_or_equals):
-            sh_properties[less_than_or_equals] = {SH.path: less_than_or_equals}
+            less_than_oe_dict = sh_properties.get(less_than_or_equals, {})
+            less_than_oe_dict[SH.path] = less_than_or_equals
+            sh_properties[less_than_or_equals] = less_than_oe_dict
             min_constraint = d.get(SH.minInclusive, d.get(SH.minExclusive))
             if min_constraint:
-                ltoe_property = sh_properties.get(less_than_or_equals)
-                ltoe_property[SH.minExclusive] = min_constraint
+                less_than_oe_dict[SH.minInclusive] = min_constraint
 
     return shape_dictionary
 
@@ -230,47 +232,33 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
             else:
                 shape_dictionary.update(choice)
 
-    # checks if there are any property_pair_constraint_components
-    has_pair = shape_dictionary.get("has_pair")
     sh_equals = shape_dictionary.get(SH.equals)
     if sh_equals:
-        if not has_pair:
+        sh_equals = next(result.objects(parent, sh_equals), None)
+        if not sh_equals:
             property_pair_constraint_components_parent.append(shape_dictionary)
-            shape_dictionary["has_pair"] = True
             return None
-        else:
-            shape_dictionary.pop("has_pair")
-            sh_equals = next(result.objects(parent, sh_equals))
 
     sh_disjoint = shape_dictionary.get(SH.disjoint)
     if sh_disjoint:
+        sh_disjoint = next(result.objects(parent, sh_disjoint), None)
         if not sh_disjoint:
             property_pair_constraint_components_parent.append(shape_dictionary)
-            shape_dictionary["has_pair"] = True
             return None
-        else:
-            shape_dictionary.pop("has_pair")
-            sh_disjoint = next(result.objects(parent, sh_disjoint))
 
     sh_less_than = shape_dictionary.get(SH.lessThan)
     if sh_less_than:
-        if not has_pair:
+        sh_less_than = next(result.objects(parent, sh_less_than), None)
+        if not sh_less_than:
             property_pair_constraint_components_parent.append(shape_dictionary)
-            shape_dictionary["has_pair"] = True
             return None
-        else:
-            shape_dictionary.pop("has_pair")
-            sh_less_than = next(result.objects(parent, sh_less_than))
 
     sh_less_than_or_equals = shape_dictionary.get(SH.lessThanOrEquals)
     if sh_less_than_or_equals:
-        if not has_pair:
+        sh_less_than_or_equals = next(result.objects(parent, sh_less_than_or_equals), None)
+        if not sh_less_than_or_equals:
             property_pair_constraint_components_parent.append(shape_dictionary)
-            shape_dictionary["has_pair"] = True
             return None
-        else:
-            shape_dictionary.pop("has_pair")
-            sh_less_than = next(result.objects(parent, sh_less_than_or_equals))
 
     sh_datatype = shape_dictionary.get(SH.datatype)
     sh_min_exclusive = shape_dictionary.get(SH.minExclusive)
@@ -296,6 +284,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
                 if generated_prop:
                     result.add((node, key, generated_prop))
 
+        print(property_pair_constraint_components)
         for value in property_pair_constraint_components:
             sh_min_count = int(value.get(SH.minCount, "1"))
             sh_max_count = int(value.get(SH.maxCount, sh_min_count))
