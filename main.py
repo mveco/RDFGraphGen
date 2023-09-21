@@ -165,17 +165,11 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
         return generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
                                 pattern, disjoint, less_than, less_than_or_equals, has_value)
     elif datatype == XSD.boolean:
-        value = Literal(bool(random.getrandbits(1)))
+        return Literal(bool(random.getrandbits(1)))
     elif datatype == XSD.date:
-        value = Literal(datetime.date())
-    elif datatype == XSD.string:
-        value = Literal("".join(random.choices(string.ascii_letters, k=random.randint(5, 10))))
-
-    if has_value:
-        value = has_value
-
-    return value
-
+        return Literal(datetime.date())
+    # string or not in the if-else
+    return Literal("".join(random.choices(string.ascii_letters, k=random.randint(5, 10))))
 
 def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictionary,
                             property_pair_constraint_components_parent):
@@ -284,13 +278,12 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
                 if generated_prop:
                     result.add((node, key, generated_prop))
 
-        print(property_pair_constraint_components)
+        print(len(property_pair_constraint_components))
         for value in property_pair_constraint_components:
             sh_min_count = int(value.get(SH.minCount, "1"))
             sh_max_count = int(value.get(SH.maxCount, sh_min_count))
             for i in range(0, random.randint(sh_min_count, sh_max_count)):
-                generated_prop = dictionary_to_rdf_graph(value, None, result, node, dictionary,
-                                                         property_pair_constraint_components)
+                generated_prop = dictionary_to_rdf_graph(value, None, result, node, dictionary, [])
                 if generated_prop:
                     result.add((node, value.get(SH.path), generated_prop))
         return node
