@@ -3,7 +3,7 @@ from datetime import datetime
 import random
 import pprint
 
-from rdflib import SH, RDF, Graph, URIRef, Namespace, XSD, BNode, Literal
+from rdflib import SH, RDF, Graph, URIRef, XSD, BNode, Literal
 
 person = "data//person_shape.ttl"
 person2 = "data//person_shape2.ttl"
@@ -15,7 +15,7 @@ equals_example = "data//equals_example.ttl"
 less_than_example = "data//less_than_example.ttl"
 
 shape = Graph()
-shape.parse(person3)
+shape.parse(equals_example)
 
 
 # node shapes: subject in a triple with sh:property predicate and not an object in a triple with sh:property predicate
@@ -114,6 +114,39 @@ def shape_to_dictionary(shape, shapes_graph, property_pair_constraint_components
     return shape_dictionary
 
 
+def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
+                   min_length, max_length, pattern, disjoint, less_than, has_value):
+    if min_exclusive:
+        if max_exclusive:
+            value = Literal(random.randrange(int(min_exclusive), int(max_exclusive)))
+        elif less_than:
+            value = Literal(random.randrange(int(min_exclusive), int(less_than)))
+        else:
+            value = Literal(random.randrange(int(min_exclusive), int(min_exclusive) + 5))
+    else:
+        if max_exclusive:
+            value = Literal(random.randrange(int(max_exclusive) - 5, int(max_exclusive)))
+        elif less_than:
+            value = Literal(random.randrange(int(less_than) - 5, int(less_than)))
+        else:
+            value = Literal(random.randrange(0, 5))
+def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
+                   min_length, max_length, pattern, disjoint, less_than, has_value):
+    if min_inclusive:
+        if max_inclusive:
+            value = Literal(random.randrange(int(min_inclusive), int(max_inclusive)))
+        elif less_than:
+            value = Literal(random.randrange(int(min_inclusive), int(less_than)))
+        else:
+            value = Literal(random.randrange(int(min_inclusive), int(min_inclusive) + 5))
+    else:
+        if max_inclusive:
+            value = Literal(random.randrange(int(max_inclusive) - 5, int(max_exclusive)))
+        elif less_than:
+            value = Literal(random.randrange(int(less_than) - 5, int(less_than)))
+        else:
+            value = Literal(random.randrange(0, 5))
+
 # generates a random value based on the SH:datatype
 def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                    min_length, max_length, pattern, equals, disjoint, less_than, has_value):
@@ -121,50 +154,17 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
         return equals
     value = Literal("default_value")
     if datatype == XSD.integer:
-        if min_exclusive:
-            if max_exclusive:
-                value = Literal(random.randrange(int(min_exclusive), int(max_exclusive)))
-            elif less_than:
-                value = Literal(random.randrange(int(min_exclusive), int(less_than)))
-            else:
-                value = Literal(random.randrange(int(min_exclusive), int(min_exclusive) + 5))
-        else:
-            if max_exclusive:
-                value = Literal(random.randrange(int(max_exclusive) - 5, int(max_exclusive)))
-            elif less_than:
-                value = Literal(random.randrange(int(less_than) - 5, int(less_than)))
-            else:
-                value = Literal(random.randrange(0, 5))
-
+        return generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
+                                pattern, disjoint, less_than, has_value)
     elif datatype == XSD.decimal:
-        if min_inclusive:
-            if max_inclusive:
-                value = Literal(random.randrange(int(min_inclusive), int(max_inclusive)))
-            elif less_than:
-                value = Literal(random.randrange(int(min_inclusive), int(less_than)))
-            else:
-                value = Literal(random.randrange(int(min_inclusive), int(min_inclusive) + 5))
-        else:
-            if max_inclusive:
-                value = Literal(random.randrange(int(max_inclusive) - 5, int(max_exclusive)))
-            elif less_than:
-                value = Literal(random.randrange(int(less_than) - 5, int(less_than)))
-            else:
-                value = Literal(random.randrange(0, 5))
-
+        return generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
+                                pattern, disjoint, less_than, has_value)
     elif datatype == XSD.boolean:
         value = Literal(bool(random.getrandbits(1)))
-
     elif datatype == XSD.date:
         value = Literal(datetime.date())
-
     elif datatype == XSD.string:
         value = Literal("".join(random.choices(string.ascii_letters, k=random.randint(5, 10))))
-
-    # if disjoint and value == disjoint:
-    #     i = i - 1
-    #     continue
-    # values.append(value)
 
     if has_value:
         value = has_value
