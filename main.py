@@ -229,28 +229,28 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
     sh_equals = shape_dictionary.get(SH.equals)
     if sh_equals:
         sh_equals = next(result.objects(parent, sh_equals), None)
-        if not sh_equals:
+        if sh_equals is None:
             property_pair_constraint_components_parent.append(shape_dictionary)
             return None
 
     sh_disjoint = shape_dictionary.get(SH.disjoint)
     if sh_disjoint:
         sh_disjoint = next(result.objects(parent, sh_disjoint), None)
-        if not sh_disjoint:
+        if not sh_disjoint is None:
             property_pair_constraint_components_parent.append(shape_dictionary)
             return None
 
     sh_less_than = shape_dictionary.get(SH.lessThan)
     if sh_less_than:
         sh_less_than = next(result.objects(parent, sh_less_than), None)
-        if not sh_less_than:
+        if sh_less_than is None:
             property_pair_constraint_components_parent.append(shape_dictionary)
             return None
 
     sh_less_than_or_equals = shape_dictionary.get(SH.lessThanOrEquals)
     if sh_less_than_or_equals:
         sh_less_than_or_equals = next(result.objects(parent, sh_less_than_or_equals), None)
-        if not sh_less_than_or_equals:
+        if not sh_less_than_or_equals is None:
             property_pair_constraint_components_parent.append(shape_dictionary)
             return None
 
@@ -275,17 +275,17 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
             for i in range(0, random.randint(sh_min_count, sh_max_count)):
                 generated_prop = dictionary_to_rdf_graph(value, None, result, node, dictionary,
                                                          property_pair_constraint_components)
-                if generated_prop:
+                if generated_prop is not None:
                     result.add((node, key, generated_prop))
+                else:
+                    break
 
-        print(len(property_pair_constraint_components))
         for value in property_pair_constraint_components:
             sh_min_count = int(value.get(SH.minCount, "1"))
             sh_max_count = int(value.get(SH.maxCount, sh_min_count))
             for i in range(0, random.randint(sh_min_count, sh_max_count)):
                 generated_prop = dictionary_to_rdf_graph(value, None, result, node, dictionary, [])
-                if generated_prop:
-                    result.add((node, value.get(SH.path), generated_prop))
+                result.add((node, value.get(SH.path), generated_prop))
         return node
     elif sh_in:
         return random.choice(sh_in)
