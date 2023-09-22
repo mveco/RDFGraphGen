@@ -1,0 +1,16 @@
+{
+    "@context": { "@vocab": "http://schema.org/" },
+    "@id": "http://example.org/ns#Bob",
+    "@type": "Person",
+    "givenName": "Robert",
+    "familyName": "Junior",
+    "birthDate": "1971-07-07",
+    "deathDate": "1998-07-07",
+    "degree": ["1997-07-07", "1990-07-07"],
+    "gender": ["female"],
+    "address": {
+        "@id": "http://example.org/ns#BobsAddress",
+        "streetAddress": "1600 Amphitheatre Pkway",
+        "postalCode": 10000
+    }
+}
