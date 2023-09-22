@@ -8,12 +8,15 @@
 
 ex:LessThanExampleShape
 	a sh:NodeShape ;
+	sh:targetNode ex:Example;
 	sh:property [
 		sh:path ex:endDate;
 		sh:datatype xsd:integer ;
+		sh:minCount 3;
 	] ;
 	sh:property [
 	    sh:datatype xsd:integer ;
 		sh:path ex:startDate ;
 		sh:lessThan ex:endDate ;
+		sh:minCount 2;
 	] .

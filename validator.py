@@ -1,10 +1,10 @@
 from pyshacl import validate
 
 
-shapes_file = "data//or_example.ttl"
+shapes_file = "data//less_than_example.ttl"
 shapes_file_format = 'turtle'
 
-data_file = "data//or_sol.ttl"
+data_file = "data//less_than_graph.ttl"
 data_file_format = 'turtle'
 
 conforms, v_graph, v_text = validate(data_file, shacl_graph=shapes_file,

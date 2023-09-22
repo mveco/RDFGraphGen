@@ -291,7 +291,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
         return random.choice(sh_in)
     elif sh_node:
         # if the property is described by a node, generate a node and add it
-        return dictionary_to_rdf_graph(dictionary.get(sh_node), sh_node, result, None, dictionary, node, [])
+        return dictionary_to_rdf_graph(dictionary.get(sh_node), sh_node, result, None, dictionary, [])
     return generate_value(sh_datatype, sh_min_exclusive, sh_min_inclusive, sh_max_exclusive, sh_max_inclusive,
                           sh_min_length, sh_max_length, sh_pattern, sh_equals, sh_disjoint, sh_less_than,
                           sh_less_than_or_equals, sh_has_value)
