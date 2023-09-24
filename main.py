@@ -15,7 +15,7 @@ equals_example = "data//equals_example.ttl"
 less_than_example = "data//less_than_example.ttl"
 
 shape = Graph()
-shape.parse(less_than_example)
+shape.parse(person)
 
 
 # node shapes: subject in a triple with sh:property predicate and not an object in a triple with sh:property predicate
@@ -122,6 +122,7 @@ def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
         if max_exclusive:
             return Literal(random.randrange(int(min_exclusive), int(max_exclusive)))
         elif less_than:
+            less_than = min(less_than)
             return Literal(random.randrange(int(min_exclusive), int(less_than)))
         else:
             return Literal(random.randrange(int(min_exclusive), int(min_exclusive) + 5))
@@ -129,6 +130,7 @@ def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
         if max_exclusive:
             return Literal(random.randrange(int(max_exclusive) - 5, int(max_exclusive)))
         elif less_than:
+            less_than = min(less_than)
             return Literal(random.randrange(int(less_than) - 5, int(less_than)))
         else:
             return Literal(random.randrange(0, 5))
@@ -140,6 +142,7 @@ def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
         if max_inclusive:
             return Literal(random.randrange(int(min_inclusive), int(max_inclusive)))
         elif less_than:
+            less_than = min(less_than)
             return Literal(random.randrange(int(min_inclusive), int(less_than)))
         else:
             return Literal(random.randrange(int(min_inclusive), int(min_inclusive) + 5))
@@ -147,6 +150,7 @@ def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
         if max_inclusive:
             return Literal(random.randrange(int(max_inclusive) - 5, int(max_exclusive)))
         elif less_than:
+            less_than = min(less_than)
             return Literal(random.randrange(int(less_than) - 5, int(less_than)))
         else:
             return Literal(random.randrange(0, 5))
@@ -242,15 +246,16 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
 
     sh_less_than = shape_dictionary.get(SH.lessThan)
     if sh_less_than:
-        sh_less_than = next(result.objects(parent, sh_less_than), None)
-        if sh_less_than is None:
+        # sh_less_than = next(result.objects(parent, sh_less_than), None)
+        sh_less_than = [o for o in result.objects(parent, sh_less_than)]
+        if sh_less_than == 0:
             property_pair_constraint_components_parent.append(shape_dictionary)
             return None
 
     sh_less_than_or_equals = shape_dictionary.get(SH.lessThanOrEquals)
     if sh_less_than_or_equals:
-        sh_less_than_or_equals = next(result.objects(parent, sh_less_than_or_equals), None)
-        if not sh_less_than_or_equals is None:
+        sh_less_than_or_equals = [o for o in result.objects(parent, sh_less_than_or_equals)]
+        if sh_less_than_or_equals == 0:
             property_pair_constraint_components_parent.append(shape_dictionary)
             return None
 
@@ -317,4 +322,3 @@ pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)
 graph = generate_rdf_graph(dictionary)
 print("GRAPH")
 print(graph.serialize(format="ttl"))
-pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)
