@@ -23,6 +23,11 @@ def find_node_shapes(shapes_graph):
     node_shapes = {s for s in shapes_graph.subjects(None, SH.NodeShape)}
     return node_shapes
 
+def find_independent_node_shapes(shapes_graph):
+    node_shapes = find_node_shapes(shapes_graph)
+    node_shapes_that_objects_of_sh_node = {s for s in shapes_graph.objects(None, SH.node)}
+    print(node_shapes - node_shapes_that_objects_of_sh_node)
+    return node_shapes - node_shapes_that_objects_of_sh_node
 
 # given a rdf list, it returns a python list containing the items in the RDF list.
 def get_list_from_shacl_list(start, shapes_graph):
@@ -310,15 +315,17 @@ def generate_dictionary_from_shapes_graph(shapes_graph):
     return dictionary
 
 
-def generate_rdf_graph(dictionary):
+def generate_rdf_graph(shapes_graph, dictionary, number_of_samples):
     result_graph = Graph()
-    for key, value in dictionary.items():
-        dictionary_to_rdf_graph(value, key, result_graph, None, dictionary, [])
+    independent_node_shapes = find_independent_node_shapes(shapes_graph)
+    for key in independent_node_shapes:
+        for i in range(0, number_of_samples):
+            dictionary_to_rdf_graph(dictionary[key], key, result_graph, None, dictionary, [])
     return result_graph
 
 
 dictionary = generate_dictionary_from_shapes_graph(shape)
 pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)
-graph = generate_rdf_graph(dictionary)
+graph = generate_rdf_graph(shape, dictionary, 100)
 print("GRAPH")
 print(graph.serialize(format="ttl"))
