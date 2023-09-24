@@ -15,7 +15,9 @@ equals_example = "data//equals_example.ttl"
 less_than_example = "data//less_than_example.ttl"
 
 shape = Graph()
-shape.parse(person)
+shape.parse(xone_example)
+
+COUNTER = 100
 
 
 # node shapes: subject in a triple with sh:property predicate and not an object in a triple with sh:property predicate
@@ -104,6 +106,8 @@ def shape_to_dictionary(shape, shapes_graph, property_pair_constraint_components
         if less_than and not sh_properties.get(less_than):
             less_than_dict = sh_properties.get(less_than, {})
             less_than_dict[SH.path] = less_than
+            if not less_than_dict.get(SH.datatype) and d.get(SH.datatype):
+                less_than_dict[SH.datatype] = d.get(SH.datatype)
             sh_properties[less_than] = less_than_dict
             min_constraint = d.get(SH.minInclusive, d.get(SH.minExclusive))
             if min_constraint:
@@ -113,6 +117,8 @@ def shape_to_dictionary(shape, shapes_graph, property_pair_constraint_components
         if less_than_or_equals and not sh_properties.get(less_than_or_equals):
             less_than_oe_dict = sh_properties.get(less_than_or_equals, {})
             less_than_oe_dict[SH.path] = less_than_or_equals
+            if not less_than_oe_dict.get(SH.datatype) and d.get(SH.datatype):
+                less_than_oe_dict[SH.datatype] = d.get(SH.datatype)
             sh_properties[less_than_or_equals] = less_than_oe_dict
             min_constraint = d.get(SH.minInclusive, d.get(SH.minExclusive))
             if min_constraint:
@@ -187,7 +193,9 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
     # dict of properties that are added from sh:or/and/xone
     node = BNode()
     if shape_name:
-        node = URIRef("http://example.org/ns#Node" + str(random.randint(1, 1000)))
+        global COUNTER
+        node = URIRef("http://example.org/ns#Node" + str(COUNTER))
+        COUNTER += 1
         # with SH.description add the name of the shape that this node was generated from
         result.add((node, SH.description, shape_name))
 
@@ -326,6 +334,7 @@ def generate_rdf_graph(shapes_graph, dictionary, number_of_samples):
 
 dictionary = generate_dictionary_from_shapes_graph(shape)
 pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)
-graph = generate_rdf_graph(shape, dictionary, 100)
+graph = generate_rdf_graph(shape, dictionary, 1)
 print("GRAPH")
 print(graph.serialize(format="ttl"))
+pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)
