@@ -3,7 +3,6 @@ from copy import deepcopy
 from datetime import datetime
 import random
 import pprint
-
 from rdflib import SH, RDF, Graph, URIRef, XSD, BNode, Literal
 
 person = "data//person_shape.ttl"
@@ -16,7 +15,7 @@ equals_example = "data//equals_example.ttl"
 less_than_example = "data//less_than_example.ttl"
 
 shape = Graph()
-shape.parse(person)
+shape.parse(and_example)
 
 COUNTER = 100
 
@@ -39,7 +38,6 @@ def find_node_shapes(shapes_graph):
 def find_independent_node_shapes(shapes_graph):
     node_shapes = find_node_shapes(shapes_graph)
     node_shapes_that_objects_of_sh_node = {s for s in shapes_graph.objects(None, SH.node)}
-    print(node_shapes - node_shapes_that_objects_of_sh_node)
     return node_shapes - node_shapes_that_objects_of_sh_node
 
 
@@ -82,7 +80,7 @@ def shape_to_dictionary(shape, shapes_graph, property_pair_constraint_components
             property_path = next(shapes_graph.objects(o, SH.path))
             # if there is allready an entry for this property, upadete its dict instead of overriding it
             property_dict = sh_properties.get(property_path, {})
-            new_prop_dict =  shape_to_dictionary(o, shapes_graph, property_pair_constraint_components)
+            new_prop_dict = shape_to_dictionary(o, shapes_graph, property_pair_constraint_components)
             update_dictionary(property_dict, new_prop_dict)
             # property_dict.update(shape_to_dictionary(o, shapes_graph, property_pair_constraint_components))
             sh_properties[property_path] = property_dict
@@ -188,7 +186,7 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
         return equals
     if datatype == XSD.integer:
         return generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
-                                 pattern, disjoint, less_than, less_than_or_equals, has_value)
+                                pattern, disjoint, less_than, less_than_or_equals, has_value)
     elif datatype == XSD.decimal:
         return generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
                                 pattern, disjoint, less_than, less_than_or_equals, has_value)
@@ -224,15 +222,15 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
     # if there is a sh:xone for this property, choose one of the choices and merge it with the existing properties
     sh_xone = shape_dictionary.get(URIRef(SH + "xone"))
     if sh_xone:
-        #it is copiest so it wont change permanently(needed when generating multiple rdf graphs)
+        # it is copiest so it wont change permanently(needed when generating multiple rdf graphs)
         shape_dictionary = deepcopy(shape_dictionary)
         choice = random.choice(sh_xone)
         # if the shape contains a sh:path, then it is a new property shape. If not, then the new properties should be added to the dict
         sh_path = choice.get(SH.path)
         if sh_path:
-            choice = { "properties" : { sh_path : choice } }
+            choice = {"properties": {sh_path: choice}}
         update_dictionary(shape_dictionary, choice)
-            # shape_dictionary.update(choice)
+        # shape_dictionary.update(choice)
 
     sh_and = shape_dictionary.get(URIRef(SH + "and"))
     if sh_and:
@@ -343,9 +341,16 @@ def generate_rdf_graph(shapes_graph, dictionary, number_of_samples):
     return result_graph
 
 
+def generate_rdf_graphs_from_shacl_constraints(shape_file, number):
+    shape = Graph()
+    shape.parse(shape_file)
+    dictionary = generate_dictionary_from_shapes_graph(shape)
+    graph = generate_rdf_graph(shape, dictionary, number)
+    return graph
+
+
 dictionary = generate_dictionary_from_shapes_graph(shape)
 pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)
 graph = generate_rdf_graph(shape, dictionary, 1)
 print("GRAPH")
-print(graph.serialize(format="ttl"))
-pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)
+print((graph).serialize(format="ttl"))
