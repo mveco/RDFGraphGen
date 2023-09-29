@@ -1,4 +1,5 @@
 import string
+from copy import deepcopy
 from datetime import datetime
 import random
 import pprint
@@ -224,6 +225,8 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
     # if there is a sh:xone for this property, choose one of the choices and merge it with the existing properties
     sh_xone = shape_dictionary.get(URIRef(SH + "xone"))
     if sh_xone:
+        #it is copiest so it wont change permanently(needed when generating multiple rdf graphs)
+        shape_dictionary = deepcopy(shape_dictionary)
         choice = random.choice(sh_xone)
         # if the shape contains a sh:path, then it is a new property shape. If not, then the new properties should be added to the dict
         sh_path = choice.get(SH.path)
@@ -234,8 +237,8 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
 
     sh_and = shape_dictionary.get(URIRef(SH + "and"))
     if sh_and:
+        shape_dictionary = deepcopy(shape_dictionary)
         for choice in sh_and:
-            sh_path = choice.get(SH.path)
             sh_path = choice.get(SH.path)
             if sh_path:
                 choice = {"properties": {sh_path: choice}}
@@ -244,7 +247,9 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
     # if there is a sh:or for this property, choose some of the choices and merge it with the existing properties
     sh_or = shape_dictionary.get(URIRef(SH + "or"))
     if sh_or:
-        for choice in random.choices(sh_or):
+        shape_dictionary = deepcopy(shape_dictionary)
+        len_choices = len(sh_or)
+        for choice in random.sample(sh_or, random.randint(1, len_choices)):
             sh_path = choice.get(SH.path)
             if sh_path:
                 choice = {"properties": {sh_path: choice}}

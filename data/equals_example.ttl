@@ -11,5 +11,5 @@ ex:EqualExampleShape
 	sh:targetNode ex:Bob ;
 	sh:property [
 		sh:path ex:firstName ;
-		sh:disjoint ex:givenName ;
+		sh:equals ex:givenName ;
 	] .
