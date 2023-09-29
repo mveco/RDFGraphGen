@@ -16,7 +16,7 @@ equals_example = "data//equals_example.ttl"
 less_than_example = "data//less_than_example.ttl"
 
 shape = Graph()
-shape.parse(or_example)
+shape.parse(person)
 
 COUNTER = 100
 
@@ -153,12 +153,12 @@ def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
             return Literal(random.randrange(int(min_exclusive), int(min_exclusive) + 5))
     else:
         if max_exclusive:
-            return Literal(random.randrange(int(max_exclusive) - 5, int(max_exclusive)))
+            return Literal(random.randrange(int(max_exclusive) - 15, int(max_exclusive)))
         elif less_than:
             less_than = min(less_than)
-            return Literal(random.randrange(int(less_than) - 5, int(less_than)))
+            return Literal(random.randrange(int(less_than) - 15, int(less_than)))
         else:
-            return Literal(random.randrange(0, 5))
+            return Literal(random.randrange(0, 100))
 
 
 def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
@@ -170,10 +170,10 @@ def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
             less_than = min(less_than)
             return Literal(random.randrange(int(min_inclusive), int(less_than)))
         else:
-            return Literal(random.randrange(int(min_inclusive), int(min_inclusive) + 5))
+            return Literal(random.randrange(int(min_inclusive), int(min_inclusive) + 15))
     else:
         if max_inclusive:
-            return Literal(random.randrange(int(max_inclusive) - 5, int(max_exclusive)))
+            return Literal(random.randrange(int(max_inclusive) - 15, int(max_exclusive)))
         elif less_than:
             less_than = min(less_than)
             return Literal(random.randrange(int(less_than) - 5, int(less_than)))
@@ -186,10 +186,9 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
                    pattern, equals, disjoint, less_than, less_than_or_equals, has_value):
     if equals:
         return equals
-    value = Literal("default_value")
     if datatype == XSD.integer:
         return generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
-                                pattern, disjoint, less_than, less_than_or_equals, has_value)
+                                 pattern, disjoint, less_than, less_than_or_equals, has_value)
     elif datatype == XSD.decimal:
         return generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
                                 pattern, disjoint, less_than, less_than_or_equals, has_value)
@@ -273,14 +272,14 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
     if sh_less_than:
         # sh_less_than = next(result.objects(parent, sh_less_than), None)
         sh_less_than = [o for o in result.objects(parent, sh_less_than)]
-        if sh_less_than == 0:
+        if len(sh_less_than) == 0:
             property_pair_constraint_components_parent.append(shape_dictionary)
             return None
 
     sh_less_than_or_equals = shape_dictionary.get(SH.lessThanOrEquals)
     if sh_less_than_or_equals:
         sh_less_than_or_equals = [o for o in result.objects(parent, sh_less_than_or_equals)]
-        if sh_less_than_or_equals == 0:
+        if len(sh_less_than_or_equals) == 0:
             property_pair_constraint_components_parent.append(shape_dictionary)
             return None
 

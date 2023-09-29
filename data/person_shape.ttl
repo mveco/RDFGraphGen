@@ -17,7 +17,7 @@ schema:PersonShape
         sh:path schema:birthDate ;
         sh:lessThan schema:deathDate ;
         sh:datatype xsd:integer ;
-        sh:maxCount 1 ;
+        sh:minCount 10 ;
     ] ;
     sh:property [
         sh:path schema:gender ;
