@@ -15,9 +15,18 @@ equals_example = "data//equals_example.ttl"
 less_than_example = "data//less_than_example.ttl"
 
 shape = Graph()
-shape.parse(xone_example)
+shape.parse(or_example)
 
 COUNTER = 100
+
+
+def update_dictionary(dict1, dict2):
+    for key2, value2 in dict2.items():
+        value1 = dict1.get(key2)
+        if type(value1) == dict:
+            update_dictionary(value1, value2)
+        else:
+            dict1[key2] = value2
 
 
 # node shapes: subject in a triple with sh:property predicate and not an object in a triple with sh:property predicate
@@ -25,11 +34,13 @@ def find_node_shapes(shapes_graph):
     node_shapes = {s for s in shapes_graph.subjects(None, SH.NodeShape)}
     return node_shapes
 
+
 def find_independent_node_shapes(shapes_graph):
     node_shapes = find_node_shapes(shapes_graph)
     node_shapes_that_objects_of_sh_node = {s for s in shapes_graph.objects(None, SH.node)}
     print(node_shapes - node_shapes_that_objects_of_sh_node)
     return node_shapes - node_shapes_that_objects_of_sh_node
+
 
 # given a rdf list, it returns a python list containing the items in the RDF list.
 def get_list_from_shacl_list(start, shapes_graph):
@@ -70,7 +81,9 @@ def shape_to_dictionary(shape, shapes_graph, property_pair_constraint_components
             property_path = next(shapes_graph.objects(o, SH.path))
             # if there is allready an entry for this property, upadete its dict instead of overriding it
             property_dict = sh_properties.get(property_path, {})
-            property_dict.update(shape_to_dictionary(o, shapes_graph, property_pair_constraint_components))
+            new_prop_dict =  shape_to_dictionary(o, shapes_graph, property_pair_constraint_components)
+            update_dictionary(property_dict, new_prop_dict)
+            # property_dict.update(shape_to_dictionary(o, shapes_graph, property_pair_constraint_components))
             sh_properties[property_path] = property_dict
             # in the property_dictionary will be kept all the data for the new path
         elif p == URIRef(SH + "in"):
@@ -186,6 +199,7 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
     # string or not in the if-else
     return Literal("".join(random.choices(string.ascii_letters, k=random.randint(5, 10))))
 
+
 def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictionary,
                             property_pair_constraint_components_parent):
     # list of properties that have a property_pair_constraint_component
@@ -214,22 +228,18 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
         # if the shape contains a sh:path, then it is a new property shape. If not, then the new properties should be added to the dict
         sh_path = choice.get(SH.path)
         if sh_path:
-            props = shape_dictionary.get("properties", {})
-            props[sh_path] = choice
-            shape_dictionary["properties"] = props
-        else:
-            shape_dictionary.update(choice)
+            choice = { "properties" : { sh_path : choice } }
+        update_dictionary(shape_dictionary, choice)
+            # shape_dictionary.update(choice)
 
     sh_and = shape_dictionary.get(URIRef(SH + "and"))
     if sh_and:
         for choice in sh_and:
             sh_path = choice.get(SH.path)
+            sh_path = choice.get(SH.path)
             if sh_path:
-                props = shape_dictionary.get("properties", {})
-                props[sh_path] = choice
-                shape_dictionary["properties"] = props
-            else:
-                shape_dictionary.update(choice)
+                choice = {"properties": {sh_path: choice}}
+            update_dictionary(shape_dictionary, choice)
 
     # if there is a sh:or for this property, choose some of the choices and merge it with the existing properties
     sh_or = shape_dictionary.get(URIRef(SH + "or"))
@@ -237,11 +247,8 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
         for choice in random.choices(sh_or):
             sh_path = choice.get(SH.path)
             if sh_path:
-                props = shape_dictionary.get("properties", {})
-                props[sh_path] = choice
-                shape_dictionary["properties"] = props
-            else:
-                shape_dictionary.update(choice)
+                choice = {"properties": {sh_path: choice}}
+            update_dictionary(shape_dictionary, choice)
 
     sh_equals = shape_dictionary.get(SH.equals)
     if sh_equals:

@@ -9,6 +9,10 @@
 ex:OrConstraintExampleShape
 	a sh:NodeShape ;
 	sh:targetNode ex:Bob ;
+	sh:property [
+			sh:path ex:firstName ;
+			sh:maxCount 1 ;
+		] ;
 	sh:or (
 		[
 			sh:path ex:firstName ;

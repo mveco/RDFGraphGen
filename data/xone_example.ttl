@@ -14,13 +14,18 @@ ex:XoneConstraintExampleShape
 	    sh:path ex:age ;
 	    sh:datatype xsd:integer ;
 	] ;
+		sh:property [
+	    sh:path ex:age ;
+	    sh:maxCount 1;
+	] ;
 	sh:xone (
-		[
+
+        [
 			sh:property [
 				sh:path ex:fullName ;
 				sh:minCount 1 ;
 			]
-		]
+        ]
 		[
 			sh:property [
 				sh:path ex:firstName ;
