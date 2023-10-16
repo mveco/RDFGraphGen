@@ -16,8 +16,16 @@ schema:PersonShape
     sh:property [
         sh:path schema:birthDate ;
         sh:lessThan schema:deathDate ;
-        sh:datatype xsd:integer ;
-        sh:minCount 10 ;
+        sh:datatype xsd:date;
+    ] ;
+        sh:property [
+        sh:path schema:email ;
+    ] ;
+    sh:property [
+        sh:path schema:jobTitle ;
+    ] ;
+        sh:property [
+        sh:path schema:telephone ;
     ] ;
     sh:property [
         sh:path schema:gender ;
@@ -41,7 +49,7 @@ schema:AddressShape
     ] ;
     sh:property [
         sh:path schema:postalCode ;
-        sh:xone ( [ sh:datatype xsd:string ] [ sh:datatype xsd:integer ] ) ;
+        sh:xone ( [ sh:datatype xsd:string ; sh:pattern "[A-Z]\\d[A-Z]\\d[A-Z]\\d" ] [ sh:datatype xsd:integer ] ) ;
         sh:minInclusive 10000 ;
         sh:maxInclusive 99999 ;
     ] .

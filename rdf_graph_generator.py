@@ -1,4 +1,3 @@
-
 from copy import deepcopy
 import random
 import pprint
@@ -19,6 +18,7 @@ shape = Graph()
 shape.parse(person)
 
 COUNTER = 100
+
 
 def update_dictionary(dict1, dict2):
     for key2, value2 in dict2.items():
@@ -265,9 +265,10 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
     elif sh_node:
         # if the property is described by a node, generate a node and add it
         return dictionary_to_rdf_graph(dictionary.get(sh_node), sh_node, result, None, dictionary, [])
-
-
-
+    elif 'email' in sh_path and not sh_pattern:
+        sh_pattern = '([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+'
+    elif 'telephone' in sh_path and not sh_pattern:
+        sh_pattern = '(//+420)?(//s*)?(//d{3})(//s*)?//(d{3})(//s*)?//(d{3})'
     return generate_value(sh_datatype, sh_min_exclusive, sh_min_inclusive, sh_max_exclusive, sh_max_inclusive,
                           sh_min_length, sh_max_length, sh_pattern, sh_equals, sh_disjoint, sh_less_than,
                           sh_less_than_or_equals, sh_has_value)
@@ -300,6 +301,6 @@ def generate_rdf_graphs_from_shacl_constraints(shape_file, number):
 
 dictionary = generate_dictionary_from_shapes_graph(shape)
 pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)
-graph = generate_rdf_graph(shape, dictionary, 1)
+graph = generate_rdf_graph(shape, dictionary, 10)
 print("GRAPH")
 print(graph.serialize(format="ttl"))
