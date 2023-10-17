@@ -266,9 +266,9 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
         # if the property is described by a node, generate a node and add it
         return dictionary_to_rdf_graph(dictionary.get(sh_node), sh_node, result, None, dictionary, [])
     elif 'email' in sh_path and not sh_pattern:
-        sh_pattern = '([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+'
+        sh_pattern = '([a-z0-9]+[_])*[A-Za-z0-9]+@gmail\.com'
     elif 'telephone' in sh_path and not sh_pattern:
-        sh_pattern = '(//+420)?(//s*)?(//d{3})(//s*)?//(d{3})(//s*)?//(d{3})'
+        sh_pattern = '^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$'
     return generate_value(sh_datatype, sh_min_exclusive, sh_min_inclusive, sh_max_exclusive, sh_max_inclusive,
                           sh_min_length, sh_max_length, sh_pattern, sh_equals, sh_disjoint, sh_less_than,
                           sh_less_than_or_equals, sh_has_value)
