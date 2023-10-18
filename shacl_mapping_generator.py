@@ -1,5 +1,6 @@
 from rdflib import SH, RDF, Graph, URIRef, XSD, BNode, Literal
 
+
 def update_dictionary(dict1, dict2):
     for key2, value2 in dict2.items():
         value1 = dict1.get(key2)
@@ -118,3 +119,10 @@ def shape_to_dictionary(shape, shapes_graph, property_pair_constraint_components
 
     return shape_dictionary
 
+
+def generate_dictionary_from_shapes_graph(shapes_graph):
+    node_shapes = find_node_shapes(shapes_graph)
+    dictionary = {}
+    for n in node_shapes:
+        dictionary[n] = shape_to_dictionary(n, shapes_graph, [])
+    return dictionary

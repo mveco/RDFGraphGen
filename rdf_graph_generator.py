@@ -21,6 +21,7 @@ shape.parse(person)
 
 COUNTER = 100
 
+
 def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictionary,
                             property_pair_constraint_components_parent, parent_class):
     # list of properties that have a property_pair_constraint_component
@@ -152,14 +153,6 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
     return generate_value(sh_datatype, sh_min_exclusive, sh_min_inclusive, sh_max_exclusive, sh_max_inclusive,
                           sh_min_length, sh_max_length, sh_pattern, sh_equals, sh_disjoint, sh_less_than,
                           sh_less_than_or_equals, sh_has_value, sh_path, parent_class)
-
-
-def generate_dictionary_from_shapes_graph(shapes_graph):
-    node_shapes = find_node_shapes(shapes_graph)
-    dictionary = {}
-    for n in node_shapes:
-        dictionary[n] = shape_to_dictionary(n, shapes_graph, [])
-    return dictionary
 
 
 def generate_rdf_graph(shapes_graph, dictionary, number_of_samples):
