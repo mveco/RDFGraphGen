@@ -120,10 +120,6 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
     sh_node = shape_dictionary.get(SH.node)
     sh_path = shape_dictionary.get(SH.path)
 
-    predefined_value = get_predefined_value(sh_path, parent_class)
-    if predefined_value:
-        return predefined_value
-
     properties = shape_dictionary.get("properties")
     if properties:
         for key, value in properties.items():
@@ -150,6 +146,9 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
     elif sh_node:
         # if the property is described by a node, generate a node and add it
         return dictionary_to_rdf_graph(dictionary.get(sh_node), sh_node, result, None, dictionary, [], None)
+    predefined_value = get_predefined_value(sh_path, parent_class)
+    if predefined_value:
+        return predefined_value
     return generate_value(sh_datatype, sh_min_exclusive, sh_min_inclusive, sh_max_exclusive, sh_max_inclusive,
                           sh_min_length, sh_max_length, sh_pattern, sh_equals, sh_disjoint, sh_less_than,
                           sh_less_than_or_equals, sh_has_value, sh_path, parent_class)

@@ -24,15 +24,16 @@ values_dict = {'streetAddress': get_array_from_csv('namespaces//street_name.csv'
                'firstName': get_array_from_csv('namespaces//female_first_name.csv') +
                             get_array_from_csv('namespaces//male_first_name.csv'),
                'lastName': get_array_from_csv('namespaces//surnames.csv'),
+               'gender': ['male', 'female', 'non-binary'],
                'jobTitle': get_array_from_csv('namespaces//job_title.csv'),
-               'award': ["Nobel Prize in Literature", "Pulitzer Prize", "Man Booker Prize", "National Book Award",
+               'bookAward': ["Nobel Prize in Literature", "Pulitzer Prize", "Man Booker Prize", "National Book Award",
                          "Caldecott Medal", "Newbery Medal", "Hugo Award", "Nebula Award",
                          "National Book Critics Circle Award", "PEN/Faulkner Award for Fiction", "Costa Book Awards",
                          "The Giller Prize", "The Women's Prize for Fiction", "The Edgar Allan Poe Awards",
                          "The Agatha Awards", "The James Tait Black Memorial Prize",
                          "The National Poetry Series", "The Bram Stoker Awards", "The Cervantes Prize",
                          "The O. Henry Awards"],
-               'genre': get_array_from_csv('namespaces//book_genre.csv')
+               'bookGenre': get_array_from_csv('namespaces//book_genre.csv')
 
                }
 
@@ -128,6 +129,12 @@ def generate_string(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
 # generates a random value based on the SH:datatype
 def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
                    pattern, equals, disjoint, less_than, less_than_or_equals, has_value, path, sh_class):
+    cl = str(sh_class).split('/')[-1]
+    path = str(path).split('/')[-1]
+    #for Person
+    if cl == 'Person':
+        if 'taxID' == path and not pattern:
+            pattern = '[0-9]{9}'
     #for all
     if 'date' in path and not datatype:
         datatype = XSD.date
@@ -161,15 +168,24 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
 
 
 def get_predefined_value(sh_path, sh_class):
-    print(sh_class)
     prop = str(sh_path).split('/')[-1]
+    cl = str(sh_class).split('/')[-1]
     values_for_path = values_dict.get(prop)
-    if values_for_path:
-        return Literal(random.choice(values_for_path))
-    elif prop == 'additionalName' or prop == 'givenName':
-        return Literal(random.choice(values_dict.get('firstName')))
-    elif prop == 'addressCountry':
-        return Literal('United States of America')
-    elif prop == 'familyName':
-        return Literal(random.choice(values_dict.get('lastName')))
+    #for Person
+    if cl == 'Person':
+        if prop == 'additionalName' or prop == 'givenName':
+            return Literal(random.choice(values_dict.get('firstName')))
+        if prop == 'lastName' or prop == 'familyName':
+            return Literal(random.choice(values_dict.get('lastName')))
+        if prop == 'name':
+            return Literal(random.choice(values_dict.get('firstName')) + " " + random.choice(values_dict.get('lastName')))
+        if prop == 'address':
+            return Literal("no. " + str(random.randint(1, 100)) + " " + random.choice(values_dict.get('streetAddress')))
+        if prop == 'gender':
+            return Literal(random.choice(values_dict.get('gender')))
+        if prop == 'jobTitle':
+            return Literal(random.choice(values_dict.get('jobTitle')))
+        #award?
+        #place?
+
     return None
