@@ -16,7 +16,7 @@ less_than_example = "data//less_than_example.ttl"
 movie = "data//movie_shape.ttl"
 
 shape = Graph()
-shape.parse(movie)
+shape.parse(person)
 
 COUNTER = 100
 
@@ -141,7 +141,7 @@ def shape_to_dictionary(shape, shapes_graph, property_pair_constraint_components
 
 
 def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictionary,
-                            property_pair_constraint_components_parent):
+                            property_pair_constraint_components_parent, parent_class):
     # list of properties that have a property_pair_constraint_component
     property_pair_constraint_components = []
     # dict of properties that are added from sh:or/and/xone
@@ -153,13 +153,15 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
         # with SH.description add the name of the shape that this node was generated from
         result.add((node, SH.description, shape_name))
 
-    sh_target_class = shape_dictionary.get(SH.targetClass)
-    if sh_target_class:
-        result.add((node, RDF.type, sh_target_class))
+    sh_class = shape_dictionary.get(SH.targetClass)
+    if sh_class:
+        result.add((node, RDF.type, sh_class))
+        parent_class = sh_class
     # is it same as the target class?
     sh_class = shape_dictionary.get(URIRef(SH + "class"))
     if sh_class:
         result.add((node, RDF.type, sh_class))
+        parent_class = sh_class
 
     # if there is a sh:xone for this property, choose one of the choices and merge it with the existing properties
     sh_xone = shape_dictionary.get(URIRef(SH + "xone"))
@@ -236,7 +238,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
     sh_node = shape_dictionary.get(SH.node)
     sh_path = shape_dictionary.get(SH.path)
 
-    predefined_value = get_predefined_value(sh_path)
+    predefined_value = get_predefined_value(sh_path, parent_class)
     if predefined_value:
         return predefined_value
 
@@ -248,7 +250,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
             sh_max_count = int(value.get(SH.maxCount, sh_min_count))
             for i in range(0, random.randint(sh_min_count, sh_max_count)):
                 generated_prop = dictionary_to_rdf_graph(value, None, result, node, dictionary,
-                                                         property_pair_constraint_components)
+                                                         property_pair_constraint_components, parent_class)
                 if generated_prop is not None:
                     result.add((node, key, generated_prop))
                 else:
@@ -258,30 +260,17 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
             sh_min_count = int(value.get(SH.minCount, "1"))
             sh_max_count = int(value.get(SH.maxCount, sh_min_count))
             for i in range(0, random.randint(sh_min_count, sh_max_count)):
-                generated_prop = dictionary_to_rdf_graph(value, None, result, node, dictionary, [])
+                generated_prop = dictionary_to_rdf_graph(value, None, result, node, dictionary, [], parent_class)
                 result.add((node, value.get(SH.path), generated_prop))
         return node
     elif sh_in:
         return random.choice(sh_in)
     elif sh_node:
         # if the property is described by a node, generate a node and add it
-        return dictionary_to_rdf_graph(dictionary.get(sh_node), sh_node, result, None, dictionary, [])
-    #for all
-    elif date in sh_path and not sh_datatype:
-        sh_datatype = XSD.date
-    # person
-    elif 'email' in sh_path and not sh_pattern:
-        sh_pattern = '([a-z0-9]+[_])*[A-Za-z0-9]+@gmail\.com'
-    elif 'telephone' in sh_path and not sh_pattern:
-        sh_pattern = '^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$'
-    # book
-    elif 'isbn' in sh_path and not sh_pattern:
-        sh_pattern = '[0-9]{3}-[0-9]-[0-9]{2}-[0-9]{6}-[0-9]'
-    elif 'numberOfPages' in sh_path and not sh_datatype:
-        sh_datatype = XSD.integer
+        return dictionary_to_rdf_graph(dictionary.get(sh_node), sh_node, result, None, dictionary, [], None)
     return generate_value(sh_datatype, sh_min_exclusive, sh_min_inclusive, sh_max_exclusive, sh_max_inclusive,
                           sh_min_length, sh_max_length, sh_pattern, sh_equals, sh_disjoint, sh_less_than,
-                          sh_less_than_or_equals, sh_has_value)
+                          sh_less_than_or_equals, sh_has_value, sh_path, parent_class)
 
 
 def generate_dictionary_from_shapes_graph(shapes_graph):
@@ -297,7 +286,7 @@ def generate_rdf_graph(shapes_graph, dictionary, number_of_samples):
     independent_node_shapes = find_independent_node_shapes(shapes_graph)
     for key in independent_node_shapes:
         for i in range(0, number_of_samples):
-            dictionary_to_rdf_graph(dictionary[key], key, result_graph, None, dictionary, [])
+            dictionary_to_rdf_graph(dictionary[key], key, result_graph, None, dictionary, [], None)
     return result_graph
 
 

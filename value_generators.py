@@ -32,7 +32,7 @@ values_dict = {'streetAddress': get_array_from_csv('namespaces//street_name.csv'
                          "The Agatha Awards", "The James Tait Black Memorial Prize",
                          "The National Poetry Series", "The Bram Stoker Awards", "The Cervantes Prize",
                          "The O. Henry Awards"],
-               'genre': get_array_from_csv('namespaces//book_genre.csv.csv')
+               'genre': get_array_from_csv('namespaces//book_genre.csv')
 
                }
 
@@ -127,7 +127,21 @@ def generate_string(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
 
 # generates a random value based on the SH:datatype
 def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
-                   pattern, equals, disjoint, less_than, less_than_or_equals, has_value):
+                   pattern, equals, disjoint, less_than, less_than_or_equals, has_value, path, sh_class):
+    #for all
+    if 'date' in path and not datatype:
+        datatype = XSD.date
+    # person
+    elif 'email' in path and not pattern:
+        pattern = '([a-z0-9]+[_])*[A-Za-z0-9]+@gmail\.com'
+    elif 'telephone' in path and not pattern:
+        pattern = '^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$'
+    # book
+    elif 'isbn' in path and not pattern:
+        pattern = '[0-9]{3}-[0-9]-[0-9]{2}-[0-9]{6}-[0-9]'
+    elif 'numberOfPages' in path and not datatype:
+        datatype = XSD.integer
+
     if equals:
         return equals
     if datatype == XSD.integer:
@@ -146,7 +160,8 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
                            pattern, disjoint, less_than, less_than_or_equals, has_value)
 
 
-def get_predefined_value(sh_path):
+def get_predefined_value(sh_path, sh_class):
+    print(sh_class)
     prop = str(sh_path).split('/')[-1]
     values_for_path = values_dict.get(prop)
     if values_for_path:
