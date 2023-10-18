@@ -6,6 +6,9 @@ from exrex import *
 from exrex import _randone
 from rdflib import XSD, Literal
 
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
 
 def get_array_from_csv(file_name):
     results = []
@@ -21,42 +24,55 @@ values_dict = {'streetAddress': get_array_from_csv('namespaces//street_name.csv'
                'firstName': get_array_from_csv('namespaces//female_first_name.csv') +
                             get_array_from_csv('namespaces//male_first_name.csv'),
                'lastName': get_array_from_csv('namespaces//surnames.csv'),
-               'jobTitle': get_array_from_csv('namespaces//job_title.csv')
+               'jobTitle': get_array_from_csv('namespaces//job_title.csv'),
+               'award': ["Nobel Prize in Literature", "Pulitzer Prize", "Man Booker Prize", "National Book Award",
+                         "Caldecott Medal", "Newbery Medal", "Hugo Award", "Nebula Award",
+                         "National Book Critics Circle Award", "PEN/Faulkner Award for Fiction", "Costa Book Awards",
+                         "The Giller Prize", "The Women's Prize for Fiction", "The Edgar Allan Poe Awards",
+                         "The Agatha Awards", "The James Tait Black Memorial Prize",
+                         "The National Poetry Series", "The Bram Stoker Awards", "The Cervantes Prize",
+                         "The O. Henry Awards"],
+               'genre': get_array_from_csv('namespaces//book_genre.csv.csv')
+
                }
 
 
-def str_time_prop(start, end, time_format, prop):
-    """Get a time at a proportion of a range of two formatted times.
+def get_date_between_two_dates(date1, date2):
+    date1 = date.fromisoformat(date1)
+    date2 = date.fromisoformat(date2)
 
-    start and end should be strings specifying times formatted in the
-    given format (strftime-style), giving an interval [start, end].
-    prop specifies how a proportion of the interval to be taken after
-    start.  The returned time will be in the specified format.
-    """
+    days_between = relativedelta(date2, date1).days
+    months_between = relativedelta(date2, date1).months
+    years_between = relativedelta(date2, date1).years
 
-    stime = time.mktime(time.strptime(start, time_format))
-    etime = time.mktime(time.strptime(end, time_format))
+    increase = random.random()
+    new_days = relativedelta(days=int(days_between * increase))
+    new_months = relativedelta(months=int(months_between * increase))
+    new_years = relativedelta(years=int(years_between * increase))
 
-    ptime = stime + prop * (etime - stime)
+    between_date = date1 + new_years + new_months + new_days
+    return between_date
 
-    return time.strftime(time_format, time.localtime(ptime))
+
+def add_to_date(date1, years, months, days):
+    date1 = date.fromisoformat(date1)
+    time_addition = relativedelta(days=days, months=months, years=years)
+
+    return time_addition + date1
 
 
 def generate_date(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                   min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
-    time_format = '%Y-%m-%d'
 
     if not min_inclusive:
-        min_inclusive = time.mktime(time.strptime('2000-01-01', time_format))
-    if less_than_or_equals and len(less_than_or_equals) > 0:
-        max_inclusive = time.mktime(time.strptime(min(less_than_or_equals), time_format))
+        min_inclusive = date.fromisoformat('1970-07-07')
+    if less_than and len(less_than) > 0:
+        max_inclusive = date.fromisoformat(min(less_than))
         if min_inclusive > max_inclusive:
-            min_inclusive = max_inclusive - 300000000
+            min_inclusive = add_to_date(str(max_inclusive), -50, 0, 0)
     if not max_inclusive:
-        max_inclusive = min_inclusive + 300000000
-    min_inclusive = time.strftime(time_format, time.localtime(min_inclusive))
-    max_inclusive = time.strftime(time_format, time.localtime(max_inclusive))
-    return str_time_prop(str(min_inclusive), str(max_inclusive), time_format, random.random())
+        max_inclusive = add_to_date(str(min_inclusive), 50, 10, 5)
+    return get_date_between_two_dates(str(min_inclusive), str(max_inclusive))
 
 
 def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
@@ -99,8 +115,6 @@ def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
 
 def generate_string(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                     min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
-    print(pattern)
-    # will assume than
     if not min_length:
         min_length = 8
     if not max_length:
@@ -137,12 +151,7 @@ def get_predefined_value(sh_path):
     values_for_path = values_dict.get(prop)
     if values_for_path:
         return Literal(random.choice(values_for_path))
-    elif prop == 'name':
-        first_name = random.choice(values_dict.get('firstName'))
-        # last_name = values_dict.get('lastName')
-        last_name = random.choice(values_dict.get('lastName'))
-        return Literal(first_name + " " + last_name)
-    elif prop == 'aditionalName' or prop == 'givenName':
+    elif prop == 'additionalName' or prop == 'givenName':
         return Literal(random.choice(values_dict.get('firstName')))
     elif prop == 'addressCountry':
         return Literal('United States of America')

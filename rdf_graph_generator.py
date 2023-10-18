@@ -13,9 +13,10 @@ and_example = "data//and_example.ttl"
 or_example = "data//or_example.ttl"
 equals_example = "data//equals_example.ttl"
 less_than_example = "data//less_than_example.ttl"
+movie = "data//movie_shape.ttl"
 
 shape = Graph()
-shape.parse(person)
+shape.parse(movie)
 
 COUNTER = 100
 
@@ -265,10 +266,19 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
     elif sh_node:
         # if the property is described by a node, generate a node and add it
         return dictionary_to_rdf_graph(dictionary.get(sh_node), sh_node, result, None, dictionary, [])
+    #for all
+    elif date in sh_path and not sh_datatype:
+        sh_datatype = XSD.date
+    # person
     elif 'email' in sh_path and not sh_pattern:
         sh_pattern = '([a-z0-9]+[_])*[A-Za-z0-9]+@gmail\.com'
     elif 'telephone' in sh_path and not sh_pattern:
         sh_pattern = '^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$'
+    # book
+    elif 'isbn' in sh_path and not sh_pattern:
+        sh_pattern = '[0-9]{3}-[0-9]-[0-9]{2}-[0-9]{6}-[0-9]'
+    elif 'numberOfPages' in sh_path and not sh_datatype:
+        sh_datatype = XSD.integer
     return generate_value(sh_datatype, sh_min_exclusive, sh_min_inclusive, sh_max_exclusive, sh_max_inclusive,
                           sh_min_length, sh_max_length, sh_pattern, sh_equals, sh_disjoint, sh_less_than,
                           sh_less_than_or_equals, sh_has_value)
