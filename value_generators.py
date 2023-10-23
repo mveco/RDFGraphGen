@@ -27,14 +27,18 @@ values_dict = {'streetAddress': get_array_from_csv('namespaces//street_name.csv'
                'gender': ['male', 'female', 'non-binary'],
                'jobTitle': get_array_from_csv('namespaces//job_title.csv'),
                'bookAward': ["Nobel Prize in Literature", "Pulitzer Prize", "Man Booker Prize", "National Book Award",
-                         "Caldecott Medal", "Newbery Medal", "Hugo Award", "Nebula Award",
-                         "National Book Critics Circle Award", "PEN/Faulkner Award for Fiction", "Costa Book Awards",
-                         "The Giller Prize", "The Women's Prize for Fiction", "The Edgar Allan Poe Awards",
-                         "The Agatha Awards", "The James Tait Black Memorial Prize",
-                         "The National Poetry Series", "The Bram Stoker Awards", "The Cervantes Prize",
-                         "The O. Henry Awards"],
-               'bookGenre': get_array_from_csv('namespaces//book_genre.csv')
-
+                             "Caldecott Medal", "Newbery Medal", "Hugo Award", "Nebula Award",
+                             "National Book Critics Circle Award", "PEN/Faulkner Award for Fiction",
+                             "Costa Book Awards",
+                             "The Giller Prize", "The Women's Prize for Fiction", "The Edgar Allan Poe Awards",
+                             "The Agatha Awards", "The James Tait Black Memorial Prize",
+                             "The National Poetry Series", "The Bram Stoker Awards", "The Cervantes Prize",
+                             "The O. Henry Awards"],
+               'bookGenre': get_array_from_csv('namespaces//book_genre.csv'),
+               'bookTitle': get_array_from_csv("namespaces//book_titles.csv"),
+               'movieGenre': get_array_from_csv('namespaces//movie_genre.csv'),
+               'movieAward': get_array_from_csv('namespaces//movie_awards.csv'),
+               'movieTitle': get_array_from_csv('namespaces//movie_titles.csv')
                }
 
 
@@ -64,7 +68,6 @@ def add_to_date(date1, years, months, days):
 
 def generate_date(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                   min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
-
     if not min_inclusive:
         min_inclusive = date.fromisoformat('1970-07-07')
     if less_than and len(less_than) > 0:
@@ -131,11 +134,20 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
                    pattern, equals, disjoint, less_than, less_than_or_equals, has_value, path, sh_class):
     cl = str(sh_class).split('/')[-1]
     path = str(path).split('/')[-1]
-    #for Person
+    # for Person
     if cl == 'Person':
         if 'taxID' == path and not pattern:
             pattern = '[0-9]{9}'
-    #for all
+    if cl == 'Book':
+        if 'isbn' in path and not pattern:
+            pattern = '[0-9]{3}-[0-9]-[0-9]{2}-[0-9]{6}-[0-9]'
+        elif 'numberOfPages' in path and not datatype:
+            datatype = XSD.integer
+        elif 'abridged' in path and not datatype:
+            datatype = XSD.boolean
+        elif 'bookEdition' in path and not datatype:
+            datatype = XSD.integer
+    # for all
     if 'date' in path and not datatype:
         datatype = XSD.date
     # person
@@ -144,10 +156,6 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
     elif 'telephone' in path and not pattern:
         pattern = '^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$'
     # book
-    elif 'isbn' in path and not pattern:
-        pattern = '[0-9]{3}-[0-9]-[0-9]{2}-[0-9]{6}-[0-9]'
-    elif 'numberOfPages' in path and not datatype:
-        datatype = XSD.integer
 
     if equals:
         return equals
@@ -171,21 +179,37 @@ def get_predefined_value(sh_path, sh_class):
     prop = str(sh_path).split('/')[-1]
     cl = str(sh_class).split('/')[-1]
     values_for_path = values_dict.get(prop)
-    #for Person
+    # for Person
     if cl == 'Person':
         if prop == 'additionalName' or prop == 'givenName':
             return Literal(random.choice(values_dict.get('firstName')))
         if prop == 'lastName' or prop == 'familyName':
             return Literal(random.choice(values_dict.get('lastName')))
         if prop == 'name':
-            return Literal(random.choice(values_dict.get('firstName')) + " " + random.choice(values_dict.get('lastName')))
+            return Literal(
+                random.choice(values_dict.get('firstName')) + " " + random.choice(values_dict.get('lastName')))
         if prop == 'address':
             return Literal("no. " + str(random.randint(1, 100)) + " " + random.choice(values_dict.get('streetAddress')))
         if prop == 'gender':
             return Literal(random.choice(values_dict.get('gender')))
         if prop == 'jobTitle':
             return Literal(random.choice(values_dict.get('jobTitle')))
-        #award?
-        #place?
-
+        # award?
+        # place?
+    elif cl == 'Book':
+        if prop == 'name':
+            return Literal(random.choice(values_dict.get("bookTitle")))
+        if prop == 'award':
+            return Literal(random.choice(values_dict.get('bookAward')))
+        if prop == 'genre':
+            return Literal(random.choice(values_dict.get('bookGenre')))
+        # if prop == 'name':
+        #     return Literal(random.choice(values_dict.get('bookName')))
+    elif cl == "Movie":
+        if prop == 'name':
+            return Literal(random.choice(values_dict.get("movieTitle")))
+        if prop == 'award':
+            return Literal(random.choice(values_dict.get('movieAward')))
+        if prop == 'genre':
+            return Literal(random.choice(values_dict.get('movieGenre')))
     return None
