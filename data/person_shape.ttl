@@ -23,6 +23,20 @@ schema:PersonShape
         sh:in ( "female" "male" ) ;
     ] ;
     sh:property [
+        sh:path schema:testPttrn ;
+        sh:minLength 15;
+        sh:maxLength 15;
+    ] ;
+    sh:property [
+        sh:path schema:email ;
+    ] ;
+    sh:property [
+        sh:path schema:jobTitle ;
+    ] ;
+        sh:property [
+        sh:path schema:telephone ;
+    ] ;
+    sh:property [
         sh:path schema:address ;
         sh:node schema:AddressShape ;
     ] .

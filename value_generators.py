@@ -12,7 +12,7 @@ from dateutil.relativedelta import relativedelta
 
 def get_array_from_csv(file_name):
     results = []
-    with open(file_name) as csvfile:
+    with open(file_name, encoding='utf-8') as csvfile:
         reader = csv.reader(csvfile)  # change contents to floats
         for row in reader:  # each row is a list
             results = results + row
@@ -119,14 +119,27 @@ def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
 
 def generate_string(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                     min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
-    if not min_length:
-        min_length = 8
-    if not max_length:
-        max_length = min_length + 8
+    length = None
+    if min_length or max_length:
+        if not min_length and max_length:
+            min_length = 8
+            max_length = 15
+        if not min_length and max_length:
+            min_length = 1
+        if not max_length and min_length:
+            max_length = min_length + 8
+        length = random.randint(int(min_length), int(max_length))
     if not pattern:
         pattern = '^([a-zA-Z0-9])*'
-    length = random.randint(min_length, max_length)
-    return Literal(_randone(parse(pattern), length))
+    if length:
+        strp = ''
+        while len(strp) < length:
+            strp = strp + _randone(parse(pattern))
+        if len(strp) > length:
+            strp = strp[:length]
+    else:
+        strp = _randone(parse(pattern))
+    return Literal(strp)
 
 
 # generates a random value based on the SH:datatype
@@ -148,7 +161,7 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
         elif 'bookEdition' in path and not datatype:
             datatype = XSD.integer
     # for all
-    if 'date' in path and not datatype:
+    if ('date' in path or 'Date' in path) and not datatype:
         datatype = XSD.date
     # person
     elif 'email' in path and not pattern:
