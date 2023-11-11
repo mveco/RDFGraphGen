@@ -3,7 +3,11 @@ from copy import deepcopy
 from datetime import datetime
 import random
 import pprint
+
+from exrex import *
+from exrex import _randone
 from rdflib import SH, RDF, Graph, URIRef, XSD, BNode, Literal
+from rstr import *
 
 person = "data//person_shape.ttl"
 person2 = "data//person_shape2.ttl"
@@ -15,7 +19,7 @@ equals_example = "data//equals_example.ttl"
 less_than_example = "data//less_than_example.ttl"
 
 shape = Graph()
-shape.parse(and_example)
+shape.parse(person)
 
 COUNTER = 100
 
@@ -141,43 +145,57 @@ def shape_to_dictionary(shape, shapes_graph, property_pair_constraint_components
 
 def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                      min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
-    if min_exclusive:
-        if max_exclusive:
-            return Literal(random.randrange(int(min_exclusive), int(max_exclusive)))
-        elif less_than:
-            less_than = min(less_than)
-            return Literal(random.randrange(int(min_exclusive), int(less_than)))
-        else:
-            return Literal(random.randrange(int(min_exclusive), int(min_exclusive) + 5))
-    else:
-        if max_exclusive:
-            return Literal(random.randrange(int(max_exclusive) - 15, int(max_exclusive)))
-        elif less_than:
-            less_than = min(less_than)
-            return Literal(random.randrange(int(less_than) - 15, int(less_than)))
-        else:
-            return Literal(random.randrange(0, 100))
+    # will assume than
+    if min_exclusive or max_exclusive or less_than:
+        if not min_exclusive:
+            min_exclusive = 0
+        if less_than and len(less_than) > 0:
+            max_exclusive = min(less_than)
+            if not min_exclusive:
+                min_exclusive = max_exclusive - 15
+        if not max_exclusive:
+            max_exclusive = min_exclusive + 15
+        return Literal(random.randrange(int(min_exclusive), int(max_exclusive)))
+
+    if not min_inclusive:
+        min_inclusive = 0
+    if less_than_or_equals and len(less_than_or_equals) > 0:
+        max_inclusive = min(less_than_or_equals)
+        if not min_inclusive:
+            min_inclusive = max_inclusive - 15
+    if not max_inclusive:
+        max_inclusive = min_inclusive + 15
+    return Literal(random.randint(int(min_inclusive), int(max_inclusive)))
 
 
 def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                      min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
-    if min_inclusive:
-        if max_inclusive:
-            return Literal(random.randrange(int(min_inclusive), int(max_inclusive)))
-        elif less_than:
-            less_than = min(less_than)
-            return Literal(random.randrange(int(min_inclusive), int(less_than)))
-        else:
-            return Literal(random.randrange(int(min_inclusive), int(min_inclusive) + 15))
-    else:
-        if max_inclusive:
-            return Literal(random.randrange(int(max_inclusive) - 15, int(max_exclusive)))
-        elif less_than:
-            less_than = min(less_than)
-            return Literal(random.randrange(int(less_than) - 5, int(less_than)))
-        else:
-            return Literal(random.randrange(0, 5))
 
+    if not min_inclusive:
+        min_inclusive = 0
+    if less_than_or_equals and len(less_than_or_equals) > 0:
+        max_inclusive = min(less_than_or_equals)
+        if not min_inclusive:
+            min_inclusive = max_inclusive - 15
+    if not max_inclusive:
+        max_inclusive = min_inclusive + 15
+    return Literal(random.uniform(int(min_inclusive), int(max_inclusive)))
+
+
+def generate_string(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
+                     min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
+    # will assume than
+    print("PATTERN")
+    if not min_length:
+        min_length = 8
+    if not max_length:
+        max_length = min_length + 8
+    if not pattern:
+        pattern = '^([a-zA-Z0-9])*'
+    print(pattern)
+    length = random.randint(min_length, max_length)
+    print(length)
+    return Literal(_randone(parse(pattern), length))
 
 # generates a random value based on the SH:datatype
 def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
@@ -195,8 +213,8 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
     elif datatype == XSD.date:
         return Literal(datetime.date())
     # string or not in the if-else
-    return Literal("".join(random.choices(string.ascii_letters, k=random.randint(5, 10))))
-
+    return generate_string(min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
+                                pattern, disjoint, less_than, less_than_or_equals, has_value)
 
 def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictionary,
                             property_pair_constraint_components_parent):
@@ -292,6 +310,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
     sh_has_value = shape_dictionary.get(SH.hasValue)
     sh_in = shape_dictionary.get(URIRef(SH + "in"))
     sh_node = shape_dictionary.get(SH.node)
+    sh_path = shape_dictionary.get(SH.path)
 
     properties = shape_dictionary.get("properties")
     if properties:
@@ -319,6 +338,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
     elif sh_node:
         # if the property is described by a node, generate a node and add it
         return dictionary_to_rdf_graph(dictionary.get(sh_node), sh_node, result, None, dictionary, [])
+
     return generate_value(sh_datatype, sh_min_exclusive, sh_min_inclusive, sh_max_exclusive, sh_max_inclusive,
                           sh_min_length, sh_max_length, sh_pattern, sh_equals, sh_disjoint, sh_less_than,
                           sh_less_than_or_equals, sh_has_value)
@@ -353,4 +373,4 @@ dictionary = generate_dictionary_from_shapes_graph(shape)
 pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)
 graph = generate_rdf_graph(shape, dictionary, 1)
 print("GRAPH")
-print((graph).serialize(format="ttl"))
+print(graph.serialize(format="ttl"))

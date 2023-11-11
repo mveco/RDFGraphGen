@@ -173,6 +173,6 @@ def generate_rdf_graphs_from_shacl_constraints(shape_file, number):
 
 dictionary = generate_dictionary_from_shapes_graph(shape)
 pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)
-graph = generate_rdf_graph(shape, dictionary, 10)
+graph = generate_rdf_graph(shape, dictionary, 1)
 print("GRAPH")
 print(graph.serialize(format="ttl"))
