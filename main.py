@@ -14,12 +14,23 @@ movie = "data//movie_shape.ttl"
 book = "shape_examples//book_shape.ttl"
 person_new = "shape_examples//person_shape.ttl"
 
-shape = Graph()
-shape.parse(person_new)
+# shape = Graph()
+# shape.parse(person_new)
 
 
-dictionary = generate_dictionary_from_shapes_graph(shape)
-pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)
-graph = generate_rdf_graph(shape, dictionary, 10)
-print("GRAPH")
-print(graph.serialize(format="ttl"))
+def create_rdf_examples(shape_file, number, output_file):
+    shape = Graph()
+    shape.parse(shape_file)
+    print(type(shape))
+    dictionary = generate_dictionary_from_shapes_graph(shape)
+    graph = generate_rdf_graph(shape, dictionary, number)
+    graph.serialize(destination=output_file)
+
+
+create_rdf_examples(person_new, 5, "output_file.ttl")
+
+# dictionary = generate_dictionary_from_shapes_graph(shape)
+# pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)
+# graph = generate_rdf_graph(shape, dictionary, 10)
+# print("GRAPH")
+# print(graph.serialize(format="ttl"))
