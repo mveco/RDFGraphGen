@@ -6,21 +6,7 @@ from rdflib import SH, RDF, Graph, URIRef, XSD, BNode, Literal
 from value_generators import *
 from shacl_mapping_generator import *
 
-person = "data//person_shape.ttl"
-person2 = "data//person_shape2.ttl"
-person3 = "data//person_shape3.ttl"
-xone_example = "data//xone_example.ttl"
-and_example = "data//and_example.ttl"
-or_example = "data//or_example.ttl"
-equals_example = "data//equals_example.ttl"
-less_than_example = "data//less_than_example.ttl"
-movie = "data//movie_shape.ttl"
-
-shape = Graph()
-shape.parse(person)
-
 COUNTER = 100
-
 
 def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictionary,
                             property_pair_constraint_components_parent, parent_class):
@@ -170,9 +156,3 @@ def generate_rdf_graphs_from_shacl_constraints(shape_file, number):
     graph = generate_rdf_graph(shape, dictionary, number)
     return graph
 
-
-dictionary = generate_dictionary_from_shapes_graph(shape)
-pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)
-graph = generate_rdf_graph(shape, dictionary, 1)
-print("GRAPH")
-print(graph.serialize(format="ttl"))
