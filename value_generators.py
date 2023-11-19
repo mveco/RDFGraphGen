@@ -194,7 +194,7 @@ def get_predefined_value(sh_path, sh_class):
     values_for_path = values_dict.get(prop)
     # for Person
     if cl == 'Person':
-        if prop == 'additionalName' or prop == 'givenName':
+        if prop == 'additionalName' or prop == 'givenName' or prop == 'firstName':
             return Literal(random.choice(values_dict.get('firstName')))
         if prop == 'lastName' or prop == 'familyName':
             return Literal(random.choice(values_dict.get('lastName')))

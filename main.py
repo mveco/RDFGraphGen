@@ -12,13 +12,14 @@ equals_example = "data//equals_example.ttl"
 less_than_example = "data//less_than_example.ttl"
 movie = "data//movie_shape.ttl"
 book = "shape_examples//book_shape.ttl"
+person_new = "shape_examples//person_shape.ttl"
 
 shape = Graph()
-shape.parse(book)
+shape.parse(person_new)
 
 
 dictionary = generate_dictionary_from_shapes_graph(shape)
 pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)
-graph = generate_rdf_graph(shape, dictionary, 1)
+graph = generate_rdf_graph(shape, dictionary, 10)
 print("GRAPH")
 print(graph.serialize(format="ttl"))
