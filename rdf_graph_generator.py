@@ -8,6 +8,7 @@ from shacl_mapping_generator import *
 
 COUNTER = 100
 
+
 def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictionary,
                             property_pair_constraint_components_parent, parent_class):
     # list of properties that have a property_pair_constraint_component
@@ -120,13 +121,19 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
                 else:
                     break
 
-        for value in property_pair_constraint_components:
+        while property_pair_constraint_components:
+            value = property_pair_constraint_components.pop()
             sh_min_count = int(value.get(SH.minCount, "1"))
             sh_max_count = int(value.get(SH.maxCount, sh_min_count))
             for i in range(0, random.randint(sh_min_count, sh_max_count)):
-                generated_prop = dictionary_to_rdf_graph(value, None, result, node, dictionary, [], parent_class)
-                result.add((node, value.get(SH.path), generated_prop))
+                generated_prop = dictionary_to_rdf_graph(value, None, result, node, dictionary,
+                                                             property_pair_constraint_components, parent_class)
+                if generated_prop is not None:
+                    result.add((node, value.get(SH.path), generated_prop))
+                else:
+                    break
         return node
+
     elif sh_in:
         return random.choice(sh_in)
     elif sh_node:
@@ -155,4 +162,3 @@ def generate_rdf_graphs_from_shacl_constraints(shape_file, number):
     dictionary = generate_dictionary_from_shapes_graph(shape)
     graph = generate_rdf_graph(shape, dictionary, number)
     return graph
-
