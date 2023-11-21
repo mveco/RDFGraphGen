@@ -22,3 +22,13 @@ sh:nodeKind is ignored
 
 the properties with a sh:minCount constraint can sometimes have a smaller value than the deined minimum count.
 This is because sometimes the rdf generator generates the seme value multiple times. 
+
+-When property1 is sh:lessThan property2, added a functionality that checks it the value for property1 is smaller than all of the values for property 2
+
+TODO: sh:languageIn
+
+
+For the LogicalConstraintComponents are generated, the graph in changed every time using a copy
+For sh:and, all of the options in the list are added to the dictionary
+Fot sh:or one or more of the options in the list are added to the dictionary
+For sh:xone, only one of the options is added.
