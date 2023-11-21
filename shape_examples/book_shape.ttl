@@ -42,6 +42,9 @@ schema:BookShape
     ] ;
     sh:property [
         sh:path schema:genre ;
+        sh:minCount 3 ;
+        sh:maxCount 8 ;
+        sh:description "Each book has to have at least 3 genres, and a maximum of 8 genres(Test purpoes)" ;
     ] ;
     sh:property [
         sh:path schema:inLanguage ;
