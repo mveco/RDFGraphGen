@@ -1,6 +1,9 @@
 from rdflib import SH, RDF, Graph, URIRef, XSD, BNode, Literal
 
 
+schema = 'http://schema.org/'
+
+
 def update_dictionary(dict1, dict2):
     for key2, value2 in dict2.items():
         value1 = dict1.get(key2)
@@ -119,10 +122,45 @@ def shape_to_dictionary(shape, shapes_graph, property_pair_constraint_components
 
     return shape_dictionary
 
+def define_dependencies(dictionary):
+    t_class = dictionary.get(SH.targetClass)
+    if not  t_class:
+        print("No modifications")
+    else:
+        print(t_class)
+        properties = dictionary.get("properties")
+        cl = str(t_class).split('/')[-1]
+        # for Person
+        if cl == 'Person':
+            gender = URIRef(schema + 'gender')
+            given_name = URIRef(schema + 'givenName')
+            email = URIRef(schema + 'email')
+            gender_dict = properties.get(gender)
+            given_name_dict = properties.get(given_name)
+            email_dict = properties.get(email)
+            if gender_dict:
+                given_name_dict['depends_on'] = gender
+            if given_name_dict:
+                email_dict['depends_on'] = given_name
+        #
+        #     for p in properties.
+        #     if 'taxID' == path and not pattern:
+        #         pattern = '[0-9]{9}'
+        # if cl == 'Book':
+        #     if 'isbn' in path and not pattern:
+        #         pattern = '[0-9]{3}-[0-9]-[0-9]{2}-[0-9]{6}-[0-9]'
+        #     elif 'numberOfPages' in path and not datatype:
+        #         datatype = XSD.integer
+        #     elif 'abridged' in path and not datatype:
+        #         datatype = XSD.boolean
+        #     elif 'bookEdition' in path and not datatype:
+        #         datatype = XSD.integer
 
 def generate_dictionary_from_shapes_graph(shapes_graph):
     node_shapes = find_node_shapes(shapes_graph)
     dictionary = {}
     for n in node_shapes:
-        dictionary[n] = shape_to_dictionary(n, shapes_graph, [])
+        d = shape_to_dictionary(n, shapes_graph, [])
+        dictionary[n] = d
+        define_dependencies(d)
     return dictionary
