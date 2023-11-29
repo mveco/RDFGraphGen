@@ -11,22 +11,21 @@ schema:PersonShape
     sh:xone (
         [
             sh:property [
-                sh:path schema:firstName ;
+                sh:path schema:givenName ;
                 sh:datatype xsd:string ;
                 sh:name "given name" ;
             ] ;
             sh:property [
-                sh:path schema:lastName ;
+                sh:path schema:familyName ;
                 sh:datatype xsd:string ;
-                sh:name "given name" ;
+                sh:name "last name" ;
             ] ;
         ]
         [
             sh:path schema:name ;
             sh:datatype xsd:string ;
-            sh:name "given name" ;
+            sh:name "full name" ;
         ]
-
     );
     sh:property [
         sh:path schema:birthDate ;
@@ -37,6 +36,9 @@ schema:PersonShape
     sh:property [
         sh:path schema:gender ;
         sh:in ( "female" "male" ) ;
+    ] ;
+    sh:property [
+        sh:path schema:email ;
     ] ;
     sh:property [
         sh:path schema:address ;

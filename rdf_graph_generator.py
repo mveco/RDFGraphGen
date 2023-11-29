@@ -94,6 +94,24 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
             property_pair_constraint_components_parent.append(shape_dictionary)
             return None
 
+    dependencies = {}
+    depends_on = shape_dictionary.get("depends_on", []) #[] is to mot check if there are dependencies
+    print(depends_on)
+    for dep in depends_on:
+        val = [o for o in result.objects(parent, dep)]
+        if len(val) == 0:
+            property_pair_constraint_components_parent.append(shape_dictionary)
+            return None
+        dependencies[dep] = val
+    print(dependencies)
+    # if depends_on:
+    #     print(depends_on)
+    #     depends_on = [o for o in result.objects(parent, depends_on)]
+    #     print(depends_on)
+    #     if len(depends_on) == 0:
+    #         property_pair_constraint_components_parent.append(shape_dictionary)
+    #         return None
+
     sh_datatype = shape_dictionary.get(SH.datatype)
     sh_min_exclusive = shape_dictionary.get(SH.minExclusive)
     sh_min_inclusive = shape_dictionary.get(SH.minInclusive)
@@ -118,11 +136,11 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
                                                          property_pair_constraint_components, parent_class)
                 if generated_prop is not None:
                     result.add((node, key, generated_prop))
-                else:
-                    break
+                # else:
+                #     break
 
         while property_pair_constraint_components:
-            value = property_pair_constraint_components.pop()
+            value = property_pair_constraint_components.pop(0)
             sh_min_count = int(value.get(SH.minCount, "1"))
             sh_max_count = int(value.get(SH.maxCount, sh_min_count))
             for i in range(0, random.randint(sh_min_count, sh_max_count)):
@@ -139,7 +157,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
     elif sh_node:
         # if the property is described by a node, generate a node and add it
         return dictionary_to_rdf_graph(dictionary.get(sh_node), sh_node, result, None, dictionary, [], None)
-    predefined_value = get_predefined_value(sh_path, parent_class)
+    predefined_value = get_predefined_value(sh_path, parent_class, dependencies)
     if predefined_value:
         return predefined_value
     return generate_value(sh_datatype, sh_min_exclusive, sh_min_inclusive, sh_max_exclusive, sh_max_inclusive,

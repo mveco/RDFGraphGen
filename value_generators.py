@@ -4,7 +4,7 @@ import time
 
 from exrex import *
 from exrex import _randone
-from rdflib import XSD, Literal
+from rdflib import XSD, Literal, URIRef
 
 from datetime import date
 from dateutil.relativedelta import relativedelta
@@ -21,9 +21,9 @@ def get_array_from_csv(file_name):
 
 schema = 'http://schema.org/'
 values_dict = {'streetAddress': get_array_from_csv('namespaces//street_name.csv'),
-               'firstName': get_array_from_csv('namespaces//female_first_name.csv') +
-                            get_array_from_csv('namespaces//male_first_name.csv'),
-               'lastName': get_array_from_csv('namespaces//surnames.csv'),
+               'givenNameMale': get_array_from_csv('namespaces//male_first_name.csv'),
+               'givenNameFemale': get_array_from_csv('namespaces//female_first_name.csv'),
+               'familyName': get_array_from_csv('namespaces//surnames.csv'),
                'gender': ['male', 'female', 'non-binary'],
                'jobTitle': get_array_from_csv('namespaces//job_title.csv'),
                'bookAward': ["Nobel Prize in Literature", "Pulitzer Prize", "Man Booker Prize", "National Book Award",
@@ -188,19 +188,48 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
                            pattern, disjoint, less_than, less_than_or_equals, has_value)
 
 
-def get_predefined_value(sh_path, sh_class):
+def get_predefined_value(sh_path, sh_class, dependencies):
     prop = str(sh_path).split('/')[-1]
     cl = str(sh_class).split('/')[-1]
     values_for_path = values_dict.get(prop)
     # for Person
     if cl == 'Person':
-        if prop == 'additionalName' or prop == 'givenName' or prop == 'firstName':
-            return Literal(random.choice(values_dict.get('firstName')))
-        if prop == 'lastName' or prop == 'familyName':
-            return Literal(random.choice(values_dict.get('lastName')))
+        gender = URIRef(schema + 'gender')
+        given_name = URIRef(schema + 'givenName')
+        family_name = URIRef(schema + 'familyName')
+        name = URIRef(schema + 'name')
+        email = URIRef(schema + 'email')
+        if prop == 'additionalName' or prop == 'givenName':
+            gender = str(dependencies.get(gender, ["none"])[0])
+            if gender == 'female':
+                return Literal(random.choice(values_dict.get('givenNameFemale')))
+            elif gender == 'male':
+                return Literal(random.choice(values_dict.get('givenNameMale')))
+            else:
+                return Literal('dummyname')
+        if prop == 'email':
+            given_name = str(dependencies.get(given_name, ["none"])[0])
+            family_name = str(dependencies.get(family_name, ["none"])[0])
+            name = str(dependencies.get(name, ["none"])[0])
+            if given_name and family_name:
+                return Literal(given_name.lower() + "_" + family_name.lower() + "@gmail.com")
+            elif name:
+                email = ""
+                for p in name.split():
+                    email = email + p.lower()
+                return Literal(email + "@gmail.com")
+            else:
+                return Literal('dummyemail')
+        if prop == 'familyName':
+            return Literal(random.choice(values_dict.get('familyName')))
         if prop == 'name':
-            return Literal(
-                random.choice(values_dict.get('firstName')) + " " + random.choice(values_dict.get('lastName')))
+            gender = str(dependencies.get(gender, ["none"])[0])
+            if gender == 'female':
+                return Literal(random.choice(values_dict.get('givenNameFemale')) + " " + random.choice(values_dict.get('familyName')))
+            elif gender == 'male':
+                return Literal(random.choice(values_dict.get('givenNameMale')) + " " + random.choice(values_dict.get('familyName')))
+            else:
+                return Literal('dummyname')
         if prop == 'address':
             return Literal("no. " + str(random.randint(1, 100)) + " " + random.choice(values_dict.get('streetAddress')))
         if prop == 'gender':

@@ -8,10 +8,11 @@
 schema:PersonShape
     a sh:NodeShape ;
     sh:targetClass schema:Person ;
+
     sh:property [
-        sh:path schema:givenName ;
+        sh:path schema:name ;
         sh:datatype xsd:string ;
-        sh:name "given name" ;
+        sh:name "full name" ;
     ] ;
     sh:property [
         sh:path schema:birthDate ;
