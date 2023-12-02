@@ -206,7 +206,7 @@ def get_predefined_value(sh_path, sh_class, dependencies):
             elif gender == 'male':
                 return Literal(random.choice(values_dict.get('givenNameMale')))
             else:
-                return Literal('dummyname')
+                return Literal(random.choice(values_dict.get('givenNameMale') + values_dict.get('givenNameFemale')))
         if prop == 'email':
             given_name = dependencies.get(given_name)
             family_name = dependencies.get(family_name)
@@ -218,8 +218,7 @@ def get_predefined_value(sh_path, sh_class, dependencies):
                 for p in name[0].split(' '):
                     email = email + p.lower()
                 return Literal(email + "@gmail.com")
-            else:
-                return Literal('dummyemail')
+
         if prop == 'familyName':
             return Literal(random.choice(values_dict.get('familyName')))
         if prop == 'name':
@@ -229,7 +228,8 @@ def get_predefined_value(sh_path, sh_class, dependencies):
             elif gender == 'male':
                 return Literal(random.choice(values_dict.get('givenNameMale')) + " " + random.choice(values_dict.get('familyName')))
             else:
-                return Literal('dummyname')
+                return Literal(random.choice(values_dict.get('givenNameMale') + values_dict.get('givenNameFemale')) +
+                               " " + random.choice(values_dict.get('familyName')))
         if prop == 'address':
             return Literal("no. " + str(random.randint(1, 100)) + " " + random.choice(values_dict.get('streetAddress')))
         if prop == 'gender':
