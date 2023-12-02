@@ -15,7 +15,7 @@ book = "shape_examples//book_shape.ttl"
 person_new = "shape_examples//person_shape.ttl"
 
 shape = Graph()
-shape.parse(person)
+shape.parse(person_new)
 
 
 def create_rdf_examples(shape_file, number, output_file):
@@ -27,7 +27,7 @@ def create_rdf_examples(shape_file, number, output_file):
     graph.serialize(destination=output_file)
 
 
-create_rdf_examples(person, 3, "output_file.ttl")
+create_rdf_examples(person_new, 6, "output_file.ttl")
 
 dictionary = generate_dictionary_from_shapes_graph(shape)
 pprint.PrettyPrinter(indent=0, width=30).pprint(dictionary)

@@ -208,14 +208,14 @@ def get_predefined_value(sh_path, sh_class, dependencies):
             else:
                 return Literal('dummyname')
         if prop == 'email':
-            given_name = str(dependencies.get(given_name, ["none"])[0])
-            family_name = str(dependencies.get(family_name, ["none"])[0])
-            name = str(dependencies.get(name, ["none"])[0])
+            given_name = dependencies.get(given_name)
+            family_name = dependencies.get(family_name)
+            name = dependencies.get(name)
             if given_name and family_name:
-                return Literal(given_name.lower() + "_" + family_name.lower() + "@gmail.com")
+                return Literal(given_name[0].lower() + "_" + family_name[0].lower() + "@gmail.com")
             elif name:
                 email = ""
-                for p in name.split():
+                for p in name[0].split(' '):
                     email = email + p.lower()
                 return Literal(email + "@gmail.com")
             else:

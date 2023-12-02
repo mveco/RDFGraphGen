@@ -179,5 +179,5 @@ def generate_dictionary_from_shapes_graph(shapes_graph):
     for n in node_shapes:
         d = shape_to_dictionary(n, shapes_graph, [])
         dictionary[n] = d
-        define_dependencies(d)
+        # define_dependencies(d)
     return dictionary

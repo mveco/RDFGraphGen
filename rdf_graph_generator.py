@@ -112,6 +112,8 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
     #         property_pair_constraint_components_parent.append(shape_dictionary)
     #         return None
 
+    define_dependencies(shape_dictionary)
+
     sh_datatype = shape_dictionary.get(SH.datatype)
     sh_min_exclusive = shape_dictionary.get(SH.minExclusive)
     sh_min_inclusive = shape_dictionary.get(SH.minInclusive)
