@@ -19,10 +19,7 @@ schema:PersonShape
         sh:lessThan schema:deathDate ;
         sh:maxCount 1 ;
     ] ;
-    sh:property [
-        sh:path schema:gender ;
-        sh:in ( "female" "male" ) ;
-    ] ;
+
     sh:property [
         sh:path schema:testPttrn ;
         sh:minLength 15;

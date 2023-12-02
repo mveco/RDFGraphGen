@@ -165,7 +165,7 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
         datatype = XSD.date
     # person
     elif 'email' in path and not pattern:
-        pattern = '([a-z0-9]+[_])*[A-Za-z0-9]+@gmail\.com'
+        pattern = '([a-z0-9]+[_])*[A-Za-z0-9]@gmail\.com'
     elif 'telephone' in path and not pattern:
         pattern = '^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$'
     # book
@@ -201,9 +201,9 @@ def get_predefined_value(sh_path, sh_class, dependencies):
         email = URIRef(schema + 'email')
         if prop == 'additionalName' or prop == 'givenName':
             gender = str(dependencies.get(gender, ["none"])[0])
-            if gender == 'female':
+            if gender in ('female', 'f', 'fem'):
                 return Literal(random.choice(values_dict.get('givenNameFemale')))
-            elif gender == 'male':
+            elif gender in ('male', 'm'):
                 return Literal(random.choice(values_dict.get('givenNameMale')))
             else:
                 return Literal(random.choice(values_dict.get('givenNameMale') + values_dict.get('givenNameFemale')))
