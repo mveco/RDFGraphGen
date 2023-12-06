@@ -22,15 +22,13 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
         # with SH.description add the name of the shape that this node was generated from
         result.add((node, SH.description, shape_name))
 
-    sh_class = shape_dictionary.get(SH.targetClass)
+    sh_class = parent_class
+    sh_class = shape_dictionary.get(SH.targetClass, shape_dictionary.get(URIRef(SH + "class")))
     if sh_class:
         result.add((node, RDF.type, sh_class))
-        parent_class = sh_class
-    # is it same as the target class?
-    sh_class = shape_dictionary.get(URIRef(SH + "class"))
-    if sh_class:
-        result.add((node, RDF.type, sh_class))
-        parent_class = sh_class
+    else:
+        sh_class = parent_class
+
 
     # if there is a sh:xone for this property, choose one of the choices and merge it with the existing properties
     sh_xone = shape_dictionary.get(URIRef(SH + "xone"))
@@ -135,7 +133,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
             sh_max_count = int(value.get(SH.maxCount, sh_min_count))
             for i in range(0, random.randint(sh_min_count, sh_max_count)):
                 generated_prop = dictionary_to_rdf_graph(value, None, result, node, dictionary,
-                                                         property_pair_constraint_components, parent_class)
+                                                         property_pair_constraint_components, sh_class)
                 if generated_prop is not None:
                     result.add((node, key, generated_prop))
                 # else:
@@ -147,7 +145,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
             sh_max_count = int(value.get(SH.maxCount, sh_min_count))
             for i in range(0, random.randint(sh_min_count, sh_max_count)):
                 generated_prop = dictionary_to_rdf_graph(value, None, result, node, dictionary,
-                                                             property_pair_constraint_components, parent_class)
+                                                             property_pair_constraint_components, sh_class)
                 if generated_prop is not None:
                     result.add((node, value.get(SH.path), generated_prop))
                 else:
@@ -158,13 +156,13 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
         return random.choice(sh_in)
     elif sh_node:
         # if the property is described by a node, generate a node and add it
-        return dictionary_to_rdf_graph(dictionary.get(sh_node), sh_node, result, None, dictionary, [], None)
-    predefined_value = get_predefined_value(sh_path, parent_class, dependencies)
+        return dictionary_to_rdf_graph(dictionary.get(sh_node), sh_node, result, None, dictionary, [], sh_class)
+    predefined_value = get_predefined_value(sh_path, sh_class, dependencies)
     if predefined_value:
         return predefined_value
     return generate_value(sh_datatype, sh_min_exclusive, sh_min_inclusive, sh_max_exclusive, sh_max_inclusive,
                           sh_min_length, sh_max_length, sh_pattern, sh_equals, sh_disjoint, sh_less_than,
-                          sh_less_than_or_equals, sh_has_value, sh_path, parent_class)
+                          sh_less_than_or_equals, sh_has_value, sh_path, sh_class)
 
 
 def generate_rdf_graph(shapes_graph, dictionary, number_of_samples):

@@ -230,7 +230,7 @@ def get_predefined_value(sh_path, sh_class, dependencies):
             else:
                 return Literal(random.choice(values_dict.get('givenNameMale') + values_dict.get('givenNameFemale')) +
                                " " + random.choice(values_dict.get('familyName')))
-        if prop == 'address':
+        if prop == 'streetAddress':
             return Literal("no. " + str(random.randint(1, 100)) + " " + random.choice(values_dict.get('streetAddress')))
         if prop == 'gender':
             return Literal(random.choice(values_dict.get('gender')))
