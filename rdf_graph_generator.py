@@ -23,6 +23,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
         result.add((node, SH.description, shape_name))
 
     sh_class = parent_class
+    print(shape_dictionary)
     sh_class = shape_dictionary.get(SH.targetClass, shape_dictionary.get(URIRef(SH + "class")))
     if sh_class:
         result.add((node, RDF.type, sh_class))
@@ -94,21 +95,12 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
 
     dependencies = {}
     depends_on = shape_dictionary.get("depends_on", []) #[] is to mot check if there are dependencies
-    print(depends_on)
     for dep in depends_on:
         val = [o for o in result.objects(parent, dep)]
         if len(val) == 0:
             property_pair_constraint_components_parent.append(shape_dictionary)
             return None
         dependencies[dep] = val
-    print(dependencies)
-    # if depends_on:
-    #     print(depends_on)
-    #     depends_on = [o for o in result.objects(parent, depends_on)]
-    #     print(depends_on)
-    #     if len(depends_on) == 0:
-    #         property_pair_constraint_components_parent.append(shape_dictionary)
-    #         return None
 
     define_dependencies(shape_dictionary)
 

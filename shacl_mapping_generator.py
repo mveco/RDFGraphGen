@@ -124,10 +124,7 @@ def shape_to_dictionary(shape, shapes_graph, property_pair_constraint_components
 
 def define_dependencies(dictionary):
     t_class = dictionary.get(SH.targetClass)
-    if not  t_class:
-        print("No modifications")
-    else:
-        print(t_class)
+    if t_class:
         properties = dictionary.get("properties")
         cl = str(t_class).split('/')[-1]
         # for Person
@@ -160,47 +157,6 @@ def define_dependencies(dictionary):
                 elif given_name_dict:
                     dependency_list.append(given_name)
                 email_dict['depends_on'] = dependency_list
-        if cl == 'Book':
-            gender = URIRef(schema + 'gender')
-            # given_name = URIRef(schema + 'givenName')
-            # family_name = URIRef(schema + 'familyName')
-            # name = URIRef(schema + 'name')
-            # email = URIRef(schema + 'email')
-            # gender_dict = properties.get(gender)
-            # given_name_dict = properties.get(given_name)
-            # family_name_dict = properties.get(family_name)
-            # name_dict = properties.get(name)
-            # email_dict = properties.get(email)
-            # if gender_dict and given_name_dict:
-            #     dependency_list = given_name_dict.get('depends_on', [])
-            #     dependency_list.append(gender)
-            #     given_name_dict['depends_on'] = dependency_list
-            # if gender_dict and name_dict:
-            #     dependency_list = name_dict.get('depends_on', [])
-            #     dependency_list.append(gender)
-            #     name_dict['depends_on'] = dependency_list
-            # if email_dict:
-            #     dependency_list = email_dict.get('depends_on', [])
-            #     if given_name_dict and family_name_dict:
-            #         dependency_list.append(given_name)
-            #         dependency_list.append(family_name)
-            #     elif name_dict:
-            #         dependency_list.append(name)
-            #     email_dict['depends_on'] = dependency_list
-        # print(dependency_list)
-        #
-        #     for p in properties.
-        #     if 'taxID' == path and not pattern:
-        #         pattern = '[0-9]{9}'
-        # if cl == 'Book':
-        #     if 'isbn' in path and not pattern:
-        #         pattern = '[0-9]{3}-[0-9]-[0-9]{2}-[0-9]{6}-[0-9]'
-        #     elif 'numberOfPages' in path and not datatype:
-        #         datatype = XSD.integer
-        #     elif 'abridged' in path and not datatype:
-        #         datatype = XSD.boolean
-        #     elif 'bookEdition' in path and not datatype:
-        #         datatype = XSD.integer
 
 def generate_dictionary_from_shapes_graph(shapes_graph):
     node_shapes = find_node_shapes(shapes_graph)

@@ -9,7 +9,7 @@ schema:MovieShape
     sh:targetClass schema:Movie;
     sh:property [
         sh:path schema:director;
-        sh:node schema:PersonShape ;
+        sh:node schema:DirectorShape ;
     ] ;
     sh:property [
         sh:path schema:award ;

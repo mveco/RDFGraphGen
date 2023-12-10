@@ -36,8 +36,8 @@ values_dict = {'streetAddress': get_array_from_csv('namespaces//street_name.csv'
                              "The O. Henry Awards"],
                'bookGenre': get_array_from_csv('namespaces//book_genre.csv'),
                'bookTitle': get_array_from_csv("namespaces//book_titles.csv"),
-               'movieGenre': get_array_from_csv('namespaces//movie_genre.csv'),
-               'movieAward': get_array_from_csv('namespaces//movie_awards.csv'),
+               'movieGenre': get_array_from_csv('namespaces/movie_genre.csv'),
+               'movieAward': get_array_from_csv('namespaces/movie_awards.csv'),
                'movieTitle': get_array_from_csv('namespaces//movie_titles.csv')
                }
 
