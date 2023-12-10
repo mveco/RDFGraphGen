@@ -22,6 +22,7 @@ schema:MovieShape
     sh:property [
         sh:path schema:dateCreated ;
         sh:datatype xsd:date;
+
     ] ;
     sh:property [
         sh:path schema:datePublished ;

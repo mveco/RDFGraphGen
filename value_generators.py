@@ -41,6 +41,8 @@ values_dict = {'streetAddress': get_array_from_csv('namespaces//street_name.csv'
                'movieTitle': get_array_from_csv('namespaces//movie_titles.csv')
                }
 
+def getBookFormat():
+    return URIRef(schema + random.choice(["AudiobookFormat", "EBook", "GraphicNovel", "Hardcover", "Paperback"]))
 
 def get_date_between_two_dates(date1, date2):
     date1 = date.fromisoformat(date1)
@@ -156,6 +158,8 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
             pattern = '[0-9]{3}-[0-9]-[0-9]{2}-[0-9]{6}-[0-9]'
         elif 'numberOfPages' in path and not datatype:
             datatype = XSD.integer
+            if not min_inclusive:
+                min_inclusive = 100
         elif 'abridged' in path and not datatype:
             datatype = XSD.boolean
         elif 'bookEdition' in path and not datatype:
@@ -218,6 +222,8 @@ def get_predefined_value(sh_path, sh_class, dependencies):
                 for p in name[0].split(' '):
                     email = email + p.lower()
                 return Literal(email + "@gmail.com")
+            elif given_name:
+                return Literal(given_name[0].lower() + "_" + str(random.randrange(100, 1000)) + "@gmail.com")
 
         if prop == 'familyName':
             return Literal(random.choice(values_dict.get('familyName')))
@@ -245,8 +251,8 @@ def get_predefined_value(sh_path, sh_class, dependencies):
             return Literal(random.choice(values_dict.get('bookAward')))
         if prop == 'genre':
             return Literal(random.choice(values_dict.get('bookGenre')))
-        # if prop == 'name':
-        #     return Literal(random.choice(values_dict.get('bookName')))
+        if prop == 'bookEdition':
+            return getBookFormat()
     elif cl == "Movie":
         if prop == 'name':
             return Literal(random.choice(values_dict.get("movieTitle")))

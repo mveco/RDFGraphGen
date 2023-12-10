@@ -18,7 +18,7 @@ schema:BookShape
     ] ;
     sh:property [
         sh:path schema:bookEdition ;
-        sh:datatype xsd:integer ;
+        sh:maxCount 1 ;
     ] ;
     sh:property [
         sh:path schema:isbn ;
@@ -36,6 +36,7 @@ schema:BookShape
     sh:property [
         sh:path schema:dateCreated ;
         sh:datatype xsd:date;
+        sh:lessThan schema:datePublished ;
     ] ;
     sh:property [
         sh:path schema:datePublished ;
@@ -46,6 +47,9 @@ schema:BookShape
         sh:maxCount 8 ;
         sh:description "Each book has to have at least 3 genres, and a maximum of 8 genres(Test purpoes)" ;
     ] ;
+    sh:property [
+        sh:path schema:award ;
+    ];
     sh:property [
         sh:path schema:inLanguage ;
         sh:minCount 1 ;
