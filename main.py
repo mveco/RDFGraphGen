@@ -24,7 +24,3 @@ def create_rdf_examples(shape_file, number, output_file):
 
 
 create_rdf_examples(movie, 6, "output_file.ttl")
-
-# graph = generate_rdf_graph(shape, dictionary, 10)
-# print("GRAPH")
-# print(graph.serialize(format="ttl"))

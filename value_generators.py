@@ -1,11 +1,8 @@
 import csv
 import random
-import time
-
 from exrex import *
 from exrex import _randone
 from rdflib import XSD, Literal, URIRef
-
 from datetime import date
 from dateutil.relativedelta import relativedelta
 
@@ -41,8 +38,10 @@ values_dict = {'streetAddress': get_array_from_csv('namespaces//street_name.csv'
                'movieTitle': get_array_from_csv('namespaces//movie_titles.csv')
                }
 
+
 def getBookFormat():
     return URIRef(schema + random.choice(["AudiobookFormat", "EBook", "GraphicNovel", "Hardcover", "Paperback"]))
+
 
 def get_date_between_two_dates(date1, date2):
     date1 = date.fromisoformat(date1)
@@ -230,9 +229,11 @@ def get_predefined_value(sh_path, sh_class, dependencies):
         if prop == 'name':
             gender = str(dependencies.get(gender, ["none"])[0])
             if gender == 'female':
-                return Literal(random.choice(values_dict.get('givenNameFemale')) + " " + random.choice(values_dict.get('familyName')))
+                return Literal(random.choice(values_dict.get('givenNameFemale')) + " " + random.choice(
+                    values_dict.get('familyName')))
             elif gender == 'male':
-                return Literal(random.choice(values_dict.get('givenNameMale')) + " " + random.choice(values_dict.get('familyName')))
+                return Literal(random.choice(values_dict.get('givenNameMale')) + " " + random.choice(
+                    values_dict.get('familyName')))
             else:
                 return Literal(random.choice(values_dict.get('givenNameMale') + values_dict.get('givenNameFemale')) +
                                " " + random.choice(values_dict.get('familyName')))

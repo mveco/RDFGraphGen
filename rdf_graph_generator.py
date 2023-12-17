@@ -1,7 +1,5 @@
 from copy import deepcopy
-import random
-import pprint
-from rdflib import SH, RDF, Graph, URIRef, XSD, BNode, Literal
+from rdflib import Graph, BNode
 
 from value_generators import *
 from shacl_mapping_generator import *
@@ -29,7 +27,6 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
         result.add((node, RDF.type, sh_class))
     else:
         sh_class = parent_class
-
 
     # if there is a sh:xone for this property, choose one of the choices and merge it with the existing properties
     sh_xone = shape_dictionary.get(URIRef(SH + "xone"))
@@ -94,7 +91,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
             return None
 
     dependencies = {}
-    depends_on = shape_dictionary.get("depends_on", []) #[] is to mot check if there are dependencies
+    depends_on = shape_dictionary.get("depends_on", [])  # [] is to mot check if there are dependencies
     for dep in depends_on:
         val = [o for o in result.objects(parent, dep)]
         if len(val) == 0:
@@ -137,7 +134,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
             sh_max_count = int(value.get(SH.maxCount, sh_min_count))
             for i in range(0, random.randint(sh_min_count, sh_max_count)):
                 generated_prop = dictionary_to_rdf_graph(value, None, result, node, dictionary,
-                                                             property_pair_constraint_components, sh_class)
+                                                         property_pair_constraint_components, sh_class)
                 if generated_prop is not None:
                     result.add((node, value.get(SH.path), generated_prop))
                 else:
@@ -148,7 +145,10 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
         return random.choice(sh_in)
     elif sh_node:
         # if the property is described by a node, generate a node and add it
-        return dictionary_to_rdf_graph(dictionary.get(sh_node), sh_node, result, None, dictionary, [], sh_class)
+        n = dictionary.get(sh_node)
+        if not n:
+            raise Exception("The SHACL shape " + sh_node + " cannot be found!")
+        return dictionary_to_rdf_graph(n, sh_node, result, None, dictionary, [], sh_class)
     predefined_value = get_predefined_value(sh_path, sh_class, dependencies)
     if predefined_value:
         return predefined_value

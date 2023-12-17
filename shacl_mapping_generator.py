@@ -1,5 +1,4 @@
-from rdflib import SH, RDF, Graph, URIRef, XSD, BNode, Literal
-
+from rdflib import SH, RDF, URIRef
 
 schema = 'http://schema.org/'
 
@@ -122,6 +121,7 @@ def shape_to_dictionary(shape, shapes_graph, property_pair_constraint_components
 
     return shape_dictionary
 
+
 def define_dependencies(dictionary):
     t_class = dictionary.get(SH.targetClass)
     if t_class:
@@ -157,6 +157,7 @@ def define_dependencies(dictionary):
                 elif given_name_dict:
                     dependency_list.append(given_name)
                 email_dict['depends_on'] = dependency_list
+
 
 def generate_dictionary_from_shapes_graph(shapes_graph):
     node_shapes = find_node_shapes(shapes_graph)
