@@ -3,7 +3,7 @@ import random
 from exrex import *
 from exrex import _randone
 from rdflib import XSD, Literal, URIRef
-from datetime import date
+from datetime import date, datetime
 from dateutil.relativedelta import relativedelta
 
 
@@ -44,8 +44,8 @@ def getBookFormat():
 
 
 def get_date_between_two_dates(date1, date2):
-    date1 = date.fromisoformat(date1)
-    date2 = date.fromisoformat(date2)
+    # date1 = date.fromisoformat(date1)
+    # date2 = date.fromisoformat(date2)
 
     days_between = relativedelta(date2, date1).days
     months_between = relativedelta(date2, date1).months
@@ -61,22 +61,54 @@ def get_date_between_two_dates(date1, date2):
 
 
 def add_to_date(date1, years, months, days):
-    date1 = date.fromisoformat(date1)
+    # date1 = date.fromisoformat(date1)
     time_addition = relativedelta(days=days, months=months, years=years)
-
     return time_addition + date1
 
 
 def generate_date(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                   min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
+    min_date, max_date = None, None
+    if min_inclusive or min_exclusive:
+        min_date = date.fromisoformat(min_inclusive) if min_inclusive else add_to_date(
+            date.fromisoformat(min_exclusive), 0, 0, +1)
+    if max_inclusive or max_exclusive:
+        max_date = date.fromisoformat(max_inclusive) if max_inclusive else add_to_date(
+            date.fromisoformat(max_exclusive), 0, 0, -1)
+    if less_than_or_equals and len(less_than_or_equals) > 0:
+        max_date = date.fromisoformat(min(less_than_or_equals))
+    elif less_than and len(less_than) > 0:
+        max_date = date.fromisoformat(min(less_than))
+    if max_date:
+        if min_date:
+            if max_date < min_date:
+                raise Exception("A conflicting date definition")
+        else:
+            min_date = add_to_date(max_date, -50, 0, 0)
+    else:
+        if not min_date:
+            min_date = date.fromisoformat('1970-07-07')
+        max_date = add_to_date(min_date, 50, 0, 0)
+    return get_date_between_two_dates(min_date, max_date)
+
+
+def generate_date_old(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
+                   min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
     if not min_inclusive:
-        min_inclusive = date.fromisoformat('1970-07-07')
-    if less_than and len(less_than) > 0:
-        max_inclusive = date.fromisoformat(min(less_than))
+        min_inclusive = add_to_date(min_exclusive, 0, 0, -1) if min_exclusive else date.fromisoformat('1970-07-07')
+    if (less_than and len(less_than) > 0) or (less_than_or_equals and len(less_than_or_equals) > 0):
+        less_than_or_equals = min(less_than_or_equals) if (
+                less_than_or_equals and len(less_than_or_equals) > 0) else add_to_date(
+            min(less_than), 0, 0, -1)
+        max_inclusive = less_than_or_equals if type(less_than_or_equals) is datetime.date \
+            else date.fromisoformat(less_than_or_equals)
+        print(type(min_inclusive))
+        print(type(max_inclusive))
         if min_inclusive > max_inclusive:
             min_inclusive = add_to_date(str(max_inclusive), -50, 0, 0)
     if not max_inclusive:
-        max_inclusive = add_to_date(str(min_inclusive), 50, 10, 5)
+        max_inclusive = add_to_date(max_exclusive, 0, 0, -1) if max_exclusive else add_to_date(str(min_inclusive), 50,
+                                                                                               10, 5)
     return get_date_between_two_dates(str(min_inclusive), str(max_inclusive))
 
 
