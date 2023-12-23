@@ -1,4 +1,5 @@
 import csv
+import math
 import random
 from exrex import *
 from exrex import _randone
@@ -93,7 +94,7 @@ def generate_date(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
 
 
 def generate_date_old(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
-                   min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
+                      min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
     if not min_inclusive:
         min_inclusive = add_to_date(min_exclusive, 0, 0, -1) if min_exclusive else date.fromisoformat('1970-07-07')
     if (less_than and len(less_than) > 0) or (less_than_or_equals and len(less_than_or_equals) > 0):
@@ -114,6 +115,30 @@ def generate_date_old(min_exclusive, min_inclusive, max_exclusive, max_inclusive
 
 def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                      min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
+    min_int, max_int = None, None
+    if min_inclusive or min_exclusive:
+        min_int = min_inclusive if min_inclusive else min_exclusive + 1
+    if max_inclusive or max_exclusive:
+        max_int = max_inclusive if max_inclusive else max_exclusive - 1
+    if less_than_or_equals and len(less_than_or_equals) > 0:
+        max_date = min(less_than_or_equals)
+    elif less_than and len(less_than) > 0:
+        max_int = min(less_than) - 1
+    if max_int:
+        if min_int:
+            if max_int < min_int:
+                raise Exception("Conflicting integer constraints")
+        else:
+            min_int = max_int - 50
+    else:
+        if not min_int:
+            min_int = 1
+        max_int = min_int + 50
+    return random.randint(min_int, max_int)
+
+
+def generate_integer_old(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
+                         min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
     # will assume than
     if min_exclusive or max_exclusive or less_than:
         if not min_exclusive:
@@ -137,7 +162,7 @@ def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
     return Literal(random.randint(int(min_inclusive), int(max_inclusive)))
 
 
-def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
+def generate_decimal_old(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                      min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
     if not min_inclusive:
         min_inclusive = 0
@@ -150,28 +175,50 @@ def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
     return Literal(random.uniform(int(min_inclusive), int(max_inclusive)))
 
 
+def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
+                     min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
+    min_float, max_float = None, None
+    if min_inclusive or min_exclusive:
+        min_float = min_inclusive if min_inclusive else math.nextafter(min_exclusive, +math.inf)
+    if max_inclusive or max_exclusive:
+        max_float = max_inclusive if max_inclusive else math.nextafter(max_exclusive, -math.inf)
+    if less_than_or_equals and len(less_than_or_equals) > 0:
+        max_float = min(less_than_or_equals)
+    elif less_than and len(less_than) > 0:
+        max_float = math.nextafter(min(less_than), -math.inf)
+    if max_float:
+        if min_float:
+            if max_float < min_float:
+                raise Exception("Conflicting float constraints")
+        else:
+            min_float = max_float - 50
+    else:
+        if not min_float:
+            min_float = 1
+        max_float = min_float + 50
+    return random.uniform(min_float, max_float)
+
 def generate_string(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                     min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
-    length = None
-    if min_length or max_length:
-        if not min_length and max_length:
-            min_length = 8
-            max_length = 15
-        if not min_length and max_length:
-            min_length = 1
-        if not max_length and min_length:
-            max_length = min_length + 8
-        length = random.randint(int(min_length), int(max_length))
+    if min_length:
+        if max_length:
+            if min_length > max_length:
+                raise Exception("Conflicting string constraints")
+        else:
+            max_length = min_length + 10
+    else:
+        if max_length:
+            min_length = max_length - 5 if max_length > 5 else 0
+        else:
+            min_length, max_length = 8, 15
     if not pattern:
         pattern = '^([a-zA-Z0-9])*'
-    if length:
-        strp = ''
-        while len(strp) < length:
-            strp = strp + _randone(parse(pattern))
-        if len(strp) > length:
-            strp = strp[:length]
-    else:
-        strp = _randone(parse(pattern))
+    length = random.randint(min_length, max_length)
+    strp = ''
+    while len(strp) < length:
+        strp = strp + _randone(parse(pattern))
+    if len(strp) > length:
+        strp = strp[:length]
     return Literal(strp)
 
 
