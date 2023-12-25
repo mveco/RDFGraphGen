@@ -36,7 +36,8 @@ values_dict = {'streetAddress': get_array_from_csv('namespaces//street_name.csv'
                'bookTitle': get_array_from_csv("namespaces//book_titles.csv"),
                'movieGenre': get_array_from_csv('namespaces/movie_genre.csv'),
                'movieAward': get_array_from_csv('namespaces/movie_awards.csv'),
-               'movieTitle': get_array_from_csv('namespaces//movie_titles.csv')
+               'movieTitle': get_array_from_csv('namespaces//movie_titles.csv'),
+               'tvSeriesTitle': get_array_from_csv('namespaces//tvseries_titles.csv')
                }
 
 
@@ -117,13 +118,13 @@ def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                      min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
     min_int, max_int = None, None
     if min_inclusive or min_exclusive:
-        min_int = min_inclusive if min_inclusive else min_exclusive + 1
+        min_int = int(min_inclusive) if min_inclusive else int(min_exclusive) + 1
     if max_inclusive or max_exclusive:
-        max_int = max_inclusive if max_inclusive else max_exclusive - 1
+        max_int = int(max_inclusive) if max_inclusive else int(max_exclusive) - 1
     if less_than_or_equals and len(less_than_or_equals) > 0:
-        max_date = min(less_than_or_equals)
+        max_int = int(min(less_than_or_equals))
     elif less_than and len(less_than) > 0:
-        max_int = min(less_than) - 1
+        max_int = int(min(less_than) - 1)
     if max_int:
         if min_int:
             if max_int < min_int:
@@ -134,7 +135,7 @@ def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
         if not min_int:
             min_int = 1
         max_int = min_int + 50
-    return random.randint(min_int, max_int)
+    return Literal(random.randint(min_int, max_int))
 
 
 def generate_integer_old(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
@@ -179,13 +180,13 @@ def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                      min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
     min_float, max_float = None, None
     if min_inclusive or min_exclusive:
-        min_float = min_inclusive if min_inclusive else math.nextafter(min_exclusive, +math.inf)
+        min_float = float(min_inclusive) if min_inclusive else math.nextafter(float(min_exclusive), +math.inf)
     if max_inclusive or max_exclusive:
-        max_float = max_inclusive if max_inclusive else math.nextafter(max_exclusive, -math.inf)
+        max_float = float(max_inclusive) if max_inclusive else math.nextafter(float(max_exclusive), -math.inf)
     if less_than_or_equals and len(less_than_or_equals) > 0:
-        max_float = min(less_than_or_equals)
+        max_float = float(min(less_than_or_equals))
     elif less_than and len(less_than) > 0:
-        max_float = math.nextafter(min(less_than), -math.inf)
+        max_float = math.nextafter(float(min(less_than)), -math.inf)
     if max_float:
         if min_float:
             if max_float < min_float:
@@ -196,18 +197,21 @@ def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
         if not min_float:
             min_float = 1
         max_float = min_float + 50
-    return random.uniform(min_float, max_float)
+    return Literal(random.uniform(min_float, max_float))
 
 def generate_string(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                     min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
     if min_length:
+        min_length = int(min_length)
         if max_length:
+            max_length = int(max_length)
             if min_length > max_length:
                 raise Exception("Conflicting string constraints")
         else:
             max_length = min_length + 10
     else:
         if max_length:
+            max_length = int(max_length)
             min_length = max_length - 5 if max_length > 5 else 0
         else:
             min_length, max_length = 8, 15
@@ -245,6 +249,8 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
     # for all
     if ('date' in path or 'Date' in path) and not datatype:
         datatype = XSD.date
+    if ('number' in path or 'Number' in path) and not datatype:
+        datatype = XSD.integer
     # person
     elif 'email' in path and not pattern:
         pattern = '([a-z0-9]+[_])*[A-Za-z0-9]@gmail\.com'
@@ -338,6 +344,11 @@ def get_predefined_value(sh_path, sh_class, dependencies):
             return Literal(random.choice(values_dict.get("movieTitle")))
         if prop == 'award':
             return Literal(random.choice(values_dict.get('movieAward')))
+        if prop == 'genre':
+            return Literal(random.choice(values_dict.get('movieGenre')))
+    elif cl == "TVSeries":
+        if prop == 'name':
+            return Literal(random.choice(values_dict.get("tvSeriesTitle")))
         if prop == 'genre':
             return Literal(random.choice(values_dict.get('movieGenre')))
     return None
