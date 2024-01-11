@@ -90,6 +90,8 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
             property_pair_constraint_components_parent.append(shape_dictionary)
             return None
 
+    define_dependencies(shape_dictionary)
+
     dependencies = {}
     depends_on = shape_dictionary.get("depends_on", [])  # [] is to mot check if there are dependencies
     for dep in depends_on:
@@ -99,7 +101,6 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
             return None
         dependencies[dep] = val
 
-    define_dependencies(shape_dictionary)
 
     sh_datatype = shape_dictionary.get(SH.datatype)
     sh_min_exclusive = shape_dictionary.get(SH.minExclusive)

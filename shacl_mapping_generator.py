@@ -84,12 +84,12 @@ def shape_to_dictionary(shape, shapes_graph, property_pair_constraint_components
 
     # fixes the dependencies caused by Property Pair Constraint Components
     for d in property_pair_constraint_components:
-        # if there is a sh:equals predicate in this component, and it doesnt exist in the dict, add it
+        # if there is a sh:equals predicate in this component, and it doesn't exist in the dict, add it
         equals = d.get(SH.equals)
         if equals and not sh_properties.get(SH.equals):
             sh_properties[equals] = {SH.path: equals}
 
-        # if there is a sh:disjoint predicate in this component, and it doesnt exist in the dict, add it
+        # if there is a sh:disjoint predicate in this component, and it doesn't exist in the dict, add it
         disjoint = d.get(SH.disjoint)
         if disjoint and not sh_properties.get(SH.disjoint):
             sh_properties[disjoint] = {SH.path: disjoint}

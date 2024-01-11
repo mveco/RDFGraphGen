@@ -12,8 +12,9 @@ equals_example = "data//equals_example.ttl"
 less_than_example = "data//less_than_example.ttl"
 movie = "shape_examples//movie_shape.ttl"
 book = "shape_examples//book_shape.ttl"
+tv_series = "shape_examples//tv_series_shape.ttl"
 person_new = "shape_examples//person_shape.ttl"
-
+test = "shape_examples//test_value_generation.ttl"
 
 def create_rdf_examples(shape_file, number, output_file):
     shape = Graph()
@@ -23,4 +24,4 @@ def create_rdf_examples(shape_file, number, output_file):
     graph.serialize(destination=output_file)
 
 
-create_rdf_examples(movie, 6, "output_file.ttl")
+create_rdf_examples(person_new, 3, "output_file.ttl")
