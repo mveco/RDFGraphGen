@@ -189,7 +189,7 @@ dict: A Python dictionary representing the converted SHACL shape.
 Explanation:
 ------------
 - The function begins by retrieving all triples associated with the given SHACL shape from the RDF Shapes graph.
-- It initializes several data structures to store property information, dictionaries, and the final shape dictionary.
+- It initializes several old_shapes structures to store property information, dictionaries, and the final shape dictionary.
 
 # Handling SHACL Properties and Nested Constructs
 - The function iterates through the triples, handling different cases for SHACL properties, paths, and nested constructs.
@@ -211,7 +211,7 @@ def shape_to_dictionary(shape, shapes_graph, property_pair_constraint_components
     # Get all triples related to the SHACL shape
     triples = shapes_graph.triples((shape, None, None))
 
-    # Initialize data structures
+    # Initialize old_shapes structures
     property_pair_constraint_components = []
     sh_properties = {}
     shape_dictionary = {}
@@ -228,7 +228,7 @@ def shape_to_dictionary(shape, shapes_graph, property_pair_constraint_components
             # Recursively call the function to process nested shapes within the property
             new_prop_dict = shape_to_dictionary(o, shapes_graph, property_pair_constraint_components)
 
-            # Update the existing property dictionary with the new data
+            # Update the existing property dictionary with the new old_shapes
             update_dictionary(property_dict, new_prop_dict)
 
             # Update the sh_properties dictionary with the updated property dictionary
