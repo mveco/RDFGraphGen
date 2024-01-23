@@ -1,0 +1,89 @@
+@prefix ns1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/ns#Node100> a ns1:Movie ;
+    ns1:award "Venice Film Festival" ;
+    ns1:dateCreated "1994-07-07"^^xsd:date ;
+    ns1:datePublished "2007-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node101> ;
+    ns1:genre "Historical Drama" ;
+    ns1:inLanguage "epkNLjnNXZI6WJ" ;
+    ns1:name "Buffalo Bill and the Indians, or Sitting Bull's History Lesson" ;
+    sh:description ns1:MovieShape .
+
+<http://example.org/ns#Node102> a ns1:Movie ;
+    ns1:award "Academy Awards" ;
+    ns1:dateCreated "2006-07-07"^^xsd:date ;
+    ns1:datePublished "1984-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node103> ;
+    ns1:genre "Animation Fantasy" ;
+    ns1:inLanguage "04knVl5Gn" ;
+    ns1:name "劇場版 零〜ゼロ〜" ;
+    sh:description ns1:MovieShape .
+
+<http://example.org/ns#Node104> a ns1:Movie ;
+    ns1:award "Cesar Awards" ;
+    ns1:dateCreated "1996-07-07"^^xsd:date ;
+    ns1:datePublished "2016-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node105> ;
+    ns1:genre "Adventure Romance" ;
+    ns1:inLanguage "zDz7yHOM6WKRk2p" ;
+    ns1:name "Hotel Sahara" ;
+    sh:description ns1:MovieShape .
+
+<http://example.org/ns#Node106> a ns1:Movie ;
+    ns1:award "New York Film Critics Online Awards" ;
+    ns1:dateCreated "1983-07-07"^^xsd:date ;
+    ns1:datePublished "2003-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node107> ;
+    ns1:genre "Documentary Biography Drama" ;
+    ns1:inLanguage "jene7W2JLdsWbqq" ;
+    ns1:name "We Need to Talk About Kevin" ;
+    sh:description ns1:MovieShape .
+
+<http://example.org/ns#Node108> a ns1:Movie ;
+    ns1:award "Hollywood Film Awards" ;
+    ns1:dateCreated "2004-07-07"^^xsd:date ;
+    ns1:datePublished "2011-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node109> ;
+    ns1:genre "Biographical Crime" ;
+    ns1:inLanguage "L4kLIvnXIjROe" ;
+    ns1:name "The Broken Tower" ;
+    sh:description ns1:MovieShape .
+
+<http://example.org/ns#Node101> a ns1:Person ;
+    ns1:email "darrin_307@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Darrin" ;
+    ns1:telephone "(621)208-59" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node103> a ns1:Person ;
+    ns1:email "socrates_963@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Socrates" ;
+    ns1:telephone "(782)179-8" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node105> a ns1:Person ;
+    ns1:email "pat_246@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Pat" ;
+    ns1:telephone "(481)136-" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node107> a ns1:Person ;
+    ns1:email "wit_744@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Wit" ;
+    ns1:telephone "(292)370-9" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node109> a ns1:Person ;
+    ns1:email "viviana_462@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Viviana" ;
+    ns1:telephone "(436)716-636774" ;
+    sh:description ns1:DirectorShape .
+
