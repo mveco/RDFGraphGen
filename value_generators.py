@@ -4,17 +4,29 @@ import random
 from exrex import *
 from exrex import _randone
 from rdflib import XSD, Literal, URIRef
-from datetime import date, datetime
+from datetime import date
 from dateutil.relativedelta import relativedelta
+
+"""
+Reads data from a CSV file and returns the content as a list of values.
+
+Parameters:
+-----------
+file_name (str): The name of the CSV file from which data will be read.
+
+Returns:
+--------
+list: A list containing the values read from the CSV file.
+"""
 
 
 def get_array_from_csv(file_name):
-    results = []
+    results = []  # Initialize an empty list to store the values
     with open(file_name, encoding='utf-8') as csvfile:
-        reader = csv.reader(csvfile)  # change contents to floats
-        for row in reader:  # each row is a list
-            results = results + row
-    return results
+        reader = csv.reader(csvfile)
+        for row in reader:  # Iterate through each row in the CSV file
+            results = results + row  # Append values from each row to the results list
+    return results  # Return the list containing values from the CSV file
 
 
 schema = 'http://schema.org/'
@@ -46,9 +58,6 @@ def getBookFormat():
 
 
 def get_date_between_two_dates(date1, date2):
-    # date1 = date.fromisoformat(date1)
-    # date2 = date.fromisoformat(date2)
-
     days_between = relativedelta(date2, date1).days
     months_between = relativedelta(date2, date1).months
     years_between = relativedelta(date2, date1).years
@@ -63,7 +72,6 @@ def get_date_between_two_dates(date1, date2):
 
 
 def add_to_date(date1, years, months, days):
-    # date1 = date.fromisoformat(date1)
     time_addition = relativedelta(days=days, months=months, years=years)
     return time_addition + date1
 
@@ -94,26 +102,6 @@ def generate_date(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
     return get_date_between_two_dates(min_date, max_date)
 
 
-def generate_date_old(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
-                      min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
-    if not min_inclusive:
-        min_inclusive = add_to_date(min_exclusive, 0, 0, -1) if min_exclusive else date.fromisoformat('1970-07-07')
-    if (less_than and len(less_than) > 0) or (less_than_or_equals and len(less_than_or_equals) > 0):
-        less_than_or_equals = min(less_than_or_equals) if (
-                less_than_or_equals and len(less_than_or_equals) > 0) else add_to_date(
-            min(less_than), 0, 0, -1)
-        max_inclusive = less_than_or_equals if type(less_than_or_equals) is datetime.date \
-            else date.fromisoformat(less_than_or_equals)
-        print(type(min_inclusive))
-        print(type(max_inclusive))
-        if min_inclusive > max_inclusive:
-            min_inclusive = add_to_date(str(max_inclusive), -50, 0, 0)
-    if not max_inclusive:
-        max_inclusive = add_to_date(max_exclusive, 0, 0, -1) if max_exclusive else add_to_date(str(min_inclusive), 50,
-                                                                                               10, 5)
-    return get_date_between_two_dates(str(min_inclusive), str(max_inclusive))
-
-
 def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                      min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
     min_int, max_int = None, None
@@ -138,44 +126,6 @@ def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
     return Literal(random.randint(min_int, max_int))
 
 
-def generate_integer_old(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
-                         min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
-    # will assume than
-    if min_exclusive or max_exclusive or less_than:
-        if not min_exclusive:
-            min_exclusive = 0
-        if less_than and len(less_than) > 0:
-            max_exclusive = min(less_than)
-            if not min_exclusive:
-                min_exclusive = max_exclusive - 15
-        if not max_exclusive:
-            max_exclusive = min_exclusive + 15
-        return Literal(random.randrange(int(min_exclusive), int(max_exclusive)))
-
-    if not min_inclusive:
-        min_inclusive = 0
-    if less_than_or_equals and len(less_than_or_equals) > 0:
-        max_inclusive = min(less_than_or_equals)
-        if not min_inclusive:
-            min_inclusive = max_inclusive - 15
-    if not max_inclusive:
-        max_inclusive = min_inclusive + 15
-    return Literal(random.randint(int(min_inclusive), int(max_inclusive)))
-
-
-def generate_decimal_old(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
-                     min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
-    if not min_inclusive:
-        min_inclusive = 0
-    if less_than_or_equals and len(less_than_or_equals) > 0:
-        max_inclusive = min(less_than_or_equals)
-        if min_inclusive > max_inclusive:
-            min_inclusive = max_inclusive - 15
-    if not max_inclusive:
-        max_inclusive = min_inclusive + 15
-    return Literal(random.uniform(int(min_inclusive), int(max_inclusive)))
-
-
 def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                      min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
     min_float, max_float = None, None
@@ -198,6 +148,7 @@ def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
             min_float = 1
         max_float = min_float + 50
     return Literal(random.uniform(min_float, max_float))
+
 
 def generate_string(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
                     min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
@@ -226,12 +177,40 @@ def generate_string(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
     return Literal(strp)
 
 
-# generates a random value based on the SH:datatype
+"""
+    Generate a random value based on the specified constraints for a given SHACL property.
+
+    Parameters:
+    - datatype (URIRef): The datatype of the SHACL property.
+    - min_exclusive, min_inclusive, max_exclusive, max_inclusive: Numeric constraints for the property.
+    - min_length, max_length: String length constraints.
+    - pattern (str): Regular expression pattern for string values.
+    - equals, disjoint, less_than, less_than_or_equals, has_value: Specific constraints for certain values.
+    - path (URIRef): SHACL path for the property.
+    - sh_class (URIRef): SHACL class to which the property belongs.
+
+    Returns:
+    - Literal or None: The generated RDF literal value for the SHACL property, or None if it cannot be generated.
+
+    Explanation:
+    - The function starts by extracting the specific class (cl) and property path (path) from the given SHACL class.
+    - It handles special cases and applies standard constraints based on the SHACL class and property path.
+    - For specific properties like 'isbn', 'numberOfPages', 'abridged', 'bookEdition', 'date', 'number', 'email',
+      and 'telephone', it sets standard data types and patterns if not explicitly specified.
+    - If constraints like 'equals' are specified, the function returns the specified value.
+    - For different data types (integer, decimal, boolean, date, string), it invokes specific helper functions
+      to generate values based on constraints.
+    - The function returns the generated value or None if a value cannot be generated based on constraints.
+"""
+
+
 def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
                    pattern, equals, disjoint, less_than, less_than_or_equals, has_value, path, sh_class):
+    # Extract the class and property path from URIs
     cl = str(sh_class).split('/')[-1]
     path = str(path).split('/')[-1]
-    # for Person
+
+    # Special handling for certain properties and their constraints
     if cl == 'Person':
         if 'taxID' == path and not pattern:
             pattern = '[0-9]{9}'
@@ -246,20 +225,24 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
             datatype = XSD.boolean
         elif 'bookEdition' in path and not datatype:
             datatype = XSD.integer
-    # for all
+
+    # Apply default datatype and pattern for certain property paths
     if ('date' in path or 'Date' in path) and not datatype:
         datatype = XSD.date
     if ('number' in path or 'Number' in path) and not datatype:
         datatype = XSD.integer
-    # person
+
+    # Apply default patterns for certain property paths
     elif 'email' in path and not pattern:
         pattern = '([a-z0-9]+[_])*[A-Za-z0-9]@gmail\.com'
     elif 'telephone' in path and not pattern:
         pattern = '^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$'
-    # book
 
+    # Return specified value if 'equals' constraint is present
     if equals:
         return equals
+
+    # Generate values based on datatype and constraints
     if datatype == XSD.integer:
         return generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
                                 pattern, disjoint, less_than, less_than_or_equals, has_value)
@@ -271,23 +254,54 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
     elif datatype == XSD.date:
         return Literal(generate_date(min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
                                      pattern, disjoint, less_than, less_than_or_equals, has_value))
-    # string or not in the if-else
+
+    # Default case: Generate a string value
     return generate_string(min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
                            pattern, disjoint, less_than, less_than_or_equals, has_value)
 
 
+"""
+    Function Explanation:
+    ---------------------
+    The 'get_predefined_value' function generates predefined values for specific SHACL properties based on the provided
+    constraints. It handles different cases for SHACL classes such as 'Person', 'Book', 'Movie', and 'TVSeries' and
+    generates values accordingly.
+
+    Parameters:
+    -----------
+    sh_path (rdflib.term.Identifier): SHACL property for which to generate a predefined value.
+    sh_class (rdflib.term.Identifier): SHACL class to which the property belongs.
+    dependencies (dict): Dictionary containing required dependencies for generating predefined values.
+
+    Returns:
+    --------
+    rdflib.term.Literal or None: The generated predefined value or None if a predefined value cannot be generated.
+
+    Explanation:
+    ------------
+    - The function starts by extracting the specific property ('prop') and class ('cl') from the given SHACL path and class.
+    - For each case (class-property combination), it generates a predefined value using the 'values_dict' dictionary.
+    - The function supports various properties such as 'givenName', 'familyName', 'name', 'streetAddress', 'gender',
+      'jobTitle', 'bookTitle', 'bookAward', 'bookGenre', 'movieTitle', 'movieAward', 'movieGenre', 'tvSeriesTitle', etc.
+    - 'random.choice' is used to select values from predefined data, ensuring diversity in the generated values.
+    - The function returns the generated predefined value or None if a predefined value cannot be generated for the given constraints.
+"""
+
+
 def get_predefined_value(sh_path, sh_class, dependencies):
+    # Extract specific property and class
     prop = str(sh_path).split('/')[-1]
     cl = str(sh_class).split('/')[-1]
-    values_for_path = values_dict.get(prop)
-    # for Person
+
+    # Handle cases for Person class
     if cl == 'Person':
         gender = URIRef(schema + 'gender')
         given_name = URIRef(schema + 'givenName')
         family_name = URIRef(schema + 'familyName')
         name = URIRef(schema + 'name')
-        email = URIRef(schema + 'email')
+
         if prop == 'additionalName' or prop == 'givenName':
+            # Generate predefined value based on gender dependency
             gender = str(dependencies.get(gender, ["none"])[0])
             if gender in ('female', 'f', 'fem'):
                 return Literal(random.choice(values_dict.get('givenNameFemale')))
@@ -295,10 +309,13 @@ def get_predefined_value(sh_path, sh_class, dependencies):
                 return Literal(random.choice(values_dict.get('givenNameMale')))
             else:
                 return Literal(random.choice(values_dict.get('givenNameMale') + values_dict.get('givenNameFemale')))
+
         if prop == 'email':
             given_name = dependencies.get(given_name)
             family_name = dependencies.get(family_name)
             name = dependencies.get(name)
+
+            # Generate email based on given_name, family_name, or name dependencies
             if given_name and family_name:
                 return Literal(given_name[0].lower() + "_" + family_name[0].lower() + "@gmail.com")
             elif name:
@@ -309,6 +326,7 @@ def get_predefined_value(sh_path, sh_class, dependencies):
             elif given_name:
                 return Literal(given_name[0].lower() + "_" + str(random.randrange(100, 1000)) + "@gmail.com")
 
+        # Handle other properties for Person class
         if prop == 'familyName':
             return Literal(random.choice(values_dict.get('familyName')))
         if prop == 'name':
@@ -328,9 +346,10 @@ def get_predefined_value(sh_path, sh_class, dependencies):
             return Literal(random.choice(values_dict.get('gender')))
         if prop == 'jobTitle':
             return Literal(random.choice(values_dict.get('jobTitle')))
-        # award?
-        # place?
+
+    # Handle cases for Book class
     elif cl == 'Book':
+        # Handle properties for Book class
         if prop == 'name':
             return Literal(random.choice(values_dict.get("bookTitle")))
         if prop == 'award':
@@ -339,16 +358,23 @@ def get_predefined_value(sh_path, sh_class, dependencies):
             return Literal(random.choice(values_dict.get('bookGenre')))
         if prop == 'bookEdition':
             return getBookFormat()
+
+    # Handle cases for Movie class
     elif cl == "Movie":
+        # Handle properties for Movie class
         if prop == 'name':
             return Literal(random.choice(values_dict.get("movieTitle")))
         if prop == 'award':
             return Literal(random.choice(values_dict.get('movieAward')))
         if prop == 'genre':
             return Literal(random.choice(values_dict.get('movieGenre')))
+
+    # Handle cases for TVSeries class
     elif cl == "TVSeries":
+        # Handle properties for TVSeries class
         if prop == 'name':
             return Literal(random.choice(values_dict.get("tvSeriesTitle")))
         if prop == 'genre':
             return Literal(random.choice(values_dict.get('movieGenre')))
+
     return None
