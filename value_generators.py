@@ -76,8 +76,9 @@ def add_to_date(date1, years, months, days):
     return time_addition + date1
 
 
-def generate_date(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
-                  min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
+# The min_length, max_length, pattern, disjoint, has_value properties are not taken into account at this point for date
+# generation
+def generate_date(min_exclusive, min_inclusive, max_exclusive, max_inclusive, less_than, less_than_or_equals):
     min_date, max_date = None, None
     if min_inclusive or min_exclusive:
         min_date = date.fromisoformat(min_inclusive) if min_inclusive else add_to_date(
@@ -102,8 +103,9 @@ def generate_date(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
     return get_date_between_two_dates(min_date, max_date)
 
 
-def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
-                     min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
+# The min_length, max_length, pattern, disjoint, has_value properties are not taken into account at this point for
+# integer generation
+def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive, less_than, less_than_or_equals):
     min_int, max_int = None, None
     if min_inclusive or min_exclusive:
         min_int = int(min_inclusive) if min_inclusive else int(min_exclusive) + 1
@@ -126,8 +128,9 @@ def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
     return Literal(random.randint(min_int, max_int))
 
 
-def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
-                     min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
+# The min_length, max_length, pattern, disjoint, has_value properties are not taken into account at this point for
+# decimal generation
+def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive, less_than, less_than_or_equals):
     min_float, max_float = None, None
     if min_inclusive or min_exclusive:
         min_float = float(min_inclusive) if min_inclusive else math.nextafter(float(min_exclusive), +math.inf)
@@ -150,8 +153,9 @@ def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
     return Literal(random.uniform(min_float, max_float))
 
 
-def generate_string(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
-                    min_length, max_length, pattern, disjoint, less_than, less_than_or_equals, has_value):
+# The min_exclusive, min_inclusive, max_exclusive, max_inclusive, disjoint, less_than, less_than_or_equals, has_value
+# properties are not taken into account at this point for string generation
+def generate_string(min_length, max_length, pattern):
     if min_length:
         min_length = int(min_length)
         if max_length:
@@ -244,20 +248,19 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
 
     # Generate values based on datatype and constraints
     if datatype == XSD.integer:
-        return generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
-                                pattern, disjoint, less_than, less_than_or_equals, has_value)
+        return generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive, less_than,
+                                less_than_or_equals)
     elif datatype == XSD.decimal:
-        return generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
-                                pattern, disjoint, less_than, less_than_or_equals, has_value)
+        return generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive, less_than,
+                                less_than_or_equals)
     elif datatype == XSD.boolean:
         return Literal(bool(random.getrandbits(1)))
     elif datatype == XSD.date:
-        return Literal(generate_date(min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
-                                     pattern, disjoint, less_than, less_than_or_equals, has_value))
+        return Literal(generate_date(min_exclusive, min_inclusive, max_exclusive, max_inclusive, less_than,
+                                     less_than_or_equals))
 
     # Default case: Generate a string value
-    return generate_string(min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
-                           pattern, disjoint, less_than, less_than_or_equals, has_value)
+    return generate_string(min_length, max_length, pattern)
 
 
 """
