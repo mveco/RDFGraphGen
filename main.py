@@ -14,12 +14,7 @@ tv_series = "shape_examples//tv_series_shape.ttl"
 person_new = "shape_examples//person_shape.ttl"
 test = "shape_examples//test_value_generation.ttl"
 
-def create_rdf_examples(shape_file, number, output_file):
-    shape = Graph()
-    shape.parse(shape_file)
-    dictionary = generate_dictionary_from_shapes_graph(shape)
-    graph = generate_rdf_graph(shape, dictionary, number)
-    graph.serialize(destination=output_file)
 
 
-create_rdf_examples(tv_series, 5, "output_file.ttl")
+
+create_rdf_examples(person_new, 5, "output_file.ttl")

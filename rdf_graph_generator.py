@@ -273,3 +273,10 @@ def generate_rdf_graphs_from_shacl_constraints(shape_file, number):
     graph = generate_rdf_graph(shape, dictionary, number)
     # Return the resulting RDF graph
     return graph
+
+def create_rdf_examples(shape_file, output_file, number):
+    shape = Graph()
+    shape.parse(shape_file)
+    dictionary = generate_dictionary_from_shapes_graph(shape)
+    graph = generate_rdf_graph(shape, dictionary, number)
+    graph.serialize(destination=output_file)
