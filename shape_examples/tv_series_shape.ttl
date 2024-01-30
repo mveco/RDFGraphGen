@@ -20,17 +20,19 @@ schema:TVSeriesShape
         sh:path schema:season ;
         sh:datatype xsd:integer ;
         sh:minCount 1 ;
+        sh:lessThanOrEquals schema:numberOfSeasons ;
+        sh:minInclusive 0 ;
     ] ;
     sh:property [
         sh:path schema:numberOfEpisodes ;
         sh:maxCount 1 ;
-        sh:minInclusive: 0
+        sh:minInclusive 0 ;
     ] ;
         sh:property [
         sh:path schema:numberOfSeasons ;
         sh:lessThan schema:numberOfEpisodes ;
         sh:maxCount 1 ;
-        sh:minInclusive: 0
+        sh:minInclusive 0 ;
     ] ;
     sh:property [
         sh:path schema:titleEIDR ;

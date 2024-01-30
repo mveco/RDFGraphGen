@@ -234,9 +234,9 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
 
     # Apply default patterns for certain property paths
     elif 'email' in path and not pattern:
-        pattern = '([a-z0-9]+[_])*[A-Za-z0-9]@gmail\.com'
+        pattern = '([a-z0-9]+[_])*[A-Za-z0-9]@gmail.com'
     elif 'telephone' in path and not pattern:
-        pattern = '^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$'
+        pattern = '^(([0-9]{3})|[0-9]{3}-)[0-9]{3}-[0-9]{4}$'
 
     # Return specified value if 'equals' constraint is present
     if equals:

@@ -22,4 +22,4 @@ def create_rdf_examples(shape_file, number, output_file):
     graph.serialize(destination=output_file)
 
 
-create_rdf_examples(movie, 5, "output_file.ttl")
+create_rdf_examples(tv_series, 5, "output_file.ttl")

@@ -2,88 +2,228 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://example.org/ns#Node100> a ns1:Movie ;
-    ns1:award "Venice Film Festival" ;
-    ns1:dateCreated "1994-07-07"^^xsd:date ;
-    ns1:datePublished "2007-07-07"^^xsd:date ;
+<http://example.org/ns#Node100> a ns1:TVSeries ;
+    ns1:actor <http://example.org/ns#Node102>,
+        <http://example.org/ns#Node103>,
+        <http://example.org/ns#Node104> ;
+    ns1:datePublished "1976-07-07"^^xsd:date ;
     ns1:director <http://example.org/ns#Node101> ;
-    ns1:genre "Historical Drama" ;
-    ns1:inLanguage "epkNLjnNXZI6WJ" ;
-    ns1:name "Buffalo Bill and the Indians, or Sitting Bull's History Lesson" ;
-    sh:description ns1:MovieShape .
+    ns1:endDate "1974-07-07"^^xsd:date ;
+    ns1:genre "Comedy Fantasy" ;
+    ns1:inLanguage "BHM9y9h5T" ;
+    ns1:name "Love Station" ;
+    ns1:numberOfEpisodes 4 ;
+    ns1:numberOfSeasons 1 ;
+    ns1:season -6 ;
+    ns1:startDate "1999-07-07"^^xsd:date ;
+    ns1:titleEIDR "IWL3197KH" ;
+    sh:description ns1:TVSeriesShape .
 
-<http://example.org/ns#Node102> a ns1:Movie ;
-    ns1:award "Academy Awards" ;
-    ns1:dateCreated "2006-07-07"^^xsd:date ;
-    ns1:datePublished "1984-07-07"^^xsd:date ;
-    ns1:director <http://example.org/ns#Node103> ;
-    ns1:genre "Animation Fantasy" ;
-    ns1:inLanguage "04knVl5Gn" ;
-    ns1:name "劇場版 零〜ゼロ〜" ;
-    sh:description ns1:MovieShape .
+<http://example.org/ns#Node105> a ns1:TVSeries ;
+    ns1:actor <http://example.org/ns#Node107>,
+        <http://example.org/ns#Node108>,
+        <http://example.org/ns#Node109> ;
+    ns1:datePublished "1998-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node106> ;
+    ns1:endDate "2004-07-07"^^xsd:date ;
+    ns1:genre "Romantic Mystery" ;
+    ns1:inLanguage "KAtk5m6VJYyDk" ;
+    ns1:name "Ari Eldjárn: Pardon My Icelandic" ;
+    ns1:numberOfEpisodes 1 ;
+    ns1:numberOfSeasons 13 ;
+    ns1:season 10 ;
+    ns1:startDate "1996-07-07"^^xsd:date ;
+    ns1:titleEIDR "GE3XKWSMZ28WU" ;
+    sh:description ns1:TVSeriesShape .
 
-<http://example.org/ns#Node104> a ns1:Movie ;
-    ns1:award "Cesar Awards" ;
-    ns1:dateCreated "1996-07-07"^^xsd:date ;
-    ns1:datePublished "2016-07-07"^^xsd:date ;
-    ns1:director <http://example.org/ns#Node105> ;
-    ns1:genre "Adventure Romance" ;
-    ns1:inLanguage "zDz7yHOM6WKRk2p" ;
-    ns1:name "Hotel Sahara" ;
-    sh:description ns1:MovieShape .
+<http://example.org/ns#Node110> a ns1:TVSeries ;
+    ns1:actor <http://example.org/ns#Node112>,
+        <http://example.org/ns#Node113>,
+        <http://example.org/ns#Node114> ;
+    ns1:datePublished "1997-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node111> ;
+    ns1:endDate "1991-07-07"^^xsd:date ;
+    ns1:genre "Sport" ;
+    ns1:inLanguage "arSPvHJPQa8L8" ;
+    ns1:name "Merata: How Mum Decolonised the Screen" ;
+    ns1:numberOfEpisodes 51 ;
+    ns1:numberOfSeasons 31 ;
+    ns1:season 23 ;
+    ns1:startDate "1977-07-07"^^xsd:date ;
+    ns1:titleEIDR "21EQ6GSNMX8" ;
+    sh:description ns1:TVSeriesShape .
 
-<http://example.org/ns#Node106> a ns1:Movie ;
-    ns1:award "New York Film Critics Online Awards" ;
-    ns1:dateCreated "1983-07-07"^^xsd:date ;
-    ns1:datePublished "2003-07-07"^^xsd:date ;
-    ns1:director <http://example.org/ns#Node107> ;
-    ns1:genre "Documentary Biography Drama" ;
-    ns1:inLanguage "jene7W2JLdsWbqq" ;
-    ns1:name "We Need to Talk About Kevin" ;
-    sh:description ns1:MovieShape .
+<http://example.org/ns#Node115> a ns1:TVSeries ;
+    ns1:actor <http://example.org/ns#Node117>,
+        <http://example.org/ns#Node118>,
+        <http://example.org/ns#Node119> ;
+    ns1:datePublished "1985-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node116> ;
+    ns1:endDate "2019-07-07"^^xsd:date ;
+    ns1:genre "Historical Romance" ;
+    ns1:inLanguage "pFXhhO8FOd" ;
+    ns1:name "The Stronghold" ;
+    ns1:numberOfEpisodes 7 ;
+    ns1:numberOfSeasons -16 ;
+    ns1:season -33 ;
+    ns1:startDate "2000-07-07"^^xsd:date ;
+    ns1:titleEIDR "FA.ITJ7W" ;
+    sh:description ns1:TVSeriesShape .
 
-<http://example.org/ns#Node108> a ns1:Movie ;
-    ns1:award "Hollywood Film Awards" ;
-    ns1:dateCreated "2004-07-07"^^xsd:date ;
-    ns1:datePublished "2011-07-07"^^xsd:date ;
-    ns1:director <http://example.org/ns#Node109> ;
-    ns1:genre "Biographical Crime" ;
-    ns1:inLanguage "L4kLIvnXIjROe" ;
-    ns1:name "The Broken Tower" ;
-    sh:description ns1:MovieShape .
+<http://example.org/ns#Node120> a ns1:TVSeries ;
+    ns1:actor <http://example.org/ns#Node122>,
+        <http://example.org/ns#Node123>,
+        <http://example.org/ns#Node124> ;
+    ns1:datePublished "2015-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node121> ;
+    ns1:endDate "1989-07-07"^^xsd:date ;
+    ns1:genre "Horror Sci-Fi" ;
+    ns1:inLanguage "vwXlHK7GHWyc" ;
+    ns1:name "Where the Money Is" ;
+    ns1:numberOfEpisodes 40 ;
+    ns1:numberOfSeasons -3 ;
+    ns1:season -9 ;
+    ns1:startDate "2011-07-07"^^xsd:date ;
+    ns1:titleEIDR "1AQNQSZZM91R" ;
+    sh:description ns1:TVSeriesShape .
 
 <http://example.org/ns#Node101> a ns1:Person ;
-    ns1:email "darrin_307@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Darrin" ;
-    ns1:telephone "(621)208-59" ;
+    ns1:email "jacquenette_928@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Jacquenette" ;
+    ns1:telephone "045-818-98426" ;
     sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node102> a ns1:Person ;
+    ns1:email "nanon_198@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Nanon" ;
+    ns1:telephone "940-435-" ;
+    sh:description ns1:ActorShape .
 
 <http://example.org/ns#Node103> a ns1:Person ;
-    ns1:email "socrates_963@gmail.com" ;
+    ns1:email "sandro_138@gmail.com" ;
     ns1:gender "male" ;
-    ns1:givenName "Socrates" ;
-    ns1:telephone "(782)179-8" ;
-    sh:description ns1:DirectorShape .
+    ns1:givenName "Sandro" ;
+    ns1:telephone "102-426-5587346" ;
+    sh:description ns1:ActorShape .
 
-<http://example.org/ns#Node105> a ns1:Person ;
-    ns1:email "pat_246@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Pat" ;
-    ns1:telephone "(481)136-" ;
+<http://example.org/ns#Node104> a ns1:Person ;
+    ns1:email "selinda_424@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Selinda" ;
+    ns1:telephone "136-863-7026" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node106> a ns1:Person ;
+    ns1:email "celesta_814@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Celesta" ;
+    ns1:telephone "035-521-02" ;
     sh:description ns1:DirectorShape .
 
 <http://example.org/ns#Node107> a ns1:Person ;
-    ns1:email "wit_744@gmail.com" ;
+    ns1:email "weider_665@gmail.com" ;
     ns1:gender "male" ;
-    ns1:givenName "Wit" ;
-    ns1:telephone "(292)370-9" ;
-    sh:description ns1:DirectorShape .
+    ns1:givenName "Weider" ;
+    ns1:telephone "575-492-" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node108> a ns1:Person ;
+    ns1:email "odella_675@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Odella" ;
+    ns1:telephone "157-706-19" ;
+    sh:description ns1:ActorShape .
 
 <http://example.org/ns#Node109> a ns1:Person ;
-    ns1:email "viviana_462@gmail.com" ;
+    ns1:email "sholom_627@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Sholom" ;
+    ns1:telephone "058-170-0973140" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node111> a ns1:Person ;
+    ns1:email "rici_850@gmail.com" ;
     ns1:gender "female" ;
-    ns1:givenName "Viviana" ;
-    ns1:telephone "(436)716-636774" ;
+    ns1:givenName "Rici" ;
+    ns1:telephone "992-995-89626" ;
     sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node112> a ns1:Person ;
+    ns1:email "anthe_888@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Anthe" ;
+    ns1:telephone "724-595-352" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node113> a ns1:Person ;
+    ns1:email "charlene_550@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Charlene" ;
+    ns1:telephone "061-423-166446" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node114> a ns1:Person ;
+    ns1:email "rozalie_424@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Rozalie" ;
+    ns1:telephone "425416-9" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node116> a ns1:Person ;
+    ns1:email "andreas_919@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Andreas" ;
+    ns1:telephone "708669-2" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node117> a ns1:Person ;
+    ns1:email "shela_244@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Shela" ;
+    ns1:telephone "829-660-4" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node118> a ns1:Person ;
+    ns1:email "kacie_157@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Kacie" ;
+    ns1:telephone "226799-8322724-" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node119> a ns1:Person ;
+    ns1:email "somerset_548@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Somerset" ;
+    ns1:telephone "962236-0" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node121> a ns1:Person ;
+    ns1:email "riane_358@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Riane" ;
+    ns1:telephone "920047-20" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node122> a ns1:Person ;
+    ns1:email "carissa_495@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Carissa" ;
+    ns1:telephone "329-797-59" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node123> a ns1:Person ;
+    ns1:email "micky_640@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Micky" ;
+    ns1:telephone "493166-3713195-" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node124> a ns1:Person ;
+    ns1:email "cy_189@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Cy" ;
+    ns1:telephone "327351-242658" ;
+    sh:description ns1:ActorShape .
 
