@@ -176,14 +176,14 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
         return dictionary_to_rdf_graph(n, sh_node, result, None, dictionary, [], sh_class)
 
     # check if a predefined value exists for this iteration
-    predefined_value = get_predefined_value(sh_path, sh_class, dependencies)
+    predefined_value = generate_intuitive_value(sh_path, sh_class, dependencies)
     if predefined_value:
         return predefined_value
 
     # return a generated value based on multiple constarints
-    return generate_value(sh_datatype, sh_min_exclusive, sh_min_inclusive, sh_max_exclusive, sh_max_inclusive,
-                          sh_min_length, sh_max_length, sh_pattern, sh_equals, sh_disjoint, sh_less_than,
-                          sh_less_than_or_equals, sh_has_value, sh_path, sh_class)
+    return generate_default_value(sh_datatype, sh_min_exclusive, sh_min_inclusive, sh_max_exclusive, sh_max_inclusive,
+                                  sh_min_length, sh_max_length, sh_pattern, sh_equals, sh_disjoint, sh_less_than,
+                                  sh_less_than_or_equals, sh_has_value, sh_path, sh_class)
 
 
 """
@@ -215,7 +215,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
 """
 
 
-def generate_rdf_graph(shapes_graph, dictionary, number_of_samples):
+def generate_rdf_graphs_from_dictionary(shapes_graph, dictionary, number_of_samples):
     result_graph = Graph()
 
     # Find independent node shapes in the provided shapes_graph
@@ -270,13 +270,14 @@ def generate_rdf_graphs_from_shacl_constraints(shape_file, number):
     # Convert parsed SHACL shapes graph into a dictionary representation
     dictionary = generate_dictionary_from_shapes_graph(shape)
     # Generate RDF graphs conforming to SHACL constraints
-    graph = generate_rdf_graph(shape, dictionary, number)
+    graph = generate_rdf_graphs_from_dictionary(shape, dictionary, number)
     # Return the resulting RDF graph
     return graph
 
-def create_rdf_examples(shape_file, output_file, number):
+
+def generate_rdf(shape_file, output_file, number):
     shape = Graph()
     shape.parse(shape_file)
     dictionary = generate_dictionary_from_shapes_graph(shape)
-    graph = generate_rdf_graph(shape, dictionary, number)
+    graph = generate_rdf_graphs_from_dictionary(shape, dictionary, number)
     graph.serialize(destination=output_file)

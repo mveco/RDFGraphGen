@@ -9,7 +9,7 @@ def main():
     parser.add_argument("instance_no", help="Number of instances that should be generated")
 
     args = parser.parse_args()
-    create_rdf_examples(args.file1, args.file2, int(args.instance_no))
+    generate_rdf(args.file1, args.file2, int(args.instance_no))
 
 
 if __name__ == "__main__":

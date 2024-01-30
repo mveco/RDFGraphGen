@@ -30,12 +30,12 @@ def get_array_from_csv(file_name):
 
 
 schema = 'http://schema.org/'
-values_dict = {'streetAddress': get_array_from_csv('namespaces//street_name.csv'),
-               'givenNameMale': get_array_from_csv('namespaces//male_first_name.csv'),
-               'givenNameFemale': get_array_from_csv('namespaces//female_first_name.csv'),
-               'familyName': get_array_from_csv('namespaces//surnames.csv'),
+dataset_dictionary = {'streetAddress': get_array_from_csv('datasets//street_name.csv'),
+               'givenNameMale': get_array_from_csv('datasets//male_first_name.csv'),
+               'givenNameFemale': get_array_from_csv('datasets//female_first_name.csv'),
+               'familyName': get_array_from_csv('datasets//surnames.csv'),
                'gender': ['male', 'female', 'non-binary'],
-               'jobTitle': get_array_from_csv('namespaces//job_title.csv'),
+               'jobTitle': get_array_from_csv('datasets//job_title.csv'),
                'bookAward': ["Nobel Prize in Literature", "Pulitzer Prize", "Man Booker Prize", "National Book Award",
                              "Caldecott Medal", "Newbery Medal", "Hugo Award", "Nebula Award",
                              "National Book Critics Circle Award", "PEN/Faulkner Award for Fiction",
@@ -44,13 +44,13 @@ values_dict = {'streetAddress': get_array_from_csv('namespaces//street_name.csv'
                              "The Agatha Awards", "The James Tait Black Memorial Prize",
                              "The National Poetry Series", "The Bram Stoker Awards", "The Cervantes Prize",
                              "The O. Henry Awards"],
-               'bookGenre': get_array_from_csv('namespaces//book_genre.csv'),
-               'bookTitle': get_array_from_csv("namespaces//book_titles.csv"),
-               'movieGenre': get_array_from_csv('namespaces/movie_genre.csv'),
-               'movieAward': get_array_from_csv('namespaces/movie_awards.csv'),
-               'movieTitle': get_array_from_csv('namespaces//movie_titles.csv'),
-               'tvSeriesTitle': get_array_from_csv('namespaces//tvseries_titles.csv')
-               }
+                      'bookGenre': get_array_from_csv('datasets//book_genre.csv'),
+                      'bookTitle': get_array_from_csv("datasets//book_titles.csv"),
+                      'movieGenre': get_array_from_csv('datasets/movie_genre.csv'),
+                      'movieAward': get_array_from_csv('datasets/movie_awards.csv'),
+                      'movieTitle': get_array_from_csv('datasets//movie_titles.csv'),
+                      'tvSeriesTitle': get_array_from_csv('datasets//tvseries_titles.csv')
+                      }
 
 
 def getBookFormat():
@@ -208,8 +208,8 @@ def generate_string(min_length, max_length, pattern):
 """
 
 
-def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
-                   pattern, equals, disjoint, less_than, less_than_or_equals, has_value, path, sh_class):
+def generate_default_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
+                           pattern, equals, disjoint, less_than, less_than_or_equals, has_value, path, sh_class):
     # Extract the class and property path from URIs
     cl = str(sh_class).split('/')[-1]
     path = str(path).split('/')[-1]
@@ -291,7 +291,7 @@ def generate_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_in
 """
 
 
-def get_predefined_value(sh_path, sh_class, dependencies):
+def generate_intuitive_value(sh_path, sh_class, dependencies):
     # Extract specific property and class
     prop = str(sh_path).split('/')[-1]
     cl = str(sh_class).split('/')[-1]
@@ -307,11 +307,11 @@ def get_predefined_value(sh_path, sh_class, dependencies):
             # Generate predefined value based on gender dependency
             gender = str(dependencies.get(gender, ["none"])[0])
             if gender in ('female', 'f', 'fem'):
-                return Literal(random.choice(values_dict.get('givenNameFemale')))
+                return Literal(random.choice(dataset_dictionary.get('givenNameFemale')))
             elif gender in ('male', 'm'):
-                return Literal(random.choice(values_dict.get('givenNameMale')))
+                return Literal(random.choice(dataset_dictionary.get('givenNameMale')))
             else:
-                return Literal(random.choice(values_dict.get('givenNameMale') + values_dict.get('givenNameFemale')))
+                return Literal(random.choice(dataset_dictionary.get('givenNameMale') + dataset_dictionary.get('givenNameFemale')))
 
         if prop == 'email':
             given_name = dependencies.get(given_name)
@@ -331,34 +331,34 @@ def get_predefined_value(sh_path, sh_class, dependencies):
 
         # Handle other properties for Person class
         if prop == 'familyName':
-            return Literal(random.choice(values_dict.get('familyName')))
+            return Literal(random.choice(dataset_dictionary.get('familyName')))
         if prop == 'name':
             gender = str(dependencies.get(gender, ["none"])[0])
             if gender == 'female':
-                return Literal(random.choice(values_dict.get('givenNameFemale')) + " " + random.choice(
-                    values_dict.get('familyName')))
+                return Literal(random.choice(dataset_dictionary.get('givenNameFemale')) + " " + random.choice(
+                    dataset_dictionary.get('familyName')))
             elif gender == 'male':
-                return Literal(random.choice(values_dict.get('givenNameMale')) + " " + random.choice(
-                    values_dict.get('familyName')))
+                return Literal(random.choice(dataset_dictionary.get('givenNameMale')) + " " + random.choice(
+                    dataset_dictionary.get('familyName')))
             else:
-                return Literal(random.choice(values_dict.get('givenNameMale') + values_dict.get('givenNameFemale')) +
-                               " " + random.choice(values_dict.get('familyName')))
+                return Literal(random.choice(dataset_dictionary.get('givenNameMale') + dataset_dictionary.get('givenNameFemale')) +
+                               " " + random.choice(dataset_dictionary.get('familyName')))
         if prop == 'streetAddress':
-            return Literal("no. " + str(random.randint(1, 100)) + " " + random.choice(values_dict.get('streetAddress')))
+            return Literal("no. " + str(random.randint(1, 100)) + " " + random.choice(dataset_dictionary.get('streetAddress')))
         if prop == 'gender':
-            return Literal(random.choice(values_dict.get('gender')))
+            return Literal(random.choice(dataset_dictionary.get('gender')))
         if prop == 'jobTitle':
-            return Literal(random.choice(values_dict.get('jobTitle')))
+            return Literal(random.choice(dataset_dictionary.get('jobTitle')))
 
     # Handle cases for Book class
     elif cl == 'Book':
         # Handle properties for Book class
         if prop == 'name':
-            return Literal(random.choice(values_dict.get("bookTitle")))
+            return Literal(random.choice(dataset_dictionary.get("bookTitle")))
         if prop == 'award':
-            return Literal(random.choice(values_dict.get('bookAward')))
+            return Literal(random.choice(dataset_dictionary.get('bookAward')))
         if prop == 'genre':
-            return Literal(random.choice(values_dict.get('bookGenre')))
+            return Literal(random.choice(dataset_dictionary.get('bookGenre')))
         if prop == 'bookEdition':
             return getBookFormat()
 
@@ -366,18 +366,18 @@ def get_predefined_value(sh_path, sh_class, dependencies):
     elif cl == "Movie":
         # Handle properties for Movie class
         if prop == 'name':
-            return Literal(random.choice(values_dict.get("movieTitle")))
+            return Literal(random.choice(dataset_dictionary.get("movieTitle")))
         if prop == 'award':
-            return Literal(random.choice(values_dict.get('movieAward')))
+            return Literal(random.choice(dataset_dictionary.get('movieAward')))
         if prop == 'genre':
-            return Literal(random.choice(values_dict.get('movieGenre')))
+            return Literal(random.choice(dataset_dictionary.get('movieGenre')))
 
     # Handle cases for TVSeries class
     elif cl == "TVSeries":
         # Handle properties for TVSeries class
         if prop == 'name':
-            return Literal(random.choice(values_dict.get("tvSeriesTitle")))
+            return Literal(random.choice(dataset_dictionary.get("tvSeriesTitle")))
         if prop == 'genre':
-            return Literal(random.choice(values_dict.get('movieGenre')))
+            return Literal(random.choice(dataset_dictionary.get('movieGenre')))
 
     return None
