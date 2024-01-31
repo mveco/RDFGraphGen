@@ -6,6 +6,7 @@ from exrex import _randone
 from rdflib import XSD, Literal, URIRef
 from datetime import date
 from dateutil.relativedelta import relativedelta
+import pkg_resources
 
 """
 Reads data from a CSV file and returns the content as a list of values.
@@ -20,6 +21,11 @@ list: A list containing the values read from the CSV file.
 """
 
 
+def get_path(file_name):
+    file_path = pkg_resources.resource_filename('rdf_shacl_generator', f'datasets/{file_name}')
+    return file_path
+
+
 def get_array_from_csv(file_name):
     results = []  # Initialize an empty list to store the values
     with open(file_name, encoding='utf-8') as csvfile:
@@ -30,12 +36,12 @@ def get_array_from_csv(file_name):
 
 
 schema = 'http://schema.org/'
-dataset_dictionary = {'streetAddress': get_array_from_csv('./rdf_shacl_generator/datasets/street_name.csv'),
-                      'givenNameMale': get_array_from_csv('./rdf_shacl_generator/datasets/male_first_name.csv'),
-                      'givenNameFemale': get_array_from_csv('./rdf_shacl_generator/datasets/female_first_name.csv'),
-                      'familyName': get_array_from_csv('./rdf_shacl_generator/datasets/surnames.csv'),
+dataset_dictionary = {'streetAddress': get_array_from_csv(get_path("street_name.csv")),
+                      'givenNameMale': get_array_from_csv(get_path("male_first_name.csv")),
+                      'givenNameFemale': get_array_from_csv(get_path("female_first_name.csv")),
+                      'familyName': get_array_from_csv(get_path("surnames.csv")),
                       'gender': ['male', 'female', 'non-binary'],
-                      'jobTitle': get_array_from_csv('./rdf_shacl_generator/datasets/job_title.csv'),
+                      'jobTitle': get_array_from_csv(get_path("job_title.csv")),
                       'bookAward': ["Nobel Prize in Literature", "Pulitzer Prize", "Man Booker Prize",
                                     "National Book Award",
                                     "Caldecott Medal", "Newbery Medal", "Hugo Award", "Nebula Award",
@@ -45,12 +51,12 @@ dataset_dictionary = {'streetAddress': get_array_from_csv('./rdf_shacl_generator
                                     "The Agatha Awards", "The James Tait Black Memorial Prize",
                                     "The National Poetry Series", "The Bram Stoker Awards", "The Cervantes Prize",
                                     "The O. Henry Awards"],
-                      'bookGenre': get_array_from_csv('./rdf_shacl_generator/datasets/book_genre.csv'),
-                      'bookTitle': get_array_from_csv("./rdf_shacl_generator/datasets/book_titles.csv"),
-                      'movieGenre': get_array_from_csv('./rdf_shacl_generator/datasets/movie_genre.csv'),
-                      'movieAward': get_array_from_csv('./rdf_shacl_generator/datasets/movie_awards.csv'),
-                      'movieTitle': get_array_from_csv('./rdf_shacl_generator/datasets/movie_titles.csv'),
-                      'tvSeriesTitle': get_array_from_csv('./rdf_shacl_generator/datasets/tvseries_titles.csv')
+                      'bookGenre': get_array_from_csv(get_path("book_genre.csv")),
+                      'bookTitle': get_array_from_csv(get_path("book_titles.csv")),
+                      'movieGenre': get_array_from_csv(get_path("movie_genre.csv")),
+                      'movieAward': get_array_from_csv(get_path("movie_awards.csv")),
+                      'movieTitle': get_array_from_csv(get_path("movie_titles.csv")),
+                      'tvSeriesTitle': get_array_from_csv(get_path("tvseries_titles.csv"))
                       }
 
 
