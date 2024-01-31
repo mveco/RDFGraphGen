@@ -30,12 +30,12 @@ def get_array_from_csv(file_name):
 
 
 schema = 'http://schema.org/'
-dataset_dictionary = {'streetAddress': get_array_from_csv('datasets//street_name.csv'),
-               'givenNameMale': get_array_from_csv('datasets//male_first_name.csv'),
-               'givenNameFemale': get_array_from_csv('datasets//female_first_name.csv'),
-               'familyName': get_array_from_csv('datasets//surnames.csv'),
+dataset_dictionary = {'streetAddress': get_array_from_csv('datasets/street_name.csv'),
+               'givenNameMale': get_array_from_csv('datasets/male_first_name.csv'),
+               'givenNameFemale': get_array_from_csv('datasets/female_first_name.csv'),
+               'familyName': get_array_from_csv('datasets/surnames.csv'),
                'gender': ['male', 'female', 'non-binary'],
-               'jobTitle': get_array_from_csv('datasets//job_title.csv'),
+               'jobTitle': get_array_from_csv('datasets/job_title.csv'),
                'bookAward': ["Nobel Prize in Literature", "Pulitzer Prize", "Man Booker Prize", "National Book Award",
                              "Caldecott Medal", "Newbery Medal", "Hugo Award", "Nebula Award",
                              "National Book Critics Circle Award", "PEN/Faulkner Award for Fiction",
@@ -44,12 +44,12 @@ dataset_dictionary = {'streetAddress': get_array_from_csv('datasets//street_name
                              "The Agatha Awards", "The James Tait Black Memorial Prize",
                              "The National Poetry Series", "The Bram Stoker Awards", "The Cervantes Prize",
                              "The O. Henry Awards"],
-                      'bookGenre': get_array_from_csv('datasets//book_genre.csv'),
-                      'bookTitle': get_array_from_csv("datasets//book_titles.csv"),
+                      'bookGenre': get_array_from_csv('datasets/book_genre.csv'),
+                      'bookTitle': get_array_from_csv("datasets/book_titles.csv"),
                       'movieGenre': get_array_from_csv('datasets/movie_genre.csv'),
                       'movieAward': get_array_from_csv('datasets/movie_awards.csv'),
-                      'movieTitle': get_array_from_csv('datasets//movie_titles.csv'),
-                      'tvSeriesTitle': get_array_from_csv('datasets//tvseries_titles.csv')
+                      'movieTitle': get_array_from_csv('datasets/movie_titles.csv'),
+                      'tvSeriesTitle': get_array_from_csv('datasets/tvseries_titles.csv')
                       }
 
 
