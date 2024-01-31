@@ -1,0 +1,56 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+schema:MovieShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Movie;
+    sh:property [
+        sh:path schema:director;
+        sh:node schema:DirectorShape ;
+    ] ;
+    sh:property [
+        sh:path schema:award ;
+    ] ;
+    sh:property [
+        sh:path schema:name ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path schema:dateCreated ;
+        sh:datatype xsd:date;
+
+    ] ;
+    sh:property [
+        sh:path schema:datePublished ;
+    ] ;
+    sh:property [
+        sh:path schema:genre ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path schema:inLanguage ;
+        sh:minCount 1 ;
+    ] .
+
+schema:DirectorShape
+  sh:targetClass schema:Person ;
+  a sh:NodeShape ;
+  sh:property [
+      sh:path schema:givenName ;
+      sh:datatype xsd:string ;
+      sh:name "given name" ;
+    ] ;
+    sh:property [
+        sh:path schema:gender ;
+        sh:in ( "female" "male" ) ;
+    ] ;
+    sh:property [
+        sh:path schema:email ;
+    ] ;
+        sh:property [
+        sh:path schema:telephone ;
+    ] .

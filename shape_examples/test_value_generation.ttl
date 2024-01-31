@@ -1,0 +1,89 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.com/ns#> .
+
+schema:PersonShape
+    a sh:NodeShape ;
+#test date functionality
+    sh:property [
+        sh:path ex:date1 ;
+        sh:lessThan ex:date2 ;
+    ] ;
+        sh:property [
+        sh:path ex:date3 ;
+        sh:lessThanOrEquals ex:date2 ;
+    ] ;
+    sh:property [
+        sh:path ex:date2 ;
+        sh:minInclusive "2007-02-10"^^xsd:date ;
+        sh:maxInclusive "2007-02-10"^^xsd:date ;
+    ] ;
+    sh:property [
+        sh:path ex:date4 ;
+        sh:maxExclusive "2007-02-02"^^xsd:date ;
+        sh:minInclusive "2007-02-01"^^xsd:date ;
+    ] ;
+    sh:property [
+        sh:path ex:date5 ;
+        sh:maxExclusive "2007-02-02"^^xsd:date ;
+        sh:minExclusive "2007-01-01"^^xsd:date ;
+    ] ;
+#test integer functionality
+    sh:property [
+        sh:path ex:integer1;
+        sh:datatype xsd:integer;
+        sh:lessThan ex:integer2 ;
+    ] ;
+    sh:property [
+        sh:path ex:integer2 ;
+        sh:datatype xsd:integer;
+        sh:minInclusive 2 ;
+        sh:maxInclusive 2 ;
+    ] ;
+    sh:property [
+        sh:path ex:integer3 ;
+        sh:datatype xsd:integer;
+        sh:minExclusive 0 ;
+        sh:maxInclusive 2 ;
+    ] ;
+#test float functionality
+    sh:property [
+        sh:path ex:decimal1;
+        sh:datatype xsd:decimal;
+        sh:lessThan ex:decimal2 ;
+    ] ;
+    sh:property [
+        sh:path ex:decimal2 ;
+        sh:datatype xsd:decimal;
+        sh:minInclusive 2 ;
+        sh:maxInclusive 2 ;
+    ] ;
+    sh:property [
+        sh:path ex:decimal3 ;
+        sh:datatype xsd:decimal;
+        sh:minExclusive 2 ;
+        sh:maxInclusive 4 ;
+    ] ;
+#test string functionality
+    sh:property [
+        sh:path ex:string1 ;
+        sh:datatype xsd:string;
+        sh:minLength 10;
+        sh:maxLength 10;
+    ] ;
+    sh:property [
+        sh:path ex:string2 ;
+        sh:datatype xsd:string;
+        sh:pattern '^([a-z])*' ;
+        sh:minLength 4;
+        sh:maxLength 5;
+    ] ;
+    sh:property [
+        sh:path ex:string3 ;
+        sh:datatype xsd:string;
+        sh:pattern '^([a-z])*' ;
+    ] .

@@ -1,0 +1,103 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+schema:TVSeriesShape
+    a sh:NodeShape ;
+    sh:targetClass schema:TVSeries;
+    sh:property [
+        sh:path schema:director;
+        sh:node schema:DirectorShape ;
+    ] ;
+    sh:property [
+        sh:path schema:actor;
+        sh:node schema:ActorShape ;
+        sh:minCount 3 ;
+    ] ;
+    sh:property [
+        sh:path schema:season ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:lessThanOrEquals schema:numberOfSeasons ;
+        sh:minInclusive 0 ;
+    ] ;
+    sh:property [
+        sh:path schema:numberOfEpisodes ;
+        sh:maxCount 1 ;
+        sh:minInclusive 0 ;
+    ] ;
+        sh:property [
+        sh:path schema:numberOfSeasons ;
+        sh:lessThan schema:numberOfEpisodes ;
+        sh:maxCount 1 ;
+        sh:minInclusive 0 ;
+    ] ;
+    sh:property [
+        sh:path schema:titleEIDR ;
+        sh:datatype xsd:string ;
+        sh:pattern '[A-Z1-9.-/]{10,20}';
+    ] ;
+    sh:property [
+        sh:path schema:name ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path schema:startDate ;
+        sh:datatype xsd:date;
+    ] ;
+        sh:property [
+        sh:path schema:endDate ;
+        sh:datatype xsd:date;
+    ] ;
+    sh:property [
+        sh:path schema:datePublished ;
+    ] ;
+    sh:property [
+        sh:path schema:genre ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path schema:inLanguage ;
+        sh:minCount 1 ;
+    ] .
+
+schema:DirectorShape
+  sh:targetClass schema:Person ;
+  a sh:NodeShape ;
+  sh:property [
+      sh:path schema:givenName ;
+      sh:datatype xsd:string ;
+      sh:name "given name" ;
+    ] ;
+    sh:property [
+        sh:path schema:gender ;
+        sh:in ( "female" "male" ) ;
+    ] ;
+    sh:property [
+        sh:path schema:email ;
+    ] ;
+    sh:property [
+        sh:path schema:telephone ;
+    ] .
+
+schema:ActorShape
+  sh:targetClass schema:Person ;
+  a sh:NodeShape ;
+  sh:property [
+      sh:path schema:givenName ;
+      sh:datatype xsd:string ;
+      sh:name "given name" ;
+    ] ;
+    sh:property [
+        sh:path schema:gender ;
+        sh:in ( "female" "male" ) ;
+    ] ;
+    sh:property [
+        sh:path schema:email ;
+    ] ;
+    sh:property [
+        sh:path schema:telephone ;
+    ] .
