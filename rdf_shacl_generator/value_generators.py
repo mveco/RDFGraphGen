@@ -30,26 +30,27 @@ def get_array_from_csv(file_name):
 
 
 schema = 'http://schema.org/'
-dataset_dictionary = {'streetAddress': get_array_from_csv('datasets/street_name.csv'),
-               'givenNameMale': get_array_from_csv('datasets/male_first_name.csv'),
-               'givenNameFemale': get_array_from_csv('datasets/female_first_name.csv'),
-               'familyName': get_array_from_csv('datasets/surnames.csv'),
-               'gender': ['male', 'female', 'non-binary'],
-               'jobTitle': get_array_from_csv('datasets/job_title.csv'),
-               'bookAward': ["Nobel Prize in Literature", "Pulitzer Prize", "Man Booker Prize", "National Book Award",
-                             "Caldecott Medal", "Newbery Medal", "Hugo Award", "Nebula Award",
-                             "National Book Critics Circle Award", "PEN/Faulkner Award for Fiction",
-                             "Costa Book Awards",
-                             "The Giller Prize", "The Women's Prize for Fiction", "The Edgar Allan Poe Awards",
-                             "The Agatha Awards", "The James Tait Black Memorial Prize",
-                             "The National Poetry Series", "The Bram Stoker Awards", "The Cervantes Prize",
-                             "The O. Henry Awards"],
-                      'bookGenre': get_array_from_csv('datasets/book_genre.csv'),
-                      'bookTitle': get_array_from_csv("datasets/book_titles.csv"),
-                      'movieGenre': get_array_from_csv('datasets/movie_genre.csv'),
-                      'movieAward': get_array_from_csv('datasets/movie_awards.csv'),
-                      'movieTitle': get_array_from_csv('datasets/movie_titles.csv'),
-                      'tvSeriesTitle': get_array_from_csv('datasets/tvseries_titles.csv')
+dataset_dictionary = {'streetAddress': get_array_from_csv('./rdf_shacl_generator/datasets/street_name.csv'),
+                      'givenNameMale': get_array_from_csv('./rdf_shacl_generator/datasets/male_first_name.csv'),
+                      'givenNameFemale': get_array_from_csv('./rdf_shacl_generator/datasets/female_first_name.csv'),
+                      'familyName': get_array_from_csv('./rdf_shacl_generator/datasets/surnames.csv'),
+                      'gender': ['male', 'female', 'non-binary'],
+                      'jobTitle': get_array_from_csv('./rdf_shacl_generator/datasets/job_title.csv'),
+                      'bookAward': ["Nobel Prize in Literature", "Pulitzer Prize", "Man Booker Prize",
+                                    "National Book Award",
+                                    "Caldecott Medal", "Newbery Medal", "Hugo Award", "Nebula Award",
+                                    "National Book Critics Circle Award", "PEN/Faulkner Award for Fiction",
+                                    "Costa Book Awards",
+                                    "The Giller Prize", "The Women's Prize for Fiction", "The Edgar Allan Poe Awards",
+                                    "The Agatha Awards", "The James Tait Black Memorial Prize",
+                                    "The National Poetry Series", "The Bram Stoker Awards", "The Cervantes Prize",
+                                    "The O. Henry Awards"],
+                      'bookGenre': get_array_from_csv('./rdf_shacl_generator/datasets/book_genre.csv'),
+                      'bookTitle': get_array_from_csv("./rdf_shacl_generator/datasets/book_titles.csv"),
+                      'movieGenre': get_array_from_csv('./rdf_shacl_generator/datasets/movie_genre.csv'),
+                      'movieAward': get_array_from_csv('./rdf_shacl_generator/datasets/movie_awards.csv'),
+                      'movieTitle': get_array_from_csv('./rdf_shacl_generator/datasets/movie_titles.csv'),
+                      'tvSeriesTitle': get_array_from_csv('./rdf_shacl_generator/datasets/tvseries_titles.csv')
                       }
 
 
@@ -311,7 +312,8 @@ def generate_intuitive_value(sh_path, sh_class, dependencies):
             elif gender in ('male', 'm'):
                 return Literal(random.choice(dataset_dictionary.get('givenNameMale')))
             else:
-                return Literal(random.choice(dataset_dictionary.get('givenNameMale') + dataset_dictionary.get('givenNameFemale')))
+                return Literal(
+                    random.choice(dataset_dictionary.get('givenNameMale') + dataset_dictionary.get('givenNameFemale')))
 
         if prop == 'email':
             given_name = dependencies.get(given_name)
@@ -341,10 +343,12 @@ def generate_intuitive_value(sh_path, sh_class, dependencies):
                 return Literal(random.choice(dataset_dictionary.get('givenNameMale')) + " " + random.choice(
                     dataset_dictionary.get('familyName')))
             else:
-                return Literal(random.choice(dataset_dictionary.get('givenNameMale') + dataset_dictionary.get('givenNameFemale')) +
-                               " " + random.choice(dataset_dictionary.get('familyName')))
+                return Literal(
+                    random.choice(dataset_dictionary.get('givenNameMale') + dataset_dictionary.get('givenNameFemale')) +
+                    " " + random.choice(dataset_dictionary.get('familyName')))
         if prop == 'streetAddress':
-            return Literal("no. " + str(random.randint(1, 100)) + " " + random.choice(dataset_dictionary.get('streetAddress')))
+            return Literal(
+                "no. " + str(random.randint(1, 100)) + " " + random.choice(dataset_dictionary.get('streetAddress')))
         if prop == 'gender':
             return Literal(random.choice(dataset_dictionary.get('gender')))
         if prop == 'jobTitle':

@@ -1,8 +1,8 @@
 from copy import deepcopy
 from rdflib import Graph, BNode
 
-from value_generators import *
-from shacl_mapping_generator import *
+from rdf_shacl_generator.shacl_mapping_generator import *
+from rdf_shacl_generator.value_generators import *
 
 COUNTER = 100
 
