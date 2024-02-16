@@ -10,11 +10,11 @@ schema:BookShape
     sh:property [
         sh:path schema:identifier ;
         sh:maxCount 1 ;
+        sh:pattern '^[a-z]{4}[0-9]{4}$'
     ] ;
     sh:property [
         sh:path schema:name ;
         sh:datatype xsd:string ;
-        sh:minCount 1 ;
     ] ;
     sh:property [
         sh:path schema:bookEdition ;
@@ -27,11 +27,13 @@ schema:BookShape
     ] ;
     sh:property [
         sh:path schema:numberOfPages ;
+        sh:minInclusive 100;
     ] ;
     sh:property [
         sh:path schema:author;
         sh:node schema:AuthorShape ;
         sh:minCount 1 ;
+        sh:maxCount 3 ;
     ] ;
     sh:property [
         sh:path schema:dateCreated ;
@@ -43,8 +45,8 @@ schema:BookShape
     ] ;
     sh:property [
         sh:path schema:genre ;
-        sh:minCount 3 ;
-        sh:maxCount 8 ;
+        sh:minCount 2 ;
+        sh:maxCount 4 ;
         sh:description "Each book has to have at least 3 genres, and a maximum of 8 genres(Test purpoes)" ;
     ] ;
     sh:property [
@@ -52,7 +54,7 @@ schema:BookShape
     ];
     sh:property [
         sh:path schema:inLanguage ;
-        sh:minCount 1 ;
+        sh:in ("en-USA" "en-UK" )
     ] .
 
 schema:AuthorShape

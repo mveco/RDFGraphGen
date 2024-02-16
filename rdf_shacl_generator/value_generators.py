@@ -42,15 +42,7 @@ dataset_dictionary = {'streetAddress': get_array_from_csv(get_path("street_name.
                       'familyName': get_array_from_csv(get_path("surnames.csv")),
                       'gender': ['male', 'female', 'non-binary'],
                       'jobTitle': get_array_from_csv(get_path("job_title.csv")),
-                      'bookAward': ["Nobel Prize in Literature", "Pulitzer Prize", "Man Booker Prize",
-                                    "National Book Award",
-                                    "Caldecott Medal", "Newbery Medal", "Hugo Award", "Nebula Award",
-                                    "National Book Critics Circle Award", "PEN/Faulkner Award for Fiction",
-                                    "Costa Book Awards",
-                                    "The Giller Prize", "The Women's Prize for Fiction", "The Edgar Allan Poe Awards",
-                                    "The Agatha Awards", "The James Tait Black Memorial Prize",
-                                    "The National Poetry Series", "The Bram Stoker Awards", "The Cervantes Prize",
-                                    "The O. Henry Awards"],
+                      'bookAward': get_array_from_csv(get_path("book_awards.csv")),
                       'bookGenre': get_array_from_csv(get_path("book_genre.csv")),
                       'bookTitle': get_array_from_csv(get_path("book_titles.csv")),
                       'movieGenre': get_array_from_csv(get_path("movie_genre.csv")),
@@ -217,9 +209,26 @@ def generate_string(min_length, max_length, pattern):
 
 def generate_default_value(datatype, min_exclusive, min_inclusive, max_exclusive, max_inclusive, min_length, max_length,
                            pattern, equals, disjoint, less_than, less_than_or_equals, has_value, path, sh_class):
+
+    # Return specified value if 'equals' constraint is present
+    if equals:
+        return equals
+
     # Extract the class and property path from URIs
     cl = str(sh_class).split('/')[-1]
     path = str(path).split('/')[-1]
+
+    # Apply default datatype and pattern for certain property paths
+    if ('date' in path or 'Date' in path) and not datatype:
+        datatype = XSD.date
+    elif ('number' in path or 'Number' in path) and not datatype:
+        datatype = XSD.integer
+
+    # Apply default patterns for certain property paths
+    elif 'email' in path and not pattern:
+        pattern = '([a-z0-9]+[_])*[A-Za-z0-9]@gmail.com'
+    elif 'telephone' in path and not pattern:
+        pattern = '^(([0-9]{3})|[0-9]{3}-)[0-9]{3}-[0-9]{4}$'
 
     # Special handling for certain properties and their constraints
     if cl == 'Person':
@@ -236,22 +245,6 @@ def generate_default_value(datatype, min_exclusive, min_inclusive, max_exclusive
             datatype = XSD.boolean
         elif 'bookEdition' in path and not datatype:
             datatype = XSD.integer
-
-    # Apply default datatype and pattern for certain property paths
-    if ('date' in path or 'Date' in path) and not datatype:
-        datatype = XSD.date
-    if ('number' in path or 'Number' in path) and not datatype:
-        datatype = XSD.integer
-
-    # Apply default patterns for certain property paths
-    elif 'email' in path and not pattern:
-        pattern = '([a-z0-9]+[_])*[A-Za-z0-9]@gmail.com'
-    elif 'telephone' in path and not pattern:
-        pattern = '^(([0-9]{3})|[0-9]{3}-)[0-9]{3}-[0-9]{4}$'
-
-    # Return specified value if 'equals' constraint is present
-    if equals:
-        return equals
 
     # Generate values based on datatype and constraints
     if datatype == XSD.integer:
