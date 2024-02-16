@@ -87,7 +87,7 @@ def generate_date(min_exclusive, min_inclusive, max_exclusive, max_inclusive, le
             date.fromisoformat(max_exclusive), 0, 0, -1)
     if less_than_or_equals and len(less_than_or_equals) > 0:
         max_date = date.fromisoformat(min(less_than_or_equals))
-    elif less_than and len(less_than) > 0:
+    if less_than and len(less_than) > 0:
         max_date = date.fromisoformat(min(less_than))
     if max_date:
         if min_date:
@@ -112,7 +112,7 @@ def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
         max_int = int(max_inclusive) if max_inclusive else int(max_exclusive) - 1
     if less_than_or_equals and len(less_than_or_equals) > 0:
         max_int = int(min(less_than_or_equals))
-    elif less_than and len(less_than) > 0:
+    if less_than and len(less_than) > 0:
         max_int = int(min(less_than) - 1)
     if max_int:
         if min_int:
@@ -137,7 +137,7 @@ def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
         max_float = float(max_inclusive) if max_inclusive else math.nextafter(float(max_exclusive), -math.inf)
     if less_than_or_equals and len(less_than_or_equals) > 0:
         max_float = float(min(less_than_or_equals))
-    elif less_than and len(less_than) > 0:
+    if less_than and len(less_than) > 0:
         max_float = math.nextafter(float(min(less_than)), -math.inf)
     if max_float:
         if min_float:
