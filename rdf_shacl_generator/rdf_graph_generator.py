@@ -41,14 +41,14 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
         # as SH.description add the name of the shape that this node was generated from
         result.add((node, SH.description, shape_name))
 
-    sh_class = shape_dictionary.get(SH.targetClass, shape_dictionary.get(URIRef(SH + "class")))
+    sh_class = shape_dictionary.get(SH.targetClass, shape_dictionary.get(URIRef(SH['class'])))
     if sh_class:
         result.add((node, RDF.type, sh_class))
     else:
         sh_class = parent_class
 
     # if there is a sh:xone for this dict, choose one of the choices and merge it with the existing properties
-    sh_xone = shape_dictionary.get(URIRef(SH + "xone"))
+    sh_xone = shape_dictionary.get(URIRef(SH['xone']))
     if sh_xone:
         shape_dictionary = deepcopy(shape_dictionary)
         choice = random.choice(sh_xone)
@@ -58,7 +58,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
         update_dictionary(shape_dictionary, choice)
 
     # if there is a sh:and for this dict, merge all the choices  with the existing properties
-    sh_and = shape_dictionary.get(URIRef(SH + "and"))
+    sh_and = shape_dictionary.get(URIRef(SH['and']))
     if sh_and:
         shape_dictionary = deepcopy(shape_dictionary)
         for choice in sh_and:
@@ -68,7 +68,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
             update_dictionary(shape_dictionary, choice)
 
     # if there is a sh:or for this dict, choose some of the choices and merge it with the existing properties
-    sh_or = shape_dictionary.get(URIRef(SH + "or"))
+    sh_or = shape_dictionary.get(URIRef(SH['or']))
     if sh_or:
         shape_dictionary = deepcopy(shape_dictionary)
         len_choices = len(sh_or)
@@ -217,6 +217,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
 
 def generate_rdf_graphs_from_dictionary(shapes_graph, dictionary, number_of_samples):
     result_graph = Graph()
+    result_graph.bind("sch", SCH)
 
     # Find independent node shapes in the provided shapes_graph
     independent_node_shapes = find_independent_node_shapes(shapes_graph)

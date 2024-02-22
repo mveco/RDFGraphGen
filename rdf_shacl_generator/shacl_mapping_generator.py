@@ -1,7 +1,6 @@
-from rdflib import SH, RDF, URIRef
+from rdflib import SH, RDF, URIRef, Namespace
 
-schema = 'http://schema.org/'
-
+SCH = Namespace("http://schema.org/")
 """
 Function Explanation:
 ---------------------
@@ -234,11 +233,11 @@ def shape_to_dictionary(shape, shapes_graph, property_pair_constraint_components
             # Update the sh_properties dictionary with the updated property dictionary
             sh_properties[property_path] = property_dict
 
-        elif p == URIRef(SH + "in"):
+        elif p == URIRef(SH['in']):
             # Handle SH:in property
             shape_dictionary[p] = get_list_from_shacl_list(o, shapes_graph)
 
-        elif p in {URIRef(SH + "or"), URIRef(SH + "and"), URIRef(SH + "xone"), URIRef(SH + "not")}:
+        elif p in {URIRef(SH['or']), URIRef(SH['and']), URIRef(SH['xone']), URIRef(SH['not'])}:
             # Handle SH:or, SH:and, SH:xone, SH:not properties
             shape_dictionary[p] = get_dict_list_from_shacl_list(o, shapes_graph,
                                                                 property_pair_constraint_components_parent)
@@ -331,17 +330,15 @@ def define_dependencies(dictionary):
     properties = dictionary.get("properties")
 
     if t_class:
-        # Extract the last segment of the target class URI as a string
-        cl = str(t_class).split('/')[-1]
 
         # Check if the target class is 'Person'
-        if cl == 'Person':
+        if t_class == SCH.Person:
             # Define URIs for specific properties
-            gender = URIRef(schema + 'gender')
-            given_name = URIRef(schema + 'givenName')
-            family_name = URIRef(schema + 'familyName')
-            name = URIRef(schema + 'name')
-            email = URIRef(schema + 'email')
+            gender = URIRef(SCH.gender)
+            given_name = URIRef(SCH.givenName)
+            family_name = URIRef(SCH.familyName)
+            name = URIRef(SCH.name)
+            email = URIRef(SCH.email)
 
             # Retrieve dictionaries for each property
             gender_dict = properties.get(gender)
