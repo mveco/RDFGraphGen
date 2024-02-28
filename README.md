@@ -1,22 +1,26 @@
 
-#Synthetic RDF graph generator based on SHACL constraints.
+# Synthetic RDF graph generator based on SHACL constraints.
 
-###rdf_shacl_generator is a Python package that can be used to generate RDF graphs based on SHACL constraints.
+### rdf_shacl_generator is a Python package that can be used to generate RDF graphs based on SHACL constraints.
 
 The following function can be used to generate RDF data:
+
 __generate_rdf(file1, file2, number_of_entities)__
 - file1 is a turtle file that contains SHACL shapes.
 - file2 is a turtle file that will store the generated RDF entities
 - number_of_entities is the number of RDF entities to be generated.
 
 Link on PyPi: https://pypi.org/project/rdf-shacl-generator/
+
 Installation: 
+
 ```pip install rdf-shacl-generator```
 
 After installation, this package can be used as a command line tool:
+
 ```rdfgen file1 file2 number_of_entities```
 
-###Remarks:
+### Remarks:
 - A SHACL shape has to have a 'a sh:NodeShape' property and object in order to be recognized as a Node Shape.
 - sh:severity is ignored because it has no useful info.
 - SHACL Property Paths are not supported
