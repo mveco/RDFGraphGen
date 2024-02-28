@@ -43,14 +43,15 @@ schema:TVSeriesShape
     sh:property [
         sh:path schema:startDate ;
         sh:datatype xsd:date;
+        sh:lessThan schema:datePublished ;
     ] ;
         sh:property [
         sh:path schema:endDate ;
         sh:datatype xsd:date;
-        sh:minCount 0 ;
     ] ;
     sh:property [
         sh:path schema:datePublished ;
+        sh:lessThanOrEquals schema:endDate  ;
     ] ;
     sh:property [
         sh:path schema:genre ;
@@ -62,7 +63,10 @@ schema:DirectorShape
   sh:property [
       sh:path schema:givenName ;
       sh:datatype xsd:string ;
-      sh:name "given name" ;
+    ] ;
+    sh:property [
+      sh:path schema:familyName ;
+      sh:datatype xsd:string ;
     ] ;
     sh:property [
         sh:path schema:gender ;
@@ -79,17 +83,11 @@ schema:ActorShape
   sh:targetClass schema:Person ;
   a sh:NodeShape ;
   sh:property [
-      sh:path schema:givenName ;
+      sh:path schema:name ;
       sh:datatype xsd:string ;
       sh:name "given name" ;
     ] ;
     sh:property [
         sh:path schema:gender ;
         sh:in ( "female" "male" ) ;
-    ] ;
-    sh:property [
-        sh:path schema:email ;
-    ] ;
-    sh:property [
-        sh:path schema:telephone ;
     ] .

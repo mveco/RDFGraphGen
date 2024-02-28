@@ -106,22 +106,22 @@ def generate_date(min_exclusive, min_inclusive, max_exclusive, max_inclusive, le
 # integer generation
 def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive, less_than, less_than_or_equals):
     min_int, max_int = None, None
-    if min_inclusive or min_exclusive:
-        min_int = int(min_inclusive) if min_inclusive else int(min_exclusive) + 1
-    if max_inclusive or max_exclusive:
-        max_int = int(max_inclusive) if max_inclusive else int(max_exclusive) - 1
+    if min_inclusive is not None or min_exclusive is not None:
+        min_int = int(min_inclusive) if min_inclusive is not None else int(min_exclusive) + 1
+    if max_inclusive is not None or max_exclusive is not None:
+        max_int = int(max_inclusive) if max_inclusive is not None else int(max_exclusive) - 1
     if less_than_or_equals and len(less_than_or_equals) > 0:
         max_int = int(min(less_than_or_equals))
     if less_than and len(less_than) > 0:
         max_int = int(min(less_than) - 1)
-    if max_int:
-        if min_int:
+    if max_int is not None:
+        if min_int is not None:
             if max_int < min_int:
                 raise Exception("Conflicting integer constraints")
         else:
             min_int = max_int - 50
     else:
-        if not min_int:
+        if min_int is None:
             min_int = 1
         max_int = min_int + 50
     return Literal(random.randint(min_int, max_int))
@@ -131,22 +131,22 @@ def generate_integer(min_exclusive, min_inclusive, max_exclusive, max_inclusive,
 # decimal generation
 def generate_decimal(min_exclusive, min_inclusive, max_exclusive, max_inclusive, less_than, less_than_or_equals):
     min_float, max_float = None, None
-    if min_inclusive or min_exclusive:
-        min_float = float(min_inclusive) if min_inclusive else math.nextafter(float(min_exclusive), +math.inf)
+    if min_inclusive is not None or min_exclusive is not None:
+        min_float = float(min_inclusive) if min_inclusive is not None else math.nextafter(float(min_exclusive), +math.inf)
     if max_inclusive or max_exclusive:
-        max_float = float(max_inclusive) if max_inclusive else math.nextafter(float(max_exclusive), -math.inf)
+        max_float = float(max_inclusive) if max_inclusive is not None else math.nextafter(float(max_exclusive), -math.inf)
     if less_than_or_equals and len(less_than_or_equals) > 0:
         max_float = float(min(less_than_or_equals))
     if less_than and len(less_than) > 0:
         max_float = math.nextafter(float(min(less_than)), -math.inf)
-    if max_float:
-        if min_float:
+    if max_float is not None:
+        if min_float is not None:
             if max_float < min_float:
                 raise Exception("Conflicting float constraints")
         else:
             min_float = max_float - 50
     else:
-        if not min_float:
+        if min_float is None:
             min_float = 1
         max_float = min_float + 50
     return Literal(random.uniform(min_float, max_float))
