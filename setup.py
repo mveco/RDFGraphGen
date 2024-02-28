@@ -5,7 +5,7 @@ with open('requirements.txt') as f:
 
 setup(
     name='rdf_shacl_generator',
-    version='0.1.0',
+    version='1.0.0',
     packages=find_packages(),
     package_data={'rdf_shacl_generator': ['datasets/*.csv']},
     install_requires=requirements,
