@@ -11,6 +11,7 @@ __generate_rdf(file1, file2, number_of_entities)__
 - number_of_entities is the number of RDF entities to be generated.
 
 Link on PyPi: https://pypi.org/project/rdf-shacl-generator/
+Link on GitHub: https://github.com/mveco/RDF_generator
 
 Installation: 
 
@@ -24,6 +25,6 @@ After installation, this package can be used as a command line tool:
 - A SHACL shape has to have a 'a sh:NodeShape' property and object in order to be recognized as a Node Shape.
 - sh:severity is ignored because it has no useful info.
 - SHACL Property Paths are not supported
-- sh:datatype can have many fifferent values, not all are recognized.
+- sh:datatype can have many different values, not all are recognized.
 - sh:nodeKind is ignored
 - The triples generated based on properties with a sh:minCount constraint can sometimes have a smaller value than the defined minimum count. This is because sometimes the generator generates the same triple multiple times. 
