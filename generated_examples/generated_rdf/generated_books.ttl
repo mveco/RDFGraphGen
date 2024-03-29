@@ -1,1118 +1,1045 @@
-@prefix ns1: <http://schema.org/> .
+@prefix schemaorg: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://example.org/ns#Node100> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node101>,
-        <http://example.org/ns#Node102> ;
-    ns1:award "The Cervantes Prize" ;
-    ns1:bookEdition ns1:Paperback ;
-    ns1:dateCreated "1989-07-07"^^xsd:date ;
-    ns1:datePublished "1995-07-07"^^xsd:date ;
-    ns1:genre "Celebrity Biography",
-        "Historical Fiction" ;
-    ns1:identifier "ffcw7505vusy140" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "084-1-99" ;
-    ns1:name "Terry Jones' Fairy Tales" ;
-    ns1:numberOfPages 145 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node103> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node104>,
-        <http://example.org/ns#Node105>,
-        <http://example.org/ns#Node106> ;
-    ns1:award "Caldecott Medal" ;
-    ns1:bookEdition ns1:Paperback ;
-    ns1:dateCreated "1963-07-07"^^xsd:date ;
-    ns1:datePublished "1998-07-07"^^xsd:date ;
-    ns1:genre "Cookbook",
-        "Detective Fiction",
-        "Travelogue" ;
-    ns1:identifier "osfs4025ykeg6" ;
-    ns1:inLanguage "en-UK" ;
-    ns1:isbn "549-2-66-426" ;
-    ns1:name "Cross Stitch (Outlander  #1)" ;
-    ns1:numberOfPages 102 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node107> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node108>,
-        <http://example.org/ns#Node109>,
-        <http://example.org/ns#Node110> ;
-    ns1:award "The James Tait Black Memorial Prize" ;
-    ns1:bookEdition ns1:Hardcover ;
-    ns1:dateCreated "1986-07-07"^^xsd:date ;
-    ns1:datePublished "1995-07-07"^^xsd:date ;
-    ns1:genre "Parenting and Family",
-        "Short Stories" ;
-    ns1:identifier "ezsg3150fyhd70" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "049-7-90-15004" ;
-    ns1:name "Pathologies of Power: Health  Human Rights and the New War on the Poor" ;
-    ns1:numberOfPages 133 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node111> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node112> ;
-    ns1:award "The Bram Stoker Awards" ;
-    ns1:bookEdition ns1:AudiobookFormat ;
-    ns1:dateCreated "1962-07-07"^^xsd:date ;
-    ns1:datePublished "1977-07-07"^^xsd:date ;
-    ns1:genre "Historical Memoir",
-        "Humor",
-        "Literary Fiction",
-        "Science Biography" ;
-    ns1:identifier "ifgq5200" ;
-    ns1:inLanguage "en-UK" ;
-    ns1:isbn "350-3-51" ;
-    ns1:name "The Sword of Cortés (Pirates of the Caribbean: Jack Sparrow  #4)" ;
-    ns1:numberOfPages 130 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node113> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node114>,
-        <http://example.org/ns#Node115> ;
-    ns1:award "Costa Book Awards" ;
-    ns1:bookEdition ns1:EBook ;
-    ns1:dateCreated "1970-07-07"^^xsd:date ;
-    ns1:datePublished "2005-07-07"^^xsd:date ;
-    ns1:genre "Environment and Nature",
-        "Parenting and Family" ;
-    ns1:identifier "teqe6154rrkf20" ;
-    ns1:inLanguage "en-UK" ;
-    ns1:isbn "104-3-09-400" ;
-    ns1:name "Mockingbird Wish Me Luck" ;
-    ns1:numberOfPages 115 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node116> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node117> ;
-    ns1:award "Costa Book Awards" ;
-    ns1:bookEdition ns1:EBook ;
-    ns1:dateCreated "1943-07-07"^^xsd:date ;
-    ns1:datePublished "1986-07-07"^^xsd:date ;
-    ns1:genre "Art and Photography",
-        "Latin American Literature",
-        "Memoirs and Biographies",
-        "Soft Science Fiction" ;
-    ns1:identifier "gxut7336alwp8" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "025-5-23" ;
-    ns1:name "The Awakening" ;
-    ns1:numberOfPages 136 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node118> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node119>,
-        <http://example.org/ns#Node120>,
-        <http://example.org/ns#Node121> ;
-    ns1:award "PEN/Faulkner Award for Fiction" ;
-    ns1:bookEdition ns1:EBook ;
-    ns1:dateCreated "2000-07-07"^^xsd:date ;
-    ns1:datePublished "2009-07-07"^^xsd:date ;
-    ns1:genre "Mythology",
-        "Romance",
-        "Travel Writing" ;
-    ns1:identifier "qbtk0864x" ;
-    ns1:inLanguage "en-UK" ;
-    ns1:isbn "367-5-45" ;
-    ns1:name "The Great Divorce" ;
-    ns1:numberOfPages 128 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node122> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node123>,
-        <http://example.org/ns#Node124>,
-        <http://example.org/ns#Node125> ;
-    ns1:award "Nobel Prize in Literature" ;
-    ns1:bookEdition ns1:Hardcover ;
-    ns1:dateCreated "1944-07-07"^^xsd:date ;
-    ns1:datePublished "1989-07-07"^^xsd:date ;
-    ns1:genre "Art History",
-        "Psychology" ;
-    ns1:identifier "auhj2656" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "119-0-39-9" ;
-    ns1:name "Sweet Anger" ;
-    ns1:numberOfPages 124 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node126> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node127>,
-        <http://example.org/ns#Node128>,
-        <http://example.org/ns#Node129> ;
-    ns1:award "Newbery Medal" ;
-    ns1:bookEdition ns1:EBook ;
-    ns1:dateCreated "1948-07-07"^^xsd:date ;
-    ns1:datePublished "1983-07-07"^^xsd:date ;
-    ns1:genre "Art and Photography",
-        "Travel" ;
-    ns1:identifier "rild1606yth" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "884-9-84-76295" ;
-    ns1:name "Turtles  Termites  and Traffic Jams: Explorations in Massively Parallel Microworlds" ;
-    ns1:numberOfPages 136 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node130> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node131>,
-        <http://example.org/ns#Node132> ;
-    ns1:award "Pulitzer Prize" ;
-    ns1:bookEdition ns1:EBook ;
-    ns1:dateCreated "1994-07-07"^^xsd:date ;
-    ns1:datePublished "2013-07-07"^^xsd:date ;
-    ns1:genre "Dystopian",
-        "Political Thriller" ;
-    ns1:identifier "fxea2197my" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "477-4-75-543" ;
-    ns1:name "One Writer's Beginnings" ;
-    ns1:numberOfPages 110 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node133> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node134> ;
-    ns1:award "The Cervantes Prize" ;
-    ns1:bookEdition ns1:GraphicNovel ;
-    ns1:dateCreated "1941-07-07"^^xsd:date ;
-    ns1:datePublished "1986-07-07"^^xsd:date ;
-    ns1:genre "Chick Lit",
-        "Memoirs and Biographies" ;
-    ns1:identifier "utsj3516ke" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "158-5-60-83542" ;
-    ns1:name "Resurrection" ;
-    ns1:numberOfPages 121 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node135> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node136> ;
-    ns1:award "The O. Henry Awards" ;
-    ns1:bookEdition ns1:Paperback ;
-    ns1:dateCreated "2015-07-07"^^xsd:date ;
-    ns1:datePublished "2016-07-07"^^xsd:date ;
-    ns1:genre "Music Biography",
-        "Philosophical Fiction",
-        "Travel Guide",
-        "Travel Writing" ;
-    ns1:identifier "ewzo8299jir" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "426-0-11-379110" ;
-    ns1:name "Jonah's Gourd Vine" ;
-    ns1:numberOfPages 102 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node137> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node138>,
-        <http://example.org/ns#Node139>,
-        <http://example.org/ns#Node140> ;
-    ns1:award "National Book Award" ;
-    ns1:bookEdition ns1:GraphicNovel ;
-    ns1:dateCreated "1955-07-07"^^xsd:date ;
-    ns1:datePublished "1981-07-07"^^xsd:date ;
-    ns1:genre "Humor",
-        "Nature Writing" ;
-    ns1:identifier "uzmr9420jkyh1" ;
-    ns1:inLanguage "en-UK" ;
-    ns1:isbn "810-2-65-096763" ;
-    ns1:name "You Can't Go Home Again" ;
-    ns1:numberOfPages 123 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node141> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node142>,
-        <http://example.org/ns#Node143> ;
-    ns1:award "The Women's Prize for Fiction" ;
-    ns1:bookEdition ns1:Hardcover ;
-    ns1:dateCreated "1984-07-07"^^xsd:date ;
-    ns1:datePublished "2001-07-07"^^xsd:date ;
-    ns1:genre "Fan Fiction",
-        "Fantasy",
-        "Occult and Supernatural",
-        "Western" ;
-    ns1:identifier "aazh9994hgz" ;
-    ns1:inLanguage "en-UK" ;
-    ns1:isbn "855-1-34-" ;
-    ns1:name "The Basic Problems of Phenomenology (Studies in Phenomenology & Existential Philosophy)" ;
-    ns1:numberOfPages 143 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node144> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node145>,
-        <http://example.org/ns#Node146> ;
-    ns1:award "The O. Henry Awards" ;
-    ns1:bookEdition ns1:GraphicNovel ;
-    ns1:dateCreated "1984-07-07"^^xsd:date ;
-    ns1:datePublished "2012-07-07"^^xsd:date ;
-    ns1:genre "History",
-        "Psychology" ;
-    ns1:identifier "fbgk6204qlx" ;
-    ns1:inLanguage "en-UK" ;
-    ns1:isbn "802-3-03-2" ;
-    ns1:name "The Complete Stories of Truman Capote" ;
-    ns1:numberOfPages 118 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node147> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node148>,
-        <http://example.org/ns#Node149> ;
-    ns1:award "Newbery Medal" ;
-    ns1:bookEdition ns1:GraphicNovel ;
-    ns1:dateCreated "1973-07-07"^^xsd:date ;
-    ns1:datePublished "2007-07-07"^^xsd:date ;
-    ns1:genre "Bildungsroman",
-        "Biography",
-        "Cosy Mystery" ;
-    ns1:identifier "tukh4163yeh" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "328-6-27-05" ;
-    ns1:name "Kurt Vonnegut's Cat's Cradle (Modern Critical Interpretations)" ;
-    ns1:numberOfPages 128 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node150> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node151>,
-        <http://example.org/ns#Node152>,
-        <http://example.org/ns#Node153> ;
-    ns1:award "Nobel Prize in Literature" ;
-    ns1:bookEdition ns1:Hardcover ;
-    ns1:dateCreated "1965-07-07"^^xsd:date ;
-    ns1:datePublished "1997-07-07"^^xsd:date ;
-    ns1:genre "Middle Eastern Literature",
-        "Sociology",
-        "Western" ;
-    ns1:identifier "sgqs7570vtv" ;
-    ns1:inLanguage "en-UK" ;
-    ns1:isbn "110-7-87-20556" ;
-    ns1:name "The Last Juror" ;
-    ns1:numberOfPages 114 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node154> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node155>,
-        <http://example.org/ns#Node156> ;
-    ns1:award "Hugo Award" ;
-    ns1:bookEdition ns1:AudiobookFormat ;
-    ns1:dateCreated "1990-07-07"^^xsd:date ;
-    ns1:datePublished "2017-07-07"^^xsd:date ;
-    ns1:genre "Children's",
-        "Crafts and Hobbies" ;
-    ns1:identifier "gnio9198ki" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "395-2-56-71814" ;
-    ns1:name "How Angel Peterson Got His Name" ;
-    ns1:numberOfPages 126 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node157> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node158>,
-        <http://example.org/ns#Node159> ;
-    ns1:award "Man Booker Prize" ;
-    ns1:bookEdition ns1:Hardcover ;
-    ns1:dateCreated "1968-07-07"^^xsd:date ;
-    ns1:datePublished "1999-07-07"^^xsd:date ;
-    ns1:genre "Bildungsroman",
-        "Drama",
-        "Political Science" ;
-    ns1:identifier "npee7871h" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "352-1-30-7820" ;
-    ns1:name "American Sign Language The Easy Way" ;
-    ns1:numberOfPages 127 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node160> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node161>,
-        <http://example.org/ns#Node162>,
-        <http://example.org/ns#Node163> ;
-    ns1:award "The Cervantes Prize" ;
-    ns1:bookEdition ns1:Paperback ;
-    ns1:dateCreated "1959-07-07"^^xsd:date ;
-    ns1:datePublished "1984-07-07"^^xsd:date ;
-    ns1:genre "African Literature",
-        "Medical Fiction" ;
-    ns1:identifier "gdap1524" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "070-9-86" ;
-    ns1:name "Haunted Castle on Hallows Eve (Magic Tree House #30)" ;
-    ns1:numberOfPages 135 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node164> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node165>,
-        <http://example.org/ns#Node166>,
-        <http://example.org/ns#Node167> ;
-    ns1:award "Man Booker Prize" ;
-    ns1:bookEdition ns1:Paperback ;
-    ns1:dateCreated "1970-07-07"^^xsd:date ;
-    ns1:datePublished "2014-07-07"^^xsd:date ;
-    ns1:genre "Domestic Fiction",
-        "Religion and Spirituality",
-        "Satire" ;
-    ns1:identifier "vqzm8947wute" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "298-4-18-2462" ;
-    ns1:name "The Classical World: An Epic History from Homer to Hadrian" ;
-    ns1:numberOfPages 120 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node168> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node169>,
-        <http://example.org/ns#Node170>,
-        <http://example.org/ns#Node171> ;
-    ns1:award "The James Tait Black Memorial Prize" ;
-    ns1:bookEdition ns1:AudiobookFormat ;
-    ns1:dateCreated "1972-07-07"^^xsd:date ;
-    ns1:datePublished "1980-07-07"^^xsd:date ;
-    ns1:genre "Psychological Fiction",
-        "Space Opera",
+<http://example.org/ns#Node100> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node101>,
+        <http://example.org/ns#Node102>,
+        <http://example.org/ns#Node103> ;
+    schemaorg:award "National Book Critics Circle Award" ;
+    schemaorg:bookEdition schemaorg:GraphicNovel ;
+    schemaorg:dateCreated "1961-07-07"^^xsd:date ;
+    schemaorg:datePublished "1993-07-07"^^xsd:date ;
+    schemaorg:genre "Hard Science Fiction",
+        "Science Fiction Fantasy",
         "True Adventure" ;
-    ns1:identifier "hxbr9909m" ;
-    ns1:inLanguage "en-UK" ;
-    ns1:isbn "197-9-19-196797" ;
-    ns1:name "The Red Gloves Collection (Red Gloves  #1-4)" ;
-    ns1:numberOfPages 144 ;
-    sh:description ns1:BookShape .
+    schemaorg:identifier "iyfj7747tqhp" ;
+    schemaorg:inLanguage "en-UK" ;
+    schemaorg:isbn "464-9-54-5527" ;
+    schemaorg:name "Cliffs Notes on Woolf's Mrs. Dalloway" ;
+    schemaorg:numberOfPages 133 ;
+    sh:description schemaorg:BookShape .
 
-<http://example.org/ns#Node172> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node173>,
-        <http://example.org/ns#Node174> ;
-    ns1:award "Newbery Medal" ;
-    ns1:bookEdition ns1:GraphicNovel ;
-    ns1:dateCreated "1999-07-07"^^xsd:date ;
-    ns1:datePublished "2015-07-07"^^xsd:date ;
-    ns1:genre "Historical Non-Fiction",
-        "Parenting and Family",
-        "Psychology" ;
-    ns1:identifier "vfum9486fsr" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "083-5-65-" ;
-    ns1:name "Five on a Treasure Island (Famous Five  #1)" ;
-    ns1:numberOfPages 137 ;
-    sh:description ns1:BookShape .
+<http://example.org/ns#Node104> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node105>,
+        <http://example.org/ns#Node106>,
+        <http://example.org/ns#Node107> ;
+    schemaorg:award "Hugo Award" ;
+    schemaorg:bookEdition schemaorg:Hardcover ;
+    schemaorg:dateCreated "1987-07-07"^^xsd:date ;
+    schemaorg:datePublished "2011-07-07"^^xsd:date ;
+    schemaorg:genre "Reference",
+        "Thriller" ;
+    schemaorg:identifier "sffb8097iugl" ;
+    schemaorg:inLanguage "en-USA" ;
+    schemaorg:isbn "556-2-69-321721" ;
+    schemaorg:name "Satan's Tail (Dreamland  #7)" ;
+    schemaorg:numberOfPages 145 ;
+    sh:description schemaorg:BookShape .
 
-<http://example.org/ns#Node175> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node176>,
-        <http://example.org/ns#Node177>,
-        <http://example.org/ns#Node178> ;
-    ns1:award "Costa Book Awards" ;
-    ns1:bookEdition ns1:Paperback ;
-    ns1:dateCreated "1927-07-07"^^xsd:date ;
-    ns1:datePublished "1976-07-07"^^xsd:date ;
-    ns1:genre "Biographical Fiction",
-        "Middle Eastern Literature",
+<http://example.org/ns#Node108> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node109>,
+        <http://example.org/ns#Node110>,
+        <http://example.org/ns#Node111> ;
+    schemaorg:award "The Giller Prize" ;
+    schemaorg:bookEdition schemaorg:GraphicNovel ;
+    schemaorg:dateCreated "1969-07-07"^^xsd:date ;
+    schemaorg:datePublished "1985-07-07"^^xsd:date ;
+    schemaorg:genre "Hard Science Fiction",
+        "Paranormal",
+        "Travel Memoir",
+        "Urban Fantasy" ;
+    schemaorg:identifier "emze6815f" ;
+    schemaorg:inLanguage "en-UK" ;
+    schemaorg:isbn "809-8-65-4" ;
+    schemaorg:name "The Black Road (Diablo #2)" ;
+    schemaorg:numberOfPages 140 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node112> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node113> ;
+    schemaorg:award "National Book Critics Circle Award" ;
+    schemaorg:bookEdition schemaorg:Hardcover ;
+    schemaorg:dateCreated "1942-07-07"^^xsd:date ;
+    schemaorg:datePublished "1981-07-07"^^xsd:date ;
+    schemaorg:genre "Anthropology",
+        "Cookbook",
+        "Magical Realism" ;
+    schemaorg:identifier "dxdu8891" ;
+    schemaorg:inLanguage "en-UK" ;
+    schemaorg:isbn "929-5-14-18561" ;
+    schemaorg:name "Philosophy in a Time of Terror: Dialogues with Jürgen Habermas and Jacques Derrida" ;
+    schemaorg:numberOfPages 103 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node114> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node115>,
+        <http://example.org/ns#Node116>,
+        <http://example.org/ns#Node117> ;
+    schemaorg:award "Newbery Medal" ;
+    schemaorg:bookEdition schemaorg:Paperback ;
+    schemaorg:dateCreated "1947-07-07"^^xsd:date ;
+    schemaorg:datePublished "1990-07-07"^^xsd:date ;
+    schemaorg:genre "African American Literature",
+        "Business and Economics",
+        "Philosophical Fiction" ;
+    schemaorg:identifier "pjej8114rl" ;
+    schemaorg:inLanguage "en-UK" ;
+    schemaorg:isbn "944-2-79-511025" ;
+    schemaorg:name "Prodigal Summer" ;
+    schemaorg:numberOfPages 132 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node118> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node119>,
+        <http://example.org/ns#Node120> ;
+    schemaorg:award "Nebula Award" ;
+    schemaorg:bookEdition schemaorg:Hardcover ;
+    schemaorg:dateCreated "1926-07-07"^^xsd:date ;
+    schemaorg:datePublished "1970-07-07"^^xsd:date ;
+    schemaorg:genre "Art History",
+        "Culinary Arts",
+        "Family Saga",
+        "Music Biography" ;
+    schemaorg:identifier "xzyk7634mdmo" ;
+    schemaorg:inLanguage "en-UK" ;
+    schemaorg:isbn "225-3-87-7142" ;
+    schemaorg:name "Mischief (Harrow House  #2)" ;
+    schemaorg:numberOfPages 139 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node121> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node122>,
+        <http://example.org/ns#Node123> ;
+    schemaorg:award "Hugo Award" ;
+    schemaorg:bookEdition schemaorg:Hardcover ;
+    schemaorg:dateCreated "1978-07-07"^^xsd:date ;
+    schemaorg:datePublished "2002-07-07"^^xsd:date ;
+    schemaorg:genre "Nature Writing",
+        "Religion and Spirituality",
+        "Urban Fantasy" ;
+    schemaorg:identifier "ilec8352ods" ;
+    schemaorg:inLanguage "en-USA" ;
+    schemaorg:isbn "161-5-91" ;
+    schemaorg:name "Cast in Shadow (Chronicles of Elantra  #1)" ;
+    schemaorg:numberOfPages 124 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node124> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node125> ;
+    schemaorg:award "Caldecott Medal" ;
+    schemaorg:bookEdition schemaorg:Hardcover ;
+    schemaorg:dateCreated "2002-07-07"^^xsd:date ;
+    schemaorg:datePublished "2012-07-07"^^xsd:date ;
+    schemaorg:genre "Biography and Autobiography",
+        "Medical Drama",
+        "Religious Memoir" ;
+    schemaorg:identifier "mecu0497" ;
+    schemaorg:inLanguage "en-USA" ;
+    schemaorg:isbn "002-2-03" ;
+    schemaorg:name "Fantastic Four  Volume 2" ;
+    schemaorg:numberOfPages 109 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node126> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node127> ;
+    schemaorg:award "Hugo Award" ;
+    schemaorg:bookEdition schemaorg:GraphicNovel ;
+    schemaorg:dateCreated "1982-07-07"^^xsd:date ;
+    schemaorg:datePublished "2011-07-07"^^xsd:date ;
+    schemaorg:genre "Adventure",
+        "Science" ;
+    schemaorg:identifier "qgmy3231fo" ;
+    schemaorg:inLanguage "en-USA" ;
+    schemaorg:isbn "650-8-05-6" ;
+    schemaorg:name "Complications: A Surgeon's Notes on an Imperfect Science" ;
+    schemaorg:numberOfPages 128 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node128> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node129> ;
+    schemaorg:award "The Bram Stoker Awards" ;
+    schemaorg:bookEdition schemaorg:EBook ;
+    schemaorg:dateCreated "1946-07-07"^^xsd:date ;
+    schemaorg:datePublished "1988-07-07"^^xsd:date ;
+    schemaorg:genre "Culinary Arts",
+        "Nature Writing" ;
+    schemaorg:identifier "jodt7334" ;
+    schemaorg:inLanguage "en-USA" ;
+    schemaorg:isbn "374-8-26-05" ;
+    schemaorg:name "The Demon Princes  Volume One: The Star King  The Killing Machine  The Palace of Love" ;
+    schemaorg:numberOfPages 142 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node130> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node131> ;
+    schemaorg:award "National Book Critics Circle Award" ;
+    schemaorg:bookEdition schemaorg:Paperback ;
+    schemaorg:dateCreated "1954-07-07"^^xsd:date ;
+    schemaorg:datePublished "1984-07-07"^^xsd:date ;
+    schemaorg:genre "History",
+        "Nature Writing",
+        "Sociology",
+        "Soft Science Fiction" ;
+    schemaorg:identifier "slmj9043jpvj3" ;
+    schemaorg:inLanguage "en-UK" ;
+    schemaorg:isbn "715-4-25-09" ;
+    schemaorg:name "Fire Lover: A True Story" ;
+    schemaorg:numberOfPages 102 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node132> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node133>,
+        <http://example.org/ns#Node134> ;
+    schemaorg:award "Nebula Award" ;
+    schemaorg:bookEdition schemaorg:GraphicNovel ;
+    schemaorg:dateCreated "1956-07-07"^^xsd:date ;
+    schemaorg:datePublished "1997-07-07"^^xsd:date ;
+    schemaorg:genre "Chick Lit",
+        "Cosy Mystery",
+        "Fable and Allegory",
+        "Science Fiction" ;
+    schemaorg:identifier "nmqp3699vupo01" ;
+    schemaorg:inLanguage "en-UK" ;
+    schemaorg:isbn "387-1-58-18" ;
+    schemaorg:name "Flinx's Folly (Pip & Flinx #9)" ;
+    schemaorg:numberOfPages 120 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node135> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node136>,
+        <http://example.org/ns#Node137>,
+        <http://example.org/ns#Node138> ;
+    schemaorg:award "The Bram Stoker Awards" ;
+    schemaorg:bookEdition schemaorg:GraphicNovel ;
+    schemaorg:dateCreated "1935-07-07"^^xsd:date ;
+    schemaorg:datePublished "1971-07-07"^^xsd:date ;
+    schemaorg:genre "Contemporary Fiction",
+        "Drama",
+        "Science and Nature" ;
+    schemaorg:identifier "uaqs8865xap" ;
+    schemaorg:inLanguage "en-UK" ;
+    schemaorg:isbn "152-3-24-2007" ;
+    schemaorg:name "Joe College" ;
+    schemaorg:numberOfPages 120 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node139> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node140>,
+        <http://example.org/ns#Node141>,
+        <http://example.org/ns#Node142> ;
+    schemaorg:award "The Agatha Awards" ;
+    schemaorg:bookEdition schemaorg:GraphicNovel ;
+    schemaorg:dateCreated "1972-07-07"^^xsd:date ;
+    schemaorg:datePublished "2003-07-07"^^xsd:date ;
+    schemaorg:genre "Economics",
+        "True Crime" ;
+    schemaorg:identifier "xplj8966sonl67" ;
+    schemaorg:inLanguage "en-UK" ;
+    schemaorg:isbn "892-0-34-1" ;
+    schemaorg:name "A Room with a View / Howards End" ;
+    schemaorg:numberOfPages 138 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node143> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node144>,
+        <http://example.org/ns#Node145> ;
+    schemaorg:award "National Book Award" ;
+    schemaorg:bookEdition schemaorg:EBook ;
+    schemaorg:dateCreated "1980-07-07"^^xsd:date ;
+    schemaorg:datePublished "1993-07-07"^^xsd:date ;
+    schemaorg:genre "Myth and Folklore",
+        "Sociology",
+        "Urban Fantasy",
+        "Young Adult" ;
+    schemaorg:identifier "jgfh6558pyu" ;
+    schemaorg:inLanguage "en-UK" ;
+    schemaorg:isbn "700-1-02-615615" ;
+    schemaorg:name "Kevin Trudeau's Mega Memory: How to Release Your Superpower Memory in 30 Minutes Or Less a Day" ;
+    schemaorg:numberOfPages 125 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node146> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node147> ;
+    schemaorg:award "National Book Award" ;
+    schemaorg:bookEdition schemaorg:Paperback ;
+    schemaorg:dateCreated "1949-07-07"^^xsd:date ;
+    schemaorg:datePublished "1987-07-07"^^xsd:date ;
+    schemaorg:genre "Biography and Autobiography",
+        "Domestic Fiction" ;
+    schemaorg:identifier "rspn9548" ;
+    schemaorg:inLanguage "en-USA" ;
+    schemaorg:isbn "386-5-60-90" ;
+    schemaorg:name "鋼の錬金術師 3 (Fullmetal Alchemist  #3)" ;
+    schemaorg:numberOfPages 117 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node148> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node149>,
+        <http://example.org/ns#Node150> ;
+    schemaorg:award "Pulitzer Prize" ;
+    schemaorg:bookEdition schemaorg:Hardcover ;
+    schemaorg:dateCreated "1985-07-07"^^xsd:date ;
+    schemaorg:datePublished "1993-07-07"^^xsd:date ;
+    schemaorg:genre "Adventure",
+        "Art and Photography",
+        "Crime",
+        "Mythology" ;
+    schemaorg:identifier "gkxk4506pm" ;
+    schemaorg:inLanguage "en-UK" ;
+    schemaorg:isbn "307-3-19-327147" ;
+    schemaorg:name "Pacto Con un Demonio" ;
+    schemaorg:numberOfPages 124 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node151> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node152> ;
+    schemaorg:award "Newbery Medal" ;
+    schemaorg:bookEdition schemaorg:Hardcover ;
+    schemaorg:dateCreated "1971-07-07"^^xsd:date ;
+    schemaorg:datePublished "1980-07-07"^^xsd:date ;
+    schemaorg:genre "African American Literature",
+        "Graphic Novel",
+        "Instructional and How-To",
+        "True Adventure" ;
+    schemaorg:identifier "lqfl9959nlax316" ;
+    schemaorg:inLanguage "en-USA" ;
+    schemaorg:isbn "885-1-99-7" ;
+    schemaorg:name "Masterpieces: The Best Science Fiction of the Twentieth Century" ;
+    schemaorg:numberOfPages 130 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node153> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node154> ;
+    schemaorg:award "The O. Henry Awards" ;
+    schemaorg:bookEdition schemaorg:Paperback ;
+    schemaorg:dateCreated "1977-07-07"^^xsd:date ;
+    schemaorg:datePublished "1979-07-07"^^xsd:date ;
+    schemaorg:genre "Cooking Memoir",
+        "Cyberpunk",
+        "Medical Drama" ;
+    schemaorg:identifier "blmi9064" ;
+    schemaorg:inLanguage "en-UK" ;
+    schemaorg:isbn "533-8-37-40" ;
+    schemaorg:name "Ebert's \"Bigger\" Little Movie Glossary" ;
+    schemaorg:numberOfPages 118 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node155> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node156>,
+        <http://example.org/ns#Node157> ;
+    schemaorg:award "National Book Critics Circle Award" ;
+    schemaorg:bookEdition schemaorg:Hardcover ;
+    schemaorg:dateCreated "1962-07-07"^^xsd:date ;
+    schemaorg:datePublished "1979-07-07"^^xsd:date ;
+    schemaorg:genre "African American Literature",
+        "Biography and Autobiography",
+        "Religious Texts" ;
+    schemaorg:identifier "toik8124" ;
+    schemaorg:inLanguage "en-UK" ;
+    schemaorg:isbn "502-1-32-" ;
+    schemaorg:name "True Blue: The Oxford Boat Race Mutiny" ;
+    schemaorg:numberOfPages 100 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node158> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node159>,
+        <http://example.org/ns#Node160> ;
+    schemaorg:award "The Women's Prize for Fiction" ;
+    schemaorg:bookEdition schemaorg:AudiobookFormat ;
+    schemaorg:dateCreated "1964-07-07"^^xsd:date ;
+    schemaorg:datePublished "2009-07-07"^^xsd:date ;
+    schemaorg:genre "Philosophical Fiction",
+        "Soft Science Fiction" ;
+    schemaorg:identifier "tixc6800aabu36" ;
+    schemaorg:inLanguage "en-USA" ;
+    schemaorg:isbn "675-5-25-97719" ;
+    schemaorg:name "The Natural Way to Draw" ;
+    schemaorg:numberOfPages 136 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node161> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node162>,
+        <http://example.org/ns#Node163>,
+        <http://example.org/ns#Node164> ;
+    schemaorg:award "The James Tait Black Memorial Prize" ;
+    schemaorg:bookEdition schemaorg:Paperback ;
+    schemaorg:dateCreated "2007-07-07"^^xsd:date ;
+    schemaorg:datePublished "2015-07-07"^^xsd:date ;
+    schemaorg:genre "Art and Photography",
+        "Cyberpunk",
+        "Motivational and Inspirational" ;
+    schemaorg:identifier "expe3111elou6" ;
+    schemaorg:inLanguage "en-USA" ;
+    schemaorg:isbn "536-5-63-616220" ;
+    schemaorg:name "Legend of the Five Rings RPG" ;
+    schemaorg:numberOfPages 117 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node165> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node166> ;
+    schemaorg:award "Pulitzer Prize" ;
+    schemaorg:bookEdition schemaorg:Hardcover ;
+    schemaorg:dateCreated "1939-07-07"^^xsd:date ;
+    schemaorg:datePublished "1975-07-07"^^xsd:date ;
+    schemaorg:genre "DIY and Crafts",
+        "Historical Non-Fiction",
+        "True Crime" ;
+    schemaorg:identifier "cqcp3905xzoj" ;
+    schemaorg:inLanguage "en-UK" ;
+    schemaorg:isbn "118-1-59-645015" ;
+    schemaorg:name "The Lilac Bus" ;
+    schemaorg:numberOfPages 111 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node167> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node168>,
+        <http://example.org/ns#Node169> ;
+    schemaorg:award "Nebula Award" ;
+    schemaorg:bookEdition schemaorg:AudiobookFormat ;
+    schemaorg:dateCreated "1993-07-07"^^xsd:date ;
+    schemaorg:datePublished "1995-07-07"^^xsd:date ;
+    schemaorg:genre "Cooking Memoir",
+        "Satire",
+        "Science Fiction Fantasy",
         "Space Western" ;
-    ns1:identifier "zqvr2032fhgq0" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "762-1-03-" ;
-    ns1:name "The Wonderful Story Of Henry Sugar and Six More" ;
-    ns1:numberOfPages 143 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node179> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node180> ;
-    ns1:award "The Women's Prize for Fiction" ;
-    ns1:bookEdition ns1:Paperback ;
-    ns1:dateCreated "1967-07-07"^^xsd:date ;
-    ns1:datePublished "1974-07-07"^^xsd:date ;
-    ns1:genre "African American Literature",
-        "Classic Literature",
-        "Mythology",
-        "Space Opera" ;
-    ns1:identifier "sqnh2494vud" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "878-0-27-" ;
-    ns1:name "Avalon" ;
-    ns1:numberOfPages 120 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node181> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node182>,
-        <http://example.org/ns#Node183> ;
-    ns1:award "Newbery Medal" ;
-    ns1:bookEdition ns1:EBook ;
-    ns1:dateCreated "1947-07-07"^^xsd:date ;
-    ns1:datePublished "1990-07-07"^^xsd:date ;
-    ns1:genre "Biography and Autobiography",
-        "Psychological Thriller" ;
-    ns1:identifier "obab3259" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "632-1-11-608" ;
-    ns1:name "Coin Locker Babies" ;
-    ns1:numberOfPages 125 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node184> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node185>,
-        <http://example.org/ns#Node186>,
-        <http://example.org/ns#Node187> ;
-    ns1:award "Pulitzer Prize" ;
-    ns1:bookEdition ns1:Hardcover ;
-    ns1:dateCreated "1985-07-07"^^xsd:date ;
-    ns1:datePublished "2014-07-07"^^xsd:date ;
-    ns1:genre "Myth and Folklore",
-        "Religious Memoir",
-        "True Crime Memoir" ;
-    ns1:identifier "vggx9514gga" ;
-    ns1:inLanguage "en-UK" ;
-    ns1:isbn "696-6-86-" ;
-    ns1:name "Fighting Ruben Wolfe (Wolfe Brothers  #2)" ;
-    ns1:numberOfPages 108 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node188> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node189> ;
-    ns1:award "Nebula Award" ;
-    ns1:bookEdition ns1:EBook ;
-    ns1:dateCreated "1983-07-07"^^xsd:date ;
-    ns1:datePublished "2009-07-07"^^xsd:date ;
-    ns1:genre "African Literature",
-        "Historical Memoir",
-        "Parenting",
-        "Philosophy" ;
-    ns1:identifier "hoyo5971w" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "744-0-12" ;
-    ns1:name "The Salmon of Doubt (Dirk Gently  #3)" ;
-    ns1:numberOfPages 122 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node190> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node191>,
-        <http://example.org/ns#Node192>,
-        <http://example.org/ns#Node193> ;
-    ns1:award "The Women's Prize for Fiction" ;
-    ns1:bookEdition ns1:AudiobookFormat ;
-    ns1:dateCreated "2002-07-07"^^xsd:date ;
-    ns1:datePublished "2014-07-07"^^xsd:date ;
-    ns1:genre "Anthropology",
-        "Cooking Memoir",
-        "Epic Fantasy",
-        "Experimental Fiction" ;
-    ns1:identifier "udlh0044q" ;
-    ns1:inLanguage "en-USA" ;
-    ns1:isbn "253-7-12-25" ;
-    ns1:name "Every Man a Tiger: The Gulf War Air Campaign (Commanders)" ;
-    ns1:numberOfPages 127 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node194> a ns1:Book ;
-    ns1:author <http://example.org/ns#Node195>,
-        <http://example.org/ns#Node196> ;
-    ns1:award "The National Poetry Series" ;
-    ns1:bookEdition ns1:Hardcover ;
-    ns1:dateCreated "1977-07-07"^^xsd:date ;
-    ns1:datePublished "1982-07-07"^^xsd:date ;
-    ns1:genre "Detective Fiction",
-        "Fairy Tale" ;
-    ns1:identifier "xhpj6428isnk" ;
-    ns1:inLanguage "en-UK" ;
-    ns1:isbn "059-6-98-41" ;
-    ns1:name "Camus at Combat: Writing 1944-1947" ;
-    ns1:numberOfPages 125 ;
-    sh:description ns1:BookShape .
-
-<http://example.org/ns#Node101> a ns1:Person ;
-    ns1:birthDate "1970-07-07"^^xsd:date ;
-    ns1:deathDate "2015-07-07"^^xsd:date ;
-    ns1:email "adelle_445@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Adelle" ;
-    ns1:telephone "040-758-9723" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node102> a ns1:Person ;
-    ns1:birthDate "2016-07-07"^^xsd:date ;
-    ns1:deathDate "2018-07-07"^^xsd:date ;
-    ns1:email "claresta_806@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Claresta" ;
-    ns1:telephone "092973-63" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node104> a ns1:Person ;
-    ns1:birthDate "2001-07-07"^^xsd:date ;
-    ns1:deathDate "2002-07-07"^^xsd:date ;
-    ns1:email "dacia_999@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Dacia" ;
-    ns1:telephone "499550-4" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node105> a ns1:Person ;
-    ns1:birthDate "1970-07-07"^^xsd:date ;
-    ns1:deathDate "1987-07-07"^^xsd:date ;
-    ns1:email "wallas_532@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Wallas" ;
-    ns1:telephone "347987-18831341" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node106> a ns1:Person ;
-    ns1:birthDate "1970-07-07"^^xsd:date ;
-    ns1:deathDate "2001-07-07"^^xsd:date ;
-    ns1:email "hogan_274@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Hogan" ;
-    ns1:telephone "229604-9833541-" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node108> a ns1:Person ;
-    ns1:birthDate "1965-07-07"^^xsd:date ;
-    ns1:deathDate "2005-07-07"^^xsd:date ;
-    ns1:email "joceline_641@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Joceline" ;
-    ns1:telephone "244594-0" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node109> a ns1:Person ;
-    ns1:birthDate "1960-07-07"^^xsd:date ;
-    ns1:deathDate "1987-07-07"^^xsd:date ;
-    ns1:email "gianna_197@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Gianna" ;
-    ns1:telephone "902699-8176499-" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node110> a ns1:Person ;
-    ns1:birthDate "1974-07-07"^^xsd:date ;
-    ns1:deathDate "1996-07-07"^^xsd:date ;
-    ns1:email "jessi_475@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Jessi" ;
-    ns1:telephone "167-502-2195" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node112> a ns1:Person ;
-    ns1:birthDate "2003-07-07"^^xsd:date ;
-    ns1:deathDate "2012-07-07"^^xsd:date ;
-    ns1:email "sylvan_977@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Sylvan" ;
-    ns1:telephone "667-197-52300" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node114> a ns1:Person ;
-    ns1:birthDate "1983-07-07"^^xsd:date ;
-    ns1:deathDate "1997-07-07"^^xsd:date ;
-    ns1:email "allah_938@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Allah" ;
-    ns1:telephone "489360-10175" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node115> a ns1:Person ;
-    ns1:birthDate "1941-07-07"^^xsd:date ;
-    ns1:deathDate "1991-07-07"^^xsd:date ;
-    ns1:email "karna_488@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Karna" ;
-    ns1:telephone "524160-4137783" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node117> a ns1:Person ;
-    ns1:birthDate "1961-07-07"^^xsd:date ;
-    ns1:deathDate "1987-07-07"^^xsd:date ;
-    ns1:email "cornelle_343@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Cornelle" ;
-    ns1:telephone "895-418-4" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node119> a ns1:Person ;
-    ns1:birthDate "1970-07-07"^^xsd:date ;
-    ns1:deathDate "1996-07-07"^^xsd:date ;
-    ns1:email "julius_587@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Julius" ;
-    ns1:telephone "416-287-508" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node120> a ns1:Person ;
-    ns1:birthDate "1965-07-07"^^xsd:date ;
-    ns1:deathDate "1999-07-07"^^xsd:date ;
-    ns1:email "jeremy_489@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Jeremy" ;
-    ns1:telephone "248-433-3464" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node121> a ns1:Person ;
-    ns1:birthDate "1958-07-07"^^xsd:date ;
-    ns1:deathDate "1996-07-07"^^xsd:date ;
-    ns1:email "judas_956@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Judas" ;
-    ns1:telephone "585-847-9578" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node123> a ns1:Person ;
-    ns1:birthDate "1978-07-07"^^xsd:date ;
-    ns1:deathDate "1979-07-07"^^xsd:date ;
-    ns1:email "raychel_696@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Raychel" ;
-    ns1:telephone "180692-4" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node124> a ns1:Person ;
-    ns1:birthDate "1979-07-07"^^xsd:date ;
-    ns1:deathDate "2009-07-07"^^xsd:date ;
-    ns1:email "bo_639@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Bo" ;
-    ns1:telephone "135970-32338" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node125> a ns1:Person ;
-    ns1:birthDate "1949-07-07"^^xsd:date ;
-    ns1:deathDate "1993-07-07"^^xsd:date ;
-    ns1:email "rusty_647@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Rusty" ;
-    ns1:telephone "872-509-" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node127> a ns1:Person ;
-    ns1:birthDate "2010-07-07"^^xsd:date ;
-    ns1:deathDate "2017-07-07"^^xsd:date ;
-    ns1:email "kelsi_585@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Kelsi" ;
-    ns1:telephone "295291-1694" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node128> a ns1:Person ;
-    ns1:birthDate "2009-07-07"^^xsd:date ;
-    ns1:deathDate "2014-07-07"^^xsd:date ;
-    ns1:email "tucky_930@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Tucky" ;
-    ns1:telephone "984-148-6" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node129> a ns1:Person ;
-    ns1:birthDate "1980-07-07"^^xsd:date ;
-    ns1:deathDate "1982-07-07"^^xsd:date ;
-    ns1:email "luther_969@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Luther" ;
-    ns1:telephone "641-914-" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node131> a ns1:Person ;
-    ns1:birthDate "1947-07-07"^^xsd:date ;
-    ns1:deathDate "1988-07-07"^^xsd:date ;
-    ns1:email "ninetta_446@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Ninetta" ;
-    ns1:telephone "488092-9930961" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node132> a ns1:Person ;
-    ns1:birthDate "1979-07-07"^^xsd:date ;
-    ns1:deathDate "2004-07-07"^^xsd:date ;
-    ns1:email "templeton_990@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Templeton" ;
-    ns1:telephone "879269-598833" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node134> a ns1:Person ;
-    ns1:birthDate "1952-07-07"^^xsd:date ;
-    ns1:deathDate "1974-07-07"^^xsd:date ;
-    ns1:email "wilhelm_937@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Wilhelm" ;
-    ns1:telephone "496-795-936" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node136> a ns1:Person ;
-    ns1:birthDate "1946-07-07"^^xsd:date ;
-    ns1:deathDate "1994-07-07"^^xsd:date ;
-    ns1:email "gilburt_558@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Gilburt" ;
-    ns1:telephone "491054-6168" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node138> a ns1:Person ;
-    ns1:birthDate "1941-07-07"^^xsd:date ;
-    ns1:deathDate "1983-07-07"^^xsd:date ;
-    ns1:email "beatrice_919@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Beatrice" ;
-    ns1:telephone "961-821-" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node139> a ns1:Person ;
-    ns1:birthDate "1935-07-07"^^xsd:date ;
-    ns1:deathDate "1978-07-07"^^xsd:date ;
-    ns1:email "gerianne_912@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Gerianne" ;
-    ns1:telephone "199311-871" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node140> a ns1:Person ;
-    ns1:birthDate "1962-07-07"^^xsd:date ;
-    ns1:deathDate "1988-07-07"^^xsd:date ;
-    ns1:email "louisa_915@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Louisa" ;
-    ns1:telephone "881986-64" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node142> a ns1:Person ;
-    ns1:birthDate "1955-07-07"^^xsd:date ;
-    ns1:deathDate "1984-07-07"^^xsd:date ;
-    ns1:email "marry_398@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Marry" ;
-    ns1:telephone "460-726-70" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node143> a ns1:Person ;
-    ns1:birthDate "1954-07-07"^^xsd:date ;
-    ns1:deathDate "1999-07-07"^^xsd:date ;
-    ns1:email "alexina_481@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Alexina" ;
-    ns1:telephone "748-076-0450433" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node145> a ns1:Person ;
-    ns1:birthDate "2002-07-07"^^xsd:date ;
-    ns1:deathDate "2015-07-07"^^xsd:date ;
-    ns1:email "pen_284@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Pen" ;
-    ns1:telephone "467-207-31" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node146> a ns1:Person ;
-    ns1:birthDate "1971-07-07"^^xsd:date ;
-    ns1:deathDate "2003-07-07"^^xsd:date ;
-    ns1:email "jany_424@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Jany" ;
-    ns1:telephone "951-401-" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node148> a ns1:Person ;
-    ns1:birthDate "1965-07-07"^^xsd:date ;
-    ns1:deathDate "2000-07-07"^^xsd:date ;
-    ns1:email "merrill_171@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Merrill" ;
-    ns1:telephone "357-705-5732178" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node149> a ns1:Person ;
-    ns1:birthDate "1971-07-07"^^xsd:date ;
-    ns1:deathDate "1985-07-07"^^xsd:date ;
-    ns1:email "nert_675@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Nert" ;
-    ns1:telephone "474-326-99411" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node151> a ns1:Person ;
-    ns1:birthDate "1966-07-07"^^xsd:date ;
-    ns1:deathDate "1997-07-07"^^xsd:date ;
-    ns1:email "way_146@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Way" ;
-    ns1:telephone "527-875-6840" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node152> a ns1:Person ;
-    ns1:birthDate "1947-07-07"^^xsd:date ;
-    ns1:deathDate "1990-07-07"^^xsd:date ;
-    ns1:email "marchelle_602@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Marchelle" ;
-    ns1:telephone "367676-83521741" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node153> a ns1:Person ;
-    ns1:birthDate "1978-07-07"^^xsd:date ;
-    ns1:deathDate "1993-07-07"^^xsd:date ;
-    ns1:email "zechariah_682@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Zechariah" ;
-    ns1:telephone "044306-6" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node155> a ns1:Person ;
-    ns1:birthDate "1967-07-07"^^xsd:date ;
-    ns1:deathDate "1974-07-07"^^xsd:date ;
-    ns1:email "pincas_383@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Pincas" ;
-    ns1:telephone "607125-7550780" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node156> a ns1:Person ;
-    ns1:birthDate "1963-07-07"^^xsd:date ;
-    ns1:deathDate "1997-07-07"^^xsd:date ;
-    ns1:email "friedrick_802@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Friedrick" ;
-    ns1:telephone "638129-808" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node158> a ns1:Person ;
-    ns1:birthDate "1991-07-07"^^xsd:date ;
-    ns1:deathDate "1992-07-07"^^xsd:date ;
-    ns1:email "connie_272@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Connie" ;
-    ns1:telephone "808884-058066" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node159> a ns1:Person ;
-    ns1:birthDate "1959-07-07"^^xsd:date ;
-    ns1:deathDate "1977-07-07"^^xsd:date ;
-    ns1:email "gretal_966@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Gretal" ;
-    ns1:telephone "565867-2" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node161> a ns1:Person ;
-    ns1:birthDate "1983-07-07"^^xsd:date ;
-    ns1:deathDate "2006-07-07"^^xsd:date ;
-    ns1:email "quill_830@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Quill" ;
-    ns1:telephone "321-952-" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node162> a ns1:Person ;
-    ns1:birthDate "1966-07-07"^^xsd:date ;
-    ns1:deathDate "1982-07-07"^^xsd:date ;
-    ns1:email "cecile_568@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Cecile" ;
-    ns1:telephone "141031-66756" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node163> a ns1:Person ;
-    ns1:birthDate "1965-07-07"^^xsd:date ;
-    ns1:deathDate "1980-07-07"^^xsd:date ;
-    ns1:email "dannie_844@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Dannie" ;
-    ns1:telephone "715510-7557" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node165> a ns1:Person ;
-    ns1:birthDate "1991-07-07"^^xsd:date ;
-    ns1:deathDate "2012-07-07"^^xsd:date ;
-    ns1:email "mmarianne_497@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Mmarianne" ;
-    ns1:telephone "466784-22" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node166> a ns1:Person ;
-    ns1:birthDate "1988-07-07"^^xsd:date ;
-    ns1:deathDate "1990-07-07"^^xsd:date ;
-    ns1:email "ardelis_580@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Ardelis" ;
-    ns1:telephone "272489-485" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node167> a ns1:Person ;
-    ns1:birthDate "1982-07-07"^^xsd:date ;
-    ns1:deathDate "1984-07-07"^^xsd:date ;
-    ns1:email "shirline_331@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Shirline" ;
-    ns1:telephone "360594-3798692" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node169> a ns1:Person ;
-    ns1:birthDate "1961-07-07"^^xsd:date ;
-    ns1:deathDate "1973-07-07"^^xsd:date ;
-    ns1:email "ardyce_489@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Ardyce" ;
-    ns1:telephone "019480-9121" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node170> a ns1:Person ;
-    ns1:birthDate "1954-07-07"^^xsd:date ;
-    ns1:deathDate "1990-07-07"^^xsd:date ;
-    ns1:email "rutger_280@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Rutger" ;
-    ns1:telephone "695865-23031691" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node171> a ns1:Person ;
-    ns1:birthDate "1921-07-07"^^xsd:date ;
-    ns1:deathDate "1971-07-07"^^xsd:date ;
-    ns1:email "srinivas_657@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Srinivas" ;
-    ns1:telephone "361-550-029" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node173> a ns1:Person ;
-    ns1:birthDate "1976-07-07"^^xsd:date ;
-    ns1:deathDate "2002-07-07"^^xsd:date ;
-    ns1:email "steffen_985@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Steffen" ;
-    ns1:telephone "243740-069" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node174> a ns1:Person ;
-    ns1:birthDate "1987-07-07"^^xsd:date ;
-    ns1:deathDate "2001-07-07"^^xsd:date ;
-    ns1:email "farrand_196@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Farrand" ;
-    ns1:telephone "535-196-0741" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node176> a ns1:Person ;
-    ns1:birthDate "1951-07-07"^^xsd:date ;
-    ns1:deathDate "1992-07-07"^^xsd:date ;
-    ns1:email "lurline_239@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Lurline" ;
-    ns1:telephone "897609-1387158" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node177> a ns1:Person ;
-    ns1:birthDate "1988-07-07"^^xsd:date ;
-    ns1:deathDate "1998-07-07"^^xsd:date ;
-    ns1:email "thedrick_135@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Thedrick" ;
-    ns1:telephone "130-884-" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node178> a ns1:Person ;
-    ns1:birthDate "1990-07-07"^^xsd:date ;
-    ns1:deathDate "2015-07-07"^^xsd:date ;
-    ns1:email "cordelia_293@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Cordelia" ;
-    ns1:telephone "256272-668704" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node180> a ns1:Person ;
-    ns1:birthDate "1949-07-07"^^xsd:date ;
-    ns1:deathDate "1999-07-07"^^xsd:date ;
-    ns1:email "darda_574@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Darda" ;
-    ns1:telephone "351406-4298029-" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node182> a ns1:Person ;
-    ns1:birthDate "1972-07-07"^^xsd:date ;
-    ns1:deathDate "1997-07-07"^^xsd:date ;
-    ns1:email "carlynn_426@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Carlynn" ;
-    ns1:telephone "279-487-7553" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node183> a ns1:Person ;
-    ns1:birthDate "1943-07-07"^^xsd:date ;
-    ns1:deathDate "1980-07-07"^^xsd:date ;
-    ns1:email "lev_703@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Lev" ;
-    ns1:telephone "022024-406" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node185> a ns1:Person ;
-    ns1:birthDate "1979-07-07"^^xsd:date ;
-    ns1:deathDate "1996-07-07"^^xsd:date ;
-    ns1:email "jenica_569@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Jenica" ;
-    ns1:telephone "834888-792" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node186> a ns1:Person ;
-    ns1:birthDate "1954-07-07"^^xsd:date ;
-    ns1:deathDate "1971-07-07"^^xsd:date ;
-    ns1:email "beatrisa_496@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Beatrisa" ;
-    ns1:telephone "855772-0992413" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node187> a ns1:Person ;
-    ns1:birthDate "1971-07-07"^^xsd:date ;
-    ns1:deathDate "1985-07-07"^^xsd:date ;
-    ns1:email "neal_744@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Neal" ;
-    ns1:telephone "099089-4360" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node189> a ns1:Person ;
-    ns1:birthDate "1996-07-07"^^xsd:date ;
-    ns1:deathDate "2008-07-07"^^xsd:date ;
-    ns1:email "lynnelle_550@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Lynnelle" ;
-    ns1:telephone "615-334-1" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node191> a ns1:Person ;
-    ns1:birthDate "1988-07-07"^^xsd:date ;
-    ns1:deathDate "2012-07-07"^^xsd:date ;
-    ns1:email "aigneis_325@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Aigneis" ;
-    ns1:telephone "489832-0820398" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node192> a ns1:Person ;
-    ns1:birthDate "1965-07-07"^^xsd:date ;
-    ns1:deathDate "1983-07-07"^^xsd:date ;
-    ns1:email "ashish_563@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Ashish" ;
-    ns1:telephone "116237-439002" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node193> a ns1:Person ;
-    ns1:birthDate "1938-07-07"^^xsd:date ;
-    ns1:deathDate "1985-07-07"^^xsd:date ;
-    ns1:email "hoyt_902@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Hoyt" ;
-    ns1:telephone "846635-9740" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node195> a ns1:Person ;
-    ns1:birthDate "1944-07-07"^^xsd:date ;
-    ns1:deathDate "1981-07-07"^^xsd:date ;
-    ns1:email "leslie_356@gmail.com" ;
-    ns1:gender "female" ;
-    ns1:givenName "Leslie" ;
-    ns1:telephone "457-266-8240" ;
-    sh:description ns1:AuthorShape .
-
-<http://example.org/ns#Node196> a ns1:Person ;
-    ns1:birthDate "1959-07-07"^^xsd:date ;
-    ns1:deathDate "1972-07-07"^^xsd:date ;
-    ns1:email "tammy_911@gmail.com" ;
-    ns1:gender "male" ;
-    ns1:givenName "Tammy" ;
-    ns1:telephone "471-508-6128" ;
-    sh:description ns1:AuthorShape .
+    schemaorg:identifier "litl7809r" ;
+    schemaorg:inLanguage "en-USA" ;
+    schemaorg:isbn "405-3-68-19432" ;
+    schemaorg:name "The Sea of Monsters (Percy Jackson and the Olympians  #2)" ;
+    schemaorg:numberOfPages 120 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node170> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node171> ;
+    schemaorg:award "The Edgar Allan Poe Awards" ;
+    schemaorg:bookEdition schemaorg:EBook ;
+    schemaorg:dateCreated "2000-07-07"^^xsd:date ;
+    schemaorg:datePublished "2010-07-07"^^xsd:date ;
+    schemaorg:genre "Biography",
+        "Legal Fiction" ;
+    schemaorg:identifier "leoi1683k" ;
+    schemaorg:inLanguage "en-UK" ;
+    schemaorg:isbn "500-0-75-79" ;
+    schemaorg:name "Euripides III: Hecuba / Andromache / The Trojan Women / Ion (Complete Greek Tragedies  #7)" ;
+    schemaorg:numberOfPages 147 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node172> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node173>,
+        <http://example.org/ns#Node174>,
+        <http://example.org/ns#Node175> ;
+    schemaorg:award "National Book Award" ;
+    schemaorg:bookEdition schemaorg:Paperback ;
+    schemaorg:dateCreated "1979-07-07"^^xsd:date ;
+    schemaorg:datePublished "2015-07-07"^^xsd:date ;
+    schemaorg:genre "Experimental Fiction",
+        "History",
+        "Science Biography" ;
+    schemaorg:identifier "cslk8744ablr" ;
+    schemaorg:inLanguage "en-UK" ;
+    schemaorg:isbn "042-1-34-1" ;
+    schemaorg:name "Drina Dances in Madeira" ;
+    schemaorg:numberOfPages 146 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node176> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node177>,
+        <http://example.org/ns#Node178>,
+        <http://example.org/ns#Node179> ;
+    schemaorg:award "Caldecott Medal" ;
+    schemaorg:bookEdition schemaorg:EBook ;
+    schemaorg:dateCreated "1930-07-07"^^xsd:date ;
+    schemaorg:datePublished "1979-07-07"^^xsd:date ;
+    schemaorg:genre "African Literature",
+        "Graphic Novel",
+        "Travelogue" ;
+    schemaorg:identifier "qadr2607ra" ;
+    schemaorg:inLanguage "en-UK" ;
+    schemaorg:isbn "331-0-66-32" ;
+    schemaorg:name "The Zanzibar Chest" ;
+    schemaorg:numberOfPages 120 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node180> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node181>,
+        <http://example.org/ns#Node182> ;
+    schemaorg:award "The Giller Prize" ;
+    schemaorg:bookEdition schemaorg:Paperback ;
+    schemaorg:dateCreated "1970-07-07"^^xsd:date ;
+    schemaorg:datePublished "1983-07-07"^^xsd:date ;
+    schemaorg:genre "Satire",
+        "Science Journalism" ;
+    schemaorg:identifier "mmsm7710b" ;
+    schemaorg:inLanguage "en-USA" ;
+    schemaorg:isbn "312-2-69-" ;
+    schemaorg:name "The Medusa Stone (Philip Mercer  #3)" ;
+    schemaorg:numberOfPages 103 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node183> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node184>,
+        <http://example.org/ns#Node185>,
+        <http://example.org/ns#Node186> ;
+    schemaorg:award "The Edgar Allan Poe Awards" ;
+    schemaorg:bookEdition schemaorg:Hardcover ;
+    schemaorg:dateCreated "1967-07-07"^^xsd:date ;
+    schemaorg:datePublished "1999-07-07"^^xsd:date ;
+    schemaorg:genre "Contemporary Fiction",
+        "Magazine and Journal",
+        "Military Memoir" ;
+    schemaorg:identifier "vmph2673h" ;
+    schemaorg:inLanguage "en-UK" ;
+    schemaorg:isbn "773-8-92-12" ;
+    schemaorg:name "The Winds of War (The Henry Family  #1)" ;
+    schemaorg:numberOfPages 123 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node187> a schemaorg:Book ;
+    schemaorg:author <http://example.org/ns#Node188> ;
+    schemaorg:award "National Book Critics Circle Award" ;
+    schemaorg:bookEdition schemaorg:GraphicNovel ;
+    schemaorg:dateCreated "1929-07-07"^^xsd:date ;
+    schemaorg:datePublished "1971-07-07"^^xsd:date ;
+    schemaorg:genre "European Literature",
+        "Fairy Tale",
+        "Psychology",
+        "True Crime" ;
+    schemaorg:identifier "xqyh4802kg" ;
+    schemaorg:inLanguage "en-USA" ;
+    schemaorg:isbn "097-7-63-7" ;
+    schemaorg:name "QED: The Strange Theory of Light and Matter" ;
+    schemaorg:numberOfPages 126 ;
+    sh:description schemaorg:BookShape .
+
+<http://example.org/ns#Node101> a schemaorg:Person ;
+    schemaorg:birthDate "1993-07-07"^^xsd:date ;
+    schemaorg:deathDate "2019-07-07"^^xsd:date ;
+    schemaorg:email "vivie_323@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Vivie" ;
+    schemaorg:telephone "884949-045" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node102> a schemaorg:Person ;
+    schemaorg:birthDate "1951-07-07"^^xsd:date ;
+    schemaorg:deathDate "1992-07-07"^^xsd:date ;
+    schemaorg:email "stig_965@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Stig" ;
+    schemaorg:telephone "149396-93179" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node103> a schemaorg:Person ;
+    schemaorg:birthDate "1993-07-07"^^xsd:date ;
+    schemaorg:deathDate "1997-07-07"^^xsd:date ;
+    schemaorg:email "briggs_958@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Briggs" ;
+    schemaorg:telephone "814499-23667931" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node105> a schemaorg:Person ;
+    schemaorg:birthDate "1970-07-07"^^xsd:date ;
+    schemaorg:deathDate "1994-07-07"^^xsd:date ;
+    schemaorg:email "lilli_632@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Lilli" ;
+    schemaorg:telephone "703-902-50" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node106> a schemaorg:Person ;
+    schemaorg:birthDate "1959-07-07"^^xsd:date ;
+    schemaorg:deathDate "2001-07-07"^^xsd:date ;
+    schemaorg:email "ulrich_696@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Ulrich" ;
+    schemaorg:telephone "795-235-886" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node107> a schemaorg:Person ;
+    schemaorg:birthDate "1987-07-07"^^xsd:date ;
+    schemaorg:deathDate "1995-07-07"^^xsd:date ;
+    schemaorg:email "birgit_705@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Birgit" ;
+    schemaorg:telephone "653-192-" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node109> a schemaorg:Person ;
+    schemaorg:birthDate "2001-07-07"^^xsd:date ;
+    schemaorg:deathDate "2009-07-07"^^xsd:date ;
+    schemaorg:email "antonella_411@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Antonella" ;
+    schemaorg:telephone "092834-9184446" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node110> a schemaorg:Person ;
+    schemaorg:birthDate "1987-07-07"^^xsd:date ;
+    schemaorg:deathDate "2011-07-07"^^xsd:date ;
+    schemaorg:email "catarina_719@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Catarina" ;
+    schemaorg:telephone "659-751-64" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node111> a schemaorg:Person ;
+    schemaorg:birthDate "1980-07-07"^^xsd:date ;
+    schemaorg:deathDate "2009-07-07"^^xsd:date ;
+    schemaorg:email "diana_753@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Diana" ;
+    schemaorg:telephone "761-053-" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node113> a schemaorg:Person ;
+    schemaorg:birthDate "1958-07-07"^^xsd:date ;
+    schemaorg:deathDate "1992-07-07"^^xsd:date ;
+    schemaorg:email "dustin_729@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Dustin" ;
+    schemaorg:telephone "347-006-008207" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node115> a schemaorg:Person ;
+    schemaorg:birthDate "1952-07-07"^^xsd:date ;
+    schemaorg:deathDate "2000-07-07"^^xsd:date ;
+    schemaorg:email "witold_237@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Witold" ;
+    schemaorg:telephone "852484-408" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node116> a schemaorg:Person ;
+    schemaorg:birthDate "1965-07-07"^^xsd:date ;
+    schemaorg:deathDate "1994-07-07"^^xsd:date ;
+    schemaorg:email "neall_374@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Neall" ;
+    schemaorg:telephone "162335-09883012" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node117> a schemaorg:Person ;
+    schemaorg:birthDate "1952-07-07"^^xsd:date ;
+    schemaorg:deathDate "1976-07-07"^^xsd:date ;
+    schemaorg:email "aron_458@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Aron" ;
+    schemaorg:telephone "587-607-8" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node119> a schemaorg:Person ;
+    schemaorg:birthDate "1997-07-07"^^xsd:date ;
+    schemaorg:deathDate "2008-07-07"^^xsd:date ;
+    schemaorg:email "blaire_912@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Blaire" ;
+    schemaorg:telephone "248-567-8" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node120> a schemaorg:Person ;
+    schemaorg:birthDate "1993-07-07"^^xsd:date ;
+    schemaorg:deathDate "1994-07-07"^^xsd:date ;
+    schemaorg:email "leola_889@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Leola" ;
+    schemaorg:telephone "934-017-69038" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node122> a schemaorg:Person ;
+    schemaorg:birthDate "1987-07-07"^^xsd:date ;
+    schemaorg:deathDate "2017-07-07"^^xsd:date ;
+    schemaorg:email "walter_344@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Walter" ;
+    schemaorg:telephone "477-034-500" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node123> a schemaorg:Person ;
+    schemaorg:birthDate "1961-07-07"^^xsd:date ;
+    schemaorg:deathDate "2003-07-07"^^xsd:date ;
+    schemaorg:email "aldus_377@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Aldus" ;
+    schemaorg:telephone "711644-8" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node125> a schemaorg:Person ;
+    schemaorg:birthDate "1958-07-07"^^xsd:date ;
+    schemaorg:deathDate "1991-07-07"^^xsd:date ;
+    schemaorg:email "cecilla_752@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Cecilla" ;
+    schemaorg:telephone "211836-771990" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node127> a schemaorg:Person ;
+    schemaorg:birthDate "1967-07-07"^^xsd:date ;
+    schemaorg:deathDate "1983-07-07"^^xsd:date ;
+    schemaorg:email "georgette_413@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Georgette" ;
+    schemaorg:telephone "862912-41" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node129> a schemaorg:Person ;
+    schemaorg:birthDate "1984-07-07"^^xsd:date ;
+    schemaorg:deathDate "2001-07-07"^^xsd:date ;
+    schemaorg:email "butch_162@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Butch" ;
+    schemaorg:telephone "969-001-911" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node131> a schemaorg:Person ;
+    schemaorg:birthDate "1974-07-07"^^xsd:date ;
+    schemaorg:deathDate "1998-07-07"^^xsd:date ;
+    schemaorg:email "tonya_757@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Tonya" ;
+    schemaorg:telephone "633465-11" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node133> a schemaorg:Person ;
+    schemaorg:birthDate "1946-07-07"^^xsd:date ;
+    schemaorg:deathDate "1985-07-07"^^xsd:date ;
+    schemaorg:email "brunhilde_387@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Brunhilde" ;
+    schemaorg:telephone "824981-3337894" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node134> a schemaorg:Person ;
+    schemaorg:birthDate "1965-07-07"^^xsd:date ;
+    schemaorg:deathDate "1992-07-07"^^xsd:date ;
+    schemaorg:email "karna_600@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Karna" ;
+    schemaorg:telephone "515979-292" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node136> a schemaorg:Person ;
+    schemaorg:birthDate "1967-07-07"^^xsd:date ;
+    schemaorg:deathDate "1975-07-07"^^xsd:date ;
+    schemaorg:email "vivianne_136@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Vivianne" ;
+    schemaorg:telephone "014550-66" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node137> a schemaorg:Person ;
+    schemaorg:birthDate "1963-07-07"^^xsd:date ;
+    schemaorg:deathDate "1995-07-07"^^xsd:date ;
+    schemaorg:email "modesty_462@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Modesty" ;
+    schemaorg:telephone "516-836-64" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node138> a schemaorg:Person ;
+    schemaorg:birthDate "1977-07-07"^^xsd:date ;
+    schemaorg:deathDate "2002-07-07"^^xsd:date ;
+    schemaorg:email "alicea_411@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Alicea" ;
+    schemaorg:telephone "484899-77200" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node140> a schemaorg:Person ;
+    schemaorg:birthDate "1955-07-07"^^xsd:date ;
+    schemaorg:deathDate "1984-07-07"^^xsd:date ;
+    schemaorg:email "odessa_552@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Odessa" ;
+    schemaorg:telephone "379-092-94" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node141> a schemaorg:Person ;
+    schemaorg:birthDate "1953-07-07"^^xsd:date ;
+    schemaorg:deathDate "2003-07-07"^^xsd:date ;
+    schemaorg:email "pearline_486@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Pearline" ;
+    schemaorg:telephone "297400-76815099" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node142> a schemaorg:Person ;
+    schemaorg:birthDate "1962-07-07"^^xsd:date ;
+    schemaorg:deathDate "1998-07-07"^^xsd:date ;
+    schemaorg:email "colin_204@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Colin" ;
+    schemaorg:telephone "671750-4296" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node144> a schemaorg:Person ;
+    schemaorg:birthDate "2002-07-07"^^xsd:date ;
+    schemaorg:deathDate "2009-07-07"^^xsd:date ;
+    schemaorg:email "sergeant_761@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Sergeant" ;
+    schemaorg:telephone "403689-2" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node145> a schemaorg:Person ;
+    schemaorg:birthDate "1989-07-07"^^xsd:date ;
+    schemaorg:deathDate "1995-07-07"^^xsd:date ;
+    schemaorg:email "clark_184@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Clark" ;
+    schemaorg:telephone "862081-62562" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node147> a schemaorg:Person ;
+    schemaorg:birthDate "1956-07-07"^^xsd:date ;
+    schemaorg:deathDate "1983-07-07"^^xsd:date ;
+    schemaorg:email "marchall_674@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Marchall" ;
+    schemaorg:telephone "166-717-7732592" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node149> a schemaorg:Person ;
+    schemaorg:birthDate "1988-07-07"^^xsd:date ;
+    schemaorg:deathDate "2007-07-07"^^xsd:date ;
+    schemaorg:email "dyanna_399@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Dyanna" ;
+    schemaorg:telephone "980500-707" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node150> a schemaorg:Person ;
+    schemaorg:birthDate "1984-07-07"^^xsd:date ;
+    schemaorg:deathDate "1996-07-07"^^xsd:date ;
+    schemaorg:email "samantha_453@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Samantha" ;
+    schemaorg:telephone "823212-9" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node152> a schemaorg:Person ;
+    schemaorg:birthDate "1986-07-07"^^xsd:date ;
+    schemaorg:deathDate "2003-07-07"^^xsd:date ;
+    schemaorg:email "kerry_425@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Kerry" ;
+    schemaorg:telephone "165-829-477250" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node154> a schemaorg:Person ;
+    schemaorg:birthDate "1968-07-07"^^xsd:date ;
+    schemaorg:deathDate "1981-07-07"^^xsd:date ;
+    schemaorg:email "daniela_957@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Daniela" ;
+    schemaorg:telephone "904-239-078654" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node156> a schemaorg:Person ;
+    schemaorg:birthDate "1971-07-07"^^xsd:date ;
+    schemaorg:deathDate "1975-07-07"^^xsd:date ;
+    schemaorg:email "gigi_249@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Gigi" ;
+    schemaorg:telephone "233743-560670" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node157> a schemaorg:Person ;
+    schemaorg:birthDate "1960-07-07"^^xsd:date ;
+    schemaorg:deathDate "1997-07-07"^^xsd:date ;
+    schemaorg:email "zane_515@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Zane" ;
+    schemaorg:telephone "048-707-18" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node159> a schemaorg:Person ;
+    schemaorg:birthDate "1979-07-07"^^xsd:date ;
+    schemaorg:deathDate "2008-07-07"^^xsd:date ;
+    schemaorg:email "allyn_450@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Allyn" ;
+    schemaorg:telephone "465353-685044" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node160> a schemaorg:Person ;
+    schemaorg:birthDate "1989-07-07"^^xsd:date ;
+    schemaorg:deathDate "2010-07-07"^^xsd:date ;
+    schemaorg:email "fernanda_527@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Fernanda" ;
+    schemaorg:telephone "121-077-4826433" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node162> a schemaorg:Person ;
+    schemaorg:birthDate "1970-07-07"^^xsd:date ;
+    schemaorg:deathDate "1998-07-07"^^xsd:date ;
+    schemaorg:email "ralina_366@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Ralina" ;
+    schemaorg:telephone "492-836-" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node163> a schemaorg:Person ;
+    schemaorg:birthDate "1995-07-07"^^xsd:date ;
+    schemaorg:deathDate "2013-07-07"^^xsd:date ;
+    schemaorg:email "oriana_732@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Oriana" ;
+    schemaorg:telephone "198-706-101165" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node164> a schemaorg:Person ;
+    schemaorg:birthDate "1951-07-07"^^xsd:date ;
+    schemaorg:deathDate "1982-07-07"^^xsd:date ;
+    schemaorg:email "parwane_953@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Parwane" ;
+    schemaorg:telephone "846-519-4" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node166> a schemaorg:Person ;
+    schemaorg:birthDate "2013-07-07"^^xsd:date ;
+    schemaorg:deathDate "2016-07-07"^^xsd:date ;
+    schemaorg:email "glory_410@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Glory" ;
+    schemaorg:telephone "374689-597" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node168> a schemaorg:Person ;
+    schemaorg:birthDate "1994-07-07"^^xsd:date ;
+    schemaorg:deathDate "2019-07-07"^^xsd:date ;
+    schemaorg:email "weslie_164@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Weslie" ;
+    schemaorg:telephone "421740-49" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node169> a schemaorg:Person ;
+    schemaorg:birthDate "1975-07-07"^^xsd:date ;
+    schemaorg:deathDate "2014-07-07"^^xsd:date ;
+    schemaorg:email "tabbie_172@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Tabbie" ;
+    schemaorg:telephone "756-382-081474" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node171> a schemaorg:Person ;
+    schemaorg:birthDate "1991-07-07"^^xsd:date ;
+    schemaorg:deathDate "2004-07-07"^^xsd:date ;
+    schemaorg:email "ira_913@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Ira" ;
+    schemaorg:telephone "320-486-9691362" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node173> a schemaorg:Person ;
+    schemaorg:birthDate "1939-07-07"^^xsd:date ;
+    schemaorg:deathDate "1975-07-07"^^xsd:date ;
+    schemaorg:email "quiggly_943@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Quiggly" ;
+    schemaorg:telephone "982896-3757166-" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node174> a schemaorg:Person ;
+    schemaorg:birthDate "1967-07-07"^^xsd:date ;
+    schemaorg:deathDate "2004-07-07"^^xsd:date ;
+    schemaorg:email "joyan_443@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Joyan" ;
+    schemaorg:telephone "442-278-" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node175> a schemaorg:Person ;
+    schemaorg:birthDate "1990-07-07"^^xsd:date ;
+    schemaorg:deathDate "2006-07-07"^^xsd:date ;
+    schemaorg:email "angel_935@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Angel" ;
+    schemaorg:telephone "622261-1787381" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node177> a schemaorg:Person ;
+    schemaorg:birthDate "1952-07-07"^^xsd:date ;
+    schemaorg:deathDate "1974-07-07"^^xsd:date ;
+    schemaorg:email "collins_389@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Collins" ;
+    schemaorg:telephone "761-966-723" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node178> a schemaorg:Person ;
+    schemaorg:birthDate "1989-07-07"^^xsd:date ;
+    schemaorg:deathDate "2010-07-07"^^xsd:date ;
+    schemaorg:email "coleman_570@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Coleman" ;
+    schemaorg:telephone "131-998-890676" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node179> a schemaorg:Person ;
+    schemaorg:birthDate "1940-07-07"^^xsd:date ;
+    schemaorg:deathDate "1979-07-07"^^xsd:date ;
+    schemaorg:email "henka_454@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Henka" ;
+    schemaorg:telephone "536-684-5043" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node181> a schemaorg:Person ;
+    schemaorg:birthDate "1984-07-07"^^xsd:date ;
+    schemaorg:deathDate "1986-07-07"^^xsd:date ;
+    schemaorg:email "emory_176@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Emory" ;
+    schemaorg:telephone "622069-2801572" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node182> a schemaorg:Person ;
+    schemaorg:birthDate "1976-07-07"^^xsd:date ;
+    schemaorg:deathDate "2015-07-07"^^xsd:date ;
+    schemaorg:email "isadore_409@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Isadore" ;
+    schemaorg:telephone "295017-10" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node184> a schemaorg:Person ;
+    schemaorg:birthDate "1994-07-07"^^xsd:date ;
+    schemaorg:deathDate "2011-07-07"^^xsd:date ;
+    schemaorg:email "christen_218@gmail.com" ;
+    schemaorg:gender "female" ;
+    schemaorg:givenName "Christen" ;
+    schemaorg:telephone "009-927-83" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node185> a schemaorg:Person ;
+    schemaorg:birthDate "1940-07-07"^^xsd:date ;
+    schemaorg:deathDate "1976-07-07"^^xsd:date ;
+    schemaorg:email "barrett_222@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Barrett" ;
+    schemaorg:telephone "091492-63707318" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node186> a schemaorg:Person ;
+    schemaorg:birthDate "1976-07-07"^^xsd:date ;
+    schemaorg:deathDate "2015-07-07"^^xsd:date ;
+    schemaorg:email "rick_450@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Rick" ;
+    schemaorg:telephone "109373-27" ;
+    sh:description schemaorg:AuthorShape .
+
+<http://example.org/ns#Node188> a schemaorg:Person ;
+    schemaorg:birthDate "1951-07-07"^^xsd:date ;
+    schemaorg:deathDate "1987-07-07"^^xsd:date ;
+    schemaorg:email "osbourne_820@gmail.com" ;
+    schemaorg:gender "male" ;
+    schemaorg:givenName "Osbourne" ;
+    schemaorg:telephone "606-610-5786" ;
+    sh:description schemaorg:AuthorShape .
 
