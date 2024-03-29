@@ -1,0 +1,1118 @@
+@prefix ns1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/ns#Node100> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node101>,
+        <http://example.org/ns#Node102> ;
+    ns1:award "The Cervantes Prize" ;
+    ns1:bookEdition ns1:Paperback ;
+    ns1:dateCreated "1989-07-07"^^xsd:date ;
+    ns1:datePublished "1995-07-07"^^xsd:date ;
+    ns1:genre "Celebrity Biography",
+        "Historical Fiction" ;
+    ns1:identifier "ffcw7505vusy140" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "084-1-99" ;
+    ns1:name "Terry Jones' Fairy Tales" ;
+    ns1:numberOfPages 145 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node103> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node104>,
+        <http://example.org/ns#Node105>,
+        <http://example.org/ns#Node106> ;
+    ns1:award "Caldecott Medal" ;
+    ns1:bookEdition ns1:Paperback ;
+    ns1:dateCreated "1963-07-07"^^xsd:date ;
+    ns1:datePublished "1998-07-07"^^xsd:date ;
+    ns1:genre "Cookbook",
+        "Detective Fiction",
+        "Travelogue" ;
+    ns1:identifier "osfs4025ykeg6" ;
+    ns1:inLanguage "en-UK" ;
+    ns1:isbn "549-2-66-426" ;
+    ns1:name "Cross Stitch (Outlander  #1)" ;
+    ns1:numberOfPages 102 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node107> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node108>,
+        <http://example.org/ns#Node109>,
+        <http://example.org/ns#Node110> ;
+    ns1:award "The James Tait Black Memorial Prize" ;
+    ns1:bookEdition ns1:Hardcover ;
+    ns1:dateCreated "1986-07-07"^^xsd:date ;
+    ns1:datePublished "1995-07-07"^^xsd:date ;
+    ns1:genre "Parenting and Family",
+        "Short Stories" ;
+    ns1:identifier "ezsg3150fyhd70" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "049-7-90-15004" ;
+    ns1:name "Pathologies of Power: Health  Human Rights and the New War on the Poor" ;
+    ns1:numberOfPages 133 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node111> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node112> ;
+    ns1:award "The Bram Stoker Awards" ;
+    ns1:bookEdition ns1:AudiobookFormat ;
+    ns1:dateCreated "1962-07-07"^^xsd:date ;
+    ns1:datePublished "1977-07-07"^^xsd:date ;
+    ns1:genre "Historical Memoir",
+        "Humor",
+        "Literary Fiction",
+        "Science Biography" ;
+    ns1:identifier "ifgq5200" ;
+    ns1:inLanguage "en-UK" ;
+    ns1:isbn "350-3-51" ;
+    ns1:name "The Sword of Cortés (Pirates of the Caribbean: Jack Sparrow  #4)" ;
+    ns1:numberOfPages 130 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node113> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node114>,
+        <http://example.org/ns#Node115> ;
+    ns1:award "Costa Book Awards" ;
+    ns1:bookEdition ns1:EBook ;
+    ns1:dateCreated "1970-07-07"^^xsd:date ;
+    ns1:datePublished "2005-07-07"^^xsd:date ;
+    ns1:genre "Environment and Nature",
+        "Parenting and Family" ;
+    ns1:identifier "teqe6154rrkf20" ;
+    ns1:inLanguage "en-UK" ;
+    ns1:isbn "104-3-09-400" ;
+    ns1:name "Mockingbird Wish Me Luck" ;
+    ns1:numberOfPages 115 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node116> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node117> ;
+    ns1:award "Costa Book Awards" ;
+    ns1:bookEdition ns1:EBook ;
+    ns1:dateCreated "1943-07-07"^^xsd:date ;
+    ns1:datePublished "1986-07-07"^^xsd:date ;
+    ns1:genre "Art and Photography",
+        "Latin American Literature",
+        "Memoirs and Biographies",
+        "Soft Science Fiction" ;
+    ns1:identifier "gxut7336alwp8" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "025-5-23" ;
+    ns1:name "The Awakening" ;
+    ns1:numberOfPages 136 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node118> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node119>,
+        <http://example.org/ns#Node120>,
+        <http://example.org/ns#Node121> ;
+    ns1:award "PEN/Faulkner Award for Fiction" ;
+    ns1:bookEdition ns1:EBook ;
+    ns1:dateCreated "2000-07-07"^^xsd:date ;
+    ns1:datePublished "2009-07-07"^^xsd:date ;
+    ns1:genre "Mythology",
+        "Romance",
+        "Travel Writing" ;
+    ns1:identifier "qbtk0864x" ;
+    ns1:inLanguage "en-UK" ;
+    ns1:isbn "367-5-45" ;
+    ns1:name "The Great Divorce" ;
+    ns1:numberOfPages 128 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node122> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node123>,
+        <http://example.org/ns#Node124>,
+        <http://example.org/ns#Node125> ;
+    ns1:award "Nobel Prize in Literature" ;
+    ns1:bookEdition ns1:Hardcover ;
+    ns1:dateCreated "1944-07-07"^^xsd:date ;
+    ns1:datePublished "1989-07-07"^^xsd:date ;
+    ns1:genre "Art History",
+        "Psychology" ;
+    ns1:identifier "auhj2656" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "119-0-39-9" ;
+    ns1:name "Sweet Anger" ;
+    ns1:numberOfPages 124 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node126> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node127>,
+        <http://example.org/ns#Node128>,
+        <http://example.org/ns#Node129> ;
+    ns1:award "Newbery Medal" ;
+    ns1:bookEdition ns1:EBook ;
+    ns1:dateCreated "1948-07-07"^^xsd:date ;
+    ns1:datePublished "1983-07-07"^^xsd:date ;
+    ns1:genre "Art and Photography",
+        "Travel" ;
+    ns1:identifier "rild1606yth" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "884-9-84-76295" ;
+    ns1:name "Turtles  Termites  and Traffic Jams: Explorations in Massively Parallel Microworlds" ;
+    ns1:numberOfPages 136 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node130> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node131>,
+        <http://example.org/ns#Node132> ;
+    ns1:award "Pulitzer Prize" ;
+    ns1:bookEdition ns1:EBook ;
+    ns1:dateCreated "1994-07-07"^^xsd:date ;
+    ns1:datePublished "2013-07-07"^^xsd:date ;
+    ns1:genre "Dystopian",
+        "Political Thriller" ;
+    ns1:identifier "fxea2197my" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "477-4-75-543" ;
+    ns1:name "One Writer's Beginnings" ;
+    ns1:numberOfPages 110 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node133> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node134> ;
+    ns1:award "The Cervantes Prize" ;
+    ns1:bookEdition ns1:GraphicNovel ;
+    ns1:dateCreated "1941-07-07"^^xsd:date ;
+    ns1:datePublished "1986-07-07"^^xsd:date ;
+    ns1:genre "Chick Lit",
+        "Memoirs and Biographies" ;
+    ns1:identifier "utsj3516ke" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "158-5-60-83542" ;
+    ns1:name "Resurrection" ;
+    ns1:numberOfPages 121 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node135> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node136> ;
+    ns1:award "The O. Henry Awards" ;
+    ns1:bookEdition ns1:Paperback ;
+    ns1:dateCreated "2015-07-07"^^xsd:date ;
+    ns1:datePublished "2016-07-07"^^xsd:date ;
+    ns1:genre "Music Biography",
+        "Philosophical Fiction",
+        "Travel Guide",
+        "Travel Writing" ;
+    ns1:identifier "ewzo8299jir" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "426-0-11-379110" ;
+    ns1:name "Jonah's Gourd Vine" ;
+    ns1:numberOfPages 102 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node137> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node138>,
+        <http://example.org/ns#Node139>,
+        <http://example.org/ns#Node140> ;
+    ns1:award "National Book Award" ;
+    ns1:bookEdition ns1:GraphicNovel ;
+    ns1:dateCreated "1955-07-07"^^xsd:date ;
+    ns1:datePublished "1981-07-07"^^xsd:date ;
+    ns1:genre "Humor",
+        "Nature Writing" ;
+    ns1:identifier "uzmr9420jkyh1" ;
+    ns1:inLanguage "en-UK" ;
+    ns1:isbn "810-2-65-096763" ;
+    ns1:name "You Can't Go Home Again" ;
+    ns1:numberOfPages 123 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node141> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node142>,
+        <http://example.org/ns#Node143> ;
+    ns1:award "The Women's Prize for Fiction" ;
+    ns1:bookEdition ns1:Hardcover ;
+    ns1:dateCreated "1984-07-07"^^xsd:date ;
+    ns1:datePublished "2001-07-07"^^xsd:date ;
+    ns1:genre "Fan Fiction",
+        "Fantasy",
+        "Occult and Supernatural",
+        "Western" ;
+    ns1:identifier "aazh9994hgz" ;
+    ns1:inLanguage "en-UK" ;
+    ns1:isbn "855-1-34-" ;
+    ns1:name "The Basic Problems of Phenomenology (Studies in Phenomenology & Existential Philosophy)" ;
+    ns1:numberOfPages 143 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node144> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node145>,
+        <http://example.org/ns#Node146> ;
+    ns1:award "The O. Henry Awards" ;
+    ns1:bookEdition ns1:GraphicNovel ;
+    ns1:dateCreated "1984-07-07"^^xsd:date ;
+    ns1:datePublished "2012-07-07"^^xsd:date ;
+    ns1:genre "History",
+        "Psychology" ;
+    ns1:identifier "fbgk6204qlx" ;
+    ns1:inLanguage "en-UK" ;
+    ns1:isbn "802-3-03-2" ;
+    ns1:name "The Complete Stories of Truman Capote" ;
+    ns1:numberOfPages 118 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node147> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node148>,
+        <http://example.org/ns#Node149> ;
+    ns1:award "Newbery Medal" ;
+    ns1:bookEdition ns1:GraphicNovel ;
+    ns1:dateCreated "1973-07-07"^^xsd:date ;
+    ns1:datePublished "2007-07-07"^^xsd:date ;
+    ns1:genre "Bildungsroman",
+        "Biography",
+        "Cosy Mystery" ;
+    ns1:identifier "tukh4163yeh" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "328-6-27-05" ;
+    ns1:name "Kurt Vonnegut's Cat's Cradle (Modern Critical Interpretations)" ;
+    ns1:numberOfPages 128 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node150> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node151>,
+        <http://example.org/ns#Node152>,
+        <http://example.org/ns#Node153> ;
+    ns1:award "Nobel Prize in Literature" ;
+    ns1:bookEdition ns1:Hardcover ;
+    ns1:dateCreated "1965-07-07"^^xsd:date ;
+    ns1:datePublished "1997-07-07"^^xsd:date ;
+    ns1:genre "Middle Eastern Literature",
+        "Sociology",
+        "Western" ;
+    ns1:identifier "sgqs7570vtv" ;
+    ns1:inLanguage "en-UK" ;
+    ns1:isbn "110-7-87-20556" ;
+    ns1:name "The Last Juror" ;
+    ns1:numberOfPages 114 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node154> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node155>,
+        <http://example.org/ns#Node156> ;
+    ns1:award "Hugo Award" ;
+    ns1:bookEdition ns1:AudiobookFormat ;
+    ns1:dateCreated "1990-07-07"^^xsd:date ;
+    ns1:datePublished "2017-07-07"^^xsd:date ;
+    ns1:genre "Children's",
+        "Crafts and Hobbies" ;
+    ns1:identifier "gnio9198ki" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "395-2-56-71814" ;
+    ns1:name "How Angel Peterson Got His Name" ;
+    ns1:numberOfPages 126 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node157> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node158>,
+        <http://example.org/ns#Node159> ;
+    ns1:award "Man Booker Prize" ;
+    ns1:bookEdition ns1:Hardcover ;
+    ns1:dateCreated "1968-07-07"^^xsd:date ;
+    ns1:datePublished "1999-07-07"^^xsd:date ;
+    ns1:genre "Bildungsroman",
+        "Drama",
+        "Political Science" ;
+    ns1:identifier "npee7871h" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "352-1-30-7820" ;
+    ns1:name "American Sign Language The Easy Way" ;
+    ns1:numberOfPages 127 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node160> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node161>,
+        <http://example.org/ns#Node162>,
+        <http://example.org/ns#Node163> ;
+    ns1:award "The Cervantes Prize" ;
+    ns1:bookEdition ns1:Paperback ;
+    ns1:dateCreated "1959-07-07"^^xsd:date ;
+    ns1:datePublished "1984-07-07"^^xsd:date ;
+    ns1:genre "African Literature",
+        "Medical Fiction" ;
+    ns1:identifier "gdap1524" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "070-9-86" ;
+    ns1:name "Haunted Castle on Hallows Eve (Magic Tree House #30)" ;
+    ns1:numberOfPages 135 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node164> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node165>,
+        <http://example.org/ns#Node166>,
+        <http://example.org/ns#Node167> ;
+    ns1:award "Man Booker Prize" ;
+    ns1:bookEdition ns1:Paperback ;
+    ns1:dateCreated "1970-07-07"^^xsd:date ;
+    ns1:datePublished "2014-07-07"^^xsd:date ;
+    ns1:genre "Domestic Fiction",
+        "Religion and Spirituality",
+        "Satire" ;
+    ns1:identifier "vqzm8947wute" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "298-4-18-2462" ;
+    ns1:name "The Classical World: An Epic History from Homer to Hadrian" ;
+    ns1:numberOfPages 120 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node168> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node169>,
+        <http://example.org/ns#Node170>,
+        <http://example.org/ns#Node171> ;
+    ns1:award "The James Tait Black Memorial Prize" ;
+    ns1:bookEdition ns1:AudiobookFormat ;
+    ns1:dateCreated "1972-07-07"^^xsd:date ;
+    ns1:datePublished "1980-07-07"^^xsd:date ;
+    ns1:genre "Psychological Fiction",
+        "Space Opera",
+        "True Adventure" ;
+    ns1:identifier "hxbr9909m" ;
+    ns1:inLanguage "en-UK" ;
+    ns1:isbn "197-9-19-196797" ;
+    ns1:name "The Red Gloves Collection (Red Gloves  #1-4)" ;
+    ns1:numberOfPages 144 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node172> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node173>,
+        <http://example.org/ns#Node174> ;
+    ns1:award "Newbery Medal" ;
+    ns1:bookEdition ns1:GraphicNovel ;
+    ns1:dateCreated "1999-07-07"^^xsd:date ;
+    ns1:datePublished "2015-07-07"^^xsd:date ;
+    ns1:genre "Historical Non-Fiction",
+        "Parenting and Family",
+        "Psychology" ;
+    ns1:identifier "vfum9486fsr" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "083-5-65-" ;
+    ns1:name "Five on a Treasure Island (Famous Five  #1)" ;
+    ns1:numberOfPages 137 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node175> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node176>,
+        <http://example.org/ns#Node177>,
+        <http://example.org/ns#Node178> ;
+    ns1:award "Costa Book Awards" ;
+    ns1:bookEdition ns1:Paperback ;
+    ns1:dateCreated "1927-07-07"^^xsd:date ;
+    ns1:datePublished "1976-07-07"^^xsd:date ;
+    ns1:genre "Biographical Fiction",
+        "Middle Eastern Literature",
+        "Space Western" ;
+    ns1:identifier "zqvr2032fhgq0" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "762-1-03-" ;
+    ns1:name "The Wonderful Story Of Henry Sugar and Six More" ;
+    ns1:numberOfPages 143 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node179> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node180> ;
+    ns1:award "The Women's Prize for Fiction" ;
+    ns1:bookEdition ns1:Paperback ;
+    ns1:dateCreated "1967-07-07"^^xsd:date ;
+    ns1:datePublished "1974-07-07"^^xsd:date ;
+    ns1:genre "African American Literature",
+        "Classic Literature",
+        "Mythology",
+        "Space Opera" ;
+    ns1:identifier "sqnh2494vud" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "878-0-27-" ;
+    ns1:name "Avalon" ;
+    ns1:numberOfPages 120 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node181> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node182>,
+        <http://example.org/ns#Node183> ;
+    ns1:award "Newbery Medal" ;
+    ns1:bookEdition ns1:EBook ;
+    ns1:dateCreated "1947-07-07"^^xsd:date ;
+    ns1:datePublished "1990-07-07"^^xsd:date ;
+    ns1:genre "Biography and Autobiography",
+        "Psychological Thriller" ;
+    ns1:identifier "obab3259" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "632-1-11-608" ;
+    ns1:name "Coin Locker Babies" ;
+    ns1:numberOfPages 125 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node184> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node185>,
+        <http://example.org/ns#Node186>,
+        <http://example.org/ns#Node187> ;
+    ns1:award "Pulitzer Prize" ;
+    ns1:bookEdition ns1:Hardcover ;
+    ns1:dateCreated "1985-07-07"^^xsd:date ;
+    ns1:datePublished "2014-07-07"^^xsd:date ;
+    ns1:genre "Myth and Folklore",
+        "Religious Memoir",
+        "True Crime Memoir" ;
+    ns1:identifier "vggx9514gga" ;
+    ns1:inLanguage "en-UK" ;
+    ns1:isbn "696-6-86-" ;
+    ns1:name "Fighting Ruben Wolfe (Wolfe Brothers  #2)" ;
+    ns1:numberOfPages 108 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node188> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node189> ;
+    ns1:award "Nebula Award" ;
+    ns1:bookEdition ns1:EBook ;
+    ns1:dateCreated "1983-07-07"^^xsd:date ;
+    ns1:datePublished "2009-07-07"^^xsd:date ;
+    ns1:genre "African Literature",
+        "Historical Memoir",
+        "Parenting",
+        "Philosophy" ;
+    ns1:identifier "hoyo5971w" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "744-0-12" ;
+    ns1:name "The Salmon of Doubt (Dirk Gently  #3)" ;
+    ns1:numberOfPages 122 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node190> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node191>,
+        <http://example.org/ns#Node192>,
+        <http://example.org/ns#Node193> ;
+    ns1:award "The Women's Prize for Fiction" ;
+    ns1:bookEdition ns1:AudiobookFormat ;
+    ns1:dateCreated "2002-07-07"^^xsd:date ;
+    ns1:datePublished "2014-07-07"^^xsd:date ;
+    ns1:genre "Anthropology",
+        "Cooking Memoir",
+        "Epic Fantasy",
+        "Experimental Fiction" ;
+    ns1:identifier "udlh0044q" ;
+    ns1:inLanguage "en-USA" ;
+    ns1:isbn "253-7-12-25" ;
+    ns1:name "Every Man a Tiger: The Gulf War Air Campaign (Commanders)" ;
+    ns1:numberOfPages 127 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node194> a ns1:Book ;
+    ns1:author <http://example.org/ns#Node195>,
+        <http://example.org/ns#Node196> ;
+    ns1:award "The National Poetry Series" ;
+    ns1:bookEdition ns1:Hardcover ;
+    ns1:dateCreated "1977-07-07"^^xsd:date ;
+    ns1:datePublished "1982-07-07"^^xsd:date ;
+    ns1:genre "Detective Fiction",
+        "Fairy Tale" ;
+    ns1:identifier "xhpj6428isnk" ;
+    ns1:inLanguage "en-UK" ;
+    ns1:isbn "059-6-98-41" ;
+    ns1:name "Camus at Combat: Writing 1944-1947" ;
+    ns1:numberOfPages 125 ;
+    sh:description ns1:BookShape .
+
+<http://example.org/ns#Node101> a ns1:Person ;
+    ns1:birthDate "1970-07-07"^^xsd:date ;
+    ns1:deathDate "2015-07-07"^^xsd:date ;
+    ns1:email "adelle_445@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Adelle" ;
+    ns1:telephone "040-758-9723" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node102> a ns1:Person ;
+    ns1:birthDate "2016-07-07"^^xsd:date ;
+    ns1:deathDate "2018-07-07"^^xsd:date ;
+    ns1:email "claresta_806@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Claresta" ;
+    ns1:telephone "092973-63" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node104> a ns1:Person ;
+    ns1:birthDate "2001-07-07"^^xsd:date ;
+    ns1:deathDate "2002-07-07"^^xsd:date ;
+    ns1:email "dacia_999@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Dacia" ;
+    ns1:telephone "499550-4" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node105> a ns1:Person ;
+    ns1:birthDate "1970-07-07"^^xsd:date ;
+    ns1:deathDate "1987-07-07"^^xsd:date ;
+    ns1:email "wallas_532@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Wallas" ;
+    ns1:telephone "347987-18831341" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node106> a ns1:Person ;
+    ns1:birthDate "1970-07-07"^^xsd:date ;
+    ns1:deathDate "2001-07-07"^^xsd:date ;
+    ns1:email "hogan_274@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Hogan" ;
+    ns1:telephone "229604-9833541-" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node108> a ns1:Person ;
+    ns1:birthDate "1965-07-07"^^xsd:date ;
+    ns1:deathDate "2005-07-07"^^xsd:date ;
+    ns1:email "joceline_641@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Joceline" ;
+    ns1:telephone "244594-0" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node109> a ns1:Person ;
+    ns1:birthDate "1960-07-07"^^xsd:date ;
+    ns1:deathDate "1987-07-07"^^xsd:date ;
+    ns1:email "gianna_197@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Gianna" ;
+    ns1:telephone "902699-8176499-" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node110> a ns1:Person ;
+    ns1:birthDate "1974-07-07"^^xsd:date ;
+    ns1:deathDate "1996-07-07"^^xsd:date ;
+    ns1:email "jessi_475@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Jessi" ;
+    ns1:telephone "167-502-2195" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node112> a ns1:Person ;
+    ns1:birthDate "2003-07-07"^^xsd:date ;
+    ns1:deathDate "2012-07-07"^^xsd:date ;
+    ns1:email "sylvan_977@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Sylvan" ;
+    ns1:telephone "667-197-52300" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node114> a ns1:Person ;
+    ns1:birthDate "1983-07-07"^^xsd:date ;
+    ns1:deathDate "1997-07-07"^^xsd:date ;
+    ns1:email "allah_938@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Allah" ;
+    ns1:telephone "489360-10175" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node115> a ns1:Person ;
+    ns1:birthDate "1941-07-07"^^xsd:date ;
+    ns1:deathDate "1991-07-07"^^xsd:date ;
+    ns1:email "karna_488@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Karna" ;
+    ns1:telephone "524160-4137783" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node117> a ns1:Person ;
+    ns1:birthDate "1961-07-07"^^xsd:date ;
+    ns1:deathDate "1987-07-07"^^xsd:date ;
+    ns1:email "cornelle_343@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Cornelle" ;
+    ns1:telephone "895-418-4" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node119> a ns1:Person ;
+    ns1:birthDate "1970-07-07"^^xsd:date ;
+    ns1:deathDate "1996-07-07"^^xsd:date ;
+    ns1:email "julius_587@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Julius" ;
+    ns1:telephone "416-287-508" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node120> a ns1:Person ;
+    ns1:birthDate "1965-07-07"^^xsd:date ;
+    ns1:deathDate "1999-07-07"^^xsd:date ;
+    ns1:email "jeremy_489@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Jeremy" ;
+    ns1:telephone "248-433-3464" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node121> a ns1:Person ;
+    ns1:birthDate "1958-07-07"^^xsd:date ;
+    ns1:deathDate "1996-07-07"^^xsd:date ;
+    ns1:email "judas_956@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Judas" ;
+    ns1:telephone "585-847-9578" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node123> a ns1:Person ;
+    ns1:birthDate "1978-07-07"^^xsd:date ;
+    ns1:deathDate "1979-07-07"^^xsd:date ;
+    ns1:email "raychel_696@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Raychel" ;
+    ns1:telephone "180692-4" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node124> a ns1:Person ;
+    ns1:birthDate "1979-07-07"^^xsd:date ;
+    ns1:deathDate "2009-07-07"^^xsd:date ;
+    ns1:email "bo_639@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Bo" ;
+    ns1:telephone "135970-32338" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node125> a ns1:Person ;
+    ns1:birthDate "1949-07-07"^^xsd:date ;
+    ns1:deathDate "1993-07-07"^^xsd:date ;
+    ns1:email "rusty_647@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Rusty" ;
+    ns1:telephone "872-509-" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node127> a ns1:Person ;
+    ns1:birthDate "2010-07-07"^^xsd:date ;
+    ns1:deathDate "2017-07-07"^^xsd:date ;
+    ns1:email "kelsi_585@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Kelsi" ;
+    ns1:telephone "295291-1694" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node128> a ns1:Person ;
+    ns1:birthDate "2009-07-07"^^xsd:date ;
+    ns1:deathDate "2014-07-07"^^xsd:date ;
+    ns1:email "tucky_930@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Tucky" ;
+    ns1:telephone "984-148-6" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node129> a ns1:Person ;
+    ns1:birthDate "1980-07-07"^^xsd:date ;
+    ns1:deathDate "1982-07-07"^^xsd:date ;
+    ns1:email "luther_969@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Luther" ;
+    ns1:telephone "641-914-" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node131> a ns1:Person ;
+    ns1:birthDate "1947-07-07"^^xsd:date ;
+    ns1:deathDate "1988-07-07"^^xsd:date ;
+    ns1:email "ninetta_446@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Ninetta" ;
+    ns1:telephone "488092-9930961" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node132> a ns1:Person ;
+    ns1:birthDate "1979-07-07"^^xsd:date ;
+    ns1:deathDate "2004-07-07"^^xsd:date ;
+    ns1:email "templeton_990@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Templeton" ;
+    ns1:telephone "879269-598833" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node134> a ns1:Person ;
+    ns1:birthDate "1952-07-07"^^xsd:date ;
+    ns1:deathDate "1974-07-07"^^xsd:date ;
+    ns1:email "wilhelm_937@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Wilhelm" ;
+    ns1:telephone "496-795-936" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node136> a ns1:Person ;
+    ns1:birthDate "1946-07-07"^^xsd:date ;
+    ns1:deathDate "1994-07-07"^^xsd:date ;
+    ns1:email "gilburt_558@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Gilburt" ;
+    ns1:telephone "491054-6168" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node138> a ns1:Person ;
+    ns1:birthDate "1941-07-07"^^xsd:date ;
+    ns1:deathDate "1983-07-07"^^xsd:date ;
+    ns1:email "beatrice_919@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Beatrice" ;
+    ns1:telephone "961-821-" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node139> a ns1:Person ;
+    ns1:birthDate "1935-07-07"^^xsd:date ;
+    ns1:deathDate "1978-07-07"^^xsd:date ;
+    ns1:email "gerianne_912@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Gerianne" ;
+    ns1:telephone "199311-871" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node140> a ns1:Person ;
+    ns1:birthDate "1962-07-07"^^xsd:date ;
+    ns1:deathDate "1988-07-07"^^xsd:date ;
+    ns1:email "louisa_915@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Louisa" ;
+    ns1:telephone "881986-64" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node142> a ns1:Person ;
+    ns1:birthDate "1955-07-07"^^xsd:date ;
+    ns1:deathDate "1984-07-07"^^xsd:date ;
+    ns1:email "marry_398@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Marry" ;
+    ns1:telephone "460-726-70" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node143> a ns1:Person ;
+    ns1:birthDate "1954-07-07"^^xsd:date ;
+    ns1:deathDate "1999-07-07"^^xsd:date ;
+    ns1:email "alexina_481@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Alexina" ;
+    ns1:telephone "748-076-0450433" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node145> a ns1:Person ;
+    ns1:birthDate "2002-07-07"^^xsd:date ;
+    ns1:deathDate "2015-07-07"^^xsd:date ;
+    ns1:email "pen_284@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Pen" ;
+    ns1:telephone "467-207-31" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node146> a ns1:Person ;
+    ns1:birthDate "1971-07-07"^^xsd:date ;
+    ns1:deathDate "2003-07-07"^^xsd:date ;
+    ns1:email "jany_424@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Jany" ;
+    ns1:telephone "951-401-" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node148> a ns1:Person ;
+    ns1:birthDate "1965-07-07"^^xsd:date ;
+    ns1:deathDate "2000-07-07"^^xsd:date ;
+    ns1:email "merrill_171@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Merrill" ;
+    ns1:telephone "357-705-5732178" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node149> a ns1:Person ;
+    ns1:birthDate "1971-07-07"^^xsd:date ;
+    ns1:deathDate "1985-07-07"^^xsd:date ;
+    ns1:email "nert_675@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Nert" ;
+    ns1:telephone "474-326-99411" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node151> a ns1:Person ;
+    ns1:birthDate "1966-07-07"^^xsd:date ;
+    ns1:deathDate "1997-07-07"^^xsd:date ;
+    ns1:email "way_146@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Way" ;
+    ns1:telephone "527-875-6840" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node152> a ns1:Person ;
+    ns1:birthDate "1947-07-07"^^xsd:date ;
+    ns1:deathDate "1990-07-07"^^xsd:date ;
+    ns1:email "marchelle_602@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Marchelle" ;
+    ns1:telephone "367676-83521741" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node153> a ns1:Person ;
+    ns1:birthDate "1978-07-07"^^xsd:date ;
+    ns1:deathDate "1993-07-07"^^xsd:date ;
+    ns1:email "zechariah_682@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Zechariah" ;
+    ns1:telephone "044306-6" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node155> a ns1:Person ;
+    ns1:birthDate "1967-07-07"^^xsd:date ;
+    ns1:deathDate "1974-07-07"^^xsd:date ;
+    ns1:email "pincas_383@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Pincas" ;
+    ns1:telephone "607125-7550780" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node156> a ns1:Person ;
+    ns1:birthDate "1963-07-07"^^xsd:date ;
+    ns1:deathDate "1997-07-07"^^xsd:date ;
+    ns1:email "friedrick_802@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Friedrick" ;
+    ns1:telephone "638129-808" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node158> a ns1:Person ;
+    ns1:birthDate "1991-07-07"^^xsd:date ;
+    ns1:deathDate "1992-07-07"^^xsd:date ;
+    ns1:email "connie_272@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Connie" ;
+    ns1:telephone "808884-058066" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node159> a ns1:Person ;
+    ns1:birthDate "1959-07-07"^^xsd:date ;
+    ns1:deathDate "1977-07-07"^^xsd:date ;
+    ns1:email "gretal_966@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Gretal" ;
+    ns1:telephone "565867-2" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node161> a ns1:Person ;
+    ns1:birthDate "1983-07-07"^^xsd:date ;
+    ns1:deathDate "2006-07-07"^^xsd:date ;
+    ns1:email "quill_830@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Quill" ;
+    ns1:telephone "321-952-" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node162> a ns1:Person ;
+    ns1:birthDate "1966-07-07"^^xsd:date ;
+    ns1:deathDate "1982-07-07"^^xsd:date ;
+    ns1:email "cecile_568@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Cecile" ;
+    ns1:telephone "141031-66756" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node163> a ns1:Person ;
+    ns1:birthDate "1965-07-07"^^xsd:date ;
+    ns1:deathDate "1980-07-07"^^xsd:date ;
+    ns1:email "dannie_844@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Dannie" ;
+    ns1:telephone "715510-7557" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node165> a ns1:Person ;
+    ns1:birthDate "1991-07-07"^^xsd:date ;
+    ns1:deathDate "2012-07-07"^^xsd:date ;
+    ns1:email "mmarianne_497@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Mmarianne" ;
+    ns1:telephone "466784-22" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node166> a ns1:Person ;
+    ns1:birthDate "1988-07-07"^^xsd:date ;
+    ns1:deathDate "1990-07-07"^^xsd:date ;
+    ns1:email "ardelis_580@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Ardelis" ;
+    ns1:telephone "272489-485" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node167> a ns1:Person ;
+    ns1:birthDate "1982-07-07"^^xsd:date ;
+    ns1:deathDate "1984-07-07"^^xsd:date ;
+    ns1:email "shirline_331@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Shirline" ;
+    ns1:telephone "360594-3798692" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node169> a ns1:Person ;
+    ns1:birthDate "1961-07-07"^^xsd:date ;
+    ns1:deathDate "1973-07-07"^^xsd:date ;
+    ns1:email "ardyce_489@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Ardyce" ;
+    ns1:telephone "019480-9121" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node170> a ns1:Person ;
+    ns1:birthDate "1954-07-07"^^xsd:date ;
+    ns1:deathDate "1990-07-07"^^xsd:date ;
+    ns1:email "rutger_280@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Rutger" ;
+    ns1:telephone "695865-23031691" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node171> a ns1:Person ;
+    ns1:birthDate "1921-07-07"^^xsd:date ;
+    ns1:deathDate "1971-07-07"^^xsd:date ;
+    ns1:email "srinivas_657@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Srinivas" ;
+    ns1:telephone "361-550-029" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node173> a ns1:Person ;
+    ns1:birthDate "1976-07-07"^^xsd:date ;
+    ns1:deathDate "2002-07-07"^^xsd:date ;
+    ns1:email "steffen_985@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Steffen" ;
+    ns1:telephone "243740-069" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node174> a ns1:Person ;
+    ns1:birthDate "1987-07-07"^^xsd:date ;
+    ns1:deathDate "2001-07-07"^^xsd:date ;
+    ns1:email "farrand_196@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Farrand" ;
+    ns1:telephone "535-196-0741" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node176> a ns1:Person ;
+    ns1:birthDate "1951-07-07"^^xsd:date ;
+    ns1:deathDate "1992-07-07"^^xsd:date ;
+    ns1:email "lurline_239@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Lurline" ;
+    ns1:telephone "897609-1387158" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node177> a ns1:Person ;
+    ns1:birthDate "1988-07-07"^^xsd:date ;
+    ns1:deathDate "1998-07-07"^^xsd:date ;
+    ns1:email "thedrick_135@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Thedrick" ;
+    ns1:telephone "130-884-" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node178> a ns1:Person ;
+    ns1:birthDate "1990-07-07"^^xsd:date ;
+    ns1:deathDate "2015-07-07"^^xsd:date ;
+    ns1:email "cordelia_293@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Cordelia" ;
+    ns1:telephone "256272-668704" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node180> a ns1:Person ;
+    ns1:birthDate "1949-07-07"^^xsd:date ;
+    ns1:deathDate "1999-07-07"^^xsd:date ;
+    ns1:email "darda_574@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Darda" ;
+    ns1:telephone "351406-4298029-" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node182> a ns1:Person ;
+    ns1:birthDate "1972-07-07"^^xsd:date ;
+    ns1:deathDate "1997-07-07"^^xsd:date ;
+    ns1:email "carlynn_426@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Carlynn" ;
+    ns1:telephone "279-487-7553" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node183> a ns1:Person ;
+    ns1:birthDate "1943-07-07"^^xsd:date ;
+    ns1:deathDate "1980-07-07"^^xsd:date ;
+    ns1:email "lev_703@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Lev" ;
+    ns1:telephone "022024-406" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node185> a ns1:Person ;
+    ns1:birthDate "1979-07-07"^^xsd:date ;
+    ns1:deathDate "1996-07-07"^^xsd:date ;
+    ns1:email "jenica_569@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Jenica" ;
+    ns1:telephone "834888-792" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node186> a ns1:Person ;
+    ns1:birthDate "1954-07-07"^^xsd:date ;
+    ns1:deathDate "1971-07-07"^^xsd:date ;
+    ns1:email "beatrisa_496@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Beatrisa" ;
+    ns1:telephone "855772-0992413" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node187> a ns1:Person ;
+    ns1:birthDate "1971-07-07"^^xsd:date ;
+    ns1:deathDate "1985-07-07"^^xsd:date ;
+    ns1:email "neal_744@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Neal" ;
+    ns1:telephone "099089-4360" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node189> a ns1:Person ;
+    ns1:birthDate "1996-07-07"^^xsd:date ;
+    ns1:deathDate "2008-07-07"^^xsd:date ;
+    ns1:email "lynnelle_550@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Lynnelle" ;
+    ns1:telephone "615-334-1" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node191> a ns1:Person ;
+    ns1:birthDate "1988-07-07"^^xsd:date ;
+    ns1:deathDate "2012-07-07"^^xsd:date ;
+    ns1:email "aigneis_325@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Aigneis" ;
+    ns1:telephone "489832-0820398" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node192> a ns1:Person ;
+    ns1:birthDate "1965-07-07"^^xsd:date ;
+    ns1:deathDate "1983-07-07"^^xsd:date ;
+    ns1:email "ashish_563@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Ashish" ;
+    ns1:telephone "116237-439002" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node193> a ns1:Person ;
+    ns1:birthDate "1938-07-07"^^xsd:date ;
+    ns1:deathDate "1985-07-07"^^xsd:date ;
+    ns1:email "hoyt_902@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Hoyt" ;
+    ns1:telephone "846635-9740" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node195> a ns1:Person ;
+    ns1:birthDate "1944-07-07"^^xsd:date ;
+    ns1:deathDate "1981-07-07"^^xsd:date ;
+    ns1:email "leslie_356@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Leslie" ;
+    ns1:telephone "457-266-8240" ;
+    sh:description ns1:AuthorShape .
+
+<http://example.org/ns#Node196> a ns1:Person ;
+    ns1:birthDate "1959-07-07"^^xsd:date ;
+    ns1:deathDate "1972-07-07"^^xsd:date ;
+    ns1:email "tammy_911@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Tammy" ;
+    ns1:telephone "471-508-6128" ;
+    sh:description ns1:AuthorShape .
+

@@ -1,0 +1,313 @@
+@prefix ns1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/ns#Node100> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node101> ;
+    ns1:birthDate "2001-07-07"^^xsd:date ;
+    ns1:deathDate "2006-07-07"^^xsd:date ;
+    ns1:email "shurlocke_chambers@gmail.com" ;
+    ns1:familyName "Chambers" ;
+    ns1:gender "male" ;
+    ns1:givenName "Shurlocke" ;
+    ns1:jobTitle "plumber" ;
+    ns1:telephone "118736-62353" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node102> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node103> ;
+    ns1:birthDate "1953-07-07"^^xsd:date ;
+    ns1:deathDate "1971-07-07"^^xsd:date ;
+    ns1:email "gordandickinson@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:jobTitle "paralegal" ;
+    ns1:name "Gordan Dickinson" ;
+    ns1:telephone "852-070-7030748" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node104> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node105> ;
+    ns1:birthDate "1952-07-07"^^xsd:date ;
+    ns1:deathDate "1974-07-07"^^xsd:date ;
+    ns1:email "julecoffman@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:jobTitle "engineer" ;
+    ns1:name "Jule Coffman" ;
+    ns1:telephone "802-623-1457" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node106> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node107> ;
+    ns1:birthDate "1957-07-07"^^xsd:date ;
+    ns1:deathDate "1980-07-07"^^xsd:date ;
+    ns1:email "marcio_cross@gmail.com" ;
+    ns1:familyName "Cross" ;
+    ns1:gender "male" ;
+    ns1:givenName "Marcio" ;
+    ns1:jobTitle "office clerk" ;
+    ns1:telephone "369690-362149" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node108> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node109> ;
+    ns1:birthDate "1975-07-07"^^xsd:date ;
+    ns1:deathDate "1992-07-07"^^xsd:date ;
+    ns1:email "zechariahfrost@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:jobTitle "electrical engineer" ;
+    ns1:name "Zechariah Frost" ;
+    ns1:telephone "867018-2994" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node110> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node111> ;
+    ns1:birthDate "1997-07-07"^^xsd:date ;
+    ns1:deathDate "2013-07-07"^^xsd:date ;
+    ns1:email "clementinapreston@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:jobTitle "head cook" ;
+    ns1:name "Clementina Preston" ;
+    ns1:telephone "775934-51837" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node112> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node113> ;
+    ns1:birthDate "1942-07-07"^^xsd:date ;
+    ns1:deathDate "1981-07-07"^^xsd:date ;
+    ns1:email "cathaflynn@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:jobTitle "mechanic" ;
+    ns1:name "Catha Flynn" ;
+    ns1:telephone "238240-79453" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node114> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node115> ;
+    ns1:birthDate "1968-07-07"^^xsd:date ;
+    ns1:deathDate "1975-07-07"^^xsd:date ;
+    ns1:email "josefina_shannon@gmail.com" ;
+    ns1:familyName "Shannon" ;
+    ns1:gender "female" ;
+    ns1:givenName "Josefina" ;
+    ns1:jobTitle "language pathologist" ;
+    ns1:telephone "129486-72920132" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node116> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node117> ;
+    ns1:birthDate "1939-07-07"^^xsd:date ;
+    ns1:deathDate "1982-07-07"^^xsd:date ;
+    ns1:email "jackquelineguerra@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:jobTitle "manager" ;
+    ns1:name "Jackqueline Guerra" ;
+    ns1:telephone "094-657-156" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node118> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node119> ;
+    ns1:birthDate "1966-07-07"^^xsd:date ;
+    ns1:deathDate "2011-07-07"^^xsd:date ;
+    ns1:email "cloe_vincent@gmail.com" ;
+    ns1:familyName "Vincent" ;
+    ns1:gender "female" ;
+    ns1:givenName "Cloe" ;
+    ns1:jobTitle "postal worker" ;
+    ns1:telephone "679425-52966" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node120> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node121> ;
+    ns1:birthDate "1947-07-07"^^xsd:date ;
+    ns1:deathDate "1976-07-07"^^xsd:date ;
+    ns1:email "aurelbooker@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:jobTitle "machinist" ;
+    ns1:name "Aurel Booker" ;
+    ns1:telephone "647-232-6296499" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node122> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node123> ;
+    ns1:birthDate "1981-07-07"^^xsd:date ;
+    ns1:deathDate "2001-07-07"^^xsd:date ;
+    ns1:email "antonecolvin@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:jobTitle "sales manager" ;
+    ns1:name "Antone Colvin" ;
+    ns1:telephone "787954-2" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node124> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node125> ;
+    ns1:birthDate "1955-07-07"^^xsd:date ;
+    ns1:deathDate "2000-07-07"^^xsd:date ;
+    ns1:email "lillareid@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:jobTitle "engineer" ;
+    ns1:name "Lilla Reid" ;
+    ns1:telephone "382328-0122755" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node126> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node127> ;
+    ns1:birthDate "1992-07-07"^^xsd:date ;
+    ns1:deathDate "2015-07-07"^^xsd:date ;
+    ns1:email "remy_gonzalez@gmail.com" ;
+    ns1:familyName "Gonzalez" ;
+    ns1:gender "female" ;
+    ns1:givenName "Remy" ;
+    ns1:jobTitle "graphic designer" ;
+    ns1:telephone "320-594-7" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node128> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node129> ;
+    ns1:birthDate "1952-07-07"^^xsd:date ;
+    ns1:deathDate "1971-07-07"^^xsd:date ;
+    ns1:email "waltortega@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:jobTitle "engineer" ;
+    ns1:name "Walt Ortega" ;
+    ns1:telephone "380-655-916898" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node130> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node131> ;
+    ns1:birthDate "1995-07-07"^^xsd:date ;
+    ns1:deathDate "1999-07-07"^^xsd:date ;
+    ns1:email "weslie_childs@gmail.com" ;
+    ns1:familyName "Childs" ;
+    ns1:gender "male" ;
+    ns1:givenName "Weslie" ;
+    ns1:jobTitle "writer" ;
+    ns1:telephone "933506-49" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node132> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node133> ;
+    ns1:birthDate "1950-07-07"^^xsd:date ;
+    ns1:deathDate "1994-07-07"^^xsd:date ;
+    ns1:email "jordana_browning@gmail.com" ;
+    ns1:familyName "Browning" ;
+    ns1:gender "female" ;
+    ns1:givenName "Jordana" ;
+    ns1:jobTitle "financial advisor" ;
+    ns1:telephone "717093-69909881" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node134> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node135> ;
+    ns1:birthDate "1992-07-07"^^xsd:date ;
+    ns1:deathDate "2010-07-07"^^xsd:date ;
+    ns1:email "rosette_daugherty@gmail.com" ;
+    ns1:familyName "Daugherty" ;
+    ns1:gender "female" ;
+    ns1:givenName "Rosette" ;
+    ns1:jobTitle "nursing assistant" ;
+    ns1:telephone "004-242-900020" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node136> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node137> ;
+    ns1:birthDate "1941-07-07"^^xsd:date ;
+    ns1:deathDate "1984-07-07"^^xsd:date ;
+    ns1:email "spencer_tate@gmail.com" ;
+    ns1:familyName "Tate" ;
+    ns1:gender "male" ;
+    ns1:givenName "Spencer" ;
+    ns1:jobTitle "janitor" ;
+    ns1:telephone "573897-0599783" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node138> a ns1:Person ;
+    ns1:address <http://example.org/ns#Node139> ;
+    ns1:birthDate "1956-07-07"^^xsd:date ;
+    ns1:deathDate "1980-07-07"^^xsd:date ;
+    ns1:email "maribellu@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:jobTitle "community manager" ;
+    ns1:name "Maribel Lu" ;
+    ns1:telephone "267-701-2958" ;
+    sh:description ns1:PersonShape .
+
+<http://example.org/ns#Node101> ns1:postalCode 83740 ;
+    ns1:streetAddress "no. 87 Yosemite ave" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node103> ns1:postalCode 12289 ;
+    ns1:streetAddress "no. 51 Sears st" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node105> ns1:postalCode "QwkekuQhK1mE8" ;
+    ns1:streetAddress "no. 31 Lily st" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node107> ns1:postalCode 46315 ;
+    ns1:streetAddress "no. 4 39th ave" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node109> ns1:postalCode "AI2HoK9Cw7l" ;
+    ns1:streetAddress "no. 10 Pioche st" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node111> ns1:postalCode 49932 ;
+    ns1:streetAddress "no. 82 Neptune st" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node113> ns1:postalCode "U8xjofjZegMaW5U" ;
+    ns1:streetAddress "no. 16 Raycliff ter" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node115> ns1:postalCode 91515 ;
+    ns1:streetAddress "no. 81 Chaves ave" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node117> ns1:postalCode 65290 ;
+    ns1:streetAddress "no. 49 Rodriguez st" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node119> ns1:postalCode 85818 ;
+    ns1:streetAddress "no. 70 Woodacre dr" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node121> ns1:postalCode 90597 ;
+    ns1:streetAddress "no. 55 Unnamed 012" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node123> ns1:postalCode "Q9KkTRFH4qc8ZY" ;
+    ns1:streetAddress "no. 93 Baltimore way" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node125> ns1:postalCode 90318 ;
+    ns1:streetAddress "no. 26 Robblee ave" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node127> ns1:postalCode "XYdwu95LhIyd2k8" ;
+    ns1:streetAddress "no. 41 Wall pl" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node129> ns1:postalCode "Oe6RgzHp14F3Scz" ;
+    ns1:streetAddress "no. 55 Frank norris st" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node131> ns1:postalCode "14O4OL0KbyUVxG" ;
+    ns1:streetAddress "no. 52 Bruton st" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node133> ns1:postalCode "qnp5FlFI8b" ;
+    ns1:streetAddress "no. 2 Guttenberg st" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node135> ns1:postalCode 98607 ;
+    ns1:streetAddress "no. 61 Steuben st" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node137> ns1:postalCode "PTnKcdkRWXKBmyM" ;
+    ns1:streetAddress "no. 40 21st ave" ;
+    sh:description ns1:AddressShape .
+
+<http://example.org/ns#Node139> ns1:postalCode "Wp6QJ4QrK" ;
+    ns1:streetAddress "no. 86 Ritch st" ;
+    sh:description ns1:AddressShape .
+

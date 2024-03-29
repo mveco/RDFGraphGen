@@ -1,0 +1,277 @@
+@prefix ns1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/ns#Node100> a ns1:TVSeries ;
+    ns1:actor <http://example.org/ns#Node102>,
+        <http://example.org/ns#Node103>,
+        <http://example.org/ns#Node104> ;
+    ns1:datePublished "2005-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node101> ;
+    ns1:endDate "2012-07-07"^^xsd:date ;
+    ns1:genre "Mystery" ;
+    ns1:name "Cézanne et moi" ;
+    ns1:numberOfEpisodes 49 ;
+    ns1:numberOfSeasons 10 ;
+    ns1:season 10 ;
+    ns1:startDate "1998-07-07"^^xsd:date ;
+    ns1:titleEIDR "1.AXQQYO9ES.EE9" ;
+    sh:description ns1:TVSeriesShape .
+
+<http://example.org/ns#Node105> a ns1:TVSeries ;
+    ns1:actor <http://example.org/ns#Node107>,
+        <http://example.org/ns#Node108>,
+        <http://example.org/ns#Node109> ;
+    ns1:datePublished "1993-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node106> ;
+    ns1:endDate "2010-07-07"^^xsd:date ;
+    ns1:genre "Sci-Fi Mystery" ;
+    ns1:name "Patiala House" ;
+    ns1:numberOfEpisodes 9 ;
+    ns1:numberOfSeasons 22 ;
+    ns1:season 22 ;
+    ns1:startDate "1989-07-07"^^xsd:date ;
+    ns1:titleEIDR "JEP6/DVO6JCS39." ;
+    sh:description ns1:TVSeriesShape .
+
+<http://example.org/ns#Node110> a ns1:TVSeries ;
+    ns1:actor <http://example.org/ns#Node112>,
+        <http://example.org/ns#Node113>,
+        <http://example.org/ns#Node114> ;
+    ns1:datePublished "1949-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node111> ;
+    ns1:endDate "1987-07-07"^^xsd:date ;
+    ns1:genre "War" ;
+    ns1:name "Simon Amstell: Set Free" ;
+    ns1:numberOfEpisodes 16 ;
+    ns1:numberOfSeasons 41 ;
+    ns1:season 41 ;
+    ns1:startDate "1945-07-07"^^xsd:date ;
+    ns1:titleEIDR "5IX38S3OMGI2" ;
+    sh:description ns1:TVSeriesShape .
+
+<http://example.org/ns#Node115> a ns1:TVSeries ;
+    ns1:actor <http://example.org/ns#Node117>,
+        <http://example.org/ns#Node118>,
+        <http://example.org/ns#Node119> ;
+    ns1:datePublished "1972-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node116> ;
+    ns1:endDate "2007-07-07"^^xsd:date ;
+    ns1:genre "War Action" ;
+    ns1:name "Django Unchained" ;
+    ns1:numberOfEpisodes 34 ;
+    ns1:numberOfSeasons 34 ;
+    ns1:season 34 ;
+    ns1:startDate "1940-07-07"^^xsd:date ;
+    ns1:titleEIDR "N7GDWZUI/N" ;
+    sh:description ns1:TVSeriesShape .
+
+<http://example.org/ns#Node120> a ns1:TVSeries ;
+    ns1:actor <http://example.org/ns#Node122>,
+        <http://example.org/ns#Node123>,
+        <http://example.org/ns#Node124> ;
+    ns1:datePublished "1939-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node121> ;
+    ns1:endDate "1977-07-07"^^xsd:date ;
+    ns1:genre "Music" ;
+    ns1:name "Bring It On, Ghost" ;
+    ns1:numberOfEpisodes 42 ;
+    ns1:numberOfSeasons 45 ;
+    ns1:season 45 ;
+    ns1:startDate "1914-07-07"^^xsd:date ;
+    ns1:titleEIDR "B./O78UMS" ;
+    sh:description ns1:TVSeriesShape .
+
+<http://example.org/ns#Node125> a ns1:TVSeries ;
+    ns1:actor <http://example.org/ns#Node127>,
+        <http://example.org/ns#Node128>,
+        <http://example.org/ns#Node129> ;
+    ns1:datePublished "1958-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node126> ;
+    ns1:endDate "2005-07-07"^^xsd:date ;
+    ns1:genre "Adventure" ;
+    ns1:name "Racket Boys" ;
+    ns1:numberOfEpisodes 21 ;
+    ns1:numberOfSeasons 47 ;
+    ns1:season 47 ;
+    ns1:startDate "1926-07-07"^^xsd:date ;
+    ns1:titleEIDR "G69KGJ8R" ;
+    sh:description ns1:TVSeriesShape .
+
+<http://example.org/ns#Node130> a ns1:TVSeries ;
+    ns1:actor <http://example.org/ns#Node132>,
+        <http://example.org/ns#Node133>,
+        <http://example.org/ns#Node134> ;
+    ns1:datePublished "1947-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node131> ;
+    ns1:endDate "1971-07-07"^^xsd:date ;
+    ns1:genre "Historical Musical" ;
+    ns1:name "Rise: Ini Kalilah" ;
+    ns1:numberOfEpisodes 13 ;
+    ns1:numberOfSeasons 12 ;
+    ns1:season 12 ;
+    ns1:startDate "1929-07-07"^^xsd:date ;
+    ns1:titleEIDR "1YJN4SJXYHJY" ;
+    sh:description ns1:TVSeriesShape .
+
+<http://example.org/ns#Node101> a ns1:Person ;
+    ns1:email "farica_elder@gmail.com" ;
+    ns1:familyName "Elder" ;
+    ns1:gender "female" ;
+    ns1:givenName "Farica" ;
+    ns1:telephone "405-315-79045" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node102> a ns1:Person ;
+    ns1:gender "male" ;
+    ns1:name "Elvis Gallegos" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node103> a ns1:Person ;
+    ns1:gender "female" ;
+    ns1:name "Leann Cooley" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node104> a ns1:Person ;
+    ns1:gender "male" ;
+    ns1:name "Norwood Sosa" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node106> a ns1:Person ;
+    ns1:email "benson_macdonald@gmail.com" ;
+    ns1:familyName "Macdonald" ;
+    ns1:gender "male" ;
+    ns1:givenName "Benson" ;
+    ns1:telephone "745277-2992927-" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node107> a ns1:Person ;
+    ns1:gender "male" ;
+    ns1:name "Samson Bowles" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node108> a ns1:Person ;
+    ns1:gender "male" ;
+    ns1:name "Blair Shah" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node109> a ns1:Person ;
+    ns1:gender "female" ;
+    ns1:name "Dynah Horne" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node111> a ns1:Person ;
+    ns1:email "gale_tate@gmail.com" ;
+    ns1:familyName "Tate" ;
+    ns1:gender "female" ;
+    ns1:givenName "Gale" ;
+    ns1:telephone "402356-05526" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node112> a ns1:Person ;
+    ns1:gender "male" ;
+    ns1:name "Ingemar Riley" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node113> a ns1:Person ;
+    ns1:gender "female" ;
+    ns1:name "Bobina Caldwell" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node114> a ns1:Person ;
+    ns1:gender "female" ;
+    ns1:name "Gabey Silver" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node116> a ns1:Person ;
+    ns1:email "ibrahim_cleveland@gmail.com" ;
+    ns1:familyName "Cleveland" ;
+    ns1:gender "male" ;
+    ns1:givenName "Ibrahim" ;
+    ns1:telephone "675-392-3423" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node117> a ns1:Person ;
+    ns1:gender "female" ;
+    ns1:name "Adella Roberts" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node118> a ns1:Person ;
+    ns1:gender "female" ;
+    ns1:name "Jackquelin Padgett" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node119> a ns1:Person ;
+    ns1:gender "male" ;
+    ns1:name "Wendell Roth" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node121> a ns1:Person ;
+    ns1:email "tarrant_arias@gmail.com" ;
+    ns1:familyName "Arias" ;
+    ns1:gender "male" ;
+    ns1:givenName "Tarrant" ;
+    ns1:telephone "484550-86101" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node122> a ns1:Person ;
+    ns1:gender "male" ;
+    ns1:name "Robbert Ho" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node123> a ns1:Person ;
+    ns1:gender "male" ;
+    ns1:name "Wolfie Simmons" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node124> a ns1:Person ;
+    ns1:gender "male" ;
+    ns1:name "Keene Randall" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node126> a ns1:Person ;
+    ns1:email "twila_mayfield@gmail.com" ;
+    ns1:familyName "Mayfield" ;
+    ns1:gender "female" ;
+    ns1:givenName "Twila" ;
+    ns1:telephone "572-067-0384122" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node127> a ns1:Person ;
+    ns1:gender "female" ;
+    ns1:name "Cristina Lang" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node128> a ns1:Person ;
+    ns1:gender "male" ;
+    ns1:name "Freddie Felix" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node129> a ns1:Person ;
+    ns1:gender "female" ;
+    ns1:name "Vivian Bolton" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node131> a ns1:Person ;
+    ns1:email "jordan_burgess@gmail.com" ;
+    ns1:familyName "Burgess" ;
+    ns1:gender "male" ;
+    ns1:givenName "Jordan" ;
+    ns1:telephone "304-540-" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node132> a ns1:Person ;
+    ns1:gender "female" ;
+    ns1:name "Canada Hancock" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node133> a ns1:Person ;
+    ns1:gender "male" ;
+    ns1:name "Ellwood Shafer" ;
+    sh:description ns1:ActorShape .
+
+<http://example.org/ns#Node134> a ns1:Person ;
+    ns1:gender "male" ;
+    ns1:name "Wilmer Mcneil" ;
+    sh:description ns1:ActorShape .
+

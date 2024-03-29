@@ -1,0 +1,174 @@
+@prefix ns1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/ns#Node100> a ns1:Movie ;
+    ns1:award "British Independent Film Awards" ;
+    ns1:dateCreated "2006-07-07"^^xsd:date ;
+    ns1:datePublished "2013-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node101> ;
+    ns1:genre "Science Fiction" ;
+    ns1:inLanguage "Qo03iGGdroY0B" ;
+    ns1:name "Don't Give Up the Ship" ;
+    sh:description ns1:MovieShape .
+
+<http://example.org/ns#Node102> a ns1:Movie ;
+    ns1:award "Tribeca Film Festival" ;
+    ns1:dateCreated "1987-07-07"^^xsd:date ;
+    ns1:datePublished "2004-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node103> ;
+    ns1:genre "Comedy Drama" ;
+    ns1:inLanguage "TMLlWcBIK51" ;
+    ns1:name "Un americano a Roma" ;
+    sh:description ns1:MovieShape .
+
+<http://example.org/ns#Node104> a ns1:Movie ;
+    ns1:award "Producers Guild of America Awards" ;
+    ns1:dateCreated "1979-07-07"^^xsd:date ;
+    ns1:datePublished "2003-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node105> ;
+    ns1:genre "War Biography" ;
+    ns1:inLanguage "951jkgpFFlspXA" ;
+    ns1:name "The Big Broadcast of 1936" ;
+    sh:description ns1:MovieShape .
+
+<http://example.org/ns#Node106> a ns1:Movie ;
+    ns1:award "Los Angeles Online Film Critics Society Awards" ;
+    ns1:dateCreated "1991-07-07"^^xsd:date ;
+    ns1:datePublished "1979-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node107> ;
+    ns1:genre "Western Crime" ;
+    ns1:inLanguage "c1Pt20n18NzLz7" ;
+    ns1:name "Una pistola per Ringo" ;
+    sh:description ns1:MovieShape .
+
+<http://example.org/ns#Node108> a ns1:Movie ;
+    ns1:award "Hollywood Film Awards" ;
+    ns1:dateCreated "2003-07-07"^^xsd:date ;
+    ns1:datePublished "2014-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node109> ;
+    ns1:genre "Sci-Fi Fantasy" ;
+    ns1:inLanguage "4LQohzALd" ;
+    ns1:name "The Woman in Black 2: Angel of Death" ;
+    sh:description ns1:MovieShape .
+
+<http://example.org/ns#Node110> a ns1:Movie ;
+    ns1:award "New York Film Critics Circle Awards" ;
+    ns1:dateCreated "2005-07-07"^^xsd:date ;
+    ns1:datePublished "2017-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node111> ;
+    ns1:genre "Historical Comedy" ;
+    ns1:inLanguage "QMxqepOvqKKAfrq" ;
+    ns1:name "Dom za vešanje" ;
+    sh:description ns1:MovieShape .
+
+<http://example.org/ns#Node112> a ns1:Movie ;
+    ns1:award "Tribeca Film Festival" ;
+    ns1:dateCreated "2016-07-07"^^xsd:date ;
+    ns1:datePublished "2017-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node113> ;
+    ns1:genre "Biographical Musical" ;
+    ns1:inLanguage "nxswjBQC3nCQc" ;
+    ns1:name "Manche Hunde beißen" ;
+    sh:description ns1:MovieShape .
+
+<http://example.org/ns#Node114> a ns1:Movie ;
+    ns1:award "Los Angeles Online Film Critics Society Awards" ;
+    ns1:dateCreated "1976-07-07"^^xsd:date ;
+    ns1:datePublished "1973-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node115> ;
+    ns1:genre "Adventure Mystery" ;
+    ns1:inLanguage "L1VBjmRh" ;
+    ns1:name "The Knack... and How to Get It" ;
+    sh:description ns1:MovieShape .
+
+<http://example.org/ns#Node116> a ns1:Movie ;
+    ns1:award "Primetime Emmy Awards" ;
+    ns1:dateCreated "2006-07-07"^^xsd:date ;
+    ns1:datePublished "1997-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node117> ;
+    ns1:genre "Animation Comedy Drama" ;
+    ns1:inLanguage "W7xe3boWF8" ;
+    ns1:name "In Between Days" ;
+    sh:description ns1:MovieShape .
+
+<http://example.org/ns#Node118> a ns1:Movie ;
+    ns1:award "BFI London Film Festival" ;
+    ns1:dateCreated "2003-07-07"^^xsd:date ;
+    ns1:datePublished "1975-07-07"^^xsd:date ;
+    ns1:director <http://example.org/ns#Node119> ;
+    ns1:genre "Mystery Crime" ;
+    ns1:inLanguage "oAANbZXqGXwL" ;
+    ns1:name "வீரம்" ;
+    sh:description ns1:MovieShape .
+
+<http://example.org/ns#Node101> a ns1:Person ;
+    ns1:email "avram_557@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Avram" ;
+    ns1:telephone "621467-065" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node103> a ns1:Person ;
+    ns1:email "trace_471@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Trace" ;
+    ns1:telephone "678661-45792" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node105> a ns1:Person ;
+    ns1:email "emilie_154@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Emilie" ;
+    ns1:telephone "580-901-1284687" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node107> a ns1:Person ;
+    ns1:email "elinore_874@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Elinore" ;
+    ns1:telephone "032-768-650" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node109> a ns1:Person ;
+    ns1:email "denis_558@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Denis" ;
+    ns1:telephone "491-014-9" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node111> a ns1:Person ;
+    ns1:email "osbert_554@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Osbert" ;
+    ns1:telephone "783-734-6461" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node113> a ns1:Person ;
+    ns1:email "luis_444@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Luis" ;
+    ns1:telephone "533-508-091" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node115> a ns1:Person ;
+    ns1:email "mattias_813@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Mattias" ;
+    ns1:telephone "097246-9915046" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node117> a ns1:Person ;
+    ns1:email "dyson_189@gmail.com" ;
+    ns1:gender "male" ;
+    ns1:givenName "Dyson" ;
+    ns1:telephone "418158-955629" ;
+    sh:description ns1:DirectorShape .
+
+<http://example.org/ns#Node119> a ns1:Person ;
+    ns1:email "geraldine_378@gmail.com" ;
+    ns1:gender "female" ;
+    ns1:givenName "Geraldine" ;
+    ns1:telephone "421-505-" ;
+    sh:description ns1:DirectorShape .
+
