@@ -1,277 +1,277 @@
-@prefix schemaorg: <http://schema.org/> .
+@prefix schema: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://example.org/ns#Node100> a schemaorg:TVSeries ;
-    schemaorg:actor <http://example.org/ns#Node102>,
+<http://example.org/ns#Node100> a schema:TVSeries ;
+    schema:actor <http://example.org/ns#Node102>,
         <http://example.org/ns#Node103>,
         <http://example.org/ns#Node104> ;
-    schemaorg:datePublished "1952-07-07"^^xsd:date ;
-    schemaorg:director <http://example.org/ns#Node101> ;
-    schemaorg:endDate "1971-07-07"^^xsd:date ;
-    schemaorg:genre "Sports Romance" ;
-    schemaorg:name "Top Boy" ;
-    schemaorg:numberOfEpisodes 37 ;
-    schemaorg:numberOfSeasons 21 ;
-    schemaorg:season 21 ;
-    schemaorg:startDate "1925-07-07"^^xsd:date ;
-    schemaorg:titleEIDR "ZQ28HQ5S1LYFKT" ;
-    sh:description schemaorg:TVSeriesShape .
+    schema:datePublished "1952-07-07"^^xsd:date ;
+    schema:director <http://example.org/ns#Node101> ;
+    schema:endDate "1971-07-07"^^xsd:date ;
+    schema:genre "Sports Romance" ;
+    schema:name "Top Boy" ;
+    schema:numberOfEpisodes 37 ;
+    schema:numberOfSeasons 21 ;
+    schema:season 21 ;
+    schema:startDate "1925-07-07"^^xsd:date ;
+    schema:titleEIDR "ZQ28HQ5S1LYFKT" ;
+    sh:description schema:TVSeriesShape .
 
-<http://example.org/ns#Node105> a schemaorg:TVSeries ;
-    schemaorg:actor <http://example.org/ns#Node107>,
+<http://example.org/ns#Node105> a schema:TVSeries ;
+    schema:actor <http://example.org/ns#Node107>,
         <http://example.org/ns#Node108>,
         <http://example.org/ns#Node109> ;
-    schemaorg:datePublished "1958-07-07"^^xsd:date ;
-    schemaorg:director <http://example.org/ns#Node106> ;
-    schemaorg:endDate "1981-07-07"^^xsd:date ;
-    schemaorg:genre "Mystery Crime" ;
-    schemaorg:name "History's Greatest Hoaxes" ;
-    schemaorg:numberOfEpisodes 3 ;
-    schemaorg:numberOfSeasons 8 ;
-    schemaorg:season 8 ;
-    schemaorg:startDate "1919-07-07"^^xsd:date ;
-    schemaorg:titleEIDR "SM51UMWCB" ;
-    sh:description schemaorg:TVSeriesShape .
+    schema:datePublished "1958-07-07"^^xsd:date ;
+    schema:director <http://example.org/ns#Node106> ;
+    schema:endDate "1981-07-07"^^xsd:date ;
+    schema:genre "Mystery Crime" ;
+    schema:name "History's Greatest Hoaxes" ;
+    schema:numberOfEpisodes 3 ;
+    schema:numberOfSeasons 8 ;
+    schema:season 8 ;
+    schema:startDate "1919-07-07"^^xsd:date ;
+    schema:titleEIDR "SM51UMWCB" ;
+    sh:description schema:TVSeriesShape .
 
-<http://example.org/ns#Node110> a schemaorg:TVSeries ;
-    schemaorg:actor <http://example.org/ns#Node112>,
+<http://example.org/ns#Node110> a schema:TVSeries ;
+    schema:actor <http://example.org/ns#Node112>,
         <http://example.org/ns#Node113>,
         <http://example.org/ns#Node114> ;
-    schemaorg:datePublished "1965-07-07"^^xsd:date ;
-    schemaorg:director <http://example.org/ns#Node111> ;
-    schemaorg:endDate "1986-07-07"^^xsd:date ;
-    schemaorg:genre "Adventure Romance" ;
-    schemaorg:name "Oct-01" ;
-    schemaorg:numberOfEpisodes 20 ;
-    schemaorg:numberOfSeasons 33 ;
-    schemaorg:season 33 ;
-    schemaorg:startDate "1953-07-07"^^xsd:date ;
-    schemaorg:titleEIDR "3GH5UNM8N/" ;
-    sh:description schemaorg:TVSeriesShape .
+    schema:datePublished "1965-07-07"^^xsd:date ;
+    schema:director <http://example.org/ns#Node111> ;
+    schema:endDate "1986-07-07"^^xsd:date ;
+    schema:genre "Adventure Romance" ;
+    schema:name "Oct-01" ;
+    schema:numberOfEpisodes 20 ;
+    schema:numberOfSeasons 33 ;
+    schema:season 33 ;
+    schema:startDate "1953-07-07"^^xsd:date ;
+    schema:titleEIDR "3GH5UNM8N/" ;
+    sh:description schema:TVSeriesShape .
 
-<http://example.org/ns#Node115> a schemaorg:TVSeries ;
-    schemaorg:actor <http://example.org/ns#Node117>,
+<http://example.org/ns#Node115> a schema:TVSeries ;
+    schema:actor <http://example.org/ns#Node117>,
         <http://example.org/ns#Node118>,
         <http://example.org/ns#Node119> ;
-    schemaorg:datePublished "1954-07-07"^^xsd:date ;
-    schemaorg:director <http://example.org/ns#Node116> ;
-    schemaorg:endDate "1974-07-07"^^xsd:date ;
-    schemaorg:genre "War Action" ;
-    schemaorg:name "New York Minute" ;
-    schemaorg:numberOfEpisodes 31 ;
-    schemaorg:numberOfSeasons 26 ;
-    schemaorg:season 26 ;
-    schemaorg:startDate "1941-07-07"^^xsd:date ;
-    schemaorg:titleEIDR "U3POWIHD553B" ;
-    sh:description schemaorg:TVSeriesShape .
+    schema:datePublished "1954-07-07"^^xsd:date ;
+    schema:director <http://example.org/ns#Node116> ;
+    schema:endDate "1974-07-07"^^xsd:date ;
+    schema:genre "War Action" ;
+    schema:name "New York Minute" ;
+    schema:numberOfEpisodes 31 ;
+    schema:numberOfSeasons 26 ;
+    schema:season 26 ;
+    schema:startDate "1941-07-07"^^xsd:date ;
+    schema:titleEIDR "U3POWIHD553B" ;
+    sh:description schema:TVSeriesShape .
 
-<http://example.org/ns#Node120> a schemaorg:TVSeries ;
-    schemaorg:actor <http://example.org/ns#Node122>,
+<http://example.org/ns#Node120> a schema:TVSeries ;
+    schema:actor <http://example.org/ns#Node122>,
         <http://example.org/ns#Node123>,
         <http://example.org/ns#Node124> ;
-    schemaorg:datePublished "1958-07-07"^^xsd:date ;
-    schemaorg:director <http://example.org/ns#Node121> ;
-    schemaorg:endDate "1990-07-07"^^xsd:date ;
-    schemaorg:genre "Western Adventure Action" ;
-    schemaorg:name "Williams" ;
-    schemaorg:numberOfEpisodes 47 ;
-    schemaorg:numberOfSeasons 36 ;
-    schemaorg:season 36 ;
-    schemaorg:startDate "1909-07-07"^^xsd:date ;
-    schemaorg:titleEIDR "K/3KQSRT74V" ;
-    sh:description schemaorg:TVSeriesShape .
+    schema:datePublished "1958-07-07"^^xsd:date ;
+    schema:director <http://example.org/ns#Node121> ;
+    schema:endDate "1990-07-07"^^xsd:date ;
+    schema:genre "Western Adventure Action" ;
+    schema:name "Williams" ;
+    schema:numberOfEpisodes 47 ;
+    schema:numberOfSeasons 36 ;
+    schema:season 36 ;
+    schema:startDate "1909-07-07"^^xsd:date ;
+    schema:titleEIDR "K/3KQSRT74V" ;
+    sh:description schema:TVSeriesShape .
 
-<http://example.org/ns#Node125> a schemaorg:TVSeries ;
-    schemaorg:actor <http://example.org/ns#Node127>,
+<http://example.org/ns#Node125> a schema:TVSeries ;
+    schema:actor <http://example.org/ns#Node127>,
         <http://example.org/ns#Node128>,
         <http://example.org/ns#Node129> ;
-    schemaorg:datePublished "1976-07-07"^^xsd:date ;
-    schemaorg:director <http://example.org/ns#Node126> ;
-    schemaorg:endDate "1981-07-07"^^xsd:date ;
-    schemaorg:genre "Sports Comedy" ;
-    schemaorg:name "Mirai" ;
-    schemaorg:numberOfEpisodes 5 ;
-    schemaorg:numberOfSeasons 50 ;
-    schemaorg:season 50 ;
-    schemaorg:startDate "1930-07-07"^^xsd:date ;
-    schemaorg:titleEIDR "8KSPIM8G9EM11" ;
-    sh:description schemaorg:TVSeriesShape .
+    schema:datePublished "1976-07-07"^^xsd:date ;
+    schema:director <http://example.org/ns#Node126> ;
+    schema:endDate "1981-07-07"^^xsd:date ;
+    schema:genre "Sports Comedy" ;
+    schema:name "Mirai" ;
+    schema:numberOfEpisodes 5 ;
+    schema:numberOfSeasons 50 ;
+    schema:season 50 ;
+    schema:startDate "1930-07-07"^^xsd:date ;
+    schema:titleEIDR "8KSPIM8G9EM11" ;
+    sh:description schema:TVSeriesShape .
 
-<http://example.org/ns#Node130> a schemaorg:TVSeries ;
-    schemaorg:actor <http://example.org/ns#Node132>,
+<http://example.org/ns#Node130> a schema:TVSeries ;
+    schema:actor <http://example.org/ns#Node132>,
         <http://example.org/ns#Node133>,
         <http://example.org/ns#Node134> ;
-    schemaorg:datePublished "2002-07-07"^^xsd:date ;
-    schemaorg:director <http://example.org/ns#Node131> ;
-    schemaorg:endDate "2014-07-07"^^xsd:date ;
-    schemaorg:genre "Teen Fantasy" ;
-    schemaorg:name "Sinister 2" ;
-    schemaorg:numberOfEpisodes 35 ;
-    schemaorg:numberOfSeasons 36 ;
-    schemaorg:season 36 ;
-    schemaorg:startDate "1960-07-07"^^xsd:date ;
-    schemaorg:titleEIDR "1ID/1AML6W98" ;
-    sh:description schemaorg:TVSeriesShape .
+    schema:datePublished "2002-07-07"^^xsd:date ;
+    schema:director <http://example.org/ns#Node131> ;
+    schema:endDate "2014-07-07"^^xsd:date ;
+    schema:genre "Teen Fantasy" ;
+    schema:name "Sinister 2" ;
+    schema:numberOfEpisodes 35 ;
+    schema:numberOfSeasons 36 ;
+    schema:season 36 ;
+    schema:startDate "1960-07-07"^^xsd:date ;
+    schema:titleEIDR "1ID/1AML6W98" ;
+    sh:description schema:TVSeriesShape .
 
-<http://example.org/ns#Node101> a schemaorg:Person ;
-    schemaorg:email "leonhard_joseph@gmail.com" ;
-    schemaorg:familyName "Joseph" ;
-    schemaorg:gender "male" ;
-    schemaorg:givenName "Leonhard" ;
-    schemaorg:telephone "333-512-23" ;
-    sh:description schemaorg:DirectorShape .
+<http://example.org/ns#Node101> a schema:Person ;
+    schema:email "leonhard_joseph@gmail.com" ;
+    schema:familyName "Joseph" ;
+    schema:gender "male" ;
+    schema:givenName "Leonhard" ;
+    schema:telephone "333-512-23" ;
+    sh:description schema:DirectorShape .
 
-<http://example.org/ns#Node102> a schemaorg:Person ;
-    schemaorg:gender "male" ;
-    schemaorg:name "Silvan Carpenter" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node102> a schema:Person ;
+    schema:gender "male" ;
+    schema:name "Silvan Carpenter" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node103> a schemaorg:Person ;
-    schemaorg:gender "female" ;
-    schemaorg:name "Angela Swartz" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node103> a schema:Person ;
+    schema:gender "female" ;
+    schema:name "Angela Swartz" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node104> a schemaorg:Person ;
-    schemaorg:gender "female" ;
-    schemaorg:name "Anitra Cordero" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node104> a schema:Person ;
+    schema:gender "female" ;
+    schema:name "Anitra Cordero" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node106> a schemaorg:Person ;
-    schemaorg:email "leontine_gilliam@gmail.com" ;
-    schemaorg:familyName "Gilliam" ;
-    schemaorg:gender "female" ;
-    schemaorg:givenName "Leontine" ;
-    schemaorg:telephone "678924-32" ;
-    sh:description schemaorg:DirectorShape .
+<http://example.org/ns#Node106> a schema:Person ;
+    schema:email "leontine_gilliam@gmail.com" ;
+    schema:familyName "Gilliam" ;
+    schema:gender "female" ;
+    schema:givenName "Leontine" ;
+    schema:telephone "678924-32" ;
+    sh:description schema:DirectorShape .
 
-<http://example.org/ns#Node107> a schemaorg:Person ;
-    schemaorg:gender "male" ;
-    schemaorg:name "Russell Combs" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node107> a schema:Person ;
+    schema:gender "male" ;
+    schema:name "Russell Combs" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node108> a schemaorg:Person ;
-    schemaorg:gender "male" ;
-    schemaorg:name "Jude Wallace" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node108> a schema:Person ;
+    schema:gender "male" ;
+    schema:name "Jude Wallace" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node109> a schemaorg:Person ;
-    schemaorg:gender "female" ;
-    schemaorg:name "Dew Dolan" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node109> a schema:Person ;
+    schema:gender "female" ;
+    schema:name "Dew Dolan" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node111> a schemaorg:Person ;
-    schemaorg:email "bellamy_ramirez@gmail.com" ;
-    schemaorg:familyName "Ramirez" ;
-    schemaorg:gender "female" ;
-    schemaorg:givenName "Bellamy" ;
-    schemaorg:telephone "511-047-" ;
-    sh:description schemaorg:DirectorShape .
+<http://example.org/ns#Node111> a schema:Person ;
+    schema:email "bellamy_ramirez@gmail.com" ;
+    schema:familyName "Ramirez" ;
+    schema:gender "female" ;
+    schema:givenName "Bellamy" ;
+    schema:telephone "511-047-" ;
+    sh:description schema:DirectorShape .
 
-<http://example.org/ns#Node112> a schemaorg:Person ;
-    schemaorg:gender "female" ;
-    schemaorg:name "Marjie Shaw" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node112> a schema:Person ;
+    schema:gender "female" ;
+    schema:name "Marjie Shaw" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node113> a schemaorg:Person ;
-    schemaorg:gender "female" ;
-    schemaorg:name "Eudora Nava" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node113> a schema:Person ;
+    schema:gender "female" ;
+    schema:name "Eudora Nava" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node114> a schemaorg:Person ;
-    schemaorg:gender "female" ;
-    schemaorg:name "Korney Rouse" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node114> a schema:Person ;
+    schema:gender "female" ;
+    schema:name "Korney Rouse" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node116> a schemaorg:Person ;
-    schemaorg:email "boris_ritter@gmail.com" ;
-    schemaorg:familyName "Ritter" ;
-    schemaorg:gender "male" ;
-    schemaorg:givenName "Boris" ;
-    schemaorg:telephone "378-791-560" ;
-    sh:description schemaorg:DirectorShape .
+<http://example.org/ns#Node116> a schema:Person ;
+    schema:email "boris_ritter@gmail.com" ;
+    schema:familyName "Ritter" ;
+    schema:gender "male" ;
+    schema:givenName "Boris" ;
+    schema:telephone "378-791-560" ;
+    sh:description schema:DirectorShape .
 
-<http://example.org/ns#Node117> a schemaorg:Person ;
-    schemaorg:gender "male" ;
-    schemaorg:name "Forster Macdonald" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node117> a schema:Person ;
+    schema:gender "male" ;
+    schema:name "Forster Macdonald" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node118> a schemaorg:Person ;
-    schemaorg:gender "female" ;
-    schemaorg:name "Amalle Holden" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node118> a schema:Person ;
+    schema:gender "female" ;
+    schema:name "Amalle Holden" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node119> a schemaorg:Person ;
-    schemaorg:gender "male" ;
-    schemaorg:name "Murray Cherry" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node119> a schema:Person ;
+    schema:gender "male" ;
+    schema:name "Murray Cherry" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node121> a schemaorg:Person ;
-    schemaorg:email "crawford_thompson@gmail.com" ;
-    schemaorg:familyName "Thompson" ;
-    schemaorg:gender "male" ;
-    schemaorg:givenName "Crawford" ;
-    schemaorg:telephone "985929-872792" ;
-    sh:description schemaorg:DirectorShape .
+<http://example.org/ns#Node121> a schema:Person ;
+    schema:email "crawford_thompson@gmail.com" ;
+    schema:familyName "Thompson" ;
+    schema:gender "male" ;
+    schema:givenName "Crawford" ;
+    schema:telephone "985929-872792" ;
+    sh:description schema:DirectorShape .
 
-<http://example.org/ns#Node122> a schemaorg:Person ;
-    schemaorg:gender "female" ;
-    schemaorg:name "Sybila Keller" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node122> a schema:Person ;
+    schema:gender "female" ;
+    schema:name "Sybila Keller" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node123> a schemaorg:Person ;
-    schemaorg:gender "male" ;
-    schemaorg:name "Davide Hill" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node123> a schema:Person ;
+    schema:gender "male" ;
+    schema:name "Davide Hill" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node124> a schemaorg:Person ;
-    schemaorg:gender "female" ;
-    schemaorg:name "Aina Singleton" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node124> a schema:Person ;
+    schema:gender "female" ;
+    schema:name "Aina Singleton" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node126> a schemaorg:Person ;
-    schemaorg:email "rudd_boone@gmail.com" ;
-    schemaorg:familyName "Boone" ;
-    schemaorg:gender "male" ;
-    schemaorg:givenName "Rudd" ;
-    schemaorg:telephone "787985-0679644-" ;
-    sh:description schemaorg:DirectorShape .
+<http://example.org/ns#Node126> a schema:Person ;
+    schema:email "rudd_boone@gmail.com" ;
+    schema:familyName "Boone" ;
+    schema:gender "male" ;
+    schema:givenName "Rudd" ;
+    schema:telephone "787985-0679644-" ;
+    sh:description schema:DirectorShape .
 
-<http://example.org/ns#Node127> a schemaorg:Person ;
-    schemaorg:gender "female" ;
-    schemaorg:name "Agneta Stephenson" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node127> a schema:Person ;
+    schema:gender "female" ;
+    schema:name "Agneta Stephenson" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node128> a schemaorg:Person ;
-    schemaorg:gender "male" ;
-    schemaorg:name "Oral Thurman" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node128> a schema:Person ;
+    schema:gender "male" ;
+    schema:name "Oral Thurman" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node129> a schemaorg:Person ;
-    schemaorg:gender "male" ;
-    schemaorg:name "Zackariah Esposito" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node129> a schema:Person ;
+    schema:gender "male" ;
+    schema:name "Zackariah Esposito" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node131> a schemaorg:Person ;
-    schemaorg:email "ardyce_oneil@gmail.com" ;
-    schemaorg:familyName "Oneil" ;
-    schemaorg:gender "female" ;
-    schemaorg:givenName "Ardyce" ;
-    schemaorg:telephone "811-693-4867729" ;
-    sh:description schemaorg:DirectorShape .
+<http://example.org/ns#Node131> a schema:Person ;
+    schema:email "ardyce_oneil@gmail.com" ;
+    schema:familyName "Oneil" ;
+    schema:gender "female" ;
+    schema:givenName "Ardyce" ;
+    schema:telephone "811-693-4867729" ;
+    sh:description schema:DirectorShape .
 
-<http://example.org/ns#Node132> a schemaorg:Person ;
-    schemaorg:gender "male" ;
-    schemaorg:name "Merril Corbin" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node132> a schema:Person ;
+    schema:gender "male" ;
+    schema:name "Merril Corbin" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node133> a schemaorg:Person ;
-    schemaorg:gender "male" ;
-    schemaorg:name "Talbot Battle" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node133> a schema:Person ;
+    schema:gender "male" ;
+    schema:name "Talbot Battle" ;
+    sh:description schema:ActorShape .
 
-<http://example.org/ns#Node134> a schemaorg:Person ;
-    schemaorg:gender "male" ;
-    schemaorg:name "Rabbi Ortega" ;
-    sh:description schemaorg:ActorShape .
+<http://example.org/ns#Node134> a schema:Person ;
+    schema:gender "male" ;
+    schema:name "Rabbi Ortega" ;
+    sh:description schema:ActorShape .
 

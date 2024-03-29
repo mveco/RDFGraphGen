@@ -1,315 +1,315 @@
-@prefix schemaorg: <http://schema.org/> .
+@prefix schema: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://example.org/ns#Node100> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node101> ;
-    schemaorg:birthDate "1985-07-07"^^xsd:date ;
-    schemaorg:deathDate "1999-07-07"^^xsd:date ;
-    schemaorg:email "verney_moore@gmail.com" ;
-    schemaorg:familyName "Moore" ;
-    schemaorg:gender "male" ;
-    schemaorg:givenName "Verney" ;
-    schemaorg:jobTitle "electrician" ;
-    schemaorg:telephone "348474-0459" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node100> a schema:Person ;
+    schema:address <http://example.org/ns#Node101> ;
+    schema:birthDate "1985-07-07"^^xsd:date ;
+    schema:deathDate "1999-07-07"^^xsd:date ;
+    schema:email "verney_moore@gmail.com" ;
+    schema:familyName "Moore" ;
+    schema:gender "male" ;
+    schema:givenName "Verney" ;
+    schema:jobTitle "electrician" ;
+    schema:telephone "348474-0459" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node102> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node103> ;
-    schemaorg:birthDate "1973-07-07"^^xsd:date ;
-    schemaorg:deathDate "2002-07-07"^^xsd:date ;
-    schemaorg:email "tysononeal@gmail.com" ;
-    schemaorg:gender "male" ;
-    schemaorg:jobTitle "occupational therapist" ;
-    schemaorg:name "Tyson Oneal" ;
-    schemaorg:telephone "005781-6" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node102> a schema:Person ;
+    schema:address <http://example.org/ns#Node103> ;
+    schema:birthDate "1973-07-07"^^xsd:date ;
+    schema:deathDate "2002-07-07"^^xsd:date ;
+    schema:email "tysononeal@gmail.com" ;
+    schema:gender "male" ;
+    schema:jobTitle "occupational therapist" ;
+    schema:name "Tyson Oneal" ;
+    schema:telephone "005781-6" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node104> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node105> ;
-    schemaorg:birthDate "1983-07-07"^^xsd:date ;
-    schemaorg:deathDate "1990-07-07"^^xsd:date ;
-    schemaorg:email "hillortiz@gmail.com" ;
-    schemaorg:gender "male" ;
-    schemaorg:jobTitle "construction worker" ;
-    schemaorg:name "Hill Ortiz" ;
-    schemaorg:telephone "667-260-75" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node104> a schema:Person ;
+    schema:address <http://example.org/ns#Node105> ;
+    schema:birthDate "1983-07-07"^^xsd:date ;
+    schema:deathDate "1990-07-07"^^xsd:date ;
+    schema:email "hillortiz@gmail.com" ;
+    schema:gender "male" ;
+    schema:jobTitle "construction worker" ;
+    schema:name "Hill Ortiz" ;
+    schema:telephone "667-260-75" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node106> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node107> ;
-    schemaorg:birthDate "1988-07-07"^^xsd:date ;
-    schemaorg:deathDate "2008-07-07"^^xsd:date ;
-    schemaorg:email "hildegarde_lange@gmail.com" ;
-    schemaorg:familyName "Lange" ;
-    schemaorg:gender "female" ;
-    schemaorg:givenName "Hildegarde" ;
-    schemaorg:jobTitle "welder" ;
-    schemaorg:telephone "030405-6924089" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node106> a schema:Person ;
+    schema:address <http://example.org/ns#Node107> ;
+    schema:birthDate "1988-07-07"^^xsd:date ;
+    schema:deathDate "2008-07-07"^^xsd:date ;
+    schema:email "hildegarde_lange@gmail.com" ;
+    schema:familyName "Lange" ;
+    schema:gender "female" ;
+    schema:givenName "Hildegarde" ;
+    schema:jobTitle "welder" ;
+    schema:telephone "030405-6924089" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node108> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node109> ;
-    schemaorg:birthDate "1934-07-07"^^xsd:date ;
-    schemaorg:deathDate "1973-07-07"^^xsd:date ;
-    schemaorg:email "deeann_webb@gmail.com" ;
-    schemaorg:familyName "Webb" ;
-    schemaorg:gender "female" ;
-    schemaorg:givenName "Deeann" ;
-    schemaorg:jobTitle "financial manager" ;
-    schemaorg:telephone "613124-49539" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node108> a schema:Person ;
+    schema:address <http://example.org/ns#Node109> ;
+    schema:birthDate "1934-07-07"^^xsd:date ;
+    schema:deathDate "1973-07-07"^^xsd:date ;
+    schema:email "deeann_webb@gmail.com" ;
+    schema:familyName "Webb" ;
+    schema:gender "female" ;
+    schema:givenName "Deeann" ;
+    schema:jobTitle "financial manager" ;
+    schema:telephone "613124-49539" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node110> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node111> ;
-    schemaorg:birthDate "1957-07-07"^^xsd:date ;
-    schemaorg:deathDate "2001-07-07"^^xsd:date ;
-    schemaorg:email "cam_snow@gmail.com" ;
-    schemaorg:familyName "Snow" ;
-    schemaorg:gender "female" ;
-    schemaorg:givenName "Cam" ;
-    schemaorg:jobTitle "manicurist" ;
-    schemaorg:telephone "491-822-83" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node110> a schema:Person ;
+    schema:address <http://example.org/ns#Node111> ;
+    schema:birthDate "1957-07-07"^^xsd:date ;
+    schema:deathDate "2001-07-07"^^xsd:date ;
+    schema:email "cam_snow@gmail.com" ;
+    schema:familyName "Snow" ;
+    schema:gender "female" ;
+    schema:givenName "Cam" ;
+    schema:jobTitle "manicurist" ;
+    schema:telephone "491-822-83" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node112> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node113> ;
-    schemaorg:birthDate "1958-07-07"^^xsd:date ;
-    schemaorg:deathDate "1984-07-07"^^xsd:date ;
-    schemaorg:email "kriscurran@gmail.com" ;
-    schemaorg:gender "female" ;
-    schemaorg:jobTitle "director" ;
-    schemaorg:name "Kris Curran" ;
-    schemaorg:telephone "671-621-7766" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node112> a schema:Person ;
+    schema:address <http://example.org/ns#Node113> ;
+    schema:birthDate "1958-07-07"^^xsd:date ;
+    schema:deathDate "1984-07-07"^^xsd:date ;
+    schema:email "kriscurran@gmail.com" ;
+    schema:gender "female" ;
+    schema:jobTitle "director" ;
+    schema:name "Kris Curran" ;
+    schema:telephone "671-621-7766" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node114> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node115> ;
-    schemaorg:birthDate "1996-07-07"^^xsd:date ;
-    schemaorg:deathDate "2010-07-07"^^xsd:date ;
-    schemaorg:email "estrella_quinones@gmail.com" ;
-    schemaorg:familyName "Quinones" ;
-    schemaorg:gender "female" ;
-    schemaorg:givenName "Estrella" ;
-    schemaorg:jobTitle "electrical engineer" ;
-    schemaorg:telephone "040368-14282057" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node114> a schema:Person ;
+    schema:address <http://example.org/ns#Node115> ;
+    schema:birthDate "1996-07-07"^^xsd:date ;
+    schema:deathDate "2010-07-07"^^xsd:date ;
+    schema:email "estrella_quinones@gmail.com" ;
+    schema:familyName "Quinones" ;
+    schema:gender "female" ;
+    schema:givenName "Estrella" ;
+    schema:jobTitle "electrical engineer" ;
+    schema:telephone "040368-14282057" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node116> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node117> ;
-    schemaorg:birthDate "1930-07-07"^^xsd:date ;
-    schemaorg:deathDate "1976-07-07"^^xsd:date ;
-    schemaorg:email "mohammed_kendall@gmail.com" ;
-    schemaorg:familyName "Kendall" ;
-    schemaorg:gender "male" ;
-    schemaorg:givenName "Mohammed" ;
-    schemaorg:jobTitle "air conditioning installer" ;
-    schemaorg:telephone "996-023-015558" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node116> a schema:Person ;
+    schema:address <http://example.org/ns#Node117> ;
+    schema:birthDate "1930-07-07"^^xsd:date ;
+    schema:deathDate "1976-07-07"^^xsd:date ;
+    schema:email "mohammed_kendall@gmail.com" ;
+    schema:familyName "Kendall" ;
+    schema:gender "male" ;
+    schema:givenName "Mohammed" ;
+    schema:jobTitle "air conditioning installer" ;
+    schema:telephone "996-023-015558" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node118> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node119> ;
-    schemaorg:birthDate "1963-07-07"^^xsd:date ;
-    schemaorg:deathDate "2012-07-07"^^xsd:date ;
-    schemaorg:email "fonsie_mayo@gmail.com" ;
-    schemaorg:familyName "Mayo" ;
-    schemaorg:gender "male" ;
-    schemaorg:givenName "Fonsie" ;
-    schemaorg:jobTitle "jailer" ;
-    schemaorg:telephone "175097-2" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node118> a schema:Person ;
+    schema:address <http://example.org/ns#Node119> ;
+    schema:birthDate "1963-07-07"^^xsd:date ;
+    schema:deathDate "2012-07-07"^^xsd:date ;
+    schema:email "fonsie_mayo@gmail.com" ;
+    schema:familyName "Mayo" ;
+    schema:gender "male" ;
+    schema:givenName "Fonsie" ;
+    schema:jobTitle "jailer" ;
+    schema:telephone "175097-2" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node120> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node121> ;
-    schemaorg:birthDate "1969-07-07"^^xsd:date ;
-    schemaorg:deathDate "2016-07-07"^^xsd:date ;
-    schemaorg:email "valeria_whitley@gmail.com" ;
-    schemaorg:familyName "Whitley" ;
-    schemaorg:gender "female" ;
-    schemaorg:givenName "Valeria" ;
-    schemaorg:jobTitle "bartender" ;
-    schemaorg:telephone "136-083-844" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node120> a schema:Person ;
+    schema:address <http://example.org/ns#Node121> ;
+    schema:birthDate "1969-07-07"^^xsd:date ;
+    schema:deathDate "2016-07-07"^^xsd:date ;
+    schema:email "valeria_whitley@gmail.com" ;
+    schema:familyName "Whitley" ;
+    schema:gender "female" ;
+    schema:givenName "Valeria" ;
+    schema:jobTitle "bartender" ;
+    schema:telephone "136-083-844" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node122> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node123> ;
-    schemaorg:birthDate "1991-07-07"^^xsd:date ;
-    schemaorg:deathDate "2006-07-07"^^xsd:date ;
-    schemaorg:email "diane-mariesantiago@gmail.com" ;
-    schemaorg:gender "female" ;
-    schemaorg:jobTitle "manicurist" ;
-    schemaorg:name "Diane-Marie Santiago" ;
-    schemaorg:telephone "298620-6075831-" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node122> a schema:Person ;
+    schema:address <http://example.org/ns#Node123> ;
+    schema:birthDate "1991-07-07"^^xsd:date ;
+    schema:deathDate "2006-07-07"^^xsd:date ;
+    schema:email "diane-mariesantiago@gmail.com" ;
+    schema:gender "female" ;
+    schema:jobTitle "manicurist" ;
+    schema:name "Diane-Marie Santiago" ;
+    schema:telephone "298620-6075831-" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node124> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node125> ;
-    schemaorg:birthDate "1970-07-07"^^xsd:date ;
-    schemaorg:deathDate "1994-07-07"^^xsd:date ;
-    schemaorg:email "john-patrick_brandon@gmail.com" ;
-    schemaorg:familyName "Brandon" ;
-    schemaorg:gender "male" ;
-    schemaorg:givenName "John-Patrick" ;
-    schemaorg:jobTitle "market research analyst" ;
-    schemaorg:telephone "930737-42119" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node124> a schema:Person ;
+    schema:address <http://example.org/ns#Node125> ;
+    schema:birthDate "1970-07-07"^^xsd:date ;
+    schema:deathDate "1994-07-07"^^xsd:date ;
+    schema:email "john-patrick_brandon@gmail.com" ;
+    schema:familyName "Brandon" ;
+    schema:gender "male" ;
+    schema:givenName "John-Patrick" ;
+    schema:jobTitle "market research analyst" ;
+    schema:telephone "930737-42119" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node126> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node127> ;
-    schemaorg:birthDate "1959-07-07"^^xsd:date ;
-    schemaorg:deathDate "1982-07-07"^^xsd:date ;
-    schemaorg:email "nelsenbaez@gmail.com" ;
-    schemaorg:gender "male" ;
-    schemaorg:jobTitle "marketing manager" ;
-    schemaorg:name "Nelsen Baez" ;
-    schemaorg:telephone "957470-661" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node126> a schema:Person ;
+    schema:address <http://example.org/ns#Node127> ;
+    schema:birthDate "1959-07-07"^^xsd:date ;
+    schema:deathDate "1982-07-07"^^xsd:date ;
+    schema:email "nelsenbaez@gmail.com" ;
+    schema:gender "male" ;
+    schema:jobTitle "marketing manager" ;
+    schema:name "Nelsen Baez" ;
+    schema:telephone "957470-661" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node128> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node129> ;
-    schemaorg:birthDate "1981-07-07"^^xsd:date ;
-    schemaorg:deathDate "1986-07-07"^^xsd:date ;
-    schemaorg:email "dale_garrison@gmail.com" ;
-    schemaorg:familyName "Garrison" ;
-    schemaorg:gender "male" ;
-    schemaorg:givenName "Dale" ;
-    schemaorg:jobTitle "hostess" ;
-    schemaorg:telephone "455-774-2" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node128> a schema:Person ;
+    schema:address <http://example.org/ns#Node129> ;
+    schema:birthDate "1981-07-07"^^xsd:date ;
+    schema:deathDate "1986-07-07"^^xsd:date ;
+    schema:email "dale_garrison@gmail.com" ;
+    schema:familyName "Garrison" ;
+    schema:gender "male" ;
+    schema:givenName "Dale" ;
+    schema:jobTitle "hostess" ;
+    schema:telephone "455-774-2" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node130> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node131> ;
-    schemaorg:birthDate "1989-07-07"^^xsd:date ;
-    schemaorg:deathDate "2000-07-07"^^xsd:date ;
-    schemaorg:email "ambrosiacherry@gmail.com" ;
-    schemaorg:gender "female" ;
-    schemaorg:jobTitle "baker" ;
-    schemaorg:name "Ambrosia Cherry" ;
-    schemaorg:telephone "654-943-6689875" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node130> a schema:Person ;
+    schema:address <http://example.org/ns#Node131> ;
+    schema:birthDate "1989-07-07"^^xsd:date ;
+    schema:deathDate "2000-07-07"^^xsd:date ;
+    schema:email "ambrosiacherry@gmail.com" ;
+    schema:gender "female" ;
+    schema:jobTitle "baker" ;
+    schema:name "Ambrosia Cherry" ;
+    schema:telephone "654-943-6689875" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node132> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node133> ;
-    schemaorg:birthDate "1964-07-07"^^xsd:date ;
-    schemaorg:deathDate "1970-07-07"^^xsd:date ;
-    schemaorg:email "ditaburks@gmail.com" ;
-    schemaorg:gender "female" ;
-    schemaorg:jobTitle "jailer" ;
-    schemaorg:name "Dita Burks" ;
-    schemaorg:telephone "837-990-" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node132> a schema:Person ;
+    schema:address <http://example.org/ns#Node133> ;
+    schema:birthDate "1964-07-07"^^xsd:date ;
+    schema:deathDate "1970-07-07"^^xsd:date ;
+    schema:email "ditaburks@gmail.com" ;
+    schema:gender "female" ;
+    schema:jobTitle "jailer" ;
+    schema:name "Dita Burks" ;
+    schema:telephone "837-990-" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node134> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node135> ;
-    schemaorg:birthDate "1958-07-07"^^xsd:date ;
-    schemaorg:deathDate "1991-07-07"^^xsd:date ;
-    schemaorg:email "hadleighhernandez@gmail.com" ;
-    schemaorg:gender "male" ;
-    schemaorg:jobTitle "machinist" ;
-    schemaorg:name "Hadleigh Hernandez" ;
-    schemaorg:telephone "488952-391" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node134> a schema:Person ;
+    schema:address <http://example.org/ns#Node135> ;
+    schema:birthDate "1958-07-07"^^xsd:date ;
+    schema:deathDate "1991-07-07"^^xsd:date ;
+    schema:email "hadleighhernandez@gmail.com" ;
+    schema:gender "male" ;
+    schema:jobTitle "machinist" ;
+    schema:name "Hadleigh Hernandez" ;
+    schema:telephone "488952-391" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node136> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node137> ;
-    schemaorg:birthDate "1953-07-07"^^xsd:date ;
-    schemaorg:deathDate "1995-07-07"^^xsd:date ;
-    schemaorg:email "careymathis@gmail.com" ;
-    schemaorg:gender "female" ;
-    schemaorg:jobTitle "machinist" ;
-    schemaorg:name "Carey Mathis" ;
-    schemaorg:telephone "365-445-" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node136> a schema:Person ;
+    schema:address <http://example.org/ns#Node137> ;
+    schema:birthDate "1953-07-07"^^xsd:date ;
+    schema:deathDate "1995-07-07"^^xsd:date ;
+    schema:email "careymathis@gmail.com" ;
+    schema:gender "female" ;
+    schema:jobTitle "machinist" ;
+    schema:name "Carey Mathis" ;
+    schema:telephone "365-445-" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node138> a schemaorg:Person ;
-    schemaorg:address <http://example.org/ns#Node139> ;
-    schemaorg:birthDate "1974-07-07"^^xsd:date ;
-    schemaorg:deathDate "1978-07-07"^^xsd:date ;
-    schemaorg:email "giorgia_pierson@gmail.com" ;
-    schemaorg:familyName "Pierson" ;
-    schemaorg:gender "female" ;
-    schemaorg:givenName "Giorgia" ;
-    schemaorg:jobTitle "computer support specialist" ;
-    schemaorg:telephone "951824-9331" ;
-    sh:description schemaorg:PersonShape .
+<http://example.org/ns#Node138> a schema:Person ;
+    schema:address <http://example.org/ns#Node139> ;
+    schema:birthDate "1974-07-07"^^xsd:date ;
+    schema:deathDate "1978-07-07"^^xsd:date ;
+    schema:email "giorgia_pierson@gmail.com" ;
+    schema:familyName "Pierson" ;
+    schema:gender "female" ;
+    schema:givenName "Giorgia" ;
+    schema:jobTitle "computer support specialist" ;
+    schema:telephone "951824-9331" ;
+    sh:description schema:PersonShape .
 
-<http://example.org/ns#Node101> schemaorg:postalCode "sdNTo47HT5" ;
-    schemaorg:streetAddress "no. 95 Alton ave" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node101> schema:postalCode "sdNTo47HT5" ;
+    schema:streetAddress "no. 95 Alton ave" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node103> schemaorg:postalCode "fVw0lBG5gk" ;
-    schemaorg:streetAddress "no. 80 Douglass st" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node103> schema:postalCode "fVw0lBG5gk" ;
+    schema:streetAddress "no. 80 Douglass st" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node105> schemaorg:postalCode 64484 ;
-    schemaorg:streetAddress "no. 90 Lester ct" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node105> schema:postalCode 64484 ;
+    schema:streetAddress "no. 90 Lester ct" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node107> schemaorg:postalCode 35355 ;
-    schemaorg:streetAddress "no. 12 Lucky st" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node107> schema:postalCode 35355 ;
+    schema:streetAddress "no. 12 Lucky st" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node109> schemaorg:postalCode 53830 ;
-    schemaorg:streetAddress "no. 15 Miles ct" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node109> schema:postalCode 53830 ;
+    schema:streetAddress "no. 15 Miles ct" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node111> schemaorg:postalCode 16186 ;
-    schemaorg:streetAddress "no. 12 Battery wagner rd" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node111> schema:postalCode 16186 ;
+    schema:streetAddress "no. 12 Battery wagner rd" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node113> schemaorg:postalCode "dqG2MLEE732j" ;
-    schemaorg:streetAddress "no. 10 Ruger st" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node113> schema:postalCode "dqG2MLEE732j" ;
+    schema:streetAddress "no. 10 Ruger st" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node115> schemaorg:postalCode 34740 ;
-    schemaorg:streetAddress "no. 94 Commer ct" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node115> schema:postalCode 34740 ;
+    schema:streetAddress "no. 94 Commer ct" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node117> schemaorg:postalCode "OHW3t2h9z" ;
-    schemaorg:streetAddress "no. 74 Jeff adachi way" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node117> schema:postalCode "OHW3t2h9z" ;
+    schema:streetAddress "no. 74 Jeff adachi way" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node119> schemaorg:postalCode 35788 ;
-    schemaorg:streetAddress "no. 93 Russian hill pl" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node119> schema:postalCode 35788 ;
+    schema:streetAddress "no. 93 Russian hill pl" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node121> schemaorg:postalCode 50769 ;
-    schemaorg:streetAddress "no. 1 Merriam ln" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node121> schema:postalCode 50769 ;
+    schema:streetAddress "no. 1 Merriam ln" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node123> schemaorg:postalCode "n5juRlNF" ;
-    schemaorg:streetAddress "no. 32 Unnamed 037" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node123> schema:postalCode "n5juRlNF" ;
+    schema:streetAddress "no. 32 Unnamed 037" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node125> schemaorg:postalCode 64234 ;
-    schemaorg:streetAddress "no. 90 Mabrey ct" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node125> schema:postalCode 64234 ;
+    schema:streetAddress "no. 90 Mabrey ct" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node127> schemaorg:postalCode "j6CnCLABj8u" ;
-    schemaorg:streetAddress "no. 23 Bercut access rd" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node127> schema:postalCode "j6CnCLABj8u" ;
+    schema:streetAddress "no. 23 Bercut access rd" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node129> schemaorg:postalCode "gtZ2DsiFoINdC" ;
-    schemaorg:streetAddress "no. 69 Long bridge vara" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node129> schema:postalCode "gtZ2DsiFoINdC" ;
+    schema:streetAddress "no. 69 Long bridge vara" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node131> schemaorg:postalCode "20SNIQn4b" ;
-    schemaorg:streetAddress "no. 76 Merchant st" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node131> schema:postalCode "20SNIQn4b" ;
+    schema:streetAddress "no. 76 Merchant st" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node133> schemaorg:postalCode 46186 ;
-    schemaorg:streetAddress "no. 1 Paraiso pl" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node133> schema:postalCode 46186 ;
+    schema:streetAddress "no. 1 Paraiso pl" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node135> schemaorg:postalCode "EsyTbzFrmTfBg" ;
-    schemaorg:streetAddress "no. 56 Serrano dr" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node135> schema:postalCode "EsyTbzFrmTfBg" ;
+    schema:streetAddress "no. 56 Serrano dr" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node137> schemaorg:postalCode "ebJDeaZWuJJ" ;
-    schemaorg:streetAddress "no. 100 Bonifacio st" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node137> schema:postalCode "ebJDeaZWuJJ" ;
+    schema:streetAddress "no. 100 Bonifacio st" ;
+    sh:description schema:AddressShape .
 
-<http://example.org/ns#Node139> schemaorg:postalCode "2YyfFn925Dz" ;
-    schemaorg:streetAddress "no. 35 Peacemakers st" ;
-    sh:description schemaorg:AddressShape .
+<http://example.org/ns#Node139> schema:postalCode "2YyfFn925Dz" ;
+    schema:streetAddress "no. 35 Peacemakers st" ;
+    sh:description schema:AddressShape .
 

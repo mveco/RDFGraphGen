@@ -1,174 +1,174 @@
-@prefix schemaorg: <http://schema.org/> .
+@prefix schema: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://example.org/ns#Node100> a schemaorg:Movie ;
-    schemaorg:award "Emmy Awards" ;
-    schemaorg:dateCreated "1977-07-07"^^xsd:date ;
-    schemaorg:datePublished "1972-07-07"^^xsd:date ;
-    schemaorg:director <http://example.org/ns#Node101> ;
-    schemaorg:genre "Crime Mystery Thriller" ;
-    schemaorg:inLanguage "KmkbQDYBOi" ;
-    schemaorg:name "The Ten Commandments" ;
-    sh:description schemaorg:MovieShape .
+<http://example.org/ns#Node100> a schema:Movie ;
+    schema:award "Emmy Awards" ;
+    schema:dateCreated "1977-07-07"^^xsd:date ;
+    schema:datePublished "1972-07-07"^^xsd:date ;
+    schema:director <http://example.org/ns#Node101> ;
+    schema:genre "Crime Mystery Thriller" ;
+    schema:inLanguage "KmkbQDYBOi" ;
+    schema:name "The Ten Commandments" ;
+    sh:description schema:MovieShape .
 
-<http://example.org/ns#Node102> a schemaorg:Movie ;
-    schemaorg:award "Academy Awards" ;
-    schemaorg:dateCreated "1994-07-07"^^xsd:date ;
-    schemaorg:datePublished "1974-07-07"^^xsd:date ;
-    schemaorg:director <http://example.org/ns#Node103> ;
-    schemaorg:genre "Sci-Fi Action Comedy" ;
-    schemaorg:inLanguage "om1acng9GpL" ;
-    schemaorg:name "One True Thing" ;
-    sh:description schemaorg:MovieShape .
+<http://example.org/ns#Node102> a schema:Movie ;
+    schema:award "Academy Awards" ;
+    schema:dateCreated "1994-07-07"^^xsd:date ;
+    schema:datePublished "1974-07-07"^^xsd:date ;
+    schema:director <http://example.org/ns#Node103> ;
+    schema:genre "Sci-Fi Action Comedy" ;
+    schema:inLanguage "om1acng9GpL" ;
+    schema:name "One True Thing" ;
+    sh:description schema:MovieShape .
 
-<http://example.org/ns#Node104> a schemaorg:Movie ;
-    schemaorg:award "Saturn Awards" ;
-    schemaorg:dateCreated "1971-07-07"^^xsd:date ;
-    schemaorg:datePublished "2014-07-07"^^xsd:date ;
-    schemaorg:director <http://example.org/ns#Node105> ;
-    schemaorg:genre "Musical Biography" ;
-    schemaorg:inLanguage "Bt5pDhTM9tLagO" ;
-    schemaorg:name "Mulberry Street" ;
-    sh:description schemaorg:MovieShape .
+<http://example.org/ns#Node104> a schema:Movie ;
+    schema:award "Saturn Awards" ;
+    schema:dateCreated "1971-07-07"^^xsd:date ;
+    schema:datePublished "2014-07-07"^^xsd:date ;
+    schema:director <http://example.org/ns#Node105> ;
+    schema:genre "Musical Biography" ;
+    schema:inLanguage "Bt5pDhTM9tLagO" ;
+    schema:name "Mulberry Street" ;
+    sh:description schema:MovieShape .
 
-<http://example.org/ns#Node106> a schemaorg:Movie ;
-    schemaorg:award "Critics' Choice Movie Awards" ;
-    schemaorg:dateCreated "2001-07-07"^^xsd:date ;
-    schemaorg:datePublished "1978-07-07"^^xsd:date ;
-    schemaorg:director <http://example.org/ns#Node107> ;
-    schemaorg:genre "Documentary Biography Drama" ;
-    schemaorg:inLanguage "JSypjCS3yUikGQ" ;
-    schemaorg:name "Police Academy 3: Back in Training" ;
-    sh:description schemaorg:MovieShape .
+<http://example.org/ns#Node106> a schema:Movie ;
+    schema:award "Critics' Choice Movie Awards" ;
+    schema:dateCreated "2001-07-07"^^xsd:date ;
+    schema:datePublished "1978-07-07"^^xsd:date ;
+    schema:director <http://example.org/ns#Node107> ;
+    schema:genre "Documentary Biography Drama" ;
+    schema:inLanguage "JSypjCS3yUikGQ" ;
+    schema:name "Police Academy 3: Back in Training" ;
+    sh:description schema:MovieShape .
 
-<http://example.org/ns#Node108> a schemaorg:Movie ;
-    schemaorg:award "Chicago Film Critics Association Awards" ;
-    schemaorg:dateCreated "1995-07-07"^^xsd:date ;
-    schemaorg:datePublished "1980-07-07"^^xsd:date ;
-    schemaorg:director <http://example.org/ns#Node109> ;
-    schemaorg:genre "Horror Mystery" ;
-    schemaorg:inLanguage "1KY9olE00" ;
-    schemaorg:name "Ovosodo" ;
-    sh:description schemaorg:MovieShape .
+<http://example.org/ns#Node108> a schema:Movie ;
+    schema:award "Chicago Film Critics Association Awards" ;
+    schema:dateCreated "1995-07-07"^^xsd:date ;
+    schema:datePublished "1980-07-07"^^xsd:date ;
+    schema:director <http://example.org/ns#Node109> ;
+    schema:genre "Horror Mystery" ;
+    schema:inLanguage "1KY9olE00" ;
+    schema:name "Ovosodo" ;
+    sh:description schema:MovieShape .
 
-<http://example.org/ns#Node110> a schemaorg:Movie ;
-    schemaorg:award "African Movie Academy Awards" ;
-    schemaorg:dateCreated "2000-07-07"^^xsd:date ;
-    schemaorg:datePublished "2003-07-07"^^xsd:date ;
-    schemaorg:director <http://example.org/ns#Node111> ;
-    schemaorg:genre "Fantasy Action" ;
-    schemaorg:inLanguage "xSNp4rJveCyp5" ;
-    schemaorg:name "Signed, Sealed, Delivered" ;
-    sh:description schemaorg:MovieShape .
+<http://example.org/ns#Node110> a schema:Movie ;
+    schema:award "African Movie Academy Awards" ;
+    schema:dateCreated "2000-07-07"^^xsd:date ;
+    schema:datePublished "2003-07-07"^^xsd:date ;
+    schema:director <http://example.org/ns#Node111> ;
+    schema:genre "Fantasy Action" ;
+    schema:inLanguage "xSNp4rJveCyp5" ;
+    schema:name "Signed, Sealed, Delivered" ;
+    sh:description schema:MovieShape .
 
-<http://example.org/ns#Node112> a schemaorg:Movie ;
-    schemaorg:award "Academy of Motion Picture Arts and Sciences" ;
-    schemaorg:dateCreated "1971-07-07"^^xsd:date ;
-    schemaorg:datePublished "1983-07-07"^^xsd:date ;
-    schemaorg:director <http://example.org/ns#Node113> ;
-    schemaorg:genre "Sports Drama Romance" ;
-    schemaorg:inLanguage "yuqVKiNF" ;
-    schemaorg:name "Whistling in the Dark" ;
-    sh:description schemaorg:MovieShape .
+<http://example.org/ns#Node112> a schema:Movie ;
+    schema:award "Academy of Motion Picture Arts and Sciences" ;
+    schema:dateCreated "1971-07-07"^^xsd:date ;
+    schema:datePublished "1983-07-07"^^xsd:date ;
+    schema:director <http://example.org/ns#Node113> ;
+    schema:genre "Sports Drama Romance" ;
+    schema:inLanguage "yuqVKiNF" ;
+    schema:name "Whistling in the Dark" ;
+    sh:description schema:MovieShape .
 
-<http://example.org/ns#Node114> a schemaorg:Movie ;
-    schemaorg:award "New York Film Critics Circle Awards" ;
-    schemaorg:dateCreated "1994-07-07"^^xsd:date ;
-    schemaorg:datePublished "2007-07-07"^^xsd:date ;
-    schemaorg:director <http://example.org/ns#Node115> ;
-    schemaorg:genre "Historical Biography" ;
-    schemaorg:inLanguage "tSUYRok2lO" ;
-    schemaorg:name "An Oversimplification of Her Beauty" ;
-    sh:description schemaorg:MovieShape .
+<http://example.org/ns#Node114> a schema:Movie ;
+    schema:award "New York Film Critics Circle Awards" ;
+    schema:dateCreated "1994-07-07"^^xsd:date ;
+    schema:datePublished "2007-07-07"^^xsd:date ;
+    schema:director <http://example.org/ns#Node115> ;
+    schema:genre "Historical Biography" ;
+    schema:inLanguage "tSUYRok2lO" ;
+    schema:name "An Oversimplification of Her Beauty" ;
+    sh:description schema:MovieShape .
 
-<http://example.org/ns#Node116> a schemaorg:Movie ;
-    schemaorg:award "MTV Movie & TV Awards" ;
-    schemaorg:dateCreated "1975-07-07"^^xsd:date ;
-    schemaorg:datePublished "1991-07-07"^^xsd:date ;
-    schemaorg:director <http://example.org/ns#Node117> ;
-    schemaorg:genre "Romantic Comedy" ;
-    schemaorg:inLanguage "8jFcS25i124" ;
-    schemaorg:name "Donkey Punch" ;
-    sh:description schemaorg:MovieShape .
+<http://example.org/ns#Node116> a schema:Movie ;
+    schema:award "MTV Movie & TV Awards" ;
+    schema:dateCreated "1975-07-07"^^xsd:date ;
+    schema:datePublished "1991-07-07"^^xsd:date ;
+    schema:director <http://example.org/ns#Node117> ;
+    schema:genre "Romantic Comedy" ;
+    schema:inLanguage "8jFcS25i124" ;
+    schema:name "Donkey Punch" ;
+    sh:description schema:MovieShape .
 
-<http://example.org/ns#Node118> a schemaorg:Movie ;
-    schemaorg:award "Annie Awards" ;
-    schemaorg:dateCreated "2018-07-07"^^xsd:date ;
-    schemaorg:datePublished "1978-07-07"^^xsd:date ;
-    schemaorg:director <http://example.org/ns#Node119> ;
-    schemaorg:genre "Supernatural Horror Mystery" ;
-    schemaorg:inLanguage "l69SwUY3I5Vzybt" ;
-    schemaorg:name "Dragonball Evolution" ;
-    sh:description schemaorg:MovieShape .
+<http://example.org/ns#Node118> a schema:Movie ;
+    schema:award "Annie Awards" ;
+    schema:dateCreated "2018-07-07"^^xsd:date ;
+    schema:datePublished "1978-07-07"^^xsd:date ;
+    schema:director <http://example.org/ns#Node119> ;
+    schema:genre "Supernatural Horror Mystery" ;
+    schema:inLanguage "l69SwUY3I5Vzybt" ;
+    schema:name "Dragonball Evolution" ;
+    sh:description schema:MovieShape .
 
-<http://example.org/ns#Node101> a schemaorg:Person ;
-    schemaorg:email "sabine_537@gmail.com" ;
-    schemaorg:gender "female" ;
-    schemaorg:givenName "Sabine" ;
-    schemaorg:telephone "918379-503" ;
-    sh:description schemaorg:DirectorShape .
+<http://example.org/ns#Node101> a schema:Person ;
+    schema:email "sabine_537@gmail.com" ;
+    schema:gender "female" ;
+    schema:givenName "Sabine" ;
+    schema:telephone "918379-503" ;
+    sh:description schema:DirectorShape .
 
-<http://example.org/ns#Node103> a schemaorg:Person ;
-    schemaorg:email "adeline_358@gmail.com" ;
-    schemaorg:gender "female" ;
-    schemaorg:givenName "Adeline" ;
-    schemaorg:telephone "527-096-369317" ;
-    sh:description schemaorg:DirectorShape .
+<http://example.org/ns#Node103> a schema:Person ;
+    schema:email "adeline_358@gmail.com" ;
+    schema:gender "female" ;
+    schema:givenName "Adeline" ;
+    schema:telephone "527-096-369317" ;
+    sh:description schema:DirectorShape .
 
-<http://example.org/ns#Node105> a schemaorg:Person ;
-    schemaorg:email "douglis_825@gmail.com" ;
-    schemaorg:gender "male" ;
-    schemaorg:givenName "Douglis" ;
-    schemaorg:telephone "202-164-" ;
-    sh:description schemaorg:DirectorShape .
+<http://example.org/ns#Node105> a schema:Person ;
+    schema:email "douglis_825@gmail.com" ;
+    schema:gender "male" ;
+    schema:givenName "Douglis" ;
+    schema:telephone "202-164-" ;
+    sh:description schema:DirectorShape .
 
-<http://example.org/ns#Node107> a schemaorg:Person ;
-    schemaorg:email "cleva_724@gmail.com" ;
-    schemaorg:gender "female" ;
-    schemaorg:givenName "Cleva" ;
-    schemaorg:telephone "990-892-01" ;
-    sh:description schemaorg:DirectorShape .
+<http://example.org/ns#Node107> a schema:Person ;
+    schema:email "cleva_724@gmail.com" ;
+    schema:gender "female" ;
+    schema:givenName "Cleva" ;
+    schema:telephone "990-892-01" ;
+    sh:description schema:DirectorShape .
 
-<http://example.org/ns#Node109> a schemaorg:Person ;
-    schemaorg:email "janette_680@gmail.com" ;
-    schemaorg:gender "female" ;
-    schemaorg:givenName "Janette" ;
-    schemaorg:telephone "617626-2" ;
-    sh:description schemaorg:DirectorShape .
+<http://example.org/ns#Node109> a schema:Person ;
+    schema:email "janette_680@gmail.com" ;
+    schema:gender "female" ;
+    schema:givenName "Janette" ;
+    schema:telephone "617626-2" ;
+    sh:description schema:DirectorShape .
 
-<http://example.org/ns#Node111> a schemaorg:Person ;
-    schemaorg:email "mendel_486@gmail.com" ;
-    schemaorg:gender "male" ;
-    schemaorg:givenName "Mendel" ;
-    schemaorg:telephone "780-455-886456" ;
-    sh:description schemaorg:DirectorShape .
+<http://example.org/ns#Node111> a schema:Person ;
+    schema:email "mendel_486@gmail.com" ;
+    schema:gender "male" ;
+    schema:givenName "Mendel" ;
+    schema:telephone "780-455-886456" ;
+    sh:description schema:DirectorShape .
 
-<http://example.org/ns#Node113> a schemaorg:Person ;
-    schemaorg:email "marion_507@gmail.com" ;
-    schemaorg:gender "female" ;
-    schemaorg:givenName "Marion" ;
-    schemaorg:telephone "238125-00351" ;
-    sh:description schemaorg:DirectorShape .
+<http://example.org/ns#Node113> a schema:Person ;
+    schema:email "marion_507@gmail.com" ;
+    schema:gender "female" ;
+    schema:givenName "Marion" ;
+    schema:telephone "238125-00351" ;
+    sh:description schema:DirectorShape .
 
-<http://example.org/ns#Node115> a schemaorg:Person ;
-    schemaorg:email "malina_813@gmail.com" ;
-    schemaorg:gender "female" ;
-    schemaorg:givenName "Malina" ;
-    schemaorg:telephone "004-531-95" ;
-    sh:description schemaorg:DirectorShape .
+<http://example.org/ns#Node115> a schema:Person ;
+    schema:email "malina_813@gmail.com" ;
+    schema:gender "female" ;
+    schema:givenName "Malina" ;
+    schema:telephone "004-531-95" ;
+    sh:description schema:DirectorShape .
 
-<http://example.org/ns#Node117> a schemaorg:Person ;
-    schemaorg:email "dominic_448@gmail.com" ;
-    schemaorg:gender "male" ;
-    schemaorg:givenName "Dominic" ;
-    schemaorg:telephone "101-111-0383097" ;
-    sh:description schemaorg:DirectorShape .
+<http://example.org/ns#Node117> a schema:Person ;
+    schema:email "dominic_448@gmail.com" ;
+    schema:gender "male" ;
+    schema:givenName "Dominic" ;
+    schema:telephone "101-111-0383097" ;
+    sh:description schema:DirectorShape .
 
-<http://example.org/ns#Node119> a schemaorg:Person ;
-    schemaorg:email "giles_884@gmail.com" ;
-    schemaorg:gender "male" ;
-    schemaorg:givenName "Giles" ;
-    schemaorg:telephone "108-906-3" ;
-    sh:description schemaorg:DirectorShape .
+<http://example.org/ns#Node119> a schema:Person ;
+    schema:email "giles_884@gmail.com" ;
+    schema:gender "male" ;
+    schema:givenName "Giles" ;
+    schema:telephone "108-906-3" ;
+    sh:description schema:DirectorShape .
 
