@@ -217,7 +217,7 @@ def dictionary_to_rdf_graph(shape_dictionary, shape_name, result, parent, dictio
 
 def generate_rdf_graphs_from_dictionary(shapes_graph, dictionary, number_of_samples):
     result_graph = Graph()
-    result_graph.bind("sch", SCH)
+    result_graph.bind("schemaorg", SCH)
 
     # Find independent node shapes in the provided shapes_graph
     independent_node_shapes = find_independent_node_shapes(shapes_graph)

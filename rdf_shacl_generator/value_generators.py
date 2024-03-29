@@ -6,9 +6,8 @@ from exrex import _randone
 from rdflib import XSD, Literal, URIRef, Namespace
 from datetime import date
 from dateutil.relativedelta import relativedelta
+from rdf_shacl_generator.shacl_mapping_generator import SCH
 import pkg_resources
-
-SCH = Namespace("http://schema.org/")
 
 """
 Reads data from a CSV file and returns the content as a list of values.
