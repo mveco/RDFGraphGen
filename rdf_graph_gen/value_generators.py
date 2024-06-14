@@ -6,7 +6,7 @@ from exrex import _randone
 from rdflib import XSD, Literal, URIRef, Namespace
 from datetime import date
 from dateutil.relativedelta import relativedelta
-from rdf_shacl_generator.shacl_mapping_generator import SCH
+from rdf_graph_gen.shacl_mapping_generator import SCH
 import pkg_resources
 
 """
@@ -23,7 +23,7 @@ list: A list containing the values read from the CSV file.
 
 
 def get_path(file_name):
-    file_path = pkg_resources.resource_filename('rdf_shacl_generator', f'datasets/{file_name}')
+    file_path = pkg_resources.resource_filename('rdf_graph_gen', f'datasets/{file_name}')
     return file_path
 
 

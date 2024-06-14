@@ -7,17 +7,17 @@ with open('README.md') as f:
     description = f.read()
 
 setup(
-    name='rdf_shacl_generator',
-    version='1.0.8',
+    name='rdf_graph_gen',
+    version='1.0.9',
     description = 'Synthetic RDF graph generator based on SHACL constraints.',
     long_description = description,
     long_description_content_type = 'text/markdown',
     packages=find_packages(),
-    package_data={'rdf_shacl_generator': ['datasets/*.csv']},
+    package_data={'rdf_graph_gen': ['datasets/*.csv']},
     install_requires=requirements,
     entry_points={
         'console_scripts': [
-            'genrdf = rdf_shacl_generator.script:main',
+            'genrdf = rdf_graph_gen.script:main',
         ],
     },
 )

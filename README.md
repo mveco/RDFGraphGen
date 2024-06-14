@@ -1,7 +1,7 @@
 
 # Synthetic RDF graph generator based on SHACL constraints.
 
-### rdf_shacl_generator is a Python package that can be used to generate RDF graphs based on SHACL constraints.
+### rdf_graph_gen is a Python package that can be used to generate RDF graphs based on SHACL constraints.
 
 The following function can be used to generate RDF data:
 

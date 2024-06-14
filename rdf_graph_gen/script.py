@@ -1,5 +1,5 @@
 import argparse
-from rdf_shacl_generator.rdf_graph_generator import *
+from rdf_graph_gen.rdf_graph_generator import *
 
 
 def main():
