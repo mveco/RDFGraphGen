@@ -8,7 +8,7 @@ with open('README.md') as f:
 
 setup(
     name='rdf_graph_gen',
-    version='1.0.9',
+    version='1.1.0',
     description = 'Synthetic RDF graph generator based on SHACL constraints.',
     long_description = description,
     long_description_content_type = 'text/markdown',

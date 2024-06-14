@@ -10,9 +10,9 @@ __generate_rdf(file1, file2, number_of_entities)__
 - file2 is a turtle file that will store the generated RDF entities
 - number_of_entities is the number of RDF entities to be generated.
 
-Link on PyPi: https://pypi.org/project/rdf-shacl-generator/
+Link on PyPi: https://pypi.org/project/rdf-graph-gen/
 
-Link on GitHub: https://github.com/mveco/RDF_generator
+Link on GitHub: https://github.com/mveco/RDFGraphGen
 
 Installation: 
 
