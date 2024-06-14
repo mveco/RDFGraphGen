@@ -16,7 +16,7 @@ Link on GitHub: https://github.com/mveco/RDFGraphGen
 
 Installation: 
 
-```pip install rdf-shacl-generator```
+```pip install rdf-graph-gen```
 
 After installation, this package can be used as a command line tool:
 
