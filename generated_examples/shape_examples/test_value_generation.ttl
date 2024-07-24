@@ -8,7 +8,6 @@
 
 schema:PersonShape
     a sh:NodeShape ;
-#test date functionality
     sh:property [
         sh:path ex:date1 ;
         sh:lessThan ex:date2 ;

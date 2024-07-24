@@ -1,0 +1,52 @@
+@prefix ex: <http://example.com/ns#> .
+@prefix schemaorg: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/ns#Node100> ex:anotherRandomProperty "I6sTsyxw",
+        "nlctTaNsK5g",
+        "pbuXXfsY",
+        "rO3mdpRk" ;
+    ex:date1 "1957-04-10"^^xsd:date ;
+    ex:date2 "2007-04-10"^^xsd:date ;
+    ex:randomProperty "1bCJ3ZXgGK" ;
+    sh:description schemaorg:ExampleShape .
+
+<http://example.org/ns#Node101> ex:anotherRandomProperty "AArBAfHB",
+        "Q1J4qXYuag",
+        "YQJGquoIHx4" ;
+    ex:date1 "1984-03-10"^^xsd:date ;
+    ex:date2 "2007-03-10"^^xsd:date ;
+    ex:randomProperty "H2mklOGQDl" ;
+    sh:description schemaorg:ExampleShape .
+
+<http://example.org/ns#Node102> ex:anotherRandomProperty "2se0cBKI83q0Nx",
+        "6N5ODTa4E",
+        "UZwbuosPQc",
+        "XkU1QznGCLF" ;
+    ex:date1 "1982-04-10"^^xsd:date ;
+    ex:date2 "2007-04-10"^^xsd:date ;
+    ex:randomProperty "oWjnuPuY6R" ;
+    sh:description schemaorg:ExampleShape .
+
+<http://example.org/ns#Node103> ex:anotherRandomProperty "3Fc1bHlapqGAXr",
+        "VuiIQW97xR6sP",
+        "YRDymBxADq",
+        "sNLoS6akBbiIGcg",
+        "sjs10KnWINp",
+        "t5PrApQU" ;
+    ex:date1 "1999-03-10"^^xsd:date ;
+    ex:date2 "2007-03-10"^^xsd:date ;
+    ex:randomProperty "xPLmZ4JzDV" ;
+    sh:description schemaorg:ExampleShape .
+
+<http://example.org/ns#Node104> ex:anotherRandomProperty "RFyEwkU5dH1",
+        "Tkyga7Knfu",
+        "aRxgO83fdic3z",
+        "e0USaFcwY",
+        "y14EWVdf" ;
+    ex:date1 "1974-04-10"^^xsd:date ;
+    ex:date2 "2007-04-10"^^xsd:date ;
+    ex:randomProperty "6qxgPDqn42" ;
+    sh:description schemaorg:ExampleShape .
+

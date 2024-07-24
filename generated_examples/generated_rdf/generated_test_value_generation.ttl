@@ -1,0 +1,37 @@
+@prefix ns1: <http://example.com/ns#> .
+@prefix schemaorg: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/ns#Node100> ns1:date1 "1994-02-10"^^xsd:date ;
+    ns1:date2 "2007-02-10"^^xsd:date ;
+    ns1:date3 "1976-02-10"^^xsd:date ;
+    ns1:date4 "2007-02-01"^^xsd:date ;
+    ns1:date5 "2007-01-20"^^xsd:date ;
+    ns1:decimal1 -1.173161e+01 ;
+    ns1:decimal2 2e+00 ;
+    ns1:decimal3 3.308754e+00 ;
+    ns1:integer1 -32 ;
+    ns1:integer2 2 ;
+    ns1:integer3 1 ;
+    ns1:string1 "tnLJZmNqPT" ;
+    ns1:string2 "tyjje" ;
+    ns1:string3 "ucamdveorfa" ;
+    sh:description schemaorg:PersonShape .
+
+<http://example.org/ns#Node101> ns1:date1 "2001-02-10"^^xsd:date ;
+    ns1:date2 "2007-02-10"^^xsd:date ;
+    ns1:date3 "1989-02-10"^^xsd:date ;
+    ns1:date4 "2007-02-01"^^xsd:date ;
+    ns1:date5 "2007-01-28"^^xsd:date ;
+    ns1:decimal1 -1.99948e+01 ;
+    ns1:decimal2 2e+00 ;
+    ns1:decimal3 2.139781e+00 ;
+    ns1:integer1 -46 ;
+    ns1:integer2 2 ;
+    ns1:integer3 1 ;
+    ns1:string1 "A5Qq45DwxN" ;
+    ns1:string2 "mtrzk" ;
+    ns1:string3 "dgsnddmsmblnls" ;
+    sh:description schemaorg:PersonShape .
+
