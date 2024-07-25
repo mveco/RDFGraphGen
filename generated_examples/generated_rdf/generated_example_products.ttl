@@ -1,0 +1,23 @@
+@prefix ex: <http://example.com/ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/ns#Node100> a ex:Product ;
+    ex:identifier "I6sTsyxw",
+        "nlctTaNsK5g",
+        "pbuXXfsY",
+        "rO3mdpRk" ;
+    ex:dateOfProduction "1957-04-10"^^xsd:date ;
+    ex:dateOfExpiration "2007-04-10"^^xsd:date ;
+    ex:name "1bCJ3ZXgGK" ;
+    sh:description schema:ExampleShape .
+
+<http://example.org/ns#Node101> a ex:Product ;
+    ex:identifier "AArBAfHB",
+        "Q1J4qXYuag",
+        "YQJGquoIHx4" ;
+    ex:dateOfProduction "1984-03-10"^^xsd:date ;
+    ex:dateOfExpiration "2007-03-10"^^xsd:date ;
+    ex:name "H2mklOGQDl" ;
+    sh:description schema:ExampleShape .
