@@ -17,7 +17,7 @@ setup(
     install_requires=requirements,
     entry_points={
         'console_scripts': [
-            'genrdf = rdf_graph_gen.script:main',
+            'rdfgen = rdf_graph_gen.script:main',
         ],
     },
 )
