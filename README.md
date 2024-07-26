@@ -25,7 +25,7 @@ To install it, use:
 
 After installation, this package can be used as a command line tool:
 
-```rdfgen input-shape.ttl output-graph.ttl number-of-entities```
+```genrdf input-shape.ttl output-graph.ttl number-of-entities```
 
 The parameters here are the same as the ones described above.
 
